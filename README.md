@@ -1,1 +1,1 @@
-# CMSC-128.1-Information-System
+# CMSC128.1-InformationSystem
