@@ -1,0 +1,519 @@
+
+	 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dashboard</title>
+  <link rel="shortcut icon" href="https://cdcdc.dlshsi.edu.ph/assets/img/favicon.ico">
+  <!-- Custom fonts for this template-->
+  <link href="https://cdcdc.dlshsi.edu.ph/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="https://cdcdc.dlshsi.edu.ph/assets/css/main-style.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/plug-ins/preview/searchPane/dataTables.searchPane.min.css" rel="stylesheet"/>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="border-right: 5px solid #74a683;">
+
+      <!-- Sidebar - Brand -->
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://cdcdc.dlshsi.edu.ph/Dashboards/index" onclick="load_page();">
+        <div class="sidebar-brand-icon ">
+          <!-- <i class="fa fa-user-md"></i> -->
+          <img src="https://cdcdc.dlshsi.edu.ph/assets/img/side-logo-alt.png" id="imgside" style="width: 40%;">
+        </div>
+        <div class="sidebar-brand-text mr-3" style="    position: relative;
+    left: -15px;">DCDC LIS </div>
+      </a>
+
+      
+
+      <!-- Nav Item - Dashboard -->
+               <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item" id="side-bar-dashboard">
+            <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/dashboards/index" onclick="load_page(event);">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span></a>
+          </li>
+      
+        
+
+      <!-- Divider -->
+              <!-- Divider -->
+         <hr class="sidebar-divider">
+          <div class="sidebar-heading mb-3">
+            Case Investigation Form (CIF)
+          </div>
+            
+      <!-- Nav Item - Dashboard -->
+
+            
+        
+              <li class="nav-item" id="side-bar-list-of-patient">
+        <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/CIF/cif_patient_list" onclick="load_page(event);">
+          <i class="fas fa-fw fa-user-injured"></i>
+          <span>Encoder Part 2</span></a>
+      </li>
+            
+           <hr class="sidebar-divider"> 
+      <div class="sidebar-heading mb-3">
+        Laboratory Result Form
+      </div>
+        
+              <li class="nav-item" id="side-bar-gtr">
+        <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/TR/tr_create" onclick="load_page(event);">
+          <i class="fas fa-fw fa-microscope"></i>
+          <span>Test Result Entry</span></a>
+      </li>
+            <!-- Nav Item - Dashboard -->
+      
+           
+              
+                <li class="nav-item" id="side-bar-ptr">
+        <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/TR/tr_records" onclick="load_page(event);">
+          <i class="fas fa-fw fa-folder-open"></i>
+          <span>Test Result Summary</span></a>
+      </li>
+            
+      
+      
+    
+                <!-- Heading -->
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading mb-3">
+            Reporting 
+        </div>
+           
+
+            
+              <!-- Nav Item - Classrooms Collapse Menu -->
+        <li class="nav-item"  id="side-bar-reports">
+            <a class="nav-link collapsed" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/pesureport" data-toggle="collapse" data-target="#sub-reports" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fa fa-fw fa-chart-area"></i>
+                <span>Report</span>
+            </a>
+            <div id="sub-reports" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded mt-2">
+                        <h6 class="collapse-header">Sub Menu</h6>
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/lradaily " onclick="load_page(event);">LRA Daily Report</a>
+                          
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/rmtdaily " onclick="load_page(event);">RMT Daily Report</a>
+                          
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/labresult " onclick="load_page(event);">Lab Result</a>
+                         
+
+                         
+
+                         
+
+                         
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/pesureport " onclick="load_page(event);">Line List (PESU)</a>
+                         
+
+                          
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/philhealth_rpt " onclick="load_page(event);">PhilHealth Report</a>
+                          
+
+                         
+                        <!-- <a class="collapse-item" href="#">Master List</a> -->
+
+                      </div>
+                    </div>
+        </li>
+         
+        
+             
+                                           
+      
+      <!-- Divider -->
+      
+        
+
+     
+     
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar --><!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form> -->
+
+      <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <!-- <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a> -->
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline small system-info">CDCDC Lab Information System V.1.8 </span>
+                <!-- <span class="mr-2 d-none d-lg-inline small system-info" style="font-size: 42px;background-color: #ec0c0c;color: #ffff;">TEST SITE</span> -->
+              
+              </a>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block ml-0"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="my_profile.php" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">NATHANAEL CYRUS DOMINGUEZ</span>
+                <img class="img-profile rounded-circle" src="https://cdcdc.dlshsi.edu.ph/assets/img/default-avatar.png">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated-grow-in" aria-labelledby="userDropdown">
+                   
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+
+          
+
+        </nav>
+
+<div id="preloader" style="display: block;z-index:99999;">
+    <p class="text-center preloader-text">This might take a while<br> Please wait. . </p> 
+    <div id="loader">
+    </div>
+</div>
+
+
+    
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">PhilHealth Report</h1>
+
+           
+          </div>
+
+          <!-- Content Row -->
+          
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-white"><span class="fa fa-database"></span> List of Records</h6>
+                </div>
+
+
+                <!-- Card Body -->
+                  
+                  <form action="https://cdcdc.dlshsi.edu.ph/CIF_reports/philhealth_rpt" method="POST">
+
+                  <div class="card-body">
+                  <div class="alert alert-danger" role="alert" id="alert-empty-fields" style="display:none"><span class="fa fa-edit"></span> Please fill-up the <strong>date fields.</strong>.
+    </div>
+                      <div class="form-group row">
+                          <div class="col-3">
+                            <label for="example-date-input" class="col-12 col-form-label">From</label>
+                            <div class="col-12">
+                              <input class="form-control" type="date" value="" name="date_from" id="date_from">
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <label for="example-date-input" class="col-12 col-form-label">To</label>
+                            <div class="col-12">
+                              <input class="form-control" type="date" value="" name="date_to" id="date_to">
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <label for="example-date-input" class="col-12 col-form-label">PCR Result</label>
+                            <div class="col-12">
+                               <select name="cifresult"  class="form-control" >
+                                  <option value="0">All</option>
+                                  <option value="1" >SARS-CoV-2 (causative agent of COVID-19) viral RNA detected</option>
+                                  <option value="2" >SARS-CoV-2 (causative agent of COVID-19) viral RNA not detected</option>
+                                  <option value="3" >Equivocal</option>
+                                  <option value="4" >Invalid</option>
+                                </select>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                              <label for="example-date-input" class="col-12 col-form-label"></label>
+                             <div class="col-12">
+                            
+                             <button type="submit" name="addtolist" class="btn btn-primary" value="submit" onclick="return  generateList();"> Generate List </button>
+                             <button type="submit" name="conv2excel" class="btn btn-primary" value="submit"> Export to Excel </button>
+                           </div>
+                          
+                          </div>
+                      </div>
+                  </div>
+                  </form>
+
+                <div class="card-body">
+          
+                  <div id="table_wrapper">
+                    <form action="https://cdcdc.dlshsi.edu.ph/CIF_reports/philhealth_excellist" method="POST" id="labresult_form" target="_blank" > 
+                    <button type="submit" name="excelreport" class="btn btn-warning" id="excelbtn" value="submit"> Export Selected</button>
+                    <table id="dttable" class="table table-bordered table-hover table-striped table-responsive-xl dataTable no-footer" style="font-size: 14px;" >
+                        <thead style="" class="header-table-registered" style="font-size: 14px;">
+       
+                            <tr class="header-table-register">
+                              <th class="text-center " ><input type='checkbox' id='maincheckbox' /></th>
+                                <th class="text-center " >Lab ID</th>
+                                
+                                <th class="text-center " >Last Name</th>
+                                <th class="text-center " >First Name</th>
+                                <th class="text-center " >Middle Name</th>
+                                <th class="text-center " >Age</th>
+                                <th class="text-center " >Sex</th>
+                                <th class="text-center " >PCR Result</th>
+                                <th class="text-center " >Date Approved</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="content-table-body" >
+                                                   </tbody>        
+                    </table>  
+                    
+                  </form>
+                  </div>
+                  
+                </div>
+              
+
+              </div>
+            </div>
+
+          </div>
+
+          
+
+          <!-- Content Row -->
+          
+
+        </div>
+       
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; CDCDC Lab Information System 2022</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="https://cdcdc.dlshsi.edu.ph/Dashboards/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/js/sb-admin-2.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/chart.js/Chart.min.js"></script>
+  
+
+<style type="text/css">
+ 
+  #dttable_paginate{
+    float: right;
+   
+    margin-top: 10px;
+  }
+
+  #excelbtn{
+    position: absolute;
+    left:250px;
+    top:285px;
+    z-index: 9999;
+  }
+ 
+  
+</style>
+
+
+<!--   <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script> -->
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+              $('#preloader').css('display','none'); 
+              $('#side-bar-reports').addClass('active'); 
+              $('#sidebarToggle')[0].click();
+              document.title = "Reports";
+              
+   
+    $('#dttable').DataTable({
+
+       "order": [[ 1, "asc" ]],
+      aLengthMenu: [
+          [10,25, 50, 100, 500,1000,2000,3000,4000, -1],
+          [10,25, 50, 100 , 500 ,1000,2000,3000,4000, "ALL"]
+      ],     
+      columnDefs: [ {"width": "12%", "targets": 1}, {
+              orderable: false,
+              targets:   0,
+             
+              "width": "5%",
+          }
+          ],
+    });
+    
+  
+});
+
+$('#maincheckbox').click (function () {
+     var checkedStatus = this.checked;
+    
+        $('.checkboxes').prop('checked', checkedStatus);
+     
+});
+
+function exportToExcel(){
+  $('#preloader').css('display','block'); 
+  return  true;
+}
+
+function generateList(){
+  var fr = $("#date_from").val();
+  var to = $("#date_to").val();
+  if(fr != '' && to != ''){
+    
+    $('#preloader').css('display','block'); 
+    return  true;
+  }else{
+    $('#alert-empty-fields').css('display','block'); 
+    return false;
+  }
+  
+}
+
+
+  </script>
+
+</body>
+</html>
+
+

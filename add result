@@ -1,0 +1,1297 @@
+
+	 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dashboard</title>
+  <link rel="shortcut icon" href="https://cdcdc.dlshsi.edu.ph/assets/img/favicon.ico">
+  <!-- Custom fonts for this template-->
+  <link href="https://cdcdc.dlshsi.edu.ph/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="https://cdcdc.dlshsi.edu.ph/assets/css/main-style.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/plug-ins/preview/searchPane/dataTables.searchPane.min.css" rel="stylesheet"/>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="border-right: 5px solid #74a683;">
+
+      <!-- Sidebar - Brand -->
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://cdcdc.dlshsi.edu.ph/Dashboards/index" onclick="load_page();">
+        <div class="sidebar-brand-icon ">
+          <!-- <i class="fa fa-user-md"></i> -->
+          <img src="https://cdcdc.dlshsi.edu.ph/assets/img/side-logo-alt.png" id="imgside" style="width: 40%;">
+        </div>
+        <div class="sidebar-brand-text mr-3" style="    position: relative;
+    left: -15px;">DCDC LIS </div>
+      </a>
+
+      
+
+      <!-- Nav Item - Dashboard -->
+               <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item" id="side-bar-dashboard">
+            <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/dashboards/index" onclick="load_page(event);">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span></a>
+          </li>
+      
+        
+
+      <!-- Divider -->
+              <!-- Divider -->
+         <hr class="sidebar-divider">
+          <div class="sidebar-heading mb-3">
+            Case Investigation Form (CIF)
+          </div>
+            
+      <!-- Nav Item - Dashboard -->
+
+            
+        
+              <li class="nav-item" id="side-bar-list-of-patient">
+        <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/CIF/cif_patient_list" onclick="load_page(event);">
+          <i class="fas fa-fw fa-user-injured"></i>
+          <span>Encoder Part 2</span></a>
+      </li>
+            
+           <hr class="sidebar-divider"> 
+      <div class="sidebar-heading mb-3">
+        Laboratory Result Form
+      </div>
+        
+              <li class="nav-item" id="side-bar-gtr">
+        <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/TR/tr_create" onclick="load_page(event);">
+          <i class="fas fa-fw fa-microscope"></i>
+          <span>Test Result Entry</span></a>
+      </li>
+            <!-- Nav Item - Dashboard -->
+      
+           
+              
+                <li class="nav-item" id="side-bar-ptr">
+        <a class="nav-link" href="https://cdcdc.dlshsi.edu.ph/TR/tr_records" onclick="load_page(event);">
+          <i class="fas fa-fw fa-folder-open"></i>
+          <span>Test Result Summary</span></a>
+      </li>
+            
+      
+      
+    
+                <!-- Heading -->
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading mb-3">
+            Reporting 
+        </div>
+           
+
+            
+              <!-- Nav Item - Classrooms Collapse Menu -->
+        <li class="nav-item"  id="side-bar-reports">
+            <a class="nav-link collapsed" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/pesureport" data-toggle="collapse" data-target="#sub-reports" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fa fa-fw fa-chart-area"></i>
+                <span>Report</span>
+            </a>
+            <div id="sub-reports" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded mt-2">
+                        <h6 class="collapse-header">Sub Menu</h6>
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/lradaily " onclick="load_page(event);">LRA Daily Report</a>
+                          
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/rmtdaily " onclick="load_page(event);">RMT Daily Report</a>
+                          
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/labresult " onclick="load_page(event);">Lab Result</a>
+                         
+
+                         
+
+                         
+
+                         
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/pesureport " onclick="load_page(event);">Line List (PESU)</a>
+                         
+
+                          
+
+                                                <a class="collapse-item" href="https://cdcdc.dlshsi.edu.ph/CIF_reports/philhealth_rpt " onclick="load_page(event);">PhilHealth Report</a>
+                          
+
+                         
+                        <!-- <a class="collapse-item" href="#">Master List</a> -->
+
+                      </div>
+                    </div>
+        </li>
+         
+        
+             
+                                           
+      
+      <!-- Divider -->
+      
+        
+
+     
+     
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar --><!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form> -->
+
+      <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <!-- <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a> -->
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline small system-info">CDCDC Lab Information System V.1.8 </span>
+                <!-- <span class="mr-2 d-none d-lg-inline small system-info" style="font-size: 42px;background-color: #ec0c0c;color: #ffff;">TEST SITE</span> -->
+              
+              </a>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block ml-0"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="my_profile.php" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">NATHANAEL CYRUS DOMINGUEZ</span>
+                <img class="img-profile rounded-circle" src="https://cdcdc.dlshsi.edu.ph/assets/img/default-avatar.png">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated-grow-in" aria-labelledby="userDropdown">
+                   
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+
+          
+
+        </nav>
+
+
+
+    
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-microscope"></i> Generate Lab Result <br><small style="font-size: 12px;margin-left: 4%;"><a href="https://cdcdc.dlshsi.edu.ph/TR/tr_create"><span class="fa fa-long-arrow-alt-left"></span> Go Back to Patient Selection</a></small></h1>
+
+            <div class="d-sm-flex text-center align-items-center  mt-4">
+        <p>
+            <a href="#" data-toggle="modal" data-target="#setup_performed_by" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-cog fa-sm "></i> Setup Default Preference</a></p>
+    </div>
+            
+          </div>  
+
+          <!-- Content Row -->
+          
+
+          <!-- Content Row -->
+                                        
+                    
+                  
+
+                  
+          
+           <div class="alert alert-danger" role="alert" id="cif-alert-empty-fields" style="display:none"><span class="fa fa-edit"></span> 
+            Please fill-up all the <strong>required fields (*)</strong>.
+          </div>
+
+          <div class="alert alert-danger" role="alert" id="cif-alert-limit-medtechs" style="display:none"><span class="fa fa-edit"></span> 
+            Please select maximum of  <strong> (2) </strong> performing medtechs.
+          </div>
+                                  
+                          
+ <form action="https://cdcdc.dlshsi.edu.ph/TR/tr_create_stage_2/52bdcc6ab504c659f14a97f19e86245a" method="POST" id="ltr_form">
+          <div class="row">
+
+
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-white"><span class="fa fa-user-injured"></span> Patient Information</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                 
+                    
+                                                      
+                            <input type="hidden" name="patient_name" id="patient_name" value="ROMILLA, PLS DELETE CASTILLO" >  
+                            <input type="hidden" name="patient_age" id="patient_age" value="80" >  
+                            <input type="hidden" name="patient_gender" id="patient_gender" value="female" >  
+                            <input type="hidden" name="patient_date_of_birthday" id="patient_date_of_birthday" value="11-24-1939" >  
+                            <input type="hidden" class="form-control " name="hospital_number" id="hospital_number" value="DASMARIñAS CITY HEALTH OFFICE II">
+                            <div class="form-row">
+                              
+                              <div class="form-group col-md-6">
+                                <small>Name of Patient:</small>
+                                <p> <b> ROMILLA, PLS DELETE CASTILLO</b></p><hr>  
+                                <small>Age / Sex:</small>
+                                <p> <b> 80 / FEMALE</b></p> <hr>  
+                                 
+                              </div>
+                              <div class="form-group col-md-6">
+                                <small>Date of Birth:</small>
+                                <p> <b> 11-24-1939</b></p><hr>   
+                                <small>Address:</small> 
+                                <p> <b> BLK 45 LOT 13 CYRUS ST. TOWN & COUNTRY BUROL I DASMARIñAS CITY Cavite Region IV-A (CALABARZON)</b></p>
+                                 <hr> 
+                              </div>
+                            
+                            </div>
+
+                            <div class="form-row">
+                              
+                              <div class="form-group col-md-6">
+                                <small>Investigator:</small>
+
+                                                                   <p> <b> FRANC III DAILO</b></p><hr>  
+                                                                
+                                
+                               
+                                <small>Specimen Type:</small>
+                                <p> <b> Oropharyngeal / Nasopharyngeal swab</b></p>  <hr>
+                                
+                               <small>Date and Time of Specimen Collection:</small>
+                                <p> <b> 11-03-2020</b></p> 
+
+                                 
+                                 
+                              </div>
+                              <div class="form-group col-md-6">
+                                <small>Laboratory Number:</small>
+                                <p> <b> DLSCOV-20-11-</b></p><hr>  
+                                 <small>Date of Admission:</small>
+                                <p> <b> -</b></p> <hr>  
+                                
+                                <small>Date and Time of Specimen Receipt:</small>
+                                <p> <b> 11-04-2020</b></p>  
+                                 
+                              </div>
+                            
+                            </div>
+                            
+                                           
+                 
+                </div>
+              </div>
+            </div>
+
+             <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-white"><span class="fa fa-notes-medical"></span> Test Result Information &nbsp;&nbsp;<span class="badge badge-danger font-size-13 pt-5px">1 Required fields</span></h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+
+
+                            <div class="form-row">
+                                 <div class="form-group col-md-6">
+                                    <label for="" class="text-form-label">Patient Location:</label><br>  
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="patient_location" id="patient_location_opd" value="1">
+                                      <label class="form-check-label" for="inlineRadio1">OPD</label>
+                                    </div> 
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="patient_location" id="patient_location_referral" value="2">
+                                      <label class="form-check-label" for="inlineRadio1">REFERRAL</label>
+                                    </div> 
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="patient_location" id="patient_location_inpatient" value="3">
+                                      <label class="form-check-label" for="inlineRadio1">INPATIENT</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="form-row "> 
+                                        <div class="form-group col-md-6 ">
+                                            <label for="" class="text-form-label">Disease Reporting Unit/Hospital:</label>
+                                            <p> <b> DASMARIñAS CITY HEALTH OFFICE II</b></p>
+                                        </div> 
+                                        <div class="form-group col-md-6 ">
+                                            <label for="" class="text-form-label "><span class="text-danger">*</span> Date Processed:</label>
+                                            <input type="text" class="form-control " name="accession_no" id="accession_no" placeholder="mm-dd-yyyy" autocomplete="off" readonly="readonly" style="background:white;">
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            
+
+                    
+                  
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-white"><span class="fa fa-microscope"></span> Laboratory Result Information &nbsp;&nbsp;<span class="badge badge-danger font-size-13 pt-5px">1 Required fields</span></h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  
+
+                            <div class="form-row">
+                                 <div class="form-group col-md-12">
+                                        <label for="" class="text-form-label"> Laboratory Test Performed:</label>
+                                        <div class="form-group">
+                                        <select class="form-control" name="ltr_lab_test_performed" id="ltr_lab_test_performed" readonly>
+                                            <option value="1">SARS-CoV-2 (causative agent of COVID-19) virus detection by Real-Time Polymerase Chain Reaction</option>
+                                        </select>
+                                      </div>
+                                </div>
+                               
+                            </div>
+                            <div class="form-row">
+                             <div class="form-group col-md-12">
+                                        <label for="" class="text-form-label"><span class="text-danger">*</span> Test Result:</label>
+                                        <div class="form-group">
+                                        <select class="form-control" name="ltr_test_result" id="ltr_test_result" onchange="loadInterpretation()">
+                                            <option value="">--</option>
+                                            <option value="1">POSITIVE</option>
+                                            <option value="2">NEGATIVE</option>
+                                            <option value="3">EQUIVOCAL</option>
+                                            <option value="4">INVALID</option>
+                                        </select>
+                                      </div>
+                                </div>
+                                 
+                            </div>
+
+                            <div class="form-row" id="interpretation_wrapper" style="display:none;">
+                             <div class="form-group col-md-12">
+                                        <label for="" class="text-form-label" >Interpretation:</label>
+                                        <b><p id="p_interpretation"></p></b>
+                                      </div>
+                                </div>
+                                 
+                            </div>
+
+                   
+                </div>
+              </div>
+                     
+
+                
+
+                <div class="col-xl-12 col-lg-12">
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-white"><span class="fa fa-clipboard-list"></span> Remarks and Signatories &nbsp;&nbsp;<span class="badge badge-danger font-size-13 pt-5px">1 Required fields</span></h6>
+                    </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                          
+                           
+
+                           <!--  <div class="form-row">
+                                 <div class="form-group col-md-12">
+                                        <label for="" class="text-form-label"> Comments:</label>
+                                        <div class="form-group">
+                                        <textarea class="form-control" id="ltr_comments" name="ltr_comments" rows="3"></textarea>
+                                      </div>
+                                </div>
+                            </div> -->
+
+                            <div class="form-row">
+                                 <div class="form-group col-md-6">
+                                        <label for="" class="text-form-label"> Remarks:</label>
+                                        <div class="form-group">
+                                        <textarea class="form-control" id="ltr_comments" name="ltr_comments" rows="6"></textarea>
+                                      </div>
+                                </div>
+                                 <div class="form-group col-md-6">
+                                        <label for="" class="text-form-label"><span class="text-danger">*</span> Performed by:</label>
+                                        <div class="form-group" style="overflow: auto;height: 223px;">
+                                        
+                                            <table class="table" >
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col">Name</th>
+                                                  <th scope="col">Designation</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                                                                      
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_36" type="checkbox" name="performed_by[]" value="36">
+                                                                <label class="form-check-label" for="ci_cough">Alexander Marc F. Celis, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_18" type="checkbox" name="performed_by[]" value="18">
+                                                                <label class="form-check-label" for="ci_cough">Alexander V. Cablao, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_46" type="checkbox" name="performed_by[]" value="46">
+                                                                <label class="form-check-label" for="ci_cough">Ara R. Llanes, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_44" type="checkbox" name="performed_by[]" value="44">
+                                                                <label class="form-check-label" for="ci_cough">Clarijoy T. Quinagon, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_33" type="checkbox" name="performed_by[]" value="33">
+                                                                <label class="form-check-label" for="ci_cough">Cline Yarie C. Ducay, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_43" type="checkbox" name="performed_by[]" value="43">
+                                                                <label class="form-check-label" for="ci_cough">Danna Merliza Joy A. Franada, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_31" type="checkbox" name="performed_by[]" value="31">
+                                                                <label class="form-check-label" for="ci_cough">Denize Marie D. Señores, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_47" type="checkbox" name="performed_by[]" value="47">
+                                                                <label class="form-check-label" for="ci_cough">Desiree Mae S. Vibar, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_39" type="checkbox" name="performed_by[]" value="39">
+                                                                <label class="form-check-label" for="ci_cough">Ezekiel R. Salonga, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_35" type="checkbox" name="performed_by[]" value="35">
+                                                                <label class="form-check-label" for="ci_cough">Genji Lyle P. Borbon, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_45" type="checkbox" name="performed_by[]" value="45">
+                                                                <label class="form-check-label" for="ci_cough">Jan Fernan A. Dialogo, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_26" type="checkbox" name="performed_by[]" value="26">
+                                                                <label class="form-check-label" for="ci_cough">Janelly Anne O. Adil, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_48" type="checkbox" name="performed_by[]" value="48">
+                                                                <label class="form-check-label" for="ci_cough">Jen Cathleen E. Dominguez</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_38" type="checkbox" name="performed_by[]" value="38">
+                                                                <label class="form-check-label" for="ci_cough">Jennel Erika B. Pada-on, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_40" type="checkbox" name="performed_by[]" value="40">
+                                                                <label class="form-check-label" for="ci_cough">Jethro L. Piores, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_42" type="checkbox" name="performed_by[]" value="42">
+                                                                <label class="form-check-label" for="ci_cough">Louwel R. Ramos, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_22" type="checkbox" name="performed_by[]" value="22">
+                                                                <label class="form-check-label" for="ci_cough">Monica Grace T. Sevilla, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_41" type="checkbox" name="performed_by[]" value="41">
+                                                                <label class="form-check-label" for="ci_cough">Nathanael Cyrus T. Dominguez, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_28" type="checkbox" name="performed_by[]" value="28">
+                                                                <label class="form-check-label" for="ci_cough">Roan Joyce T. Cabalida, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                            
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_34" type="checkbox" name="performed_by[]" value="34">
+                                                                <label class="form-check-label" for="ci_cough">Theo John M. Segismundo, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                              
+                                                                                                              <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input class_performed_by" id="pb_25" type="checkbox" name="performed_by[]" value="25">
+                                                                <label class="form-check-label" for="ci_cough">Vanessa Mae B. Moscoso, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Technologist</td>
+                                                        </tr>
+                                                                                                                                                             
+                                              </tbody>
+                                            </table>
+                                        
+                                        </div>
+                                </div>
+                               <!--  <div class="form-group col-md-4" style="border-left: 1px solid #dadada;border-right: 1px solid #dadada;">
+                                        <label for="" class="text-form-label"> Verified by:</label>
+                                        <div class="form-group">
+                                           <table class="table">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col">Name</th>
+                                                  <th scope="col">Designation</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                                                                                                                                                                  </tbody>
+                                            </table> 
+                                       </div>
+                                </div> -->
+                                <!-- <div class="form-group col-md-4">
+                                        <label for="" class="text-form-label"> Approved by:</label>
+                                        <div class="form-group">
+                                         <table class="table">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col">Name</th>
+                                                  <th scope="col">Designation</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                                                                      
+                                                        <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="noted_by[]" value="1">
+                                                                <label class="form-check-label" for="ci_cough">MA.TERESA A. BARZAGA, MD, FPSP</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Pathologist<br>PRC#:0053188</td>
+                                                        </tr>
+                                                      
+                                                        <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="noted_by[]" value="2">
+                                                                <label class="form-check-label" for="ci_cough">FLORECITA LUDIVINA T. SOLIS, MD, FPSP</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Pathologist<br>PRC#:80537</td>
+                                                        </tr>
+                                                      
+                                                        <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="noted_by[]" value="15">
+                                                                <label class="form-check-label" for="ci_cough">DR. ARIELLE MEDENILLA</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Medical Officer<br>PRC#:na</td>
+                                                        </tr>
+                                                      
+                                                        <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="noted_by[]" value="16">
+                                                                <label class="form-check-label" for="ci_cough">Mira I. Cada, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Senior Medical Technologist<br>PRC#:na</td>
+                                                        </tr>
+                                                      
+                                                        <tr>
+                                                          <th scope="row">
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="noted_by[]" value="17">
+                                                                <label class="form-check-label" for="ci_cough">Angelita C. Pabruada, RMT</label>
+                                                              </div>
+                                                          </th>
+                                                          <td>Senior Medical Technologist<br>PRC#:na</td>
+                                                        </tr>
+                                                                                                                                                  </tbody>
+                                            </table>
+                                      </div>
+                                </div> -->
+                            </div>  
+                        
+                        </div>
+                    </div>
+              </div>
+
+               </form>
+            
+            <!-- end -->
+            
+             <!-- Employement Information -->
+         
+</div>
+
+    <div class="d-sm-flex text-center align-items-center  mb-4">
+        <p style="margin:0 auto;"><a href="#" data-toggle="modal" data-target="#clearfieldsModal" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fas fa-eraser fa-sm "></i> Clear Fields</a> &nbsp;
+            <a href="#" onclick="checkFields()" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-save fa-sm "></i> Save Record</a></p>
+    </div>
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; DCDC Lab Information System 2022</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="https://cdcdc.dlshsi.edu.ph/Dashboards/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CCE Clear Fields Modal-->
+  <div class="modal fade" id="clearfieldsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><span class="fa fa-eraser"></span> Clear all fields?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Are you sure you want to clear all the text fields?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#" onclick="clearfields()">Clear</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- CCE Save Record Modal-->
+  <div class="modal fade" id="cceSaveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary font-weight-bold" id="exampleModalLabel"><span class="fa fa-save"></span> Confirmation</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"> Are you sure you want to <b class="text-primary">SAVE</b> this patient <b class="text-primary">Lab Test Result</b> ?
+        <div class="">
+        <hr>
+            
+            <small class="text-primary">Patient Name:</small>
+            <p class="font-weight-bold" id="md_patient_name" style="    font-size: 25px;
+    color: #000000;"></p>
+            
+            <small class="text-primary">Test Performed:</small>
+            <p class="font-weight-bold" id="md_test_perform"></p>
+
+            <small class="text-primary">Result:</small>
+            <p class="font-weight-bold" id="md_result"></p>
+
+
+            <small class="text-primary">Interpretation:</small>
+            <p class="font-weight-bold" id="md_interpretation"></p>
+
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#" onclick="submit_form()">Save Lab Result</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Setup Performed by Modal-->
+  <div class="modal fade" id="setup_performed_by" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary" id="exampleModalLabel"><b><span class="fa fa-hand-point-up"></span> Setup Default Preference</b></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+        <b><label>Setting up the default "performed list" will help you generate lab result faster.</label></b>
+        <p class="text-primary" style="font-size: 15px;"><b><span class="fa fa-exclamation-triangle text-danger" id="max_names" style="display:none;"></span> (please select atleast 1 and maximum of 2 medtech names)</b> </p>
+         
+         <div class="form-group" style="overflow: auto;height: 643px;">
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Designation</th>
+                    </tr>
+                </thead>
+                <form  action="https://cdcdc.dlshsi.edu.ph/TR/tr_setup_preference/52bdcc6ab504c659f14a97f19e86245a" method="POST" id="spf_form">
+                <tbody style="    text-align: left;">
+                                     
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="36">
+                                      <label class="form-check-label" for="ci_cough">Alexander Marc F. Celis, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="18">
+                                      <label class="form-check-label" for="ci_cough">Alexander V. Cablao, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="46">
+                                      <label class="form-check-label" for="ci_cough">Ara R. Llanes, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="44">
+                                      <label class="form-check-label" for="ci_cough">Clarijoy T. Quinagon, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="33">
+                                      <label class="form-check-label" for="ci_cough">Cline Yarie C. Ducay, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="43">
+                                      <label class="form-check-label" for="ci_cough">Danna Merliza Joy A. Franada, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="31">
+                                      <label class="form-check-label" for="ci_cough">Denize Marie D. Señores, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="47">
+                                      <label class="form-check-label" for="ci_cough">Desiree Mae S. Vibar, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="39">
+                                      <label class="form-check-label" for="ci_cough">Ezekiel R. Salonga, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="35">
+                                      <label class="form-check-label" for="ci_cough">Genji Lyle P. Borbon, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="45">
+                                      <label class="form-check-label" for="ci_cough">Jan Fernan A. Dialogo, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="26">
+                                      <label class="form-check-label" for="ci_cough">Janelly Anne O. Adil, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="48">
+                                      <label class="form-check-label" for="ci_cough">Jen Cathleen E. Dominguez</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="38">
+                                      <label class="form-check-label" for="ci_cough">Jennel Erika B. Pada-on, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="40">
+                                      <label class="form-check-label" for="ci_cough">Jethro L. Piores, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="42">
+                                      <label class="form-check-label" for="ci_cough">Louwel R. Ramos, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="22">
+                                      <label class="form-check-label" for="ci_cough">Monica Grace T. Sevilla, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="41">
+                                      <label class="form-check-label" for="ci_cough">Nathanael Cyrus T. Dominguez, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="28">
+                                      <label class="form-check-label" for="ci_cough">Roan Joyce T. Cabalida, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="34">
+                                      <label class="form-check-label" for="ci_cough">Theo John M. Segismundo, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                           
+                                                <tr>
+                              <th scope="row">
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input class_performed_by" type="checkbox" name="performed_by_setup[]" value="25">
+                                      <label class="form-check-label" for="ci_cough">Vanessa Mae B. Moscoso, RMT</label>
+                                  </div>
+                              </th>
+                              <td>Medical Technologist</td>
+                          </tr>
+                                                           
+                </tbody>
+                </form>
+            </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-primary" href="#" onclick="save_preference()">Save Settings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/js/sb-admin-2.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/vendor/chart.js/Chart.min.js"></script>
+
+
+  <script src="https://cdcdc.dlshsi.edu.ph/assets/js/java_tr_create_s2.js"></script>
+
+   <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">       </script>
+  <!-- Page level custom scripts -->
+<!--   <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script> -->
+  <script>
+    $(document).ready(function(){
+
+        $( "#accession_no" ).datepicker(
+        {   
+          maxDate: 0,
+          changeMonth: true,
+          changeYear: true,
+          yearRange: "2022:+10",
+          minDate: new Date(1920, 1 - 1, 1),
+          dateFormat: 'mm-dd-yy'
+        });
+
+         var preference_set = "1";
+         if (preference_set == "0") {
+            $('#setup_performed_by').modal('toggle');
+         }
+
+         var p_array = ["18","28"];
+         for (var key in p_array) {
+            if (p_array.hasOwnProperty(key)) {
+                console.log(p_array[key]);
+                $('#pb_'+p_array[key]).prop("checked",true);
+            }
+         }
+         // console.log(["18","28"]);
+         // console.log(preference_set);
+        
+
+    });
+   
+      function save_preference(){
+        var le = document.querySelectorAll('input[name="performed_by_setup[]"]:checked').length;
+        if (le > 2 || le == 0) {
+            $('#max_names').css('display','inline-block');
+        }else{
+            $('#max_names').css('display','none');
+            $('#spf_form').submit();
+        }
+        
+      }
+  </script>
+
+</body>
+
+
+
+</html>
+
+
+
