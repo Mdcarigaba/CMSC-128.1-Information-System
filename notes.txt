@@ -1,0 +1,11 @@
+Notes:
+
+Database details:
+used: PostgreSQL 9.5
+user: postgres 
+database: logindb
+** run this on the terminal to copy the database (on empty database): psql -U postgres -d (database name) -f logindb.sql 
+
+running the site:
+1. enter "npm start" on the terminal
+2. enter "https://localhost:3000" on the browser
