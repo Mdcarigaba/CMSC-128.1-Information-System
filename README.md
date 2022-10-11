@@ -1,3 +1,3 @@
 # CMSC128.1-InformationSystem
 
-CLIS GITHUB REPO
+Clinical Laboratory Information System (CLIS) GITHUB REPOSITORY
