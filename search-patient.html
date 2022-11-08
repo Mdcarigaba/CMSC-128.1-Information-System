@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Patient</title>
+    <link rel="stylesheet" type="text/css" href="search-patient.css">
+</head>
+<body>
+    <div class="filter">
+        <div class="filter-header">
+            <img class="filter-icon" src="" alt="">
+            <span class="filter-title">Filter</span>
+        </div>
+        <form class="filter-body">
+            <!-- <span class="labels1">
+                <div class="last_name_label">Last Name</div>
+                <div class="first_name_label">First Name</div>
+                <div class="lab_number_label">Laboratory Number</div>
+            </span> -->
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="last_name_label">Last Name</div>
+                        <input type="text" id="last-name">
+                    </div>
+                    <div>
+                        <div class="first_name_label">First Name</div>
+                        <input type="text" id="first-name">
+                    </div>
+                    <div>
+                        <div class="lab_number_label">Laboratory Number</div>
+                        <input type="text" id="laboratory-number">
+                    </div>
+                </span>
+            </div>
+            <div>
+                <!-- <span class="labels2">
+                    <div class="from_label">From</div>
+                    <div class="to_label">To</div>
+                    <div class="VS_label">Validation Status</div>
+                    <div class="FC_label">Final Classification</div>
+                </span> -->
+            </div>
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="from_label">From</div>
+                        <input type="text" placeholder="MM/DD/YYYY" id="from">
+                    </div>
+                    <div>
+                        <div class="to_label">To</div>
+                        <input type="text" placeholder="MM/DD/YYYY" id="to">
+                    </div>
+                    <div>
+                        <div class="VS_label">Validation Status</div>
+                        <label for="validation_status"></label>
+                        <select name="validation_status" class="validation_status">
+                            <option value="validated">Validated</option>
+                            <option value="not_validated">Not Validated</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="FC_label">Final Classification</div>
+                        <label for="final_classification"></label>
+                        <select name="final_classification" class="final_classification">
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                        </select>
+                    </div>
+                </span>
+            </div>
+            <div class="search-btn-div">
+                <button type="submit" class="search-btn"><img class="search-icon" src="" alt="">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="patient-records-label">
+        Patient Records
+    </div>
+    <div>
+        <span>List of Records</span>
+        <span>No. of Entries Shown</span>
+        <input type="text" name="" id="num-entries">
+    </div>
+    <div class="search-patient-table">
+        .
+    </div>
+</body>
+</html>
