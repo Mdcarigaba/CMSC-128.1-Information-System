@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700,500,600,800");
+
+body {
+    font-family: Nunito;
+    background-color: #F8FAFE;
+}
+
+.filter {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+}
+
+.filter-header {
+    width: 100%;
+    background-color: #3476CE;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 1px 1px 0px #969696;
+    /* padding: 15px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.filter-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+}
+
+.filter-title {
+    font-weight: bold;
+    color: white;
+}
+
+.search-patient-table {
+    width: 900px;
+    height: 200px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+}
+
+/* .labels1 {
+    margin-top: 10px;
+    width: 900px;
+    display: flex;
+    justify-content: left;
+} */
+
+.input-fields-labels1 {
+    color: #3476CE;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+
+.labels1-div {
+    display: flex;
+    justify-content: center;
+}
+
+#last-name {
+    margin-right: 15px;
+    width: 280px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+}
+
+#first-name {
+    margin-right: 15px;
+    width: 280px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+}
+
+#laboratory-number {
+    width: 280px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+}
+
+.input-fields-labels2 {
+    color: #3476CE;
+    font-size: 12px;
+    margin-top: 15px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+
+.labels2-div {
+    display: flex;
+    justify-content: center;
+}
+
+#from {
+    font-size: 12px;
+    margin-right: 10px;
+    width: 210px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+}
+
+#to {
+    font-size: 12px;
+    margin-right: 10px;
+    width: 210px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+}
+
+.validation_status {
+    font-size: 12px;
+    margin-right: 10px;
+    width: 210px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.final_classification {
+    font-size: 12px;
+    width: 210px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.search-btn-div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-btn {
+    background-color: #3476CE;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border: 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.search-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.patient-records-label {
+    margin-top: 30px;
+    font-size: 25px;
+    color: #3476CE;
+}
