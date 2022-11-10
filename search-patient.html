@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Patient</title>
     <link rel="stylesheet" type="text/css" href="search-patient.css">
+    <script type="text/javascript" src="search-patient.js"></script>
 </head>
 <body>
     <div class="filter">
@@ -13,11 +14,6 @@
             <span class="filter-title">Filter</span>
         </div>
         <form class="filter-body">
-            <!-- <span class="labels1">
-                <div class="last_name_label">Last Name</div>
-                <div class="first_name_label">First Name</div>
-                <div class="lab_number_label">Laboratory Number</div>
-            </span> -->
             <div class="input-fields-labels1">
                 <span class="labels1-div">
                     <div>
@@ -33,14 +29,6 @@
                         <input type="text" id="laboratory-number">
                     </div>
                 </span>
-            </div>
-            <div>
-                <!-- <span class="labels2">
-                    <div class="from_label">From</div>
-                    <div class="to_label">To</div>
-                    <div class="VS_label">Validation Status</div>
-                    <div class="FC_label">Final Classification</div>
-                </span> -->
             </div>
             <div class="input-fields-labels2">
                 <span class="labels2-div">
@@ -84,7 +72,43 @@
         <input type="text" name="" id="num-entries">
     </div>
     <div class="search-patient-table">
-        .
+        <table cellspacing="0">
+            <thead>
+                <tr class="records-table-header">
+                    <th id="first-col">CIF No.</th>
+                    <th>Lab No.</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Date Encoded</th>
+                    <th>Date Collected</th>
+                    <th>Validation Status</th>
+                    <th>Final Classification</th>
+                    <th id="last-col">Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableData">
+
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <div id="counterDiv"> 
+            <!-- n is number of "entries shown" -->
+            Showing 1-n of *total* entries
+        <!-- <input id="counter" type="number" value="0" readonly> -->
+        </div>
+        <div>
+            <button class="back-next-btn">&lt;</button>
+            <button class="back-next-btn">></button>
+        </div>
+        <div id="counterDiv"> 
+            <!-- n is number of "entries shown" -->
+            Page n of *total* pages
+        </div>
     </div>
 </body>
 </html>

@@ -8,10 +8,9 @@ body {
 .filter {
     width: 900px;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
-    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    box-shadow: 0.1px 0.1px 1px 0px #969696;
 }
 
 .filter-header {
@@ -20,7 +19,6 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 0px 1px 1px 0px #969696;
-    /* padding: 15px; */
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -35,21 +33,6 @@ body {
     font-weight: bold;
     color: white;
 }
-
-.search-patient-table {
-    width: 900px;
-    height: 200px;
-    /* border: 0.5px solid black; */
-    border-radius: 5px;
-    background-color: white;
-}
-
-/* .labels1 {
-    margin-top: 10px;
-    width: 900px;
-    display: flex;
-    justify-content: left;
-} */
 
 .input-fields-labels1 {
     color: #3476CE;
@@ -172,4 +155,68 @@ body {
     margin-top: 30px;
     font-size: 25px;
     color: #3476CE;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.search-patient-table {
+    width: 900px;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 10px;
+}
+
+.records-table-header {
+    background-color: #3476CE;
+    color: #fff;
+    font-size: 12px;
+    height: 50px;
+}
+
+th {
+    width: 100px;
+}
+
+tr {
+    height: 30px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(160, 196, 245, 0.2);
+}
+
+tbody {
+    font-size: 12px;
+    text-align: center;
+}
+
+#first-col {
+    border-top-left-radius: 5px;
+}
+
+#last-col {
+    border-top-right-radius: 5px;
+}
+
+#counterDiv {
+    font-size: 12px;
+}
+
+#counter {
+    border: none;
+    font-size: 11px;
+}
+
+.back-next-btn {
+    background-color: #3476CE;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    font-weight: bolder;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 5px;
 }
