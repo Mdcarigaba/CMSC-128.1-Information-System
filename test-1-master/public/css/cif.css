@@ -5,7 +5,7 @@ body {
     background-color: #F8FAFE;
 }
 
-.filter {
+.investigation {
     width: 900px;
     height: 250px;
     /* border: 0.5px solid black; */
@@ -14,7 +14,7 @@ body {
     box-shadow: 0.5px 0.5px 1px 0px #969696;
 }
 
-.filter-header {
+.header {
     width: 100%;
     background-color: #3476CE;
     border-top-left-radius: 5px;
@@ -25,16 +25,157 @@ body {
     padding-bottom: 10px;
 }
 
-.filter-icon {
+.icon {
     width: 20px;
     height: 20px;
     margin-left: 15px;
 }
 
-.filter-title {
+.title {
     font-weight: bold;
     color: white;
 }
+
+.investigation {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+}
+
+.philhealth-info {
+    width: 900px;
+    height: 150px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.patient-profile {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.permanent-address {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.current-address {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.employer-details {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.travel-history {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.exposure-history {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.clinical-information {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.specimen-information{
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.final-classification {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+.outcome {
+    width: 900px;
+    height: 250px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
+}
+
+/*
+.investigation-header {
+    width: 100%;
+    background-color: #3476CE;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 1px 1px 0px #969696;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.investigation-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+}
+
+.investigation-title {
+    font-weight: bold;
+    color: white;
+}*/
 
 .search-patient-table {
     width: 900px;
@@ -51,7 +192,7 @@ body {
     justify-content: left;
 } */
 
-.input-fields-labels1 {
+.input-fields-labels1, .input-fields-labels2, .input-fields-labels3 {
     color: #3476CE;
     font-size: 12px;
     margin-top: 10px;
@@ -60,37 +201,50 @@ body {
     text-align: left;
 }
 
-.labels1-div {
+.labels1-div, .labels2-div, .labels3-div {
     display: flex;
     justify-content: center;
+    margin-left: 15px;
 }
 
-#last-name {
+#laboratory-number, #philhealth-number, #employer-name {
+    margin-right: 40px;
+    width: 400px;
+    height: 25px;
+    border: 1px solid #A0C4F5;
+    border-radius: 4px;
+}
+
+#dru-label, #testing-category, #occupation {
     margin-right: 15px;
-    width: 280px;
+    /*width: 280px;
     height: 25px;
     border-width: 1px;
     border-radius: 4px;
-    border-color: #A0C4F5;
-}
+    border-color: #A0C4F5;*/
 
-#first-name {
-    margin-right: 15px;
-    width: 280px;
+    box-sizing: border-box;
+
+    width: 400px;
     height: 25px;
-    border-width: 1px;
-    border-radius: 4px;
-    border-color: #A0C4F5;
-}
+ 
+    /* Sinag/B&W/100 */
+    background: #FFFFFF;
+    /* Sinag/Primary/100 */
 
+    border: 1px solid #A0C4F5;
+    border-radius: 4px;
+}
+/*
 #laboratory-number {
     width: 280px;
     height: 25px;
     border-width: 1px;
     border-radius: 4px;
     border-color: #A0C4F5;
-}
+}*/
 
+/*
 .input-fields-labels2 {
     color: #3476CE;
     font-size: 12px;
@@ -103,39 +257,41 @@ body {
 .labels2-div {
     display: flex;
     justify-content: center;
+    margin-left: 15px;
+}*/
+
+#investigator, #other-investigator, #date-of-interview
+ {
+    font-size: 12px;
+    margin-right: 12px;
+    width: 270px;
+    height: 25px;
+    border: 1px solid #A0C4F5;
+    border-radius: 4px;
 }
 
-#from {
+#home-phone-number, #cellphone-number, #email,
+#employer-province, #country, #office-phone-number {
     font-size: 12px;
-    margin-right: 10px;
-    width: 210px;
+    margin-right: 12px;
+    width: 270px;
     height: 25px;
-    border-width: 1px;
+    border: 1px solid #A0C4F5;
     border-radius: 4px;
-    border-color: #A0C4F5;
 }
 
-#to {
+/*
+#date-of-interview {
     font-size: 12px;
-    margin-right: 10px;
-    width: 210px;
+    margin-right: 12px;
+    width: 270px;
     height: 25px;
-    border-width: 1px;
+    border: 1px solid #A0C4F5;
     border-radius: 4px;
-    border-color: #A0C4F5;
-}
-
-.validation_status {
-    font-size: 12px;
-    margin-right: 10px;
-    width: 210px;
-    height: 25px;
-    border-width: 1px;
-    border-radius: 4px;
-    border-color: #A0C4F5;
     color: rgba(0, 0, 0, 0.8);
-}
+}*/
 
+/*
 .final_classification {
     font-size: 12px;
     width: 210px;
@@ -144,9 +300,9 @@ body {
     border-radius: 4px;
     border-color: #A0C4F5;
     color: rgba(0, 0, 0, 0.8);
-}
+}*/
 
-.search-btn-div {
+/*.search-btn-div {
     margin-top: 20px;
     display: flex;
     justify-content: center;
@@ -172,4 +328,37 @@ body {
     margin-top: 30px;
     font-size: 25px;
     color: #3476CE;
+}*/
+
+#last-name, #first-name, #middle-name, #birthday, #age, #occupation, 
+#barangay, #municipality, #province, #region,
+#place-of-work, #building-name, #street, #city {
+    font-size: 12px;
+    margin-right: 10px;
+    width: 210px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+}
+
+.civil_status, .sex {
+    font-size: 12px;
+    margin-right: 10px;
+    width: 210px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.final_classification {
+    font-size: 12px;
+    width: 210px;
+    height: 25px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #A0C4F5;
+    color: rgba(0, 0, 0, 0.8);
 }
