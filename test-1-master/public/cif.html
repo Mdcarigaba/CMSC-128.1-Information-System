@@ -1,0 +1,604 @@
+<!-- FOCUSED MORE ON TEXTFIELDS; DIDN'T ADD BUTTONS YET; LAYOUT NOT FIXED YET-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIF Entry</title>
+    <link rel="stylesheet" type="text/css" href="cif.css">
+</head>
+<body>
+    <div class="investigation">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Investigation</span>
+        </div>
+        <form class="investigation-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="lab_number_label">Laboratory Number</div>
+                        <input type="text" id="laboratory-number">
+                    </div>
+                    <div>
+                        <div class="dru_label">Disease Reporting Unit/Hospital</div>
+                        <input type="text" id="dru-label">
+                    </div>
+                </span>
+            </div>
+            <div>
+            </div>
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="investigator_label">Investigator</div>
+                        <input type="text" id="investigator">
+                    </div>
+                    <div>
+                        <div class="other_investigator_label">Other Investigator/s</div>
+                        <input type="text" id="other-investigator">
+                    </div>
+                    <div>
+                        <div class="interview_date">Date of Interview</div>
+                        <input type="text" placeholder="MM/DD/YYYY" id="date-of-interview">
+                    </div>
+                </span>
+            </div>
+            <div class="search-btn-div">
+                <button type="submit" class="search-btn"><img class="search-icon" src="" alt="">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="philhealth-info">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Philhealth Information</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="philhealth_number_label">Philhealth Number</div>
+                        <input type="text" id="philhealth-number">
+                    </div>
+                    <div>
+                        <div class="testing_category">Testing Category/Subgroup</div>
+                        <input type="text" id="testing-category">
+                    </div>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="patient-profile">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Patient Profile</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="last_name_label">Last Name</div>
+                        <input type="text" id="last-name">
+                    </div>
+                    <div>
+                        <div class="first_name_label">First Name</div>
+                        <input type="text" id="first-name">
+                    </div>
+                    <div>
+                        <div class="middle_name_label">Middle Name</div>
+                        <input type="text" id="middle-name">
+                    </div>
+                    <div>
+                        <div class="birthday">Birthday</div>
+                        <input type="text" id="birthday">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="age">Age</div>
+                        <input type="text" placeholder="" id="age">
+                    </div>
+                    <div>
+                        <div class="sex">Sex</div>
+                        <label for="sex"></label>
+                        <select name="sex" class="sex">
+                            <option value="option1">Male</option>
+                            <option value="option2">Female</option>
+                        </select>                    
+                    </div>
+                    <div>
+                        <div class="occupation">Occupation</div>
+                        <input type="text" placeholder="" id="occupation">
+                    </div>
+                    <div>
+                        <div class="civil_status">Civil Status</div>
+                        <label for="civil_status"></label>
+                        <select name="civil_status" class="civil_status">
+                            <option value="option1">Single</option>
+                            <option value="option2">Married</option>
+                        </select>
+                    </div>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="permanent-address">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Permanent Address</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="house_number_label">House No./Block/Lot/Building</div>
+                        <input type="text" id="house-number">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="barangay">Barangay</div>
+                        <input type="text" placeholder="" id="barangay">
+                    </div>
+                    <div>
+                        <div class="municiplality">Municipality/City</div>
+                        <input type="text" placeholder="" id="municipality">               
+                    </div>
+                    <div>
+                        <div class="province">Province</div>
+                        <input type="text" placeholder="" id="province">
+                    </div>
+                    <div>
+                        <div class="region">Region</div>
+                        <input type="text" placeholder="" id="region">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels3">
+                <span class="labels3-div">
+                    <div>
+                        <div class="home_phone_number">Home Phone Number</div>
+                        <input type="text" id="home-phone-number">
+                    </div>
+                    <div>
+                        <div class="cellphone_number">Cellphone Number</div>
+                        <input type="text" id="cellphone-number">
+                    </div>
+                    <div>
+                        <div class="email">Email Address</div>
+                        <input type="text" id="email">
+                    </div>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div class="current-address">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Current Address</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="house_number_label">House No./Block/Lot/Building</div>
+                        <input type="text" id="house-number">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="barangay">Barangay</div>
+                        <input type="text" placeholder="" id="barangay">
+                    </div>
+                    <div>
+                        <div class="municiplality">Municipality/City</div>
+                        <input type="text" placeholder="" id="municipality">               
+                    </div>
+                    <div>
+                        <div class="province">Province</div>
+                        <input type="text" placeholder="" id="province">
+                    </div>
+                    <div>
+                        <div class="region">Region</div>
+                        <input type="text" placeholder="" id="region">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels3">
+                <span class="labels3-div">
+                    <div>
+                        <div class="home_phone_number">Home Phone Number</div>
+                        <input type="text" id="home-phone-number">
+                    </div>
+                    <div>
+                        <div class="cellphone_number">Cellphone Number</div>
+                        <input type="text" id="cellphone-number">
+                    </div>
+                    <div>
+                        <div class="email">Email Address</div>
+                        <input type="text" id="email">
+                    </div>
+                </span>
+            </div>
+            <!-- TO ADD BUTTONS -->
+        </form>
+    </div>
+
+    <div class="employer-details">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Employer Details</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="employer_name">Employer's Name</div>
+                        <input type="text" placeholder="" id="employer-name">
+                    </div>
+                    <div>
+                        <div class="occupation">Occupation</div>
+                        <input type="text" placeholder="" id="occupation">               
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="place-of-work">Place of Work</div>
+                        <input type="text" placeholder="" id="place-of-work">
+                    </div>
+                    <div>
+                        <div class="building-name">House No./Building Name</div>
+                        <input type="text" placeholder="" id="building-name">               
+                    </div>
+                    <div>
+                        <div class="street">Street</div>
+                        <input type="text" placeholder="" id="street">
+                    </div>
+                    <div>
+                        <div class="city">City/Municipality</div>
+                        <input type="text" placeholder="" id="city">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels3">
+                <span class="labels3-div">
+                    <div>
+                        <div class="employer-province">Province/State</div>
+                        <input type="text" id="employer-province">
+                    </div>
+                    <div>
+                        <div class="country">Country</div>
+                        <input type="text" id="country">
+                    </div>
+                    <div>
+                        <div class="Office">Office Phone Number</div>
+                        <input type="text" id="office-phone-number">
+                    </div>
+                </span>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="travel-history">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Travel History</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
+                        <input type="text" placeholder="" id="date-of-onset-of-illness">
+                    </div>
+                    <div>
+                        <div class="date_of_admission">Date of Admission</div>
+                        <input type="text" placeholder="" id="date-of-admission">
+                    </div>
+                    <div>
+                        <div class="temperature">Temperature</div>
+                        <input type="text" placeholder="" id="temperature">               
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="port_of_exit">Port (Country) of Exit</div>
+                        <input type="text" placeholder="" id="port-of-exit">
+                    </div>
+                    <div>
+                        <div class="airline-or-seavessel">Airline/Sea Vessel</div>
+                        <input type="text" placeholder="" id="airline_or_seavessel">               
+                    </div>
+                    <div>
+                        <div class="flight_or_vessel_no">Flight/Vessel Number</div>
+                        <input type="text" placeholder="" id="flight-or-vessel-no">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels3">
+                <span class="labels3-div">
+                    <div>
+                        <div class="date_of_departure">Date of Departure</div>
+                        <input type="text" id="date-of-departure">
+                    </div>
+                    <div>
+                        <div class="date_of_arrival">Date of Arrival in the Philippines</div>
+                        <input type="text" id="date-of-arrival">
+                    </div>
+                </span>
+            </div>
+            <!-- TO ADD BUTTONS -->
+        </form>
+    </div>
+
+    <div class="exposure-history">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Exposure History</span>
+        </div>
+        <form class="p-body">
+            <!-- INSERT RADIO TYPE INPUT -->
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="place_visited">Place Visited</div>
+                        <input type="text" placeholder="" id="place-visited">
+                    </div>
+                    <div>
+                        <div class="name_of_place">Name of Place</div>
+                        <input type="text" placeholder="" id="name-of-place">               
+                    </div>
+                    <div>
+                        <div class="date_visited">Date Visited</div>
+                        <input type="text" placeholder="" id="date-visited">               
+                    </div>
+                </span>
+                <!-- ADD MORE ROWS BUTTON -->
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="close_contact_name">Name</div>
+                        <input type="text" placeholder="" id="close-contact-name">
+                    </div>
+                    <div>
+                        <div class="close_contact_number">Close Contact Number</div>
+                        <input type="text" placeholder="" id="close-contact-number">               
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels3">
+                <span class="labels3-div">
+                    <div>
+                        <div class="employer-province">Province/State</div>
+                        <input type="text" id="employer-province">
+                    </div>
+                    <div>
+                        <div class="country">Country</div>
+                        <input type="text" id="country">
+                    </div>
+                    <div>
+                        <div class="Office">Office Phone Number</div>
+                        <input type="text" id="office-phone-number">
+                    </div>
+                </span>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="clinical-information">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Clinical Information</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
+                        <input type="text" placeholder="" id="date-of-onset-of-illness">
+                    </div>
+                    <div>
+                        <div class="date_of_admission">Date of Admission</div>
+                        <input type="text" placeholder="" id="date-of-admission">
+                    </div>
+                    <div>
+                        <div class="temperature">Temperature</div>
+                        <input type="text" placeholder="" id="temperature">               
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="port_of_exit">Port (Country) of Exit</div>
+                        <input type="text" placeholder="" id="port-of-exit">
+                    </div>
+                    <div>
+                        <div class="airline-or-seavessel">Airline/Sea Vessel</div>
+                        <input type="text" placeholder="" id="airline_or_seavessel">               
+                    </div>
+                    <div>
+                        <div class="flight_or_vessel_no">Flight/Vessel Number</div>
+                        <input type="text" placeholder="" id="flight-or-vessel-no">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels3">
+                <span class="labels3-div">
+                    <div>
+                        <div class="date_of_departure">Date of Departure</div>
+                        <input type="text" id="date-of-departure">
+                    </div>
+                    <div>
+                        <div class="date_of_arrival">Date of Arrival in the Philippines</div>
+                        <input type="text" id="date-of-arrival">
+                    </div>
+                </span>
+            </div>
+            <!-- TO ADD BUTTONS -->
+        </form>
+    </div>
+
+    <div class="specimen-information">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Specimen Information</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
+                        <input type="text" placeholder="" id="date-of-onset-of-illness">
+                    </div>
+                    <div>
+                        <div class="date_of_admission">Date of Admission</div>
+                        <input type="text" placeholder="" id="date-of-admission">
+                    </div>
+                    <div>
+                        <div class="temperature">Temperature</div>
+                        <input type="text" placeholder="" id="temperature">               
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="port_of_exit">Port (Country) of Exit</div>
+                        <input type="text" placeholder="" id="port-of-exit">
+                    </div>
+                    <div>
+                        <div class="airline-or-seavessel">Airline/Sea Vessel</div>
+                        <input type="text" placeholder="" id="airline_or_seavessel">               
+                    </div>
+                    <div>
+                        <div class="flight_or_vessel_no">Flight/Vessel Number</div>
+                        <input type="text" placeholder="" id="flight-or-vessel-no">
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels3">
+                <span class="labels3-div">
+                    <div>
+                        <div class="date_of_departure">Date of Departure</div>
+                        <input type="text" id="date-of-departure">
+                    </div>
+                    <div>
+                        <div class="date_of_arrival">Date of Arrival in the Philippines</div>
+                        <input type="text" id="date-of-arrival">
+                    </div>
+                </span>
+            </div>
+            <!-- TO ADD BUTTONS -->
+        </form>
+    </div>
+
+    <div class="final-classification">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Final Classification</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <!-- TO ADD BUTTONS -->
+
+                    <div>
+                        <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
+                        <input type="text" placeholder="" id="date-of-onset-of-illness">
+                    </div>
+                    <div>
+                        <div class="date_of_admission">Date of Admission</div>
+                        <input type="text" placeholder="" id="date-of-admission">
+                    </div>
+                    <div>
+                        <div class="temperature">Temperature</div>
+                        <input type="text" placeholder="" id="temperature">               
+                    </div>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div class="outcome">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Outcome</span>
+        </div>
+        <form class="p-body">
+            <div class="input-fields-labels1">
+                <span class="labels1-div">
+                    <div>
+                        <div class="date_of_discharge">Date of Charge</div>
+                        <input type="text" placeholder="" id="date-of-onset-of-illness">
+                    </div>
+                    <div>
+                        <!-- BUTTONS FOR CONDITION ON DISCHARGE-->
+                    </div>
+                </span>
+            </div>
+
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
+                    <div>
+                        <div class="name_of_informant">Name of Informant</div>
+                        <input type="text" placeholder="" id="name-of-informant">
+                    </div>
+                    <div>
+                        <div class="relationship">Relationship</div>
+                        <input type="text" placeholder="" id="relationship">               
+                    </div>
+                    <div>
+                        <div class="informant_phone_number">Informant Phone Number</div>
+                        <input type="text" placeholder="" id="informant-phone-number">
+                    </div>
+                </span>
+            </div>
+
+            <!-- TO ADD SAVE BUTTON -->
+        </form>
+    </div>
+
+    <div class="patient-records-label">
+        Patient Records
+    </div>
+    <div>
+        <span>List of Records</span>
+        <span>No. of Entries Shown</span>
+        <input type="text" name="" id="num-entries">
+    </div>
+    <div class="search-patient-table">
+        .
+    </div>
+</body>
+</html>
