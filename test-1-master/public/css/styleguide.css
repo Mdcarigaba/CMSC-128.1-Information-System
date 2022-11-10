@@ -1,51 +1,51 @@
 /* Variables */
 
 :root {
-    --black: 
+    --black:
   rgba(0, 0, 0, 1);
-    --sinaggrayscale900: 
+    --sinaggrayscale900:
   rgba(1, 2, 12, 1);
-    --sinagsuccess500: 
+    --sinagsuccess500:
   rgba(20, 111, 45, 1);
-    --eerie-black: 
+    --eerie-black:
   rgba(31, 32, 34, 1);
-    --fun-blue: 
+    --fun-blue:
   rgba(31, 92, 173, 1);
-    --primarybase: 
+    --primarybase:
   rgba(51, 117, 206, 1);
-    --sinaggrayscale700: 
+    --sinaggrayscale700:
   rgba(59, 60, 61, 1);
-    --sinaggrayscale500: 
+    --sinaggrayscale500:
   rgba(141, 144, 151, 1);
-    --sinagprimary100: 
+    --sinagprimary100:
   rgba(159, 196, 245, 1);
-    --quick-silver: 
+    --quick-silver:
   rgba(167, 167, 167, 1);
-    --sinagwarning500: 
+    --sinagwarning500:
   rgba(190, 156, 52, 1);
-    --tropical-blue: 
+    --tropical-blue:
   rgba(200, 223, 255, 1);
-    --page-colorssubtitle: 
+    --page-colorssubtitle:
   rgba(207, 207, 207, 1);
-    --sinagsecondary700: 
+    --sinagsecondary700:
   rgba(217, 165, 7, 1);
-    --sinagsuccess100: 
+    --sinagsuccess100:
   rgba(225, 249, 232, 1);
-    --solitude: 
+    --solitude:
   rgba(233, 242, 255, 1);
-    --catskill-white: 
+    --catskill-white:
   rgba(240, 243, 247, 1);
-    --white-lilac: 
+    --white-lilac:
   rgba(247, 250, 253, 0.102);
-    --sinaggrayscale100: 
+    --sinaggrayscale100:
   rgba(247, 250, 253, 1);
-    --red: 
+    --red:
   rgba(255, 0, 0, 1);
-    --sinagwarning100: 
+    --sinagwarning100:
   rgba(255, 245, 216, 1);
-    --white22: 
+    --white22:
   rgba(255, 255, 255, 1);
-  
+
     --font-size-xxs: 16px; /*from 16px*/
     --font-size-xs: 18px; /*from 18px*/
     --font-size-s: 12px;
@@ -58,13 +58,13 @@
     --font-size-xs2: 15px;
     --font-size-32px: 32px;
     --font-size-36px: 36px;
-  
+
     --font-family-nunito: "Nunito";
     --font-family-nunito-regular: "Nunito-Regular";
   }
-  
+
   /* Classes */
-  
+
   .nunito-semi-bold-fun-blue-25px {
     color: var(--fun-blue);
     font-family: var(--font-family-nunito);
@@ -204,3 +204,4 @@
     font-weight: 500;
     font-style: normal;
   }
+
