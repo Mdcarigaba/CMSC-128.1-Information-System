@@ -23,17 +23,18 @@ app.use(bodyParser.json());
 app.use(express.static(initialPath));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(initialPath, "staff-home.html"));
+    res.sendFile(path.join(initialPath, "dashboard.html"));
 })
 
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(initialPath, "admin-home.html"));
+app.get('/cif', (req, res) => {
+    res.sendFile(path.join(initialPath, "cif.html"));
 })
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(initialPath, "login.html"));
+    res.sendFile(path.join(initialPath, "loginPage.html"));
 })
 
+//for test
 app.get('/register', (req, res) => {
     res.sendFile(path.join(initialPath, "register.html"));
 })
@@ -68,21 +69,31 @@ app.post('/register-user', (req, res) => {
 })
 
 app.post('/login-user', (req,res) => {
-    const {email, password} = req.body;
+    const {username, password} = req.body;
     
     db.select('username', 'email', 'usertype')
     .from('staff')
     .where({
-        email: email,
+        username: username,
         password: password
     })
     .then(data => {
         if(data.length){
             res.json(data[0]);
         } else{
-            res.json('Email or password is incorrect');
+            res.json('Username or password is incorrect');
         }
     })
+})
+
+//for testing
+app.get('/fetch-dru', (req, res) => {
+    db.select('name')
+        .from('dru')
+        .returning()
+        .then(data => {
+            res.json(data)
+        })
 })
 
 app.listen(3000, (req, res) => {
