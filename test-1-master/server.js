@@ -5,7 +5,14 @@ const knex = require('knex');
 
 const db = knex({
     client: 'pg',
-    connection: 'postgres://admin:2O1RLqA7UxAxFkWFnfqIhfxmztXY5JwT@dpg-cdj1c8kgqg433fdfdf20-a/main_qcvq'
+    //connection: 'postgres://admin:2O1RLqA7UxAxFkWFnfqIhfxmztXY5JwT@dpg-cdj1c8kgqg433fdfdf20-a/main_qcvq'
+    connection: {
+        host: 'localhost',
+        user: 'postgres',
+        port: '5433',
+        password: '1234',
+        database: 'postgres'
+    }
 })
 
 const app = express();
