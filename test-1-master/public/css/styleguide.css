@@ -1,0 +1,207 @@
+/* Variables */
+
+:root {
+    --black:
+  rgba(0, 0, 0, 1);
+    --sinaggrayscale900:
+  rgba(1, 2, 12, 1);
+    --sinagsuccess500:
+  rgba(20, 111, 45, 1);
+    --eerie-black:
+  rgba(31, 32, 34, 1);
+    --fun-blue:
+  rgba(31, 92, 173, 1);
+    --primarybase:
+  rgba(51, 117, 206, 1);
+    --sinaggrayscale700:
+  rgba(59, 60, 61, 1);
+    --sinaggrayscale500:
+  rgba(141, 144, 151, 1);
+    --sinagprimary100:
+  rgba(159, 196, 245, 1);
+    --quick-silver:
+  rgba(167, 167, 167, 1);
+    --sinagwarning500:
+  rgba(190, 156, 52, 1);
+    --tropical-blue:
+  rgba(200, 223, 255, 1);
+    --page-colorssubtitle:
+  rgba(207, 207, 207, 1);
+    --sinagsecondary700:
+  rgba(217, 165, 7, 1);
+    --sinagsuccess100:
+  rgba(225, 249, 232, 1);
+    --solitude:
+  rgba(233, 242, 255, 1);
+    --catskill-white:
+  rgba(240, 243, 247, 1);
+    --white-lilac:
+  rgba(247, 250, 253, 0.102);
+    --sinaggrayscale100:
+  rgba(247, 250, 253, 1);
+    --red:
+  rgba(255, 0, 0, 1);
+    --sinagwarning100:
+  rgba(255, 245, 216, 1);
+    --white22:
+  rgba(255, 255, 255, 1);
+
+    --font-size-xxs: 16px; /*from 16px*/
+    --font-size-xs: 18px; /*from 18px*/
+    --font-size-s: 12px;
+    --font-size-l: 50px;
+    --font-size-xl: 80px;
+    --font-size-xxl: 24px;
+    --font-size-s2: 20px; /*from 20px*/
+    --font-size-m2: 25px; /*from 25px*/
+    --font-size-l2: 48px; /*from 48px*/
+    --font-size-xs2: 15px;
+    --font-size-32px: 32px;
+    --font-size-36px: 36px;
+
+    --font-family-nunito: "Nunito";
+    --font-family-nunito-regular: "Nunito-Regular";
+  }
+
+  /* Classes */
+
+  .nunito-semi-bold-fun-blue-25px {
+    color: var(--fun-blue);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-m2);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .nunito-semi-bold-masala-20px {
+    color: var(--sinaggrayscale700);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .sinagh2 {
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-36px);
+    letter-spacing: 0px;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .sinagh6 {
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s);
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .sinagh4 {
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-xxl);
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .sinagh5 {
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-xxs);
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .nunito-semi-bold-tropical-blue-20px {
+    color: var(--tropical-blue);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .nunito-semi-bold-black-20px {
+    color: var(--black);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .nunito-bold-white-20px {
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .nunito-medium-celeste-20px {
+    color: var(--page-colorssubtitle);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 500;
+    font-style: normal;
+  }
+  .nunito-semi-bold-white-25px {
+    color: var(--white22);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-m2);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .nunito-semi-bold-eerie-black-20px {
+    color: var(--eerie-black);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .nunito-bold-mariner-25px {
+    color: var(--primarybase);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-m2);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .nunito-medium-mariner-20px {
+    color: var(--primarybase);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 500;
+    font-style: normal;
+  }
+  .nunito-medium-mariner-24px {
+    color: var(--primarybase);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-xxl);
+    font-weight: 500;
+    font-style: normal;
+  }
+  .sinagh1 {
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-l2);
+    letter-spacing: 0px;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .sinagh3 {
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-32px);
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .nunito-bold-mariner-20px {
+    color: var(--primarybase);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .nunito-bold-red-20px {
+    color: var(--red);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-s2);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .nunito-medium-mariner-25px {
+    color: var(--primarybase);
+    font-family: var(--font-family-nunito);
+    font-size: var(--font-size-m2);
+    font-weight: 500;
+    font-style: normal;
+  }
+

@@ -1,0 +1,21 @@
+{
+  "name": "test-1",
+  "packageManager": "yarn@3.2.4",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express.js": "^1.0.0",
+    "knex": "^2.3.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  },
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "jdsalongsongan <jdsalongsongan@up.edu.ph>",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  }
+}
