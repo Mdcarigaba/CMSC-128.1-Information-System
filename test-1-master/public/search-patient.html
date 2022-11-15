@@ -1,0 +1,212 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Patient</title>
+    <link rel="stylesheet" type="text/css" href="css/search-patient.css">
+    <script type="text/javascript" src="js/search-patient.js"></script>
+</head>
+<body>
+    <div class="module-1-body">
+        <nav id="nav" class="base-bg-color">
+            <div class="logo">
+                <img class="logo-small" src="img/logo-small.png" alt="logo-small">
+                <img class="logo-word nav-component-toggle" src="img/logo-word.png" alt="logo-word">
+            </div>
+            <hr>
+            <div class="nav-menu">
+                <a class="nav-item" href="#">
+                    <img class="nav-icon" src="img/home-icon.png" alt="home-icon">
+                    <p class="nav-component-toggle">Home</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <img class="nav-icon" src="img/patient-icon.png" alt="patient-icon">
+                    <p class="nav-component-toggle">Search Patient</p>
+                </a>
+                <a class="nav-item" href="/cif">
+                    <img class="nav-icon" src="img/cif-icon.png" alt="cif-icon">
+                    <p class="nav-component-toggle">CIF Entry</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <img class="nav-icon" src="img/form-icon.png" alt="form-icon">
+                    <p class="nav-component-toggle">Generate Forms</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <img class="nav-icon" src="img/queue-icon.png" alt="queue-icon">
+                    <p class="nav-component-toggle">DRU Queueing</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <img class="nav-icon" src="img/results-icon.png" alt="results-icon">
+                    <p class="nav-component-toggle">Results Entry</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <img class="nav-icon" src="img/release-icon.png" alt="release-icon">
+                    <p class="nav-component-toggle">Results Release</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <img class="nav-icon" src="img/report-icon.png" alt="report-icon">
+                    <p class="nav-component-toggle">Reports</p>
+                </a>
+                <div class="btn-collapse">
+                    <img src="img/btn-arrow-left.png" id="close-nav" alt="arrow-left">
+                </div>
+                <div class="btn-expand">
+                    <img src="img/btn-arrow-right.png" id="open-nav" alt="arrow-right">
+                </div>
+            </div>
+        </nav>
+    
+        <div class="right-body">
+            <div class="header row">
+                <div class="page-title-header">
+                    <div class="row">
+                        
+                        <div class="page-title">
+                            <p>Module 1: Search Patient</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-action">
+                    <div class="row">
+                        <div>
+                            <p class="user-session">Logged in as <span class="username admin-bold"></span></p>
+                        </div>
+                        <div class="user-icon">
+                            <img src="img/user-icon.png" alt="user">
+                        </div>
+                        <div class="dropdown">
+                            <div onclick="toggleDropdown()" class="arrow-down" id="arrow-down">
+                                <img src="img/chevron-down.png" alt="arrow-down">
+                            </div>
+                            <div id="dropdown" class="dropdown-content">
+                                <div class="user-details">
+                                    <p class="user-type"></p>
+                                    <p class="user-email"></p>
+                                </div>
+                                <div class="user-actions">
+                                    <div class="edit-profile-btn">
+                                        <img src="img/user-profile.png" alt="user-profile">
+                                        <p>Edit Profile</p>
+                                    </div>
+                                    <div class="logout-btn">
+                                        <img src="img/logout.png" alt="logout-icon">
+                                        <p>Logout</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODULE 1 -->
+            <div class="filter">
+                <div class="filter-header">
+                    <img class="filter-icon" src="img/filter-icon.png" alt="">
+                    <span class="filter-title">Filter</span>
+                </div>
+                <form class="filter-body">
+                    <div class="input-fields-labels1">
+                        <span class="labels1-div">
+                            <div>
+                                <div class="last_name_label">Last Name</div>
+                                <input type="text" id="last-name">
+                            </div>
+                            <div>
+                                <div class="first_name_label">First Name</div>
+                                <input type="text" id="first-name">
+                            </div>
+                            <div>
+                                <div class="lab_number_label">Laboratory Number</div>
+                                <input type="text" id="laboratory-number">
+                            </div>
+                        </span>
+                    </div>
+                    <div class="input-fields-labels2">
+                        <span class="labels2-div">
+                            <div>
+                                <div class="from_label">From</div>
+                                <input type="text" placeholder="MM/DD/YYYY" id="from"></input>
+                            </div>
+                            <div>
+                                <div class="to_label">To</div>
+                                <input type="text" placeholder="MM/DD/YYYY" id="to">
+                            </div>
+                            <div>
+                                <div class="VS_label">Validation Status</div>
+                                <label for="validation_status"></label>
+                                <select name="validation_status" class="validation_status">
+                                    <option value="validated">Validated</option>
+                                    <option value="not_validated">Not Validated</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="FC_label">Final Classification</div>
+                                <label for="final_classification"></label>
+                                <select name="final_classification" class="final_classification">
+                                    <option value="option1">option1</option>
+                                    <option value="option2">option2</option>
+                                </select>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="search-btn-div">
+                        <button type="submit" class="search-btn" onclick="searchTable()"><img class="search-icon" src="img/search-icon.png" alt="">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="patient-records-label">
+                Patient Records
+            </div>
+            <div class="list-desc">
+                <!-- <span> -->
+                    <div class="l1">List of Records</div>
+                    <div class="l2">
+                        No. of Entries Shown
+                        <input type="text" name="" id="num-entries">
+                    </div>
+                <!-- </span> -->
+            </div>
+            <div class="search-patient-table">
+                <table class="recordsTable" cellspacing="0">
+                    <thead>
+                        <tr class="records-table-header">
+                            <th id="first-col">CIF No.</th>
+                            <th>Lab No.</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Date Encoded</th>
+                            <th>Date Collected</th>
+                            <th>Validation Status</th>
+                            <th>Final Classification</th>
+                            <th id="last-col">Action</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody id="tableData">
+    
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination_section" style="display: flex; width: 900px;">
+                <div id="counterDiv"> 
+                    <!-- n is number of "entries shown" -->
+                    Showing 1-n of *total* entries
+                <!-- <input id="counter" type="number" value="0" readonly> -->
+                </div>
+                <div class="btns">
+                    <button class="back-next">&lt;</button>
+                    <button class="back-next">></button>
+                </div>
+                <div id="pageCounterDiv"> 
+                    <!-- n is number of "entries shown" -->
+                    Page <span id="pagination-page"></span> of <span>*total*</span> pages
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
