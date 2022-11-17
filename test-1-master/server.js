@@ -39,6 +39,10 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(initialPath, "register.html"));
 })
 
+app.get('/search-patient', (req, res) => {
+    res.sendFile(path.join(initialPath, "search-patient.html"));
+})
+
 app.post('/register-user', (req, res) => {
     const{username, firstname, middlename, lastname, dru, contact, email, password, usertype} = req.body;
     if(!username.length || !firstname.length || !middlename.length || 
