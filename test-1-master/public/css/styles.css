@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700,500,600,800");
+@import "styleguide.css";
 
 @media (max-width: 600px) {
   section {
@@ -7,48 +8,32 @@
   }
 }
 
+html, body {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  align-items: center;
+  margin: auto;
+}
+
 .hidden,
 .hidden * {
   pointer-events: none;
   visibility: hidden;
 }
 
-.valign-text-middle {
+.align-text-middle {
   display: flex;
   flex-direction: column;
   justify-content: center;
  }
 
-.flex-row {
-  align-items: flex-start;
-  display: flex;
-  height: 28px;
-  left: 20px;
-  min-width: 368px;
-  position: relative;
-  top: 16px;
-}
-
-.text-1 {
-  height: 27px;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: 23px;
-  min-width: 91px;
-}
-
-.login {
-  color: var(--white22);
-  font-family: var(--font-family-nunito);
-  font-size: var(--font-size-m2);
-  font-weight: 600;
-  height: 34px;
-  letter-spacing: 0;
-  line-height: normal;
-  display: flex;
-}
-
-.login-with-your-pers {
+p {
   color: var(--sinaggrayscale700);
   font-family: var(--font-family-nunito);
   font-size: var(--font-size-xs);
@@ -71,86 +56,110 @@
 
 .logo {
   height: 70px;
-  margin-left: 38px;
-  margin-top: 43px;
+  margin-left: 40px;
+  margin-top: 45px;
   width: 70px;
 }
 
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+
+}
+
 .image-panel {
-  align-items: flex-end;
-  border: 1px none;
+  align-items: center;
   display: flex;
   margin-left: 20px;
-  padding: 25px 0;
-  width: 1000px;
+  padding: 25px;
+  width: 900px;
 }
 
-.undraw_doctors_hwty-2 {
-    position: absolute;
+.login-image{
     height: 581px;
     object-fit: cover;
-    width: 800px;
-
-    left: 647px;
-    top: 100px;
+    width: 850px;
 }
 
-.submit-btn{
-    width: 200px;
-    height: 50px;
-    color: var(--white22);
-    font-family: var(--font-family-nunito);
-    font-size: var(--font-size-m2);
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: normal;
-    display: flex;
-
-    align-items: flex-start;
-    background-color: var(--sinagsecondary700);
-    border: 1px none;
-    border-radius: 30px;
-    box-shadow: 0px 5px 15px #00000030;
-    cursor: pointer;
-    display: flex;
-    margin-top: 40px;  
-    width: 200px;
-    height: 50px;
-    overflow: hidden;
-    text-align: center;
-    margin: 50px;
-    padding-left: 65px;
+a {
+  color: var(--sinaggrayscale500);
+  font-family: var(--font-family-nunito);
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.form{
-    border: 1px none;
-    display: flex;
-    flex-direction: column;
-    margin-left: 150px;
-    padding: 80px 0;
+a:hover {
+  color: var(--fun-blue);
+  font-family: var(--font-family-nunito);
+  font-weight: 500;
+  text-decoration: underline;
+
 }
 
-input{
-    background: var(--sinaggrayscale100);
-    border-radius: 15px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    width: 409px;
-    height: 58px;
-    padding: 50px 25px 25px 40px;    
+.input-field {
+  padding: 0 30px 0 10px;
+  background-color: var(--sinaggrayscale100);
+  height: 60px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 15% 80% 5%;
+  position: relative;
+  width: 409px;
 }
 
-#user-email{
-    background: url('../img/username.png')no-repeat left center;
-    background-position: 5px 15px !important;
-    padding: 15px 35px 15px 30px;
-    width: 400px;
+.input-field i {
+  text-align: center;
+  line-height: 60px;
+  color: var(--sinagsecondary700);
+  margin-left: 10px;
 }
 
-#user-pass{
-    background: url('../img/password.png')no-repeat left center;
-    background-position: 5px 15px !important;
-    padding: 15px 35px 15px 30px;
-    width: 400px;
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  font-weight: 600;
 }
+
+.input-field input::placeholder {
+  color: var(--sinaggrayscale500);
+}
+
+.submit-btn {
+  width: 150px;
+  outline: none;
+  height: 50px;
+  width: 200px;
+  border-radius: 30px;
+  border: none;
+  background-color: var(--sinagsecondary700);
+  color:var(--white22);
+  cursor: pointer;
+  display: inline-block;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-m2);
+  font-weight: 500;
+  font-style: normal;
+  box-shadow: 0px 5px 20px #00000030;
+
+}
+
+.submit-btn:hover {
+  background-color: var(--fun-blue);
+  color: white;
+  box-shadow: 0px 5px 20px #00000030;
+}
+
+/*for margins*/
+
+.mb-15 { margin-bottom: 15px; }
+
+.mb-20 { margin-bottom: 20px; }
+
+.mb-30 { margin-bottom: 30px; }
+
+.mb-40 {margin-bottom: 40px; }
+
+.mb-50 { margin-bottom: 50px }
