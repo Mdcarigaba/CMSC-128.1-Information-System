@@ -36,6 +36,15 @@ body {
     color: white;
 }
 
+.information {
+    width: 900px;
+    height: 300px;
+    /* border: 0.5px solid black; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 1px 0px #969696;
+}
+
 .investigation {
     width: 900px;
     height: 250px;
@@ -43,6 +52,7 @@ body {
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
+    margin-top: 20px;
 }
 
 .philhealth-info {
@@ -117,7 +127,7 @@ body {
 
 .clinical-information {
     width: 900px;
-    height: 250px;
+    height: 800px; /*to be modified*/
     /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
@@ -137,7 +147,7 @@ body {
 
 .final-classification {
     width: 900px;
-    height: 250px;
+    height: 150px;
     /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
@@ -165,13 +175,11 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 .investigation-icon {
     width: 20px;
     height: 20px;
     margin-left: 15px;
 }
-
 .investigation-title {
     font-weight: bold;
     color: white;
@@ -253,7 +261,6 @@ body {
     position: relative;
     text-align: left;
 }
-
 .labels2-div {
     display: flex;
     justify-content: center;
@@ -307,7 +314,6 @@ body {
     display: flex;
     justify-content: center;
 }
-
 .search-btn {
     background-color: #3476CE;
     color: white;
@@ -317,13 +323,11 @@ body {
     text-align: center;
     border-radius: 5px;
 }
-
 .search-icon {
     width: 15px;
     height: 15px;
     margin-right: 5px;
 }
-
 .patient-records-label {
     margin-top: 30px;
     font-size: 25px;

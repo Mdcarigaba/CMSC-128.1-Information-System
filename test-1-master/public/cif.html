@@ -1,4 +1,9 @@
 <!-- FOCUSED MORE ON TEXTFIELDS; DIDN'T ADD BUTTONS YET; LAYOUT NOT FIXED YET-->
+<!-- UPDATE: ADDED MORE BUTTONS
+    TO DO:  CSS
+            ADD IMAGES
+            CONTENT FOR SPECIMEN INFORMATION
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,14 +13,37 @@
     <link rel="stylesheet" type="text/css" href="css/cif.css">
 </head>
 <body>
+        <div class="information">
+        <div class="header">
+            <img class="icon" src="" alt="">
+            <span class="title">Search Patient Information</span>
+        </div>
+        <div class="patient_name">Patient's Name</div>
+        <div class = "cif_label">CIF-1</div>
+        <div class = "validation_status">Validated</div>
+
+        <div class="remarks">Validator's Remarks:</div>
+        <div class="remarks_label"><p>Varius morbi enim nunc faucibus. Sed arcu non odio euismod lacinia at. Cursus eget nunc scelerisque viverra mauris in. Vitae suscipit tellus mauris a diam maecenas sed enim. Pharetra sit amet aliquam id diam maecenas ultricies mi eget. In iaculis nunc sed augue lacus viverra. Amet venenatis urna cursus eget nunc. Massa sed elementum tempus egestas sed sed risus pretium. Nec ultrices dui sapien eget mi proin sed. 
+        </p></div>
+        <div class="date">Date</div>
+        
+    </div>
     <div class="investigation">
         <div class="header">
             <img class="icon" src="" alt="">
             <span class="title">Investigation</span>
         </div>
         <form class="investigation-body">
-            <div class="input-fields-labels1">
-                <span class="labels1-div">
+            <div class = "input-fields-labels1">
+                <div class = "select">Select if possible: </div>
+                <div class = "patient-status"> Patient Status: </div>
+                    <input type="checkbox" id="patient-status-TOD" name = "ps-1" value = "TOD">
+                    <label for = "ps-1"> TOD patient </label>
+                    <input type="checkbox" id="patient-status-priority" name = "ps-2" value = "Priority">
+                    <label for = "ps-2"> Priority patient </label>
+            </div>
+            <div class="input-fields-labels2">
+                <span class="labels2-div">
                     <div>
                         <div class="lab_number_label">Laboratory Number</div>
                         <input type="text" id="laboratory-number">
@@ -43,9 +71,6 @@
                         <input type="text" placeholder="MM/DD/YYYY" id="date-of-interview">
                     </div>
                 </span>
-            </div>
-            <div class="search-btn-div">
-                <button type="submit" class="search-btn"><img class="search-icon" src="" alt="">Search</button>
             </div>
         </form>
     </div>
@@ -234,6 +259,12 @@
                 </span>
             </div>
             <!-- TO ADD BUTTONS -->
+            <div class = "button-fields">
+                <span class = "button-fields-div">
+                    <button class = "clear-button">CLEAR</button>
+                    <button class = "same-button">SAME AS PERMANENT ADDRESS</button>
+                 </span>
+            </div>
         </form>
     </div>
 
@@ -293,7 +324,13 @@
                     </div>
                 </span>
             </div>
-
+            <!-- TO ADD BUTTONS -->
+            <div class = "button-fields">
+                <span class = "button-fields-div">
+                    <button class = "clear-button">CLEAR</button>
+                    <button class = "na-button">FILL ALL FIELDS WITH "N/A"</button>
+                 </span>
+            </div>
         </form>
     </div>
 
@@ -350,6 +387,12 @@
                 </span>
             </div>
             <!-- TO ADD BUTTONS -->
+            <div class = "button-fields">
+                <span class = "button-fields-div">
+                    <button class = "clear-button">CLEAR</button>
+                    <button class = "na-button">FILL ALL FIELDS WITH "N/A"</button>
+                 </span>
+            </div>
         </form>
     </div>
 
@@ -376,8 +419,13 @@
                     </div>
                 </span>
                 <!-- ADD MORE ROWS BUTTON -->
+                <div class = "button-fields">
+                    <span class = "button-fields-div">
+                        <button class = "add-button">ADD MORE ROWS</button>
+                     </span>
+                </div>
             </div>
-
+            <p> List all the names of persons who were with you during this/these occasion(s) and their contact numbers. </p>
             <div class="input-fields-labels2">
                 <span class="labels2-div">
                     <div>
@@ -389,25 +437,12 @@
                         <input type="text" placeholder="" id="close-contact-number">               
                     </div>
                 </span>
+                <div class = "button-fields">
+                    <span class = "button-fields-div">
+                        <button class = "add-button">ADD MORE ROWS</button>
+                     </span>
+                </div>
             </div>
-
-            <div class="input-fields-labels3">
-                <span class="labels3-div">
-                    <div>
-                        <div class="employer-province">Province/State</div>
-                        <input type="text" id="employer-province">
-                    </div>
-                    <div>
-                        <div class="country">Country</div>
-                        <input type="text" id="country">
-                    </div>
-                    <div>
-                        <div class="Office">Office Phone Number</div>
-                        <input type="text" id="office-phone-number">
-                    </div>
-                </span>
-            </div>
-
         </form>
     </div>
 
@@ -417,6 +452,23 @@
             <span class="title">Clinical Information</span>
         </div>
         <form class="p-body">
+            <div class = "">
+                <span class = "">
+                    <div>
+                        <p> Disposition at Time of Report </p>
+                        <input type = "radio" id = "inpatient" name = "disposition" value = "inpatient">
+                        <label for = "inpatient"> Inpatient </label>
+                        <input type = "radio" id = "outpatient" name = "disposition" value = "outpatient">
+                        <label for = "outpatient"> Outpatient </label>
+                        <input type = "radio" id = "died" name = "disposition" value = "died">
+                        <label for = "died"> Died </label>
+                        <input type = "radio" id = "discharged" name = "disposition" value = "discharged">
+                        <label for = "discharged"> Discharged </label>
+                        <input type = "radio" id = "unknown" name = "disposition" value = "unknown">
+                        <label for = "Unknown"> Unknown </label>
+                    </div>
+                </span>
+            </div>
             <div class="input-fields-labels1">
                 <span class="labels1-div">
                     <div>
@@ -464,6 +516,67 @@
                 </span>
             </div>
             <!-- TO ADD BUTTONS -->
+            <!-- SIGNS/ SYMPTOMS-->
+            <!-- TO REPLACE THEIR IDS-->
+            <!-- TO FIX CSS-->
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "asymptomatic">Asymptomatic</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "fever">Fever</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "cough">Cough</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "general_weakness">General Weakness</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "fatigue">Fatigue</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "headache">Headache</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "myalgia">Myalgia</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "sore_throat">Sore Throat</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "coryza">Coryza</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "cough">Cough</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "dyspnea">Dyspnea</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "anorexia">Anorexia</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "nausea">Nausea</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "vomiting">Vomiting</label>            
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "diarrhea">Diarrhea</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "altered_mental_status">Altered Mental Status</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "anosmia">Anosmia</label>
+            <label class = "signs_symptoms"><input type="checkbox" id="signs-symptoms" value = "ageusia">Ageusia</label>
+            <!-- TO DOUBLE CHECK ALL VALUES-->
+
+            <div>
+                <p> Is there any history of other illness? </p>
+
+                <p> If Yes, when? </p>
+
+                <div>
+                    <p> CXR Results: Pneumonia </p>
+                    <!--radio buttons-->
+                    <label> <input type = "radio" id = "yes_pneumonia" name = "pneumonia" value = "yes_pneumonia">Yes</label>
+                    <label> <input type = "radio" id = "no_pneumonia" name = "pneumonia" value = "no_pneumonia">No</label>
+                    <label> <input type = "radio" id = "pending_pneumonia" name = "pneumonia" value = "pending_pneumonia">Pending</label>
+                    <label> <input type = "radio" id = "na_pneumonia" name = "pneumonia" value = "na_pneumonia">N/A</label>
+                </div>
+
+                <div>
+                    <p> Assessed as High Risk Pregnancy? </p>
+                    <!-- radio buttons -->
+                    <label> <input type = "radio" id = "yes_pregnancy_risk" name = "pregnancy_risk" value = "yes_pregnancy_risk">Yes</label>
+                    <label> <input type = "radio" id = "no_pregnancy_risk" name = "pregnancy_risk" value = "no_pregnancy_risk">No</label>
+                    <label> <input type = "radio" id = "na_pregnancy_risk" name = "pregnancy_risk" value = "na_pregnancy_risk">N/A</label>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <p> Chest XRAY done? </p>
+                    <label> <input type = "radio" id = "yes_xray" name = "xray" value = "yes_xray">Yes</label>
+                    <label> <input type = "radio" id = "no_xray" name = "xray" value = "no_xray">No</label>
+                    <p> If yes, when? </p>
+                    <!--INSERT INPUT TYPE DATE-->
+
+                </div>
+
+                <div>
+                    <p> Other Radiologic Findings: </p>
+                    <input type = "text">
+                </div>
+            </div>
         </form>
     </div>
 
@@ -472,54 +585,8 @@
             <img class="icon" src="" alt="">
             <span class="title">Specimen Information</span>
         </div>
+        <!-- TABLE FORMAT -->
         <form class="p-body">
-            <div class="input-fields-labels1">
-                <span class="labels1-div">
-                    <div>
-                        <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
-                        <input type="text" placeholder="" id="date-of-onset-of-illness">
-                    </div>
-                    <div>
-                        <div class="date_of_admission">Date of Admission</div>
-                        <input type="text" placeholder="" id="date-of-admission">
-                    </div>
-                    <div>
-                        <div class="temperature">Temperature</div>
-                        <input type="text" placeholder="" id="temperature">               
-                    </div>
-                </span>
-            </div>
-
-            <div class="input-fields-labels2">
-                <span class="labels2-div">
-                    <div>
-                        <div class="port_of_exit">Port (Country) of Exit</div>
-                        <input type="text" placeholder="" id="port-of-exit">
-                    </div>
-                    <div>
-                        <div class="airline-or-seavessel">Airline/Sea Vessel</div>
-                        <input type="text" placeholder="" id="airline_or_seavessel">               
-                    </div>
-                    <div>
-                        <div class="flight_or_vessel_no">Flight/Vessel Number</div>
-                        <input type="text" placeholder="" id="flight-or-vessel-no">
-                    </div>
-                </span>
-            </div>
-
-            <div class="input-fields-labels3">
-                <span class="labels3-div">
-                    <div>
-                        <div class="date_of_departure">Date of Departure</div>
-                        <input type="text" id="date-of-departure">
-                    </div>
-                    <div>
-                        <div class="date_of_arrival">Date of Arrival in the Philippines</div>
-                        <input type="text" id="date-of-arrival">
-                    </div>
-                </span>
-            </div>
-            <!-- TO ADD BUTTONS -->
         </form>
     </div>
 
@@ -532,18 +599,17 @@
             <div class="input-fields-labels1">
                 <span class="labels1-div">
                     <!-- TO ADD BUTTONS -->
-
                     <div>
-                        <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
-                        <input type="text" placeholder="" id="date-of-onset-of-illness">
-                    </div>
-                    <div>
-                        <div class="date_of_admission">Date of Admission</div>
-                        <input type="text" placeholder="" id="date-of-admission">
-                    </div>
-                    <div>
-                        <div class="temperature">Temperature</div>
-                        <input type="text" placeholder="" id="temperature">               
+                        <input type = "radio" id = "suspect" name = "final_classification" value = "suspect">
+                        <label for = "suspect"> Suspect Case </label>
+                        <input type = "radio" id = "probable" name = "final_classification" value = "probable">
+                        <label for = "probable"> Probable Case </label>
+                        <input type = "radio" id = "confirmed" name = "final_classification" value = "confirmed">                        
+                        <label for = "confirmed"> Confirmed Case </label>
+                        <input type = "radio" id = "discharged" name = "disposition" value = "discharged">
+                        <label for = "discharged"> Discharged </label>
+                        <input type = "radio" id = "unknown" name = "disposition" value = "unknown">
+                        <label for = "Unknown"> Unknown </label>
                     </div>
                 </span>
             </div>
@@ -564,6 +630,16 @@
                     </div>
                     <div>
                         <!-- BUTTONS FOR CONDITION ON DISCHARGE-->
+                        <input type = "radio" id = "improved" name = "condition_on_discarge" value = "improved">
+                        <label for = "suspect"> Improved </label>
+                        <input type = "radio" id = "recovered" name = "condition_on_discarge" value = "recovered">
+                        <label for = "recovered"> Recovered </label>
+                        <input type = "radio" id = "transferred" name = "condition_on_discarge" value = "transferred">
+                        <label for = "transferred"> Transferred </label>
+                        <input type = "radio" id = "absconded" name = "condition_on_discarge" value = "absconded">
+                        <label for = "absconded"> Absconded </label>
+                        <input type = "radio" id = "died" name = "condition_on_discarge" value = "died">
+                        <label for = "died"> Died </label>
                     </div>
                 </span>
             </div>
@@ -586,19 +662,12 @@
             </div>
 
             <!-- TO ADD SAVE BUTTON -->
+            <div class = "button-fields">
+                <span class = "button-fields-div">
+                    <button class = "save-button">SAVE RECORD</button>
+                 </span>
+                </div>
         </form>
-    </div>
-
-    <div class="patient-records-label">
-        Patient Records
-    </div>
-    <div>
-        <span>List of Records</span>
-        <span>No. of Entries Shown</span>
-        <input type="text" name="" id="num-entries">
-    </div>
-    <div class="search-patient-table">
-        
     </div>
 </body>
 </html>

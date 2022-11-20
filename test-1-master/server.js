@@ -13,6 +13,7 @@ const db = knex({
         password: '1234',
         database: 'postgres'
     }
+    //change connection 
 })
 
 const app = express();
@@ -38,6 +39,13 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.sendFile(path.join(initialPath, "register.html"));
 })
+
+app.get('/search-patient', (req, res) => {
+    res.sendFile(path.join(initialPath, "search-patient.html"));
+})
+
+//make some fx within post request of cif entry
+//cut array into multiple entries
 
 app.post('/register-user', (req, res) => {
     const{username, firstname, middlename, lastname, dru, contact, email, password, usertype} = req.body;
