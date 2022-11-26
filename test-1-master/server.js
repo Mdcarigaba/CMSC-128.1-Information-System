@@ -6,6 +6,9 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     //connection: 'postgres://admin:2O1RLqA7UxAxFkWFnfqIhfxmztXY5JwT@dpg-cdj1c8kgqg433fdfdf20-a/main_qcvq'
+    //make sure that you have a user 'postgres' with password '1234' and database 'postgres'
+    //with port '5433' for the database to be connected
+    
     connection: {
         host: 'localhost',
         user: 'postgres',
@@ -14,6 +17,25 @@ const db = knex({
         database: 'postgres'
     }
     //change connection 
+})
+
+//insert tables in the database
+//check for presence of table first
+//if not present, create a new table
+//chain this with other has table check for all 32+ tables
+db.schema.hasTable('dru').then((e) => {
+    if(!e){
+        db.schema.createTable('dru', function (t) {
+            t.increments('id').primary();
+            t.string('name');
+            t.string('region');
+            t.string('province');
+        })
+    }
+    else{
+        //no code here, just for debugging 
+        console.log('table already exists')
+    }
 })
 
 const app = express();
