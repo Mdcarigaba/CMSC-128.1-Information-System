@@ -4,7 +4,7 @@ const email = document.querySelector('.user-email');
 
 window.onload = () => {
     if(!sessionStorage.username){
-        location.href = '/login';
+        //location.href = '/login';
     } else{
         username.innerHTML = sessionStorage.username;
         usertype.innerHTML = (sessionStorage.usertype).toUpperCase();
