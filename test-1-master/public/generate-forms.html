@@ -3,12 +3,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Patient</title>
-    <link rel="stylesheet" type="text/css" href="css/search-patient.css">
-    <script type="text/javascript" src="js/search-patient.js"></script>
+    <title>Generate Forms</title>
+    <link rel="stylesheet" type="text/css" href="css/generate-forms.css">
+    <script type="text/javascript" src="js/generate-forms.js"></script>
 </head>
 <body>
-    <div class="module-1-body">
+    <div class="module-3-body">
+        <!-- NAV BAR -->
         <nav id="nav" class="base-bg-color">
             <div class="logo">
                 <img class="logo-small" src="img/logo-small.png" alt="logo-small">
@@ -58,12 +59,13 @@
         </nav>
     
         <div class="right-body">
+            <!-- HEADER -->
             <div class="header row">
                 <div class="page-title-header">
                     <div class="row">
                         
                         <div class="page-title">
-                            <p>Module 1: Search Patient</p>
+                            <p>Module 3: Generate Forms</p>
                         </div>
                     </div>
                 </div>
@@ -99,31 +101,15 @@
                     </div>
                 </div>
             </div>
-            <!-- MODULE 1 -->
+            <!-- MODULE 3 -->
             <div class="filter">
                 <div class="filter-header">
                     <img class="filter-icon" src="img/filter-icon.png" alt="">
                     <span class="filter-title">Filter</span>
                 </div>
                 <form class="filter-body">
-                    <div class="input-fields-labels1">
+                    <div class="input-fields-labels1"> 
                         <span class="labels1-div">
-                            <div>
-                                <div class="last_name_label">Last Name</div>
-                                <input type="text" id="last-name">
-                            </div>
-                            <div>
-                                <div class="first_name_label">First Name</div>
-                                <input type="text" id="first-name">
-                            </div>
-                            <div>
-                                <div class="lab_number_label">Laboratory Number</div>
-                                <input type="text" id="laboratory-number">
-                            </div>
-                        </span>
-                    </div>
-                    <div class="input-fields-labels2">
-                        <span class="labels2-div">
                             <div>
                                 <div class="from_label">From</div>
                                 <input type="text" placeholder="MM/DD/YYYY" id="from"></input>
@@ -133,30 +119,37 @@
                                 <input type="text" placeholder="MM/DD/YYYY" id="to">
                             </div>
                             <div>
-                                <div class="VS_label">Validation Status</div>
-                                <label for="validation_status"></label>
-                                <select name="validation_status" class="validation_status">
-                                    <option value="validated">Validated</option>
-                                    <option value="not_validated">Not Validated</option>
-                                </select>
-                            </div>
-                            <div>
-                                <div class="FC_label">Final Classification</div>
-                                <label for="final_classification"></label>
-                                <select name="final_classification" class="final_classification">
-                                    <option value="option1">option1</option>
-                                    <option value="option2">option2</option>
-                                </select>
+                                <div>
+                                    <div class="lab_number_label">Laboratory Number</div> <!-- VERIFY IF LABORATORY ID NUMBER OR LAB NUMBER ONLY -->
+                                    <input type="text" id="laboratory-number">
+                                </div>
                             </div>
                         </span>
                     </div>
-                    <div class="search-btn-div">
-                        <button type="submit" class="search-btn" onclick="searchTable()"><img class="search-icon" src="img/search-icon.png" alt="">Search</button>
+                    <div class="input-fields-labels2">
+                        <span class="labels2-div">
+                            <div>
+                                <div class="encoder_label">Encoded by</div>
+                                <input type="text" id="encoder-name">
+                            </div>
+                            <div>
+                                <div class="dru_label">Disease Reporting Unit/Hospital</div>
+                                <input type="text" id="dru-label">
+                            </div>
+                        </span>
+                    </div>
+                    <div class="search-btn-div"> <!-- to be renamed to filter -->
+                        <button type="submit" class="search-btn" onclick="searchTable()"><img class="search-icon" src="img/search-icon.png" alt="">Filter</button>
                     </div>
                 </form>
             </div>
-            <div class="patient-records-label">
-                Patient Records
+            <div class = "batch-generation-header">
+                <div class="batch-generation-label"> Batch Generation </div>
+                <div class="batch-btn-div"> <!-- to be renamed to filter -->
+                    <button type="submit" class="export-selected-btn">Export Selected</button>
+                    <button type="submit" class="export-to-pdf-btn">Export to PDF</button>
+                    <button type="submit" class="export-to-excel-btn">Export to Excel</button>
+                </div>
             </div>
             <div class="list-desc">
                 <!-- <span> -->
@@ -167,21 +160,22 @@
                     </div>
                 <!-- </span> -->
             </div>
-            <div class="search-patient-table">
+            <div class="generate-forms-table">
                 <table class="recordsTable" cellspacing="0">
                     <thead>
                         <tr class="records-table-header">
+                            <th> <input type ="checkbox"></th>
                             <th id="first-col">CIF No.</th>
                             <th>Lab No.</th>
                             <th>Last Name</th>
                             <th>First Name</th>
-                            <th>Middle Name</th>
+                            <!--<th>Middle Name</th>-->
                             <th>Gender</th>
                             <th>Age</th>
-                            <th>Date Encoded</th>
                             <th>Date Collected</th>
-                            <th>Validation Status</th>
-                            <th>Final Classification</th>
+                            <th>Date Submitted</th>
+                            <th>DRU</th>
+                            <!--<th>Final Classification</th>-->
                             <th id="last-col">Action</th>
                         </tr>
                     </thead>
@@ -208,6 +202,7 @@
             </div>
         </div>
     </div>
+
     <script src="js/index.js"></script>
 </body>
 </html>
