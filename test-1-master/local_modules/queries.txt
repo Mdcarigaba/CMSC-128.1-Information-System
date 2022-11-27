@@ -1,0 +1,311 @@
+--login related tables
+--must be populated
+create table if not exists dru(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+name character varying,
+region character varying,
+province character varying
+);
+
+ create table if not exists staff(
+ id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+ username character varying,
+ firstname character varying,
+ middlename character varying,
+ lastname character varying,
+ dru_id int references dru (id),
+ contact character varying,
+ email character varying unique,
+ password character varying,
+ usertype character varying
+ );
+
+--cif related tables
+create table if not exists address_contactinfo(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+hn_bl_lot_buildno character varying,
+barangay character varying,
+muni_city character varying,
+province character varying,
+region character varying,
+home_no character varying,
+cell_no character varying,
+email_add character varying 
+);
+
+create table if not exists workplace(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+name character varying,
+address_contactinfo_id bigint references address_contactinfo (id)
+);
+
+create table if not exists patient(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+philhealth_no bigint not null,
+firstname character varying,
+middlename character varying,
+lastname character varying,
+age character varying,
+sex character varying,
+birthday date,
+occupation character varying,
+civil_status character varying,
+nationality character varying,
+permanent_address_id bigint references address_contactinfo (id),
+current_address_id bigint references address_contactinfo (id),
+workplace_id bigint  references address_contactinfo (id),
+works_in_closed_settings character varying
+);
+
+create table if not exists informant(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+name character varying,
+contact_no character varying
+);
+
+create table if not exists patient_informant(
+patient_id bigint references patient (id),
+informant_id bigint references informant (id),
+relation_to_patient character varying,
+primary key (patient_id, informant_id)
+);
+
+create table if not exists healthcare_worker(
+patient_id bigint primary key references patient (id),
+health_facility_name character varying,
+health_facility_address character varying
+);
+
+create table if not exists lsi_apor_localtraveler(
+patient_id bigint primary key references patient (id),
+city_mun_origin character varying,
+province_origin character varying,
+is_LSI boolean,
+is_apor_loctraveler boolean
+);
+
+create table if not exists living_in_close_settings(
+patient_id bigint primary key references patient (id),
+institution_name character varying,
+institution_type character varying
+);
+
+create table if not exists returning_overseas_filipino(
+patient_id bigint primary key references patient (id),
+country_origin character varying,
+health_facility_address character varying
+);
+
+create table if not exists cif_type(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+is_new_case boolean,
+is_unknown boolean,
+other character varying
+);
+
+create table if not exists for_update(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+symptoms boolean,
+health_status boolean,
+case_classification boolean,
+vaccination boolean,
+lab_result boolean,
+chest_image_findings boolean,
+disposition boolean,
+exposure boolean
+);
+
+create table if not exists cif(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+patient bigint references patient (id),
+investigator bigint references staff (id),
+date_of_interview date,
+client_classification character varying,
+testing_category character varying,
+cif_type_id bigint references cif_type (id),
+validation_status character varying
+);
+
+create table if not exists case_inves_details(
+cif_id bigint not null primary key references cif (id),
+health_status_at_consult character varying,
+case_classification character varying
+);
+
+create table if not exists have_prev_consultation(
+cif_id bigint primary key references case_inves_details (cif_id),
+date_of_consultation date,
+consultation_facility_name character varying
+);
+
+create table if not exists disposition(
+cif_id bigint primary key references case_inves_details (cif_id),
+admitted_in character varying,
+name_of_facility character varying,
+datetime_admission_isolation TIMESTAMP,
+other character varying
+);
+
+create table if not exists vaccine(
+id bigint not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+name character varying
+);
+
+create table if not exists vaccination_info(
+cid_id bigint not null references case_inves_details (cif_id),
+vacc_id bigint not null references vaccine (id),
+date_of_vaccination date, 
+dose_number int,
+name_vacc_facility character varying,
+region_vacc_facility character varying,
+have_adverse_effects character varying,
+primary key (cid_id, vacc_id)
+);
+
+create table if not exists clinical_information(
+cid_id bigint primary key not null references case_inves_details (cif_id),
+date_of_onset_illness date,
+is_pregnant boolean,
+date_last_mensperiod date,
+is_diagnosed_to_sari boolean
+);
+
+create table if not exists symptoms(
+cli_info_id bigint primary key not null references clinical_information (cid_id),
+is_asymptomatic boolean,
+have_fever boolean,
+fever_temp int,
+have_cough boolean,
+have_general_weakness boolean,
+experiences_fatigue boolean,
+have_headache boolean,
+have_myalgia boolean,
+have_sore_throat boolean,
+have_coryza boolean,
+have_dyspnea boolean,
+have_anorexia boolean,
+experiences_nausea boolean,
+have_diarrhea boolean,
+exp_altered_mental_status boolean,
+exp_anosmia boolean,
+exp_ageusia boolean,
+other character varying
+);
+
+create table if not exists comorbidities(
+cli_info_id bigint primary key not null references clinical_information (cid_id),
+have_gastrointestinal boolean,
+have_hypertension boolean,
+genito_urinary boolean,
+have_diabetes boolean,
+have_neuro_disease boolean,
+have_heart_disease boolean,
+have_cancer boolean,
+have_lung_disease boolean,
+other character varying
+);
+
+create table if not exists chest_imaging(
+cli_info_id bigint primary key not null references clinical_information (cid_id),
+done_chest_radiography boolean,
+date_chest_radiography date,
+result_chest_radiography character varying,
+done_chest_ct boolean,
+date_chest_ct date,
+result_chest_ct character varying,
+done_chest_ultrasound boolean,
+date_chest_ultrasound date,
+result_chest_ultrasound character varying,
+other_findings character varying
+);
+
+create table if not exists lab_test(
+cli_info_id bigint primary key not null references clinical_information (cid_id),
+test_positive_before boolean,
+date_specimen_collection date,
+lab_name character varying,
+test_count int
+);
+
+create table if not exists tests(
+lab_test_info_id bigint primary key not null references lab_test (cli_info_id),
+date_collected date,
+date_released date,
+lab_name character varying,
+is_ops boolean,
+is_nps boolean,
+is_antigen boolean,
+reason_antigen character varying,
+kit_brand character varying,
+done_antibody boolean,
+other_test character varying
+);
+
+create table if not exists outcome(
+cli_info_id bigint primary key not null references clinical_information (cid_id),
+is_active boolean,
+is_recovered boolean,
+date_recovery date,
+is_dead boolean,
+date_death date,
+immediate_cause_death character varying,
+underlying_cause_death character varying,
+antecedent_cause_death character varying,
+contributory_cause_death character varying
+);
+
+create table if not exists contact_tracing(
+cif_id bigint primary key not null references cif (id),
+has_exposure_people boolean,
+date_of_contact date,
+has_exposure_place boolean
+);
+
+create table if not exists close_contact(
+tracing_id bigint primary key not null references contact_tracing (cif_id),
+name character varying,
+contact_no character varying
+);
+
+create table if not exists international_contact(
+tracing_id bigint primary key not null references contact_tracing (cif_id),
+have_ongoing_transmission boolean,
+travel_date_from date,
+travel_date_to date,
+country_origin character varying,
+airline_vessel_number character varying,
+airline_vessel_name character varying,
+departure_date date,
+arrival_date date
+);
+
+create table if not exists local_contact(
+tracing_id bigint primary key not null references contact_tracing (cif_id),
+place_type character varying,
+place_name character varying,
+address character varying,
+travel_date_from date,
+travel_date_to date,
+have_ongoing_transmission boolean
+);
+
+create table if not exists local_transport(
+local_contact_id bigint primary key not null references local_contact (tracing_id),
+transport_type character varying,
+transport_number character varying,
+origin character varying,
+departure_date date,
+destination character varying,
+arrival_date date
+);
+
+--table for dru queue 
+create table if not exists dru_queue(
+dru_id bigint primary key not null references dru (id),
+entry_count int,
+submission_from date,
+submission_to date
+);
+
+-- insert
+-- insert into dru (name, region, province) values('HealthServe', '4A', 'Los Banos');
