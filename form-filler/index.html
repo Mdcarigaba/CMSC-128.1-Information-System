@@ -1,74 +1,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <script src="https://unpkg.com/pdf-lib@1.5.0"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script src="form-filler/index.js"></script>
+    <script src="https://unpkg.com/pdf-lib@1.11.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+    <link rel="stylesheet" href="pdfconverter.css">
+    <script src = "index.js"></script>
   </head>
 
   <body>
-    <input type = "text" id = "name" class = "name" placeholder="Name">
-    <input type = "text" id = "country" placeholder="Country">
-    <button onclick="createPDF()" id="button"> Submit </button>
+    <p>Click the button to fill form fields in an existing PDF document with <code>pdf-lib</code></p>
+    <input type = "text" id = "age" class = "age" placeholder="Age">
+    <input type = "text" id = "sex" placeholder="Sex">
+    <button onclick="fillForm()">Fill PDF</button>
+    <p class="small">(Your browser will download the resulting file)</p>
   </body>
-
-<!--  <script>
-    const { PDFDocument } = require('pdf-lib');
-const { readFile, writeFile } = require('fs/promises');
-
-async function createPdf(input, output) {
-    try {
-        const pdfDoc = await PDFDocument.load(await readFile(input));
-
-        //Modify doc, fill out the form...
-       //const fields = pdfDoc.getForm().getFields();
-        const fieldNames = pdfDoc.getForm().getFields().map((f) => f.getName());
-
-        //console.log({fields});
-        console.log({fieldNames});
-
-        const form = pdfDoc.getForm();
-
-        //form.getTextField('Name of Informant').setText('John Smith');
-        //for labelling purposes
-        const possibleFields = Array.from({ length: 200}, (_, i) => i);
-        possibleFields.forEach((possibleField) => {
-            try{
-                form
-                .getTextField('Text${possibleField}')
-                .setText(possibleField.toString());
-            } catch(error){
-                //console.error(error);
-            }
-        });
-        
-        /*
-        possibleFields.forEach(field => {
-            const type = possibleFields.constructor.name
-            const name = possibleFields.getName()
-            console.log(`${type}: ${name}`)
-          })
-        */
-
-        //added line of codes
-          form.text(document.getElementById("name").value, 10,10);
-        //end
-
-        form.getTextField('Name of Informant').setText('John Smith');
-
-        form.getCheckBox('Testing Category: A').check();
-
-        const pdfBytes = await pdfDoc.save();
-
-        await writeFile(output, pdfBytes);
-        console.log('PDF created!');
-    }
-    catch (err){
-        console.log(err);
-    }
-  }
-
-  createPdf('CIF_unlocked.pdf', 'output.pdf');
-  </script> -->
-
 </html>

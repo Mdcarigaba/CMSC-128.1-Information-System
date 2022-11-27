@@ -1,70 +1,117 @@
-const { PDFDocument } = require('pdf-lib');
-const { readFile, writeFile } = require('fs/promises');
+const { PDFDocument } = PDFLib
 
-const name = document.querySelector('.name');
+async function fillForm() {
+    // Fetch the PDF with form fields
+  //const formUrl = "CIF.pdf"//'https://pdf-lib.js.org/assets/dod_character.pdf'
+  //const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
+  const formPdfBytes = await fetch("CIF.pdf").then(res => res.arrayBuffer())
+        // Fetch the Mario image
+  /*const marioUrl = 'https://pdf-lib.js.org/assets/small_mario.png'
+  const marioImageBytes = await fetch(marioUrl).then(res => res.arrayBuffer())
 
+        // Fetch the emblem image
+  const emblemUrl = 'https://pdf-lib.js.org/assets/mario_emblem.png'
+  const emblemImageBytes = await fetch(emblemUrl).then(res => res.arrayBuffer())*/
 
-async function createPdf(input, output) {
-    try {
-        const pdfDoc = await PDFDocument.load(await readFile(input));
+  // Load a PDF with form fields
+  const pdfDoc = await PDFDocument.load(formPdfBytes)
+  //const pdfDoc = await PDFDocument.load(await readFile('CIF.pdf'));
 
-        //Modify doc, fill out the form...
-       //const fields = pdfDoc.getForm().getFields();
-        const fieldNames = pdfDoc.getForm().getFields().map((f) => f.getName());
+  //console.log({fieldNames});
 
-        //console.log({fields});
-        console.log({fieldNames});
+  // Embed the Mario and emblem images
+  /*const marioImage = await pdfDoc.embedPng(marioImageBytes)
+  const emblemImage = await pdfDoc.embedPng(emblemImageBytes)*/
 
-        const form = pdfDoc.getForm();
+  // Get the form containing all the fields
+  const form = pdfDoc.getForm()
 
-        //form.getTextField('Name of Informant').setText('John Smith');
-        //for labelling purposes
-        const possibleFields = Array.from({ length: 200}, (_, i) => i);
-        possibleFields.forEach((possibleField) => {
-            try{
-                form
-                .getTextField('Text${possibleField}')
-                .setText(possibleField.toString());
-            } catch(error){
-                //console.error(error);
-            }
-        });
-        
-        /*
-        possibleFields.forEach(field => {
-            const type = possibleFields.constructor.name
-            const name = possibleFields.getName()
-            console.log(`${type}: ${name}`)
-          })
-        */
+  // Get all fields in the PDF by their names
+  const ageField = form.getTextField('Age')
+  //const birthdayField = form.getTextField('Birthday')
+  const sexField = form.getTextField('Sex')
 
-        //added line of codes
-          //form.text(document.getElementById("name").value, 10,10);
-        //end
-        
-        //added line of code part 2
-        //form.getTextField('Name of Informant').getText();
-        //end
+  ageField.setText(document.getElementById("age").value)
+  sexField.setText(document.getElementById("sex").value)
+  /*
+  const nameField = form.getTextField('CharacterName 2')
+  const ageField = form.getTextField('Age')
+  const heightField = form.getTextField('Height')
+  const weightField = form.getTextField('Weight')
+  const eyesField = form.getTextField('Eyes')
+  const skinField = form.getTextField('Skin')
+  const hairField = form.getTextField('Hair')
 
-        //added line of code part 3
-       // var name = $('#name').val();
-        form.getTextField('Name of Informant').setText(document.getElementById("name"));
-        //end
+  const alliesField = form.getTextField('Allies')
+  const factionField = form.getTextField('FactionName')
+  const backstoryField = form.getTextField('Backstory')
+  const traitsField = form.getTextField('Feat+Traits')
+  const treasureField = form.getTextField('Treasure')
 
-        //form.getTextField('Name of Informant').setText('John Smith');
+  const characterImageField = form.getButton('CHARACTER IMAGE')
+  const factionImageField = form.getButton('Faction Symbol Image')*/
 
-        form.getTextField('Name of Informant').getText();
+  /*
+  // Fill in the basic info fields
+  //nameField.setText('Mario')
+  nameField.setText(document.getElementById("name").value)
+  ageField.setText(document.getElementById("age").value)
+  //ageField.setText('24 years')
+  heightField.setText(`5' 1"`)
+  weightField.setText('196 lbs')
+  eyesField.setText('blue')
+  skinField.setText('white')
+  hairField.setText('brown')
 
-        form.getCheckBox('Testing Category: A').check();
+  // Fill the character image field with our Mario image
+  characterImageField.setImage(marioImage)
 
-        const pdfBytes = await pdfDoc.save();
+  // Fill in the allies field
+  alliesField.setText(
+    [
+      `Allies:`,
+      `  • Princess Daisy`,
+      `  • Princess Peach`,
+      `  • Rosalina`,
+      `  • Geno`,
+      `  • Luigi`,
+      `  • Donkey Kong`,
+      `  • Yoshi`,
+      `  • Diddy Kong`,
+      ``,
+      `Organizations:`,
+      `  • Italian Plumbers Association`,
+    ].join('\n'),
+  )
 
-        await writeFile(output, pdfBytes);
-        console.log('PDF created!');
-    }
-    catch (err){
-        console.log(err);
-    }
-  }
+  // Fill in the faction name field
+  factionField.setText(`Mario's Emblem`)
 
-  createPdf('CIF_unlocked.pdf', 'output.pdf');
+  // Fill the faction image field with our emblem image
+  factionImageField.setImage(emblemImage)
+
+  // Fill in the backstory field
+  backstoryField.setText(
+    `Mario is a fictional character in the Mario video game franchise, owned by Nintendo and created by Japanese video game designer Shigeru Miyamoto. Serving as the company's mascot and the eponymous protagonist of the series, Mario has appeared in over 200 video games since his creation. Depicted as a short, pudgy, Italian plumber who resides in the Mushroom Kingdom, his adventures generally center upon rescuing Princess Peach from the Koopa villain Bowser. His younger brother and sidekick is Luigi.`,
+  )
+
+  // Fill in the traits field
+  traitsField.setText(
+    [
+      `Mario can use three basic three power-ups:`,
+      `  • the Super Mushroom, which causes Mario to grow larger`,
+      `  • the Fire Flower, which allows Mario to throw fireballs`,
+      `  • the Starman, which gives Mario temporary invincibility`,
+    ].join('\n'),
+  )
+
+  // Fill in the treasure field
+  treasureField.setText(['• Gold coins', '• Treasure chests'].join('\n'))
+  */
+
+  // Serialize the PDFDocument to bytes (a Uint8Array)
+  const pdfBytes = await pdfDoc.save()
+
+        // Trigger the browser to download the PDF document
+  download(pdfBytes, "pdf-lib_form_creation_example.pdf", "application/pdf");
+}
