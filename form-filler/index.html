@@ -1,8 +1,20 @@
-const { PDFDocument } = require('pdf-lib');
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/pdf-lib@1.5.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="form-filler/index.js"></script>
+  </head>
+
+  <body>
+    <input type = "text" id = "name" class = "name" placeholder="Name">
+    <input type = "text" id = "country" placeholder="Country">
+    <button onclick="createPDF()" id="button"> Submit </button>
+  </body>
+
+<!--  <script>
+    const { PDFDocument } = require('pdf-lib');
 const { readFile, writeFile } = require('fs/promises');
-
-const name = document.querySelector('.name');
-
 
 async function createPdf(input, output) {
     try {
@@ -39,21 +51,10 @@ async function createPdf(input, output) {
         */
 
         //added line of codes
-          //form.text(document.getElementById("name").value, 10,10);
-        //end
-        
-        //added line of code part 2
-        //form.getTextField('Name of Informant').getText();
+          form.text(document.getElementById("name").value, 10,10);
         //end
 
-        //added line of code part 3
-       // var name = $('#name').val();
-        form.getTextField('Name of Informant').setText(document.getElementById("name"));
-        //end
-
-        //form.getTextField('Name of Informant').setText('John Smith');
-
-        form.getTextField('Name of Informant').getText();
+        form.getTextField('Name of Informant').setText('John Smith');
 
         form.getCheckBox('Testing Category: A').check();
 
@@ -68,3 +69,6 @@ async function createPdf(input, output) {
   }
 
   createPdf('CIF_unlocked.pdf', 'output.pdf');
+  </script> -->
+
+</html>
