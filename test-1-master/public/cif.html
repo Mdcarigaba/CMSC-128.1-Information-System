@@ -35,7 +35,7 @@
         </div>
         <form class="investigation-body">
             <div class = "input-fields-labels1">
-                <div class = "select">Select if possible: </div>
+                <div class = "select"><img class="icon" src="" alt=""> Select if possible: </div>
                 <div class = "patient-status"> Patient Status: </div>
                     <input type="checkbox" id="patient-status-TOD" name = "ps-1" value = "TOD">
                     <label for = "ps-1"> TOD patient </label>
@@ -261,8 +261,8 @@
             <!-- TO ADD BUTTONS -->
             <div class = "button-fields">
                 <span class = "button-fields-div">
-                    <button class = "clear-button">CLEAR</button>
-                    <button class = "same-button">SAME AS PERMANENT ADDRESS</button>
+                    <button class="clear-button">CLEAR</button>
+                    <button class="same-button">SAME AS PERMANENT ADDRESS</button>
                  </span>
             </div>
         </form>
@@ -586,6 +586,196 @@
             <span class="title">Specimen Information</span>
         </div>
         <!-- TABLE FORMAT -->
+        <table class="specimen-infoTable" cellspacing="0">
+            <thead>
+                <tr class="specimen-infoTable-header">
+                    <th id="first-col">Specimen Collected</th>
+                    <th>Date Collected</th>
+                    <th>Date Sent</th>
+                    <th>Date Received</th>
+                    <th>Virus Isolation Result</th>
+                    <th>First PCR Result</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableData">
+                <tr>
+                    <td>
+                        <input type="checkbox" value="serum">
+                        <label for="serum" class="checkbox_labels">Serum</label><br>
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <label for="virus_isolation_result"></label>
+                        <select name="virus_isolation_result" class="virus_isolation_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="first_pcr_result"></label>
+                        <select name="first_pcr_result" class="first_pcr_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="pharyngeal_swab">
+                        <label for="pharyngeal_swab" class="checkbox_labels">Oropharyngeal/<br>Nasopharyngeal Swab</label><br>
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <label for="virus_isolation_result"></label>
+                        <select name="virus_isolation_result" class="virus_isolation_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="first_pcr_result"></label>
+                        <select name="first_pcr_result" class="first_pcr_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="oropharyngeal_swab">
+                        <label for="oropharyngeal_swab" class="checkbox_labels">Oropharyngeal Swab</label><br>
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <label for="virus_isolation_result"></label>
+                        <select name="virus_isolation_result" class="virus_isolation_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="first_pcr_result"></label>
+                        <select name="first_pcr_result" class="first_pcr_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="nasopharyngeal_swab">
+                        <label for="nasopharyngeal_swab" class="checkbox_labels">Nasopharyngeal Swab</label><br>
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <label for="virus_isolation_result"></label>
+                        <select name="virus_isolation_result" class="virus_isolation_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="first_pcr_result"></label>
+                        <select name="first_pcr_result" class="first_pcr_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="others">
+                        <label for="others" class="checkbox_labels">Others</label><br>
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <input type="text" class="input_date" placeholder="MM/DD/YYYY">
+                        <input type="text" class="time_hour" placeholder="HH">
+                        <input type="text" class="time_min" placeholder="MM">
+                    </td>
+                    <td>
+                        <label for="virus_isolation_result"></label>
+                        <select name="virus_isolation_result" class="virus_isolation_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="first_pcr_result"></label>
+                        <select name="first_pcr_result" class="first_pcr_result">
+                            <option value="result1">Result 1</option>
+                            <option value="result2">Result 2</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <form class="p-body">
         </form>
     </div>
