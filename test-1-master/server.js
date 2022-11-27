@@ -19,24 +19,13 @@ const db = knex({
     //change connection 
 })
 
+const table = require('./local_modules/table-gen')
+
+table.generatetable(db)
 //insert tables in the database
 //check for presence of table first
 //if not present, create a new table
 //chain this with other has table check for all 32+ tables
-db.schema.hasTable('dru').then((e) => {
-    if(!e){
-        db.schema.createTable('dru', function (t) {
-            t.increments('id').primary();
-            t.string('name');
-            t.string('region');
-            t.string('province');
-        })
-    }
-    else{
-        //no code here, just for debugging 
-        console.log('table already exists')
-    }
-})
 
 const app = express();
 
