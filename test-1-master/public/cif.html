@@ -421,7 +421,7 @@
                 <!-- ADD MORE ROWS BUTTON -->
                 <div class = "button-fields">
                     <span class = "button-fields-div">
-                        <button class = "add-button">ADD MORE ROWS</button>
+                        <button class = "add-button1">ADD MORE ROWS</button>
                      </span>
                 </div>
             </div>
@@ -439,7 +439,7 @@
                 </span>
                 <div class = "button-fields">
                     <span class = "button-fields-div">
-                        <button class = "add-button">ADD MORE ROWS</button>
+                        <button class = "add-button2">ADD MORE ROWS</button>
                      </span>
                 </div>
             </div>
@@ -815,10 +815,11 @@
             <div class="input-fields-labels1">
                 <span class="labels1-div">
                     <div>
-                        <div class="date_of_discharge">Date of Charge</div>
-                        <input type="text" placeholder="" id="date-of-onset-of-illness">
+                        <div class="date_of_discharge">Date of Discharge</div>
+                        <input type="text" placeholder="MM/DD/YYYY" id="date-of-onset-of-illness">
                     </div>
-                    <div>
+                    <div class="condition_on_discharge">
+                        Condition on Discharge <br>
                         <!-- BUTTONS FOR CONDITION ON DISCHARGE-->
                         <input type = "radio" id = "improved" name = "condition_on_discarge" value = "improved">
                         <label for = "suspect"> Improved </label>
@@ -842,21 +843,20 @@
                     </div>
                     <div>
                         <div class="relationship">Relationship</div>
-                        <input type="text" placeholder="" id="relationship">               
+                        <input type="text" placeholder="Indicate Relationship" id="relationship">               
                     </div>
                     <div>
                         <div class="informant_phone_number">Informant Phone Number</div>
-                        <input type="text" placeholder="" id="informant-phone-number">
+                        <input type="text" placeholder="09XX XXX XXXX" id="informant-phone-number">
                     </div>
                 </span>
             </div>
-
             <!-- TO ADD SAVE BUTTON -->
             <div class = "button-fields">
-                <span class = "button-fields-div">
+                <span class = "button-fields-div"> 
                     <button class = "save-button">SAVE RECORD</button>
-                 </span>
-                </div>
+                </span>
+            </div>
         </form>
     </div>
 </body>

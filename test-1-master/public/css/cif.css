@@ -95,6 +95,55 @@ body {
     margin-top: 20px;
 }
 
+.clear-button {
+    width: 80px;
+    height: 25px;
+    color: #8D9198;
+    background-color: #FFFFFF;
+    border: 1.3px solid #8D9198;
+    border-radius: 5px;
+}
+
+.same-button {
+    background-color: #E2FAE8;
+    color: #146F2D;
+    border: 1.3px solid #146F2D;
+    border-radius: 5px;
+    width: 250px;
+    height: 25px;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+
+.na-button {
+    background-color: #FFF5D8;
+    color: #BE9C34;
+    border: 1.3px solid #BE9C34;
+    border-radius: 5px;
+    width: 250px;
+    height: 25px;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+
+.add-button1 {
+    width: 180px;
+    height: 25px;
+    color: #3476CE;
+    background-color: #F8FAFE;
+    border: 1.3px solid #3476CE;
+    border-radius: 5px;
+}
+
+.add-button2 {
+    width: 180px;
+    height: 25px;
+    color: #146F2D;
+    background-color: #E2FAE8;
+    border: 1.3px solid #146F2D;
+    border-radius: 5px;
+}
+
 .employer-details {
     width: 900px;
     height: 250px;
@@ -147,7 +196,7 @@ body {
 
 .final-classification {
     width: 900px;
-    height: 150px;
+    height: 100px;
     /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
@@ -157,7 +206,7 @@ body {
 
 .outcome {
     width: 900px;
-    height: 250px;
+    height: 200px;
     /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
@@ -388,12 +437,14 @@ table {
 
 th, td {
     width: 150px;
-    justify-content: center;
-    text-align: center;
+    /* justify-content: center; */
+    text-align: left;
 }
 
 .input_date {
     width: 130px;
+    color: #A0C4F5;
+
 }
 
 .time_hour, .time_min {
@@ -403,8 +454,28 @@ th, td {
 
 .first_pcr_result, .virus_isolation_result {
     width: 130px;
+    height: 25px;
+    border-radius: 5px;
+    color: #8D9198;
+    border-color: #A0C4F5;
 }
 
 .checkbox_labels {
     font-size: 12px;
+}
+
+.save-button {
+    font-weight: 550;
+    background-color: #E2FAE8;
+    color: #146F2D;
+    border: 1.5px solid #146F2D;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    margin-left: 375px;
+    margin-top: 100px;
+}
+
+.condition_on_discharge {
+    margin-left: 20px;
 }
