@@ -51,6 +51,14 @@ async function createPdf(input, output) {
        // form.getTextField('Name of Informant').setText(document.getElementById("name"));
         //end
 
+        //start
+        const ageField = form.getTextField('Age')
+        ageField.setText(document.getElementById("age").value)
+        ageField.setText(document.querySelector('.age').value)
+
+        form.getTextField('Age').setText(document.getElementById("age").value);
+        //end
+
         form.getTextField('Name of Informant').setText('John Smith');
 
         form.getTextField('Name of Informant').getText();
