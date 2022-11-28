@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700,500,600,800");
+@import "styleguide.css";
 
 body {
     font-family: Nunito;
@@ -7,12 +8,21 @@ body {
 
 /* Common */
 
+i {
+    margin: auto 0;
+}
+
+.center {
+    margin: auto 0;
+}
+
 .module-2-body {
     display: flex;
 }
 
 .right-body {
-    margin-left: 10px;
+    width: 1100px;
+    margin: 0 auto;
 }
 
 .base-bg-color {
@@ -170,18 +180,28 @@ a {
 }
 
 /* Main Content */
+
+/*
 .main-content {
     padding: 2% 5%;
     width: 80%;
 }
+*/
 
-.page-title > p {
-    margin: 0 auto;
-}
 
 .header {
     margin-top: 10px;
     width: 100%;
+    border-bottom: 5px solid #E9F2FF;
+}
+
+
+.page-title {
+    font-size: 20px;
+}
+.page-title > p {
+    margin: 20px;
+    font-weight: bold;
 }
 
 .page-title-header {
@@ -190,10 +210,12 @@ a {
 
 .page-action {
     width: 23%;
+    margin: 20px;
 }
 
 .page-action > div > p {
     margin: 0 auto;
+    font-size: 15px;
 }
 
 .page-action > div > div > p {
@@ -221,104 +243,203 @@ a {
 
 .admin-bold {
     font-weight: 900;
+    text-transform: uppercase;
 }
 
 /* Module 2 Content */
 
-.investigation {
-    margin-top: 20px;
-    width: 900px;
-    height: 250px;
-    /* border: 0.5px solid black; */
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: 0.5px 0.5px 1px 0px #969696;
+.module-content {
+    margin: 0 40px;
+
 }
 
-.header {
+/*Information above tables*/
+.CIF-info {
+    width: 100%;
+    justify-content: space-between;
+    height: 80px;
+    margin-top: 30px;
+}
+
+.to-module1 {
+    font-size: 12px;
+}
+
+.to-module1 > p {
+    margin: 5px 20px;
+}
+
+.patient-name {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.patient-name > p {
+    margin: 5px 20px;
+}
+
+.CIF-box {
+    border-radius: 10px;
+    border: 2px solid #3476CE;
+    height: 70px;
+    width: 200px;
+    display: flex;
+}
+
+.CIF-box > p {
+    font-size: 35px;
+    color: #3476CE;
+    font-weight: bold;
+    margin: auto;
+}
+
+.validation {
+    color: var(--sinagsuccess500);
+    display: flex;
+    flex-direction: column;
+}
+
+.validation-status {
+    font-size: 35px;
+    justify-content: flex-end;
+}
+
+.p1 {
+    margin: 0 0 0 20px;
+}
+
+.p2 {
+    font-size: 15px;
+    margin: 0;
+    justify-content: flex-end;
+}
+
+.tip-container {
+    width: 100%;
+    background-color: var(--sinagwarning100);
+    border-radius: 5px;
+    color: var(--sinagwarning500);
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.tip-container > p {
+    margin: 10px 0 10px 20px;
+}
+.tip-container > i {
+    margin-left: 20px;
+}
+
+.remark-container {
+    width: 100%;
+    background-color: var(--sinagsuccess100);
+    border-radius: 5px;
+    color: var(--sinagsuccess500);
+    margin-top: 20px;
+}
+
+.remark-header {
+    margin-left: 20px;
+}
+.remark-header > p {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.remark {
+    font-size: 15px;
+    padding: 0 60px;
+    margin: 0;
+    color: var(--sinaggrayscale900);
+}
+
+.date-time {
+    font-size: 12px;
+    margin: 15px 0 20px 23px;
+}
+
+.date-time > p {
+    margin-left: 25px;
+}
+
+/*Tables*/
+
+.header-table {
     width: 100%;
     background-color: #3476CE;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 0px 1px 1px 0px #969696;
-    /* padding: 15px; */
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-.icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 15px;
-}
-
-.title {
-    font-weight: bold;
+    font-size: 20px;
     color: white;
 }
 
-.information {
-    width: 900px;
-    height: 300px;
-    /* border: 0.5px solid black; */
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: 0.5px 0.5px 1px 0px #969696;
+.header-table > i {
+    margin: auto 20px;
 }
 
 .investigation {
-    width: 900px;
+    width: 100%;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
+    margin-top: 30px;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+}
+
+.divider {
+    width: 100%;
+    color: var(--sinaggrayscale500);
 }
 
 .philhealth-info {
-    width: 900px;
+    width: 100%;
     height: 150px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
+    margin-top: 30px;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+
 }
 
 .patient-profile {
-    width: 900px;
+    width: 100%;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
+    margin-top: 30px;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+
 }
 
 .permanent-address {
-    width: 900px;
+    width: 100%;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
+    margin-top: 30px;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+
 }
 
 .current-address {
-    width: 900px;
+    width: 100%;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
+button {
+    text-transform: uppercase;
+    font-family: Nunito;
+    height: 30px;
+}
 .clear-button {
-    width: 80px;
-    height: 25px;
+    width: 100px;
     color: #8D9198;
     background-color: #FFFFFF;
     border: 1.3px solid #8D9198;
@@ -331,7 +452,6 @@ a {
     border: 1.3px solid #146F2D;
     border-radius: 5px;
     width: 250px;
-    height: 25px;
     margin-left: 5px;
     margin-top: 20px;
 }
@@ -342,14 +462,12 @@ a {
     border: 1.3px solid #BE9C34;
     border-radius: 5px;
     width: 250px;
-    height: 25px;
     margin-left: 5px;
     margin-top: 20px;
 }
 
 .add-button1 {
     width: 180px;
-    height: 25px;
     color: #3476CE;
     background-color: #F8FAFE;
     border: 1.3px solid #3476CE;
@@ -358,7 +476,6 @@ a {
 
 .add-button2 {
     width: 180px;
-    height: 25px;
     color: #146F2D;
     background-color: #E2FAE8;
     border: 1.3px solid #146F2D;
@@ -366,73 +483,66 @@ a {
 }
 
 .employer-details {
-    width: 900px;
+    width: 100%;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .travel-history {
-    width: 900px;
+    width: 100%;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .exposure-history {
-    width: 900px;
+    width: 100%;
     height: 250px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .clinical-information {
-    width: 900px;
+    width: 100%;
     height: 800px; /*to be modified*/
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .specimen-information{
-    width: 900px;
+    width: 100%;
     min-height: 335px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .final-classification {
-    width: 900px;
+    width: 100%;
     height: 100px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .outcome {
-    width: 900px;
+    width: 100%;
     height: 200px;
-    /* border: 0.5px solid black; */
     border-radius: 5px;
     background-color: white;
     box-shadow: 0.5px 0.5px 1px 0px #969696;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 /*
@@ -454,14 +564,6 @@ a {
     font-weight: bold;
     color: white;
 }*/
-
-.search-patient-table {
-    width: 900px;
-    height: 200px;
-    /* border: 0.5px solid black; */
-    border-radius: 5px;
-    background-color: white;
-}
 
 /* .labels1 {
     margin-top: 10px;
@@ -505,7 +607,7 @@ a {
 
     width: 400px;
     height: 25px;
- 
+
     /* Sinag/B&W/100 */
     background: #FFFFFF;
     /* Sinag/Primary/100 */
@@ -604,7 +706,7 @@ a {
     color: #3476CE;
 }*/
 
-#last-name, #first-name, #middle-name, #birthday, #age, #occupation, 
+#last-name, #first-name, #middle-name, #birthday, #age, #occupation,
 #barangay, #municipality, #province, #region,
 #place-of-work, #building-name, #street, #city {
     font-size: 12px;
