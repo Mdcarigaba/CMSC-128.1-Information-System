@@ -55,6 +55,10 @@ app.get('/search-patient', (req, res) => {
     res.sendFile(path.join(initialPath, "search-patient.html"));
 })
 
+app.get('/generate-forms', (req, res) => {
+    res.sendFile(path.join(initialPath, "generate-forms.html"));
+})
+
 //make some fx within post request of cif entry
 //cut array into multiple entries
 
