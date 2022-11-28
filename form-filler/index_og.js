@@ -2,6 +2,9 @@ const { PDFDocument } = require('pdf-lib');
 const { readFile, writeFile } = require('fs/promises');
 
 //const name = document.querySelector('.name');
+//let age = 12;
+//let ageField = 0;
+
 
 
 async function createPdf(input, output) {
@@ -52,13 +55,21 @@ async function createPdf(input, output) {
         //end
 
         //start
+        const age = 'twelve'; 
         const ageField = form.getTextField('Age')
-        ageField.setText(document.getElementById("age").value)
-        ageField.setText(document.querySelector('.age').value)
+        //ageField.setText(document.getElementById("age").value)
+        ageField.setText(age)
 
-        form.getTextField('Age').setText(document.getElementById("age").value);
+        //form.getTextField('Age').setText(document.getElementById("age").value);
         //end
 
+        //start
+          const house = 'Cavite';
+          const houseField = form.getTextField('House NoLotBldgRow1')
+          houseField.setText(house);
+
+          //const 
+        //end
         form.getTextField('Name of Informant').setText('John Smith');
 
         form.getTextField('Name of Informant').getText();
