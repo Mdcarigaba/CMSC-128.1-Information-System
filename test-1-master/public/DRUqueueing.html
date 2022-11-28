@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="nav" class="base-bg-color">
+        <div class="logo">
+            <img class="logo-small" src="img/logo-small.png" alt="logo-small">
+            <img class="logo-word nav-component-toggle" src="img/logo-word.png" alt="logo-word">
+        </div>
+        <hr>
+        <div class="nav-menu">
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/home-icon.png" alt="home-icon">
+                <p class="nav-component-toggle">Home</p>
+            </a>
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/patient-icon.png" alt="patient-icon">
+                <p class="nav-component-toggle">Search Patient</p>
+            </a>
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/cif-icon.png" alt="cif-icon">
+                <p class="nav-component-toggle">CIF Entry</p>
+            </a>
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/form-icon.png" alt="form-icon">
+                <p class="nav-component-toggle">Generate Forms</p>
+            </a>
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/queue-icon.png" alt="queue-icon">
+                <p class="nav-component-toggle">DRU Queueing</p>
+            </a>
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/results-icon.png" alt="results-icon">
+                <p class="nav-component-toggle">Results Entry</p>
+            </a>
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/release-icon.png" alt="release-icon">
+                <p class="nav-component-toggle">Results Release</p>
+            </a>
+            <a class="nav-item" href="#">
+                <img class="nav-icon" src="img/report-icon.png" alt="report-icon">
+                <p class="nav-component-toggle">Reports</p>
+            </a>
+            <div class="btn-collapse">
+                <img src="img/btn-arrow-left.png" id="close-nav" alt="arrow-left">
+            </div>
+            <div class="btn-expand">
+                <img src="img/btn-arrow-right.png" id="open-nav" alt="arrow-right">
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content" id="main-content">
+        <div class="header row">
+            <div class="page-title-header">
+                <div class="row">
+                    <div>
+                        <img src="img/btn-arrow-left-dark.png" alt="arrow-left">
+                    </div>
+                    <div class="page-title">
+                        <p>DRU Queueing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-action">
+                <div class="row">
+                    <div>
+                        <p class="user-session">Logged in as <span class="admin-bold">ADMIN</span></p>
+                    </div>
+                    <div class="user-icon">
+                        <img src="img/user-icon.png" alt="user">
+                    </div>
+                    <div class="dropdown">
+                        <div onclick="toggleDropdown()" class="arrow-down" id="arrow-down">
+                            <img src="img/chevron-down.png" alt="arrow-down">
+                        </div>
+                        <div id="dropdown" class="dropdown-content">
+                            <div class="user-details">
+                                <p class="user-type">ADMIN</p>
+                                <p class="user-email">admin@gmail.com</p>
+                            </div>
+                            <div class="user-actions">
+                                <div class="edit-profile-btn">
+                                    <img src="img/user-profile.png" alt="user-profile">
+                                    <p>Edit Profile</p>
+                                </div>
+                                <div class="logout-btn">
+                                    <img src="img/logout.png" alt="logout-icon">
+                                    <p>Logout</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                <table>
+                    <tr class="tbl-header bg-blue">
+                        <td class="first-header">No.</td>
+                        <td>Disease Reporting Unit</td>
+                        <td>Number of Entries</td>
+                        <td class="last-header">Submission Time</td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="content-data">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
