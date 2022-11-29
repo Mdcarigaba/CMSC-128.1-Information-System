@@ -170,20 +170,20 @@
                         <div class = "select">Select if possible</div>
                         <hr class="divider">
                         <div class = "patient-status">Patient Status: </div>
-                            <input type="checkbox" id="patient-status-TOD" name = "ps-1" value = "TOD">
+                            <input type="checkbox" id="patient-status-TOD" class="patient-status-TOD" name = "ps-1" value = "TOD">
                             <label for = "ps-1"> TOD patient </label>
-                            <input type="checkbox" id="patient-status-priority" name = "ps-2" value = "Priority">
+                            <input type="checkbox" id="patient-status-priority" class="patient-status-priority" name = "ps-2" value = "Priority">
                             <label for = "ps-2"> Priority patient </label>
                     </div>
                     <div class="input-fields-labels2">
                         <span class="labels2-div">
                             <div>
                                 <div class="lab_number_label">Laboratory Number</div>
-                                <input type="text" id="laboratory-number">
+                                <input type="text" id="laboratory-number" class="laboratory-number">
                             </div>
                             <div>
                                 <div class="dru_label">Disease Reporting Unit/Hospital</div>
-                                <input type="text" id="dru-label">
+                                <input type="text" id="dru-label" class="dru-label">
                             </div>
                         </span>
                     </div>
@@ -193,15 +193,15 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="investigator_label">Investigator</div>
-                                <input type="text" id="investigator">
+                                <input type="text" id="investigator" class="investigator">
                             </div>
                             <div>
                                 <div class="other_investigator_label">Other Investigator/s</div>
-                                <input type="text" id="other-investigator">
+                                <input type="text" id="other-investigator" class="other-investigator">
                             </div>
                             <div>
                                 <div class="interview_date">Date of Interview</div>
-                                <input type="text" placeholder="MM/DD/YYYY" id="date-of-interview">
+                                <input type="text" placeholder="MM/DD/YYYY" id="date-of-interview" class="date-of-interview">
                             </div>
                         </span>
                     </div>
@@ -218,11 +218,11 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="philhealth_number_label">Philhealth Number</div>
-                                <input type="text" id="philhealth-number">
+                                <input type="text" id="philhealth-number" class="philhealth-number">
                             </div>
                             <div>
                                 <div class="testing_category">Testing Category/Subgroup</div>
-                                <input type="text" id="testing-category">
+                                <input type="text" id="testing-category" class="testing-category">
                             </div>
                         </span>
                     </div>
@@ -239,19 +239,19 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="last_name_label">Last Name</div>
-                                <input type="text" id="last-name">
+                                <input type="text" id="last-name" class="last-name">
                             </div>
                             <div>
                                 <div class="first_name_label">First Name</div>
-                                <input type="text" id="first-name">
+                                <input type="text" id="first-name" class="first-name">
                             </div>
                             <div>
                                 <div class="middle_name_label">Middle Name</div>
-                                <input type="text" id="middle-name">
+                                <input type="text" id="middle-name" class="middle-name">
                             </div>
                             <div>
                                 <div class="birthday">Birthday</div>
-                                <input type="text" id="birthday">
+                                <input type="text" id="birthday" class="birthday">
                             </div>
                         </span>
                     </div>
@@ -260,10 +260,10 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="age">Age</div>
-                                <input type="text" placeholder="" id="age">
+                                <input type="text" placeholder="" id="age" class="age">
                             </div>
                             <div>
-                                <div class="sex">Sex</div>
+                                <div class="sex-label">Sex</div>
                                 <label for="sex"></label>
                                 <select name="sex" class="sex">
                                     <option value="option1">Male</option>
@@ -272,10 +272,10 @@
                             </div>
                             <div>
                                 <div class="occupation">Occupation</div>
-                                <input type="text" placeholder="" id="occupation">
+                                <input type="text" placeholder="" id="occupation" class="occupation">
                             </div>
                             <div>
-                                <div class="civil_status">Civil Status</div>
+                                <div class="civil_status-label">Civil Status</div>
                                 <label for="civil_status"></label>
                                 <select name="civil_status" class="civil_status">
                                     <option value="option1">Single</option>
@@ -297,7 +297,7 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="house_number_label">House No./Block/Lot/Building</div>
-                                <input type="text" id="house-number">
+                                <input type="text" id="house-number" class="house-number">
                             </div>
                         </span>
                     </div>
@@ -306,19 +306,19 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="barangay">Barangay</div>
-                                <input type="text" placeholder="" id="barangay">
+                                <input type="text" placeholder="" id="barangay" class="barangay">
                             </div>
                             <div>
                                 <div class="municiplality">Municipality/City</div>
-                                <input type="text" placeholder="" id="municipality">
+                                <input type="text" placeholder="" id="municipality" class="municipality">
                             </div>
                             <div>
                                 <div class="province">Province</div>
-                                <input type="text" placeholder="" id="province">
+                                <input type="text" placeholder="" id="province" class="province">
                             </div>
                             <div>
                                 <div class="region">Region</div>
-                                <input type="text" placeholder="" id="region">
+                                <input type="text" placeholder="" id="region" class="region">
                             </div>
                         </span>
                     </div>
@@ -327,15 +327,15 @@
                         <span class="labels3-div">
                             <div>
                                 <div class="home_phone_number">Home Phone Number</div>
-                                <input type="text" id="home-phone-number">
+                                <input type="text" id="home-phone-number" class="home-phone-number">
                             </div>
                             <div>
                                 <div class="cellphone_number">Cellphone Number</div>
-                                <input type="text" id="cellphone-number">
+                                <input type="text" id="cellphone-number" class="cellphone-number">
                             </div>
                             <div>
                                 <div class="email">Email Address</div>
-                                <input type="text" id="email">
+                                <input type="text" id="email" class="email">
                             </div>
                         </span>
                     </div>
@@ -352,7 +352,7 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="house_number_label">House No./Block/Lot/Building</div>
-                                <input type="text" id="house-number">
+                                <input type="text" id="house-number" class="house-number">
                             </div>
                         </span>
                     </div>
@@ -361,19 +361,19 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="barangay">Barangay</div>
-                                <input type="text" placeholder="" id="barangay">
+                                <input type="text" placeholder="" id="barangay" class="barangay">
                             </div>
                             <div>
                                 <div class="municiplality">Municipality/City</div>
-                                <input type="text" placeholder="" id="municipality">
+                                <input type="text" placeholder="" id="municipality" class="municipality">
                             </div>
                             <div>
                                 <div class="province">Province</div>
-                                <input type="text" placeholder="" id="province">
+                                <input type="text" placeholder="" id="province" class="province">
                             </div>
                             <div>
                                 <div class="region">Region</div>
-                                <input type="text" placeholder="" id="region">
+                                <input type="text" placeholder="" id="region" class="region">
                             </div>
                         </span>
                     </div>
@@ -382,15 +382,15 @@
                         <span class="labels3-div">
                             <div>
                                 <div class="home_phone_number">Home Phone Number</div>
-                                <input type="text" id="home-phone-number">
+                                <input type="text" id="home-phone-number" class="home-phone-number">
                             </div>
                             <div>
                                 <div class="cellphone_number">Cellphone Number</div>
-                                <input type="text" id="cellphone-number">
+                                <input type="text" id="cellphone-number" class="cellphone-number">
                             </div>
                             <div>
                                 <div class="email">Email Address</div>
-                                <input type="text" id="email">
+                                <input type="text" id="email" class="email">
                             </div>
                         </span>
                     </div>
@@ -414,11 +414,11 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="employer_name">Employer's Name</div>
-                                <input type="text" placeholder="" id="employer-name">
+                                <input type="text" placeholder="" id="employer-name" class="employer-name">
                             </div>
                             <div>
                                 <div class="occupation">Occupation</div>
-                                <input type="text" placeholder="" id="occupation">
+                                <input type="text" placeholder="" id="occupation" class="occupation">
                             </div>
                         </span>
                     </div>
@@ -427,19 +427,19 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="place-of-work">Place of Work</div>
-                                <input type="text" placeholder="" id="place-of-work">
+                                <input type="text" placeholder="" id="place-of-work" class="place-of-work">
                             </div>
                             <div>
                                 <div class="building-name">House No./Building Name</div>
-                                <input type="text" placeholder="" id="building-name">
+                                <input type="text" placeholder="" id="building-name" class="building-name">
                             </div>
                             <div>
                                 <div class="street">Street</div>
-                                <input type="text" placeholder="" id="street">
+                                <input type="text" placeholder="" id="street" class="street">
                             </div>
                             <div>
                                 <div class="city">City/Municipality</div>
-                                <input type="text" placeholder="" id="city">
+                                <input type="text" placeholder="" id="city" class="city">
                             </div>
                         </span>
                     </div>
@@ -448,15 +448,15 @@
                         <span class="labels3-div">
                             <div>
                                 <div class="employer-province">Province/State</div>
-                                <input type="text" id="employer-province">
+                                <input type="text" id="employer-province" class="employer-province">
                             </div>
                             <div>
                                 <div class="country">Country</div>
-                                <input type="text" id="country">
+                                <input type="text" id="country" class="country">
                             </div>
                             <div>
                                 <div class="Office">Office Phone Number</div>
-                                <input type="text" id="office-phone-number">
+                                <input type="text" id="office-phone-number" class="office-phone-number">
                             </div>
                         </span>
                     </div>
@@ -480,15 +480,15 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
-                                <input type="text" placeholder="" id="date-of-onset-of-illness">
+                                <input type="text" placeholder="" id="date-of-onset-of-illness" class="date-of-onset-of-illness">
                             </div>
                             <div>
                                 <div class="date_of_admission">Date of Admission</div>
-                                <input type="text" placeholder="" id="date-of-admission">
+                                <input type="text" placeholder="" id="date-of-admission" class="date-of-admission">
                             </div>
                             <div>
                                 <div class="temperature">Temperature</div>
-                                <input type="text" placeholder="" id="temperature">
+                                <input type="text" placeholder="" id="temperature" class="temperature">
                             </div>
                         </span>
                     </div>
@@ -497,15 +497,15 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="port_of_exit">Port (Country) of Exit</div>
-                                <input type="text" placeholder="" id="port-of-exit">
+                                <input type="text" placeholder="" id="port-of-exit" class="port-of-exit">
                             </div>
                             <div>
                                 <div class="airline-or-seavessel">Airline/Sea Vessel</div>
-                                <input type="text" placeholder="" id="airline_or_seavessel">
+                                <input type="text" placeholder="" id="airline_or_seavessel" class="airline_or_seavessel">
                             </div>
                             <div>
                                 <div class="flight_or_vessel_no">Flight/Vessel Number</div>
-                                <input type="text" placeholder="" id="flight-or-vessel-no">
+                                <input type="text" placeholder="" id="flight-or-vessel-no" class="flight-or-vessel-no">
                             </div>
                         </span>
                     </div>
@@ -514,11 +514,11 @@
                         <span class="labels3-div">
                             <div>
                                 <div class="date_of_departure">Date of Departure</div>
-                                <input type="text" id="date-of-departure">
+                                <input type="text" id="date-of-departure" class="date-of-departure">
                             </div>
                             <div>
                                 <div class="date_of_arrival">Date of Arrival in the Philippines</div>
-                                <input type="text" id="date-of-arrival">
+                                <input type="text" id="date-of-arrival" class="date-of-arrival">
                             </div>
                         </span>
                     </div>
@@ -540,24 +540,24 @@
                 <form class="p-body">
                     <!-- INSERT RADIO TYPE INPUT -->
                     <div class="input-fields-labels1">
-                        <span class="labels1-div">
+                        <div class="labels1-div" style="display: flex;">
                             <div>
                                 <div class="place_visited">Place Visited</div>
-                                <input type="text" placeholder="" id="place-visited">
+                                <input type="text" placeholder="" id="place-visited" class="place-visited">
                             </div>
                             <div>
                                 <div class="name_of_place">Name of Place</div>
-                                <input type="text" placeholder="" id="name-of-place">
+                                <input type="text" placeholder="" id="name-of-place"  class="name-of-place">
                             </div>
                             <div>
                                 <div class="date_visited">Date Visited</div>
-                                <input type="text" placeholder="" id="date-visited">
+                                <input type="text" placeholder="" id="date-visited" class="date-visited">
                             </div>
-                        </span>
+                        </div>
                         <!-- ADD MORE ROWS BUTTON -->
                         <div class = "button-fields">
                             <span class = "button-fields-div">
-                                <button class = "add-button1">ADD MORE ROWS</button>
+                                <button class = "add-button1" onclick="addRows()">ADD MORE ROWS</button>
                             </span>
                         </div>
                     </div>
@@ -566,11 +566,11 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="close_contact_name">Name</div>
-                                <input type="text" placeholder="" id="close-contact-name">
+                                <input type="text" placeholder="" id="close-contact-name" class="close-contact-name">
                             </div>
                             <div>
                                 <div class="close_contact_number">Close Contact Number</div>
-                                <input type="text" placeholder="" id="close-contact-number">
+                                <input type="text" placeholder="" id="close-contact-number" class="close-contact-number">
                             </div>
                         </span>
                         <div class = "button-fields">
@@ -592,15 +592,15 @@
                         <span class = "">
                             <div>
                                 <p> Disposition at Time of Report </p>
-                                <input type = "radio" id = "inpatient" name = "disposition" value = "inpatient">
+                                <input type = "radio" id = "inpatient" class="inpatient" name = "disposition" value = "inpatient">
                                 <label for = "inpatient"> Inpatient </label>
-                                <input type = "radio" id = "outpatient" name = "disposition" value = "outpatient">
+                                <input type = "radio" id = "outpatient" class="outpatient" name = "disposition" value = "outpatient">
                                 <label for = "outpatient"> Outpatient </label>
-                                <input type = "radio" id = "died" name = "disposition" value = "died">
+                                <input type = "radio" id = "died" class="died" name = "disposition" value = "died">
                                 <label for = "died"> Died </label>
-                                <input type = "radio" id = "discharged" name = "disposition" value = "discharged">
+                                <input type = "radio" id = "discharged" class="discharged" name = "disposition" value = "discharged">
                                 <label for = "discharged"> Discharged </label>
-                                <input type = "radio" id = "unknown" name = "disposition" value = "unknown">
+                                <input type = "radio" id = "unknown" class="unknown" name = "disposition" value = "unknown">
                                 <label for = "Unknown"> Unknown </label>
                             </div>
                         </span>
@@ -609,15 +609,15 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="date_of_onset_of_illness">Date of Onset of Illness</div>
-                                <input type="text" placeholder="" id="date-of-onset-of-illness">
+                                <input type="text" placeholder="" id="date-of-onset-of-illness" class="date_of_onset_of_illness">
                             </div>
                             <div>
                                 <div class="date_of_admission">Date of Admission</div>
-                                <input type="text" placeholder="" id="date-of-admission">
+                                <input type="text" placeholder="" id="date-of-admission" class="date-of-admission">
                             </div>
                             <div>
                                 <div class="temperature">Temperature</div>
-                                <input type="text" placeholder="" id="temperature">
+                                <input type="text" placeholder="" id="temperature" class="temperature">
                             </div>
                         </span>
                     </div>
@@ -626,15 +626,15 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="port_of_exit">Port (Country) of Exit</div>
-                                <input type="text" placeholder="" id="port-of-exit">
+                                <input type="text" placeholder="" id="port-of-exit" class="port-of-exit">
                             </div>
                             <div>
                                 <div class="airline-or-seavessel">Airline/Sea Vessel</div>
-                                <input type="text" placeholder="" id="airline_or_seavessel">
+                                <input type="text" placeholder="" id="airline_or_seavessel" class="airline_or_seavessel">
                             </div>
                             <div>
                                 <div class="flight_or_vessel_no">Flight/Vessel Number</div>
-                                <input type="text" placeholder="" id="flight-or-vessel-no">
+                                <input type="text" placeholder="" id="flight-or-vessel-no" class="flight-or-vessel-no">
                             </div>
                         </span>
                     </div>
@@ -643,11 +643,11 @@
                         <span class="labels3-div">
                             <div>
                                 <div class="date_of_departure">Date of Departure</div>
-                                <input type="text" id="date-of-departure">
+                                <input type="text" id="date-of-departure" class="date-of-departure">
                             </div>
                             <div>
                                 <div class="date_of_arrival">Date of Arrival in the Philippines</div>
-                                <input type="text" id="date-of-arrival">
+                                <input type="text" id="date-of-arrival" class="date-of-arrival">
                             </div>
                         </span>
                     </div>
@@ -683,26 +683,26 @@
                         <div>
                             <p> CXR Results: Pneumonia </p>
                             <!--radio buttons-->
-                            <label> <input type = "radio" id = "yes_pneumonia" name = "pneumonia" value = "yes_pneumonia">Yes</label>
-                            <label> <input type = "radio" id = "no_pneumonia" name = "pneumonia" value = "no_pneumonia">No</label>
-                            <label> <input type = "radio" id = "pending_pneumonia" name = "pneumonia" value = "pending_pneumonia">Pending</label>
-                            <label> <input type = "radio" id = "na_pneumonia" name = "pneumonia" value = "na_pneumonia">N/A</label>
+                            <label> <input type = "radio" id = "yes_pneumonia" class="yes_pneumonia" name = "pneumonia" value = "yes_pneumonia">Yes</label>
+                            <label> <input type = "radio" id = "no_pneumonia" class="no_pneumonia" name = "pneumonia" value = "no_pneumonia">No</label>
+                            <label> <input type = "radio" id = "pending_pneumonia" class="pending_pneumonia" name = "pneumonia" value = "pending_pneumonia">Pending</label>
+                            <label> <input type = "radio" id = "na_pneumonia" class="na_pneumonia" name = "pneumonia" value = "na_pneumonia">N/A</label>
                         </div>
 
                         <div>
                             <p> Assessed as High Risk Pregnancy? </p>
                             <!-- radio buttons -->
-                            <label> <input type = "radio" id = "yes_pregnancy_risk" name = "pregnancy_risk" value = "yes_pregnancy_risk">Yes</label>
-                            <label> <input type = "radio" id = "no_pregnancy_risk" name = "pregnancy_risk" value = "no_pregnancy_risk">No</label>
-                            <label> <input type = "radio" id = "na_pregnancy_risk" name = "pregnancy_risk" value = "na_pregnancy_risk">N/A</label>
+                            <label> <input type = "radio" id = "yes_pregnancy_risk" class="yes_pregnancy_risk" name = "pregnancy_risk" value = "yes_pregnancy_risk">Yes</label>
+                            <label> <input type = "radio" id = "no_pregnancy_risk" class="no_pregnancy_risk" name = "pregnancy_risk" value = "no_pregnancy_risk">No</label>
+                            <label> <input type = "radio" id = "na_pregnancy_risk" class="na_pregnancy_risk" name = "pregnancy_risk" value = "na_pregnancy_risk">N/A</label>
                         </div>
                     </div>
 
                     <div>
                         <div>
                             <p> Chest XRAY done? </p>
-                            <label> <input type = "radio" id = "yes_xray" name = "xray" value = "yes_xray">Yes</label>
-                            <label> <input type = "radio" id = "no_xray" name = "xray" value = "no_xray">No</label>
+                            <label> <input type = "radio" id = "yes_xray" class="yes_xray" name = "xray" value = "yes_xray">Yes</label>
+                            <label> <input type = "radio" id = "no_xray" class="no_xray" name = "xray" value = "no_xray">No</label>
                             <p> If yes, when? </p>
                             <!--INSERT INPUT TYPE DATE-->
 
@@ -710,7 +710,7 @@
 
                         <div>
                             <p> Other Radiologic Findings: </p>
-                            <input type = "text">
+                            <input type = "text" id="other_radiologic_findings" class="other_radiologic_findings">
                         </div>
                     </div>
                 </form>
@@ -736,8 +736,8 @@
 
                     <tbody id="tableData">
                         <tr>
-                            <td>
-                                <input type="checkbox" value="serum">
+                            <td class="specimen-collected">
+                                <input type="checkbox" class="checkbox_labels" value="serum">
                                 <label for="serum" class="checkbox_labels">Serum</label><br>
                             </td>
                             <td>
@@ -771,8 +771,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <input type="checkbox" value="pharyngeal_swab">
+                            <td class="specimen-collected">
+                                <input type="checkbox" class="checkbox_labels" value="pharyngeal_swab">
                                 <label for="pharyngeal_swab" class="checkbox_labels">Oropharyngeal/<br>Nasopharyngeal Swab</label><br>
                             </td>
                             <td>
@@ -806,8 +806,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <input type="checkbox" value="oropharyngeal_swab">
+                            <td class="specimen-collected">
+                                <input type="checkbox" class="checkbox_labels" value="oropharyngeal_swab">
                                 <label for="oropharyngeal_swab" class="checkbox_labels">Oropharyngeal Swab</label><br>
                             </td>
                             <td>
@@ -841,8 +841,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <input type="checkbox" value="nasopharyngeal_swab">
+                            <td class="specimen-collected">
+                                <input type="checkbox" class="checkbox_labels" value="nasopharyngeal_swab">
                                 <label for="nasopharyngeal_swab" class="checkbox_labels">Nasopharyngeal Swab</label><br>
                             </td>
                             <td>
@@ -876,8 +876,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <input type="checkbox" value="others">
+                            <td class="specimen-collected">
+                                <input type="checkbox" class="checkbox_labels" value="others">
                                 <label for="others" class="checkbox_labels">Others</label><br>
                             </td>
                             <td>
@@ -925,16 +925,16 @@
                     <div class="input-fields-labels1">
                         <span class="labels1-div">
                             <!-- TO ADD BUTTONS -->
-                            <div>
-                                <input type = "radio" id = "suspect" name = "final_classification" value = "suspect">
+                            <div class="radio-buttons">
+                                <input type = "radio" id = "suspect" class="suspect" name = "final_classification" value = "suspect">
                                 <label for = "suspect"> Suspect Case </label>
-                                <input type = "radio" id = "probable" name = "final_classification" value = "probable">
+                                <input type = "radio" id = "probable" class="probable" name = "final_classification" value = "probable">
                                 <label for = "probable"> Probable Case </label>
-                                <input type = "radio" id = "confirmed" name = "final_classification" value = "confirmed">
+                                <input type = "radio" id = "confirmed" class="confirmed" name = "final_classification" value = "confirmed">
                                 <label for = "confirmed"> Confirmed Case </label>
-                                <input type = "radio" id = "discharged" name = "disposition" value = "discharged">
+                                <input type = "radio" id = "discharged" class="discharged" name = "disposition" value = "discharged">
                                 <label for = "discharged"> Discharged </label>
-                                <input type = "radio" id = "unknown" name = "disposition" value = "unknown">
+                                <input type = "radio" id = "unknown" class="unknown" name = "disposition" value = "unknown">
                                 <label for = "Unknown"> Unknown </label>
                             </div>
                         </span>
@@ -952,20 +952,20 @@
                         <span class="labels1-div">
                             <div>
                                 <div class="date_of_discharge">Date of Discharge</div>
-                                <input type="text" placeholder="MM/DD/YYYY" id="date-of-onset-of-illness">
+                                <input type="text" placeholder="MM/DD/YYYY" id="date-of-discharge" class="date-of-discharge">
                             </div>
                             <div class="condition_on_discharge">
                                 Condition on Discharge <br>
                                 <!-- BUTTONS FOR CONDITION ON DISCHARGE-->
-                                <input type = "radio" id = "improved" name = "condition_on_discarge" value = "improved">
+                                <input type = "radio" id = "improved" class="improved" name = "condition_on_discarge" value = "improved">
                                 <label for = "suspect"> Improved </label>
-                                <input type = "radio" id = "recovered" name = "condition_on_discarge" value = "recovered">
+                                <input type = "radio" id = "recovered" class="recovered" name = "condition_on_discarge" value = "recovered">
                                 <label for = "recovered"> Recovered </label>
-                                <input type = "radio" id = "transferred" name = "condition_on_discarge" value = "transferred">
+                                <input type = "radio" id = "transferred" class="transferred" name = "condition_on_discarge" value = "transferred">
                                 <label for = "transferred"> Transferred </label>
-                                <input type = "radio" id = "absconded" name = "condition_on_discarge" value = "absconded">
+                                <input type = "radio" id = "absconded" class="absconded" name = "condition_on_discarge" value = "absconded">
                                 <label for = "absconded"> Absconded </label>
-                                <input type = "radio" id = "died" name = "condition_on_discarge" value = "died">
+                                <input type = "radio" id = "died" class="died" name = "condition_on_discarge" value = "died">
                                 <label for = "died"> Died </label>
                             </div>
                         </span>
@@ -975,15 +975,15 @@
                         <span class="labels2-div">
                             <div>
                                 <div class="name_of_informant">Name of Informant</div>
-                                <input type="text" placeholder="" id="name-of-informant">
+                                <input type="text" placeholder="" id="name-of-informant" class="name-of-informant">
                             </div>
                             <div>
                                 <div class="relationship">Relationship</div>
-                                <input type="text" placeholder="Indicate Relationship" id="relationship">
+                                <input type="text" placeholder="Indicate Relationship" id="relationship" class="relationship">
                             </div>
                             <div>
                                 <div class="informant_phone_number">Informant Phone Number</div>
-                                <input type="text" placeholder="09XX XXX XXXX" id="informant-phone-number">
+                                <input type="text" placeholder="09XX XXX XXXX" id="informant-phone-number" class="informant-phone-number">
                             </div>
                         </span>
                     </div>

@@ -713,9 +713,12 @@ button {
     margin-right: 10px;
     width: 210px;
     height: 25px;
-    border-width: 1px;
+    border: 1px solid #A0C4F5;
     border-radius: 4px;
-    border-color: #A0C4F5;
+}
+
+.civil_status-label, .sex-label {
+    color: #3476CE;
 }
 
 .civil_status, .sex {
@@ -723,9 +726,8 @@ button {
     margin-right: 10px;
     width: 210px;
     height: 25px;
-    border-width: 1px;
+    border: 1px solid #A0C4F5;
     border-radius: 4px;
-    border-color: #A0C4F5;
     color: rgba(0, 0, 0, 0.8);
 }
 
@@ -755,24 +757,37 @@ table {
 .specimen-infoTable-header {
     color: #3476CE;
     font-size: 12px;
+    text-align: center;
     /* height: 50px; */
 }
 
-th, td {
+tbody tr {
+    height: 60px;
+}
+
+td {
     width: 150px;
     /* justify-content: center; */
-    text-align: left;
+    text-align: center;
 }
 
 .input_date {
     width: 130px;
-    color: #A0C4F5;
-
+    height: 20px;
+    border: 1px solid #A0C4F5;
+    border-radius: 4px;
+    font-size: 12px;
+    padding-left: 5px;
 }
 
 .time_hour, .time_min {
     margin-top: 5px;
-    width: 65px;
+    width: 63px;
+    height: 20px;
+    border: 1px solid #A0C4F5;
+    border-radius: 4px;
+    font-size: 12px;
+    padding-left: 5px;
 }
 
 .first_pcr_result, .virus_isolation_result {
@@ -781,10 +796,17 @@ th, td {
     border-radius: 5px;
     color: #8D9198;
     border-color: #A0C4F5;
+    font-size: 12px;
+    padding-left: 5px;
 }
 
 .checkbox_labels {
     font-size: 12px;
+    margin-left: 10px;
+}
+
+.specimen-collected {
+    text-align: left;
 }
 
 .save-button {
@@ -796,9 +818,31 @@ th, td {
     width: 150px;
     height: 30px;
     margin-left: 375px;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .condition_on_discharge {
     margin-left: 20px;
+}
+
+.patient-status, .select {
+    margin-left: 10px;
+}
+
+.patient-status-TOD {
+    margin-left: 30px;
+}
+
+.date-of-discharge {
+    width: 200px;
+    margin-right: 20px;
+}
+
+.name-of-informant, .relationship {
+    margin-right: 10px;
+}
+
+.name-of-informant, .relationship, .informant-phone-number {
+    margin-right: 10px;
+    width: 200px;
 }
