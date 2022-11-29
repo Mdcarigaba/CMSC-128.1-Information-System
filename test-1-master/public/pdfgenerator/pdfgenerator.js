@@ -184,6 +184,81 @@ async function createPdf(input, output) {
           const destinationRow2Field = form.getTextField('DestinationRow2')
 
           const diseaseReportingUnitField = form.getTextField('Disease Reporting Unit')
+
+          /*
+              'Existing: Not applicable (New case).0.0',
+              'Existing: Not applicable (Unknown)',
+              'Existing: Update symptoms',
+              'Existing: Update health status / outcome',
+              'Existing: Update case classification',
+              'Existing: Update lab result',
+              'Existing: Update chest imaging findings',
+              'Existing: Update vaccination',
+              'Existing: Update disposition',
+              'Existing: Update exposure / travel history',
+              'Clear All Fields' 
+          */
+
+          const DRURegionandProvinceField = form.getTextField('DRU Region and Province')
+
+          const philhealthNoField = form.getTextField('PhilHealth No')
+
+          const nameofInterviewerField = form.getTextField('Name of Interviewer')
+
+          const contactNumberofInterviewerField = form.getTextField('Contact Number of Interviewer')
+
+          const nameofInformantField = form.getTextField('Name of Informant')
+
+          const relationshipField = form.getTextField('Relationship')
+
+          const contactNumberofInformantField = form.getTextField('Contact Number of Informant')
+
+          /** 
+          'Existing: Others',
+          'Existing: Others field',
+          'Type of Client',
+          'Testing Category: A',
+          'Testing Category: C',
+          'Testing Category: D',
+          'Testing Category: E',
+          'Testing Category: F',
+          'Testing Category: G',
+          'Testing Category: H',
+          'Testing Category: I',
+          'Testing Category: J',
+          'Testing Category: B',           
+          */
+
+          const lastnameField = form.getTextField('Last Name')
+
+          const firstNameField = form.getTextField('First Name and Suffix')
+
+          const middleNameField = form.getTextField('Middle Name')
+
+          const birthdayField = form.getTextField('Birthday')
+
+          //const Age
+
+          //radio group
+          //const sexField = form.getTextField('Sex')
+
+          //dropdown
+          //const civilStatusField = form.getTextField('Civil Status')
+
+          const nationalityField = form.getTextField('Nationality')
+
+          const occupationField = form.getTextField('Occupation')
+
+          //radio group
+          //const worksInClosedSettingField = form.getTextField('Works in Closed Setting')
+
+          //const healthCareWorkerField = form.getTextField('Health Care Worker')
+
+          //const returningOverseasFilipino = form.getTextField('Returning Overseas Filipino')
+
+          //const OFWField = form.getTextField('OFW')
+
+
         //end
         form.getTextField('Name of Informant').setText('John Smith');
 
