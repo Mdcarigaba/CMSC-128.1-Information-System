@@ -308,7 +308,8 @@ a {
 #from {
     font-size: 12px;
     margin-right: 10px;
-    width: 210px;
+    /* width: 210px; */
+    width: 430px;
     height: 25px;
     border: 1px solid #A0C4F5;
     border-radius: 4px;
@@ -317,8 +318,9 @@ a {
 
 #to {
     font-size: 12px;
-    margin-right: 10px;
-    width: 210px;
+    /* margin-right: 10px;
+    width: 210px; */
+    width: 430px;
     height: 25px;
     border: 1px solid #A0C4F5;
     border-radius: 4px;
@@ -358,6 +360,10 @@ a {
     border: 0;
     text-align: center;
     border-radius: 5px;
+}
+
+.search-btn:hover, .back-next:hover {
+    background-color: rgba(31, 92, 173, 1);
 }
 
 .search-icon {
@@ -434,6 +440,12 @@ tbody {
     font-size: 11px;
     color: #146F2D;
     height: 25px;
+}
+
+.new-btn:hover {
+    background-color: #146F2D;
+    border: 1px solid #E2FAE8;
+    color: #E2FAE8;
 }
 
 #first-col {

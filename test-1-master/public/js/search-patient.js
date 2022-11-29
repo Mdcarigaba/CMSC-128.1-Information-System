@@ -8,9 +8,7 @@ let recordsData = [
         gender: 'M',
         age: '20',
         dateEncoded: '11/09/2022',
-        dateCollected: '11/07/2022',
-        validationStatus: 'Validated',
-        finalClassification: 'Suspect'
+        dateCollected: '11/07/2022'
     },
     {
         cifNo: 'CIF-2',
@@ -21,9 +19,7 @@ let recordsData = [
         gender: 'F',
         age: '40',
         dateEncoded: '10/13/2022',
-        dateCollected: '10/05/2022',
-        validationStatus: 'Validated',
-        finalClassification: 'Suspect'
+        dateCollected: '10/05/2022'
     }, 
     {
         cifNo: 'CIF-3',
@@ -34,9 +30,7 @@ let recordsData = [
         gender: 'F',
         age: '38',
         dateEncoded: '08/12/2022',
-        dateCollected: '07/29/2022',
-        validationStatus: 'Validated',
-        finalClassification: 'Suspect'
+        dateCollected: '07/29/2022'
     },
     {
         cifNo: 'CIF-4',
@@ -47,9 +41,7 @@ let recordsData = [
         gender: 'F',
         age: '65',
         dateEncoded: '08/12/2022',
-        dateCollected: '07/29/2022',
-        validationStatus: 'Validated',
-        finalClassification: 'Suspect'
+        dateCollected: '07/29/2022'
     },
     {
         cifNo: 'CIF-5',
@@ -60,9 +52,7 @@ let recordsData = [
         gender: 'M',
         age: '72',
         dateEncoded: '08/12/2022',
-        dateCollected: '07/29/2022',
-        validationStatus: 'Validated',
-        finalClassification: 'Suspect'
+        dateCollected: '07/29/2022'
     },
     {
         cifNo: 'CIF-5',
@@ -73,9 +63,7 @@ let recordsData = [
         gender: 'M',
         age: '35',
         dateEncoded: '08/12/2022',
-        dateCollected: '07/29/2022',
-        validationStatus: 'Validated',
-        finalClassification: 'Suspect'
+        dateCollected: '07/29/2022'
     },
     {
         cifNo: 'CIF-6',
@@ -86,9 +74,7 @@ let recordsData = [
         gender: 'M',
         age: '18',
         dateEncoded: '08/12/2022',
-        dateCollected: '07/29/2022',
-        validationStatus: 'Validated',
-        finalClassification: 'Suspect'
+        dateCollected: '07/29/2022'
     }
 ];
 
@@ -116,8 +102,6 @@ function loadTableData(recordsData) {
                         <td>${records.age}</td>
                         <td>${records.dateEncoded}</td>
                         <td>${records.dateCollected}</td>
-                        <td>${records.validationStatus}</td>
-                        <td>${records.finalClassification}</td>
                         <td><button class="new-btn">+ New</button></td>
                     </tr>`;
     }
