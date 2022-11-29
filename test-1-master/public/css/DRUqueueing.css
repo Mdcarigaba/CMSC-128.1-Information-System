@@ -224,6 +224,7 @@ a {
 
 table {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .bg-blue {
@@ -242,53 +243,28 @@ table {
 
 .first-header {
     border-top-left-radius: 25px;
+    width: 15%;
 }
 
 .content-data > td {
     border: 1px;
     padding: 2%;
+    text-align: center;
+}
+
+.color1 {
+    background-color: #E7F0FF;
+}
+
+.color2 {
+    background-color: #F7F8FF;
 }
 
 .tbl-header > td {
     color: #E9F2FF;
-}
-
-.col-6 {
-    flex: 60%;
-}
-
-.col-2 {
-    flex: 20%;
-}
-
-.banner {
-    padding: 5%;
-    background-color: #3476CE;
-    border-radius: 15px;
-    margin-top: 25px;
-}
-
-.bottom-icon {
-    width: 300.66px;
-    margin-top: 30px;
-}
-
-.banner > p {
-    color: white;
     text-align: center;
 }
 
-.banner > div {
-    background-color: white;
-    border-radius: 15px;
-}
-
-.banner > div > p {
-    color: #3476CE;
-    padding: 5%;
-    text-align: center;
-    font-size: 25px;
-}
 
 .btn-collapse, .btn-expand {
     margin-top: 100px;
