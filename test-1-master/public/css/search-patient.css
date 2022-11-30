@@ -5,6 +5,10 @@ body {
     background-color: #F8FAFE;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 /* Common */
 
 .module-1-body {
@@ -12,7 +16,9 @@ body {
 }
 
 .right-body {
-    margin-left: 10px;
+    width: 1100px;
+    margin: 0 auto;
+    padding: 15px;
 }
 
 .base-bg-color {
@@ -86,6 +92,9 @@ body {
     padding: 10px;
 }
 
+.page-title {
+    font-weight: bold;
+}
 
 /* Navbar */
 nav {
@@ -170,9 +179,13 @@ a {
 }
 
 /* Main Content */
-.main-content {
+/* .main-content {
     padding: 2% 5%;
     width: 80%;
+} */
+
+.page-title {
+    font-size: 20px;
 }
 
 .page-title > p {
@@ -182,6 +195,7 @@ a {
 .header {
     margin-top: 10px;
     width: 100%;
+    border-bottom: 5px solid #E9F2FF;
 }
 
 .page-title-header {
@@ -226,7 +240,7 @@ a {
 /* Module 1 */
 .filter {
     margin-top: 20px;
-    width: 900px;
+    min-width: 900px;
     height: 250px;
     border-radius: 5px;
     background-color: white;
@@ -356,6 +370,7 @@ a {
 }
 
 .patient-records-label {
+    font-weight: bold;
     margin-top: 30px;
     font-size: 25px;
     color: #3476CE;
@@ -365,8 +380,9 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
-    width: 900px;
+    min-width: 900px;
     font-size: 14px;
+    font-weight: 550;
     color: rgba(51, 117, 206, 1);
 }
 
@@ -385,7 +401,9 @@ table {
 }
 
 .search-patient-table {
-    width: 900px;
+    /* min-width: 900px; */
+
+    min-width: 900px;
     border-radius: 5px;
     background-color: white;
     margin-top: 10px;
@@ -399,11 +417,16 @@ table {
 }
 
 th {
-    width: 100px;
+    min-width: 100px;
 }
 
 tr {
+    min-width: 900px;
     height: 50px;
+}
+
+td {
+    min-width: 100px;
 }
 
 tr:nth-child(even) {
