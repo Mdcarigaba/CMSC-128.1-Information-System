@@ -238,6 +238,25 @@ var functions = {
                 )
                 .then(
                     () => {
+                        db.schema.hasTable('returning_overseas_filipino')
+                        .then((e) => {
+                            if(!e){
+                                db.schema.createTable('living_in_close_settings', (t) => {
+                                    t.integer('patient_id').unsigned().primary();
+                                    t.foreign('patient_id').references('patient.id');
+                                    t.string('country_origin');
+                                    t.string('health_facility_address'); 
+                                })
+                                .then(console.log('table created'))
+                            }
+                            else{
+                                console.log('table already exists')
+                            }
+                        })
+                    }
+                )
+                .then(
+                    () => {
                         db.schema.hasTable('cif')
                         .then((e) => {
                             if(!e){
