@@ -22,7 +22,7 @@ async function createPdf(input, output) {
 
         //form.getTextField('Name of Informant').setText('John Smith');
         //for labelling purposes
-        const possibleFields = Array.from({ length: 200}, (_, i) => i);
+        const possibleFields = Array.from({ length: 300}, (_, i) => i); //modify length
         possibleFields.forEach((possibleField) => {
             try{
                 form
@@ -240,24 +240,23 @@ async function createPdf(input, output) {
           //const Age
 
           //radio group
-          //const sexField = form.getTextField('Sex')
+          const sexField = form.getRadioGroup('Sex')
 
           //dropdown
-          //const civilStatusField = form.getTextField('Civil Status')
+          const civilStatusField = form.getDropdown('Civil Status')
 
           const nationalityField = form.getTextField('Nationality')
 
           const occupationField = form.getTextField('Occupation')
 
           //radio group
-          //const worksInClosedSettingField = form.getTextField('Works in Closed Setting')
+          const worksInClosedSettingField = form.getRadioGroup('Works in Closed Setting')
 
-          //const healthCareWorkerField = form.getTextField('Health Care Worker')
+          const healthCareWorkerField = form.getRadioGroup('Health Care Worker')
 
-          //const returningOverseasFilipino = form.getTextField('Returning Overseas Filipino')
+          const returningOverseasFilipino = form.getRadioGroup('Returning Overseas Filipino')
 
-          //const OFWField = form.getTextField('OFW')
-
+          const OFWField = form.getRadioGroup('OFW')
 
         //end
         form.getTextField('Name of Informant').setText('John Smith');
