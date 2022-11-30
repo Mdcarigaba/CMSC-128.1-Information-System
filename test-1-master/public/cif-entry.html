@@ -1,0 +1,1282 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CIF Entry</title>
+        <link rel="stylesheet" type="text/css" href="css/cif-entry.css">
+        <script type="text/javascript" src="js/cif.js"></script>
+    
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    
+    </head>
+    <body>
+        <div class = "module-2-body">
+            <!-- NAV BAR -->
+            <nav id="nav" class="base-bg-color">
+                <div class="logo">
+                    <img class="logo-small" src="img/logo-small.png" alt="logo-small">
+                    <img class="logo-word nav-component-toggle" src="img/logo-word.png" alt="logo-word">
+                </div>
+                <hr>
+                <div class="nav-menu">
+                    <a class="nav-item" href="#">
+                        <img class="nav-icon" src="img/home-icon.png" alt="home-icon">
+                        <p class="nav-component-toggle">Home</p>
+                    </a>
+                    <a class="nav-item" href="#">
+                        <img class="nav-icon" src="img/patient-icon.png" alt="patient-icon">
+                        <p class="nav-component-toggle">Search Patient</p>
+                    </a>
+                    <a class="nav-item" href="/cif">
+                        <img class="nav-icon" src="img/cif-icon.png" alt="cif-icon">
+                        <p class="nav-component-toggle">CIF Entry</p>
+                    </a>
+                    <a class="nav-item" href="#">
+                        <img class="nav-icon" src="img/form-icon.png" alt="form-icon">
+                        <p class="nav-component-toggle">Generate Forms</p>
+                    </a>
+                    <a class="nav-item" href="#">
+                        <img class="nav-icon" src="img/queue-icon.png" alt="queue-icon">
+                        <p class="nav-component-toggle">DRU Queueing</p>
+                    </a>
+                    <a class="nav-item" href="#">
+                        <img class="nav-icon" src="img/results-icon.png" alt="results-icon">
+                        <p class="nav-component-toggle">Results Entry</p>
+                    </a>
+                    <a class="nav-item" href="#">
+                        <img class="nav-icon" src="img/release-icon.png" alt="release-icon">
+                        <p class="nav-component-toggle">Results Release</p>
+                    </a>
+                    <a class="nav-item" href="#">
+                        <img class="nav-icon" src="img/report-icon.png" alt="report-icon">
+                        <p class="nav-component-toggle">Reports</p>
+                    </a>
+                    <div class="btn-collapse">
+                        <img src="img/btn-arrow-left.png" id="close-nav" alt="arrow-left">
+                    </div>
+                    <div class="btn-expand">
+                        <img src="img/btn-arrow-right.png" id="open-nav" alt="arrow-right">
+                    </div>
+                </div>
+            </nav>
+    
+            <div class="right-body">
+                <!-- HEADER -->
+                <div class="header row">
+                    <div class="page-title-header">
+                        <div class="row">
+    
+                            <div class="page-title row">
+                                <i class="ri-arrow-left-s-line"></i>
+                                <p>Module 2: COVID Information Form Entry</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-action row">
+                            <div>
+                                <p class="user-session">Logged in as <span class="username admin-bold"></span></p>
+                            </div>
+                            <div class="user-icon">
+                                <img src="img/user-icon.png" alt="user">
+                            </div>
+                            <div class="dropdown">
+                                <div onclick="toggleDropdown()" class="arrow-down" id="arrow-down">
+                                    <img src="img/chevron-down.png" alt="arrow-down">
+                                </div>
+                                <div id="dropdown" class="dropdown-content">
+                                    <div class="user-details">
+                                        <p class="user-type"></p>
+                                        <p class="user-email"></p>
+                                    </div>
+                                    <div class="user-actions">
+                                        <div class="edit-profile-btn">
+                                            <img src="img/user-profile.png" alt="user-profile">
+                                            <p>Edit Profile</p>
+                                        </div>
+                                        <div class="logout-btn">
+                                            <img src="img/logout.png" alt="logout-icon">
+                                            <p>Logout</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+    
+                <!-- MODULE 2 CONTENTS-->
+                <div class="module-content">
+    
+                <div class="CIF-info row">
+                    <div class="center">
+                        <a class="to-module1 row" href="search-patient.html">
+                            <i class="ri-arrow-left-s-line"></i>
+                            <p>Search Patient Information</p>
+                        </a>
+                        <div class="patient-name row">
+                            <i class="ri-pencil-line"></i>
+                            <p>Patient's name here</p>
+                        </div>
+                    </div>
+    
+                    <div class="center">
+                        <div class="CIF-box">
+                            <p>CIF - NO</p>
+                        </div>
+                    </div>
+    
+                    <div class="center">
+                        <div class="validation">
+                            <div class="validation-status row">
+                                <i class="ri-checkbox-circle-fill"></i>
+                                <p class="p1"><strong>Validated</strong></p>
+                            </div>
+                            <p class="p2">by INSERT VALIDATOR'S NAME</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="tip-container row">
+                    <i class="ri-lightbulb-fill"></i>
+                    <p>Tip: Hold the Alt key then type 165 on the numeric keypad to create the uppercase Ñ or just copy and paste.</p>
+                </div>
+    
+                <div class="remark-container">
+                    <div class="remark-header row">
+                        <i class="ri-discuss-fill"></i>
+                        <p>Validator's Remark</p>
+                    </div>
+                    <p class="remark">Varius morbi enim nunc faucibus. Sed arcu non odio euismod lacinia at. Cursus eget nunc scelerisque viverra mauris in. Vitae suscipit tellus mauris a diam maecenas sed enim. Pharetra sit amet aliquam id diam maecenas ultricies mi eget. In iaculis nunc sed augue lacus viverra. Amet venenatis urna cursus eget nunc. Massa sed elementum tempus egestas sed sed risus pretium. Nec ultrices dui sapien eget mi proin sed.</p>
+                    <div class="date-time row">
+                        <i class="ri-calendar-todo-fill"></i>
+                        <p>Date | Time</p>
+    
+                    </div>
+                </div>
+    
+                <div class="investigation">
+                    <div class="header-table row">
+                        <i class="ri-file-search-line"></i>
+                        <span class="title">Investigation</span>
+                    </div>
+                    <form class="p-body">
+    
+                            <div class= "instruction row">
+                                <i class="ri-information-fill"></i>
+                                <p>Select if possible</p>
+                            </div>
+                            <hr class="divider">
+    
+                            <div class="patient-status">
+                                <p>Patient Status:</p>
+                                <div class="row">
+                                    <div class="row" id="tod">
+                                        <input type="checkbox" name = "ps-TOD" value = "TOD">
+                                        <label for = "ps-TOD">TOD Patient</label>
+                                    </div>
+                                    <div class="row" id="priority">
+                                        <input type="checkbox" name = "ps-priority" value = "Priority">
+                                        <label for = "ps-priority">Priority Patient</label>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="table-row">
+                                    <div>
+                                        <div class="row">
+                                            <p class="required-field">*</p>
+                                            <p class="input-field-label">Laboratory Number</p>
+                                        </div>
+                                        <input type="text" id="laboratory-number">
+                                    </div>
+                                    <div>
+                                        <div class="row">
+                                            <p class="required-field">*</p>
+                                            <p class="input-field-label">Disease Reporting Unit/Hospital</p>
+                                        </div>
+                                        <input type="text" id="dru">
+                                    </div>
+                            </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Investigator</p>
+                                    <input type="text" id="investigator">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Other Investigator/s</p>
+                                    <input type="text" id="other-investigator">
+                                    <p class="note">*Separate names with a comma for multiple investigators.</p>
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Date of Interview</p>
+                                    </div>
+                                    <input type="text" placeholder="MM/DD/YYYY" id="date-of-interview">
+                                </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="philhealth-info">
+                    <div class="header-table row">
+                        <i class="ri-user-heart-fill"></i>
+                        <span class="title">Philhealth Information</span>
+                    </div>
+                    <form class="p-body">
+                            <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Philhealth Number</p>
+                                    <input type="text" id="philhealth-number">
+                                </div>
+                                <div>
+                                    <p class="input-field-label ">Testing Category/Subgroup</p>
+                                    <input type="text" id="testing-category">
+                                </div>
+                            </div>
+                    </form>
+                </div>
+    
+                <div class="patient-profile">
+                    <div class="header-table row">
+                        <i class="ri-user-search-fill"></i>
+                        <span class="title">Patient Profile</span>
+                    </div>
+                    <form class="p-body">
+                            <div class="table-row">
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Last Name</p>
+                                    </div>
+                                    <input type="text" id="last-name">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">First Name</p>
+                                    </div>
+                                    <input type="text" id="first-name">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Middle Name</p>
+                                    </div>
+                                    <input type="text" id="middle-name">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Birthday</p>
+                                    </div>
+                                    <input type="text" id="birthday">
+                                </div>
+                            </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Age</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="age">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Sex</p>
+                                    <select name="sex" id="sex">
+                                        <option class="select-placeholder" value="option1">Select Sex</option>
+                                        <option value="option2">Male</option>
+                                        <option value="option3">Female</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Occupation</p>
+                                    <input type="text" placeholder="" id="occupation">
+                                </div>
+                                <!--Note: Mali itsura nung civil-status (di ko mafix kaya pinarehas ko na lang sa sex na id) -->
+                                <div>
+                                    <p class="input-field-label">Civil Status</p>
+                                    <select name="sex" id="sex">
+                                        <option class="select-placeholder" value="option1">Select Civil Status</option>
+                                        <option value="option2">Single</option>
+                                        <option value="option3">Married</option>
+                                    </select>
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                            <div>
+                                <p class="input-field-label">Nationality</p>
+                                <input type="text" id="nationality">
+                            </div>
+                            <div>
+                                <p class="input-field-label">Passport Number</p>
+                                <input type="text" id="passport-no">
+                            </div>
+                            <div>
+                                <p class="input-field-label">Gross Income (Monthly)</p>
+                                <input type="text" id="gross-income">
+                            </div>
+                    </div>
+                    </form>
+                </div>
+    
+                <div class="permanent-address">
+                    <div class="header-table row">
+                        <i class="ri-home-3-fill"></i>
+                        <span class="title">Permanent Address</span>
+                    </div>
+                    <form class="p-body">
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">House No./Block/Lot/Building</p>
+                                    <input type="text" id="house">
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Barangay</p>
+                                    <input type="text" placeholder="" id="barangay">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Municipality</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="municipality">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Province</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="province">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Region</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="region">
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Home Phone Number</p>
+                                    <input type="text" id="home-phone-number">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Cellphone Number</p>
+                                    <input type="text" id="cellphone-number">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Email Address</p>
+                                    <input type="text" id="email">
+                                </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="current-address">
+                    <div class="header-table row">
+                        <i class="ri-home-3-fill"></i>
+                        <span class="title">Permanent Address</span>
+                    </div>
+                    <form class="p-body">
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">House No./Block/Lot/Building</p>
+                                    <input type="text" id="house">
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Barangay</p>
+                                    <input type="text" placeholder="" id="barangay">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Municipality</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="municipality">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Province</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="province">
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Region</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="region">
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Home Phone Number</p>
+                                    <input type="text" id="home-phone-number">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Cellphone Number</p>
+                                    <input type="text" id="cellphone-number">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Email Address</p>
+                                    <input type="text" id="email">
+                                </div>
+                        </div>
+    
+                        <!-- BUTTONS -->
+                        <div class = "row center">
+                            <button class="clear-button">Clear</button>
+                            <button class="same-button">Same as Permanent Address</button>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="employer-details">
+                    <div class="header-table row">
+                        <i class="ri-briefcase-fill"></i>
+                        <span class="title">Employer Details</span>
+                    </div>
+                    <form class="p-body">
+                        <div class="table-row">
+                                <div>
+                                    <div class="row">
+                                        <p class="required-field">*</p>
+                                        <p class="input-field-label">Employer's Name</p>
+                                    </div>
+                                    <input type="text" placeholder="" id="employer-name">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Occupation</p>
+                                    <input type="text" placeholder="" id="employer-name">
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <div class="place-of-work">Place of Work</div>
+                                    <input type="text" placeholder="" id="place-of-work">
+                                </div>
+                                <div>
+                                    <div class="building-name">House No./Building Name</div>
+                                    <input type="text" placeholder="" id="building-name">
+                                </div>
+                                <div>
+                                    <div class="street">Street</div>
+                                    <input type="text" placeholder="" id="street">
+                                </div>
+                                <div>
+                                    <div class="city">City/Municipality</div>
+                                    <input type="text" placeholder="" id="city">
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <div class="employer-province">Province/State</div>
+                                    <input type="text" id="employer-province">
+                                </div>
+                                <div>
+                                    <div class="country">Country</div>
+                                    <input type="text" id="country">
+                                </div>
+                                <div>
+                                    <div class="Office">Office Phone Number</div>
+                                    <input type="text" id="office-phone-number">
+                                </div>
+                                <div>
+                                    <div class="Office">Cellphone Number</div>
+                                    <input type="text" id="employer-cellphone-number">
+                                </div>
+                        </div>
+                        <!--BUTTONS -->
+                        <div class = "row center">
+                                <button class = "clear-button">CLEAR</button>
+                                <button class = "na-button">FILL ALL FIELDS WITH "N/A"</button>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="travel-history">
+                    <div class="header-table row">
+                        <i class="ri-earth-fill"></i>
+                        <span class="title">Travel History</span>
+                    </div>
+                    <form class="p-body">
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>History of travel/visit/work in other countries with a known COVID-19 transmission 14 days before the onset of your signs and symptoms?</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <p class="table-row">If Yes,</p>
+                        <hr class="divider">
+                        <div class="table-row">
+                                <div>
+                                    <p>Port (Country) of Exit</p>
+                                    <input type="text" placeholder="" id="port-of-exit">
+                                </div>
+                                <div>
+                                    <p>Airline/Sea Vessel</p>
+                                    <input type="text" placeholder="" id="airline-or-seavessel">
+                                </div>
+                                <div>
+                                    <p>Flight/Vessel Number</p>
+                                    <input type="text" placeholder="" id="flight-or-vessel-no">
+                                </div>
+                        </div>
+    
+                        <div class="table-row">
+                                <div>
+                                    <div>Date of Departure</div>
+                                    <input type="text" placeholder="MM/DD/YY" id="date-of-departure">
+                                </div>
+                                <div>
+                                    <div>Date of Arrival in the Philippines</div>
+                                    <input type="text" placeholder="MM/DD/YY" id="date-of-arrival">
+                                </div>
+                        </div>
+                        <!--BUTTONS -->
+                        <div class = "row center">
+                                <button class = "clear-button">CLEAR</button>
+                                <button class = "na-button">FILL ALL FIELDS WITH "N/A"</button>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="exposure-history">
+                    <div class="header-table row">
+                        <i class="ri-user-voice-fill"></i>
+                        <span class="title">Exposure History</span>
+                    </div>
+                    <form class="p-body">
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>History of exposure to known COVID-19 Case?</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                        <div class="row" id="radio-unknown">
+                                            <input type="radio" placeholder="" id="unknown">
+                                            <label for = "unknown">Unknown</label>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="ml-30 h-center">
+                            <p class="input-field-label">If Yes, Date of Contact with known COVID-19 Case</p>
+                            <input type="text" placeholder="MM/DD/YY" id="date-of-contact">
+                            </div>
+                        </div>
+    
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>Have you been in a place with a known COVID-19 transmission 14 days before the onset of signs and symptoms:</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                        <div class="row" id="radio-unknown">
+                                            <input type="radio" placeholder="" id="unknown">
+                                            <label for = "unknown">Unknown</label>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+    
+                        <p class="table-row">If Yes, please provide information on the type of place/s visited, name, and date of visit.  </p>
+                        <hr class="divider">
+    
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Place Visited</p>
+                                    <select name="place_visited" id="place-visited">
+                                        <option class="select-placeholder" value="option1">Select type of Place/Establishment</option>
+                                        <option value="option2">Hospital</option>
+                                        <option value="option3">Marketplace</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Name of Place</p>
+                                    <input type="text" placeholder="" id="name-of-place">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Date Visited</p>
+                                    <input type="text" placeholder="MM/DD/YYYY" id="date-visited">
+                                </div>
+                        </div>
+    
+                        <div class = "row center">
+                            <button class = "add-button1">ADD MORE ROWS</button>
+                        </div>
+    
+                        <div class="list_of_names table-row">
+                            <p> List all the names of persons who were with you during this/these occasion(s) and their contact numbers.</p>
+                        </div>
+    
+                        <div class="table-row">
+                            <div class="row">
+                                <div class="close_contact">
+                                    <p class="input-field-label">Name</p>
+                                    <input type="text" placeholder="" id="close-contact-name">
+                                </div>
+                                <div class="close_contact ml-5">
+                                    <p class="input-field-label">Contact Number</p>
+                                    <input type="text" placeholder="09XX XXX XXXX" id="close-contact-number">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="close_contact">
+                                    <p class="input-field-label">Name</p>
+                                    <input type="text" placeholder="" id="close-contact-name">
+                                </div>
+                                <div class="close_contact ml-5">
+                                    <p class="input-field-label">Contact Number</p>
+                                    <input type="text" placeholder="09XX XXX XXXX" id="close-contact-number">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class = "row center">
+                            <button class = "add-button2">ADD MORE ROWS</button>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="clinical-information">
+                    <div class="header-table row">
+                        <i class="ri-hospital-fill"></i>
+                        <span class="title">Clinical Information</span>
+                    </div>
+                    <form class="p-body">
+                        <div class = "table-row">
+                            <div class="radio-options">
+                                <p>Disposition at Time of Report</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-inpatient">
+                                            <input type="radio" placeholder="" id="inpatient">
+                                            <label for = "inpatient">Inpatient</label>
+                                        </div>
+                                        <div class="row" id="radio-outpatient">
+                                            <input type="radio" placeholder="" id="outpatient">
+                                            <label for = "outpatient">Outpatient</label>
+                                        </div>
+                                        <div class="row" id="radio-died">
+                                            <input type="radio" placeholder="" id="died">
+                                            <label for = "died">Died</label>
+                                        </div>
+                                        <div class="row" id="radio-discharged">
+                                            <input type="radio" placeholder="" id="discharged">
+                                            <label for = "discharged">Discharged</label>
+                                        </div>
+                                        <div class="row" id="radio-unknown">
+                                            <input type="radio" placeholder="" id="unknwon">
+                                            <label for = "unknown">Unknown</label>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                                <div>
+                                    <p class="input-field-label">Date of Onset of Illness</p>
+                                    <input type="text" placeholder="MM/DD/YYYY" id="date-of-onset-of-illness">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Date of Admission</p>
+                                    <input type="text" placeholder="MM/DD/YYYY" id="date-of-admission">
+                                </div>
+                                <div>
+                                    <p class="input-field-label">Fever Celsius</p>
+                                    <input type="text" placeholder="XX°C" id="fever-celcius">
+                                </div>
+                        </div>
+    
+                        <div class="symptoms">
+                            <p>Signs/Symptoms</p>
+                            <div class="row">
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="asymptomatic" id = "asymptomatic">
+                                            <label for = "asymptomatic">Asymptomatic</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="fever" id = "fever" >
+                                            <label for = "fever">Fever</label>
+                                        </div>
+                                    </div>
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="cough" id = "cough">
+                                            <label for = "cough">Cough</label>
+                                        </div>
+                                        <div class="row signs">
+                                            <input type="checkbox" name="weakness" id = "weakness">
+                                            <label for = "weakeness">General Weakness</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="fatigue" id = "fatigue">
+                                            <label for = "fatigue">Fatigue</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="headache" id = "headache">
+                                            <label for = "headache">Headache</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="myalgia"  id = "myalgia">
+                                            <label for = "myalgia">Myalgia</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="sorethroat" id = "sorethroat">
+                                            <label for = "sorethroat">Sore Throat</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="coryza" id = "coryza">
+                                            <label for = "coryza">Coryza</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="cough" id = "cough">
+                                            <label for = "cough">Cough</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="dyspnea" id = "dyspnea" >
+                                            <label for = "dyspnea">Dyspnea</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="anorexia" id = "anorexia">
+                                            <label for = "anorexia">Anorexia</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="nausea" id = "nausea">
+                                            <label for = "nausea">Nausea</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="vomiting" id = "vomiting">
+                                            <label for = "vomiting">Vomiting</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="mr-10">
+                                        <div class="signs">
+                                            <input type="checkbox" name="diarrhea" id = "diarrhea">
+                                            <label for = "diarrhea">Diarrhea</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="altered"  id = "altered">
+                                            <label for = "altered">Altered Mental Status</label>
+                                        </div>
+                                    </div>
+    
+                                    <div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="anosmia" id = "anosmia">
+                                            <label for = "anosmia">Anosmia</label>
+                                        </div>
+                                        <div class="signs">
+                                            <input type="checkbox" name="ageusia" id = "ageusia">
+                                            <label for = "ageusia">Ageusia</label>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+    
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>Is there any history of other illness?</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="ml-30 h-center">
+                                <p class="input-field-label">If Yes, when?</p>
+                                <input type="text" placeholder="MM/DD/YY" id="date-of-onset-of-other-illness">
+                            </div>
+                        </div>
+    
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>Chest XRAY done?</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="ml-30 h-center">
+                                <p class="input-field-label">If Yes, when?</p>
+                                <input type="text" placeholder="MM/DD/YY" id="date-of-onset-of-other-illness">
+                            </div>
+                        </div>
+    
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>CXR Results: Pneumonia</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                        <div class="row" id="radio-pending">
+                                            <input type="radio" placeholder="" id="pending">
+                                            <label for = "pending">Pending</label>
+                                        </div>
+                                        <div class="row" id="radio-na">
+                                            <input type="radio" placeholder="" id="na">
+                                            <label for = "na">N/A</label>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+    
+                        <div class="single-row">
+                            <p class="input-field-label">Other Radiological Findings:</p>
+                            <input type="text" placeholder="" id="other-findings">
+                        </div>
+    
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>Are you pregnant?</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                        <div class="row" id="radio-na">
+                                            <input type="radio" placeholder="" id="na">
+                                            <label for = "na">N/A</label>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="ml-30 h-center">
+                                <p class="input-field-label">If Yes, indicate Last Mentsrual Period (LMP)</p>
+                                <input type="text" placeholder="MM/DD/YYYY" id="lmp">
+                            </div>
+                        </div>
+    
+                        <div class="table-row">
+                            <div class="radio-options">
+                                <p>Assessed as High Risk Pregnancy?</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-yes">
+                                            <input type="radio" placeholder="" id="yes">
+                                            <label for = "yes">Yes</label>
+                                        </div>
+                                        <div class="row" id="radio-no">
+                                            <input type="radio" placeholder="" id="no">
+                                            <label for = "no">No</label>
+                                        </div>
+                                        <div class="row" id="radio-na">
+                                            <input type="radio" placeholder="" id="na">
+                                            <label for = "na">N/A</label>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="specimen-information">
+                    <div class="header-table row">
+                        <i class="ri-auction-fill"></i>
+                        <span class="title">Speciment Information</span>
+                    </div>
+    
+                    <form class="p-body">
+                        <div class="table-row specimen-table-title">
+                            <div class="col">
+                                <p class="input-field-label">Specimen Collected</p>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <p class="required-field">*</p>
+                                    <p class="input-field-label">Date Collected</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <p class="required-field">*</p>
+                                    <p class="input-field-label">Date Sent</p>
+                                </div>
+                             </div>
+                            <div class="col">
+                                <div class="row">
+                                    <p class="required-field">*</p>
+                                    <p class="input-field-label">Date Received</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="input-field-label">Virus Isolation Result</p>
+                            </div>
+                            <div class="col">
+                                <p class="input-field-label">First PCR Result</p>
+                            </div>
+                        </div>
+    
+                        <hr class="divider">
+    
+                        <!--Serum-->
+                        <div class="table-row">
+                            <div class="col">
+                                <div class="row specimen_collected">
+                                    <input type="checkbox" name = "serum" value = "serum">
+                                    <label class="h-center" for = "serum">Serum</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-collected">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-sent">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-received">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <select name="virus-isolation" id="virus-isolation">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="pcr" id="pcr">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <hr class="table-line">
+    
+                        <!--Nasopharyngeal-->
+                        <div class="table-row">
+                            <div class="col">
+                                <div class="row specimen_collected">
+                                    <input type="checkbox" name = "on-swab" value = "on-swab">
+                                    <label class="h-center" for = "on-swab">Nasopharyngeal Swab</label>
+                                </div>
+    
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-collected">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-sent">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-received">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <select name="virus-isolation" id="virus-isolation">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="pcr" id="pcr">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <hr class="table-line">
+    
+                        <!--Oropharyngeal-->
+                        <div class="table-row">
+                            <div class="col">
+                                <div class="row specimen_collected">
+                                    <input type="checkbox" name = "on-swab" value = "on-swab">
+                                    <label class="h-center" for = "on-swab">Oropharyngeal Swab</label>
+                                </div>
+    
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-collected">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-sent">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-received">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <select name="virus-isolation" id="virus-isolation">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="pcr" id="pcr">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <hr class="table-line">
+    
+                        <!--Other-->
+                        <div class="table-row">
+                            <div class="col">
+                                <div class="row specimen_collected">
+                                    <input type="checkbox" name = "on-swab" value = "on-swab">
+                                    <label class="h-center" for = "on-swab">Other</label>
+                                </div>
+    
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-collected">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-sent">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder = "MM/DD/YYYY" id="date-received">
+                                <div class="row mt-5">
+                                    <input type="text" placeholder = "HH" class="time" id="hour">
+                                    <input type="text" placeholder = "MM" class="time" id="min">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <select name="virus-isolation" id="virus-isolation">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="pcr" id="pcr">
+                                    <option class="select-placeholder" value="option1">Select Result</option>
+                                    <option value="option2">Result1</option>
+                                    <option value="option3">Result2</option>
+                                </select>
+                            </div>
+                        </div>
+    
+    
+    
+    
+                    </form>
+                </div>
+    
+    
+                <div class="final-classification">
+                    <div class="header-table row">
+                        <i class="ri-auction-fill"></i>
+                        <span class="title">Final Classification</span>
+                    </div>
+                    <form class="p-body">
+                        <div class="table-row">
+                            <div class="row v-center">
+                                <div class="row" id="radio-suspect">
+                                    <input type="radio" placeholder="" id="suspect">
+                                    <label for = "suspect">Suspect Case</label>
+                                </div>
+                                <div class="row" id="radio-probable">
+                                    <input type="radio" placeholder="" id="probable">
+                                    <label for = "probable">Probable Case</label>
+                                </div>
+                                <div class="row" id="radio-confirmed">
+                                    <input type="radio" placeholder="" id="confirmed">
+                                    <label for = "confirmed">Confirmed Case</label>
+                                </div>
+                                <div class="row" id="radio-discharged">
+                                    <input type="radio" placeholder="" id="discharged">
+                                    <label for = "discharged">Discharged</label>
+                                </div>
+                                <div class="row" id="radio-unknown">
+                                    <input type="radio" placeholder="" id="unknown">
+                                    <label for = "unknown">Unknown</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="outcome">
+                    <div class="header-table row">
+                        <i class="ri-book-read-fill"></i>
+                        <span class="title">Outcome</span>
+                    </div>
+                    <form class="p-body">
+                        <div class="table-row">
+                            <div class="mr-20 h-center">
+                                <p class="input-field-label">Date of Discharge</p>
+                                <input type="text" placeholder="MM/DD/YYYY" id="date-of-onset-of-discharge">
+                            </div>
+                            <div class="radio-options">
+                                <p>Condition on Discharge</p>
+                                    <div class="row">
+                                        <div class="row" id="radio-improved">
+                                            <input type="radio" placeholder="" id="improved">
+                                            <label for = "improved">Improved</label>
+                                        </div>
+                                        <div class="row" id="radio-recovered">
+                                            <input type="radio" placeholder="" id="recovered">
+                                            <label for = "recovered">Recovered</label>
+                                        </div>
+                                        <div class="row" id="radio-transferred">
+                                            <input type="radio" placeholder="" id="transferred">
+                                            <label for = "transferred">Transferred</label>
+                                        </div>
+                                        <div class="row" id="radio-absconded">
+                                            <input type="radio" placeholder="" id="absconded">
+                                            <label for = "absconded">Absconded</label>
+                                        </div>
+                                        <div class="row" id="radio-died">
+                                            <input type="radio" placeholder="" id="died">
+                                            <label for = "died">Died</label>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+    
+                        <p class="table-row">If patient is not available</p>
+                        <hr class="divider">
+    
+                        <div class="table-row">
+                                <div>
+                                    <div class="name_of_informant">Name of Informant</div>
+                                    <input type="text" placeholder="" id="name-of-informant">
+                                </div>
+                                <div>
+                                    <div class="relationship">Relationship</div>
+                                    <input type="text" placeholder="Indicate Relationship" id="relationship">
+                                </div>
+                                <div>
+                                    <div class="informant_phone_number">Cellphone Number</div>
+                                    <input type="text" placeholder="09XX XXX XXXX" id="informant-phone-number">
+                                </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="row center">
+                    <button class = "save-button">SAVE RECORD</button>
+                </div>
+    
+        <!-- END right-body class-->
+            </div>
+        </div>
+        <script src="js/index.js"></script>
+    
+    </body>
+    </html>
+    
