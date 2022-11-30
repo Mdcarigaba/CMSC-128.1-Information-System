@@ -241,7 +241,7 @@ var functions = {
                         db.schema.hasTable('returning_overseas_filipino')
                         .then((e) => {
                             if(!e){
-                                db.schema.createTable('living_in_close_settings', (t) => {
+                                db.schema.createTable('returning_overseas_filipino', (t) => {
                                     t.integer('patient_id').unsigned().primary();
                                     t.foreign('patient_id').references('patient.id');
                                     t.string('country_origin');
