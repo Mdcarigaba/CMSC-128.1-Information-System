@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(initialPath, "dashboard.html"));
 })
 
-app.get('/cif', (req, res) => {
+/*app.get('/cif', (req, res) => {
     res.sendFile(path.join(initialPath, "cif.html"));
-})
+})*/
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(initialPath, "loginPage.html"));
@@ -51,12 +51,24 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(initialPath, "register.html"));
 })
 
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(initialPath, "dashboard.html"));
+})
+
 app.get('/search-patient', (req, res) => {
     res.sendFile(path.join(initialPath, "search-patient.html"));
 })
 
 app.get('/generate-forms', (req, res) => {
     res.sendFile(path.join(initialPath, "generate-forms.html"));
+})
+
+app.get('/cif', (req, res) => {
+    res.sendFile(path.join(initialPath, "cif-entry.html"));
+})
+
+app.get('/DRUqueueing', (req, res) => {
+    res.sendFile(path.join(initialPath, "DRUqueueing.html"));
 })
 
 //make some fx within post request of cif entry
