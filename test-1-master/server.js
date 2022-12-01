@@ -19,9 +19,9 @@ const db = knex({
     //change connection 
 })
 
-const table = require('./local_modules/migration-test')
+const table = require('./local_modules/migration')
 
-table.generatetable()
+table.generatetable(db)
 //insert tables in the database
 //check for presence of table first
 //if not present, create a new table

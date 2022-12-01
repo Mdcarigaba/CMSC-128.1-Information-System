@@ -1,9 +1,9 @@
 
 var functions = {
-    generatetable: (db) => {
-        db.schema.hasTable('dru').then((e) => {
+    generatetable: async (db) => {
+        await db.schema.hasTable('dru').then(async (e) => {
             if (!e) {
-                db.schema.createTable('dru', (t) => {
+                await db.schema.createTable('dru', (t) => {
                     t.increments('id').primary();
                     t.string('name');
                     t.string('region');
@@ -11,7 +11,7 @@ var functions = {
                 })
                     .then(console.log('table created 1'))
                     //then enter initial values
-                    .then(() => db('dru').insert([
+                    .then(async () => await db('dru').insert([
                         {
                             name: 'PGH',
                             region: 'NCR',
@@ -35,11 +35,11 @@ var functions = {
             }
         })
             .then(
-                () => {
-                    db.schema.hasTable('staff')
-                        .then((e) => {
+                async () => {
+                    await db.schema.hasTable('staff')
+                        .then(async (e) => {
                             if (!e) {
-                                db.schema.createTable('staff', (t) => {
+                                await db.schema.createTable('staff', (t) => {
                                     t.increments('id').primary();
                                     t.string('username');
                                     t.string('firstname');
@@ -61,11 +61,11 @@ var functions = {
                         })
                 })
                 .then(
-                    () =>{
-                        db.schema.hasTable('address_contactinfo')
-                        .then((e) =>{
+                    async () =>{
+                        await db.schema.hasTable('address_contactinfo')
+                        .then(async (e) =>{
                             if (!e) {
-                                db.schema.createTable('address_contactinfo', (t) => {
+                                await db.schema.createTable('address_contactinfo', (t) => {
                                     t.increments('id').primary();
                                     t.string('hn_bl_lot_buildno');
                                     t.string('barangay');
@@ -85,11 +85,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('workplace')
-                        .then((e) =>{
+                    async () => {
+                        await db.schema.hasTable('workplace')
+                        .then(async (e) =>{
                             if(!e){
-                                db.schema.createTable('workplace', (t) => {
+                                await db.schema.createTable('workplace', (t) => {
                                     t.increments('id').primary();
                                     t.string('name');
                                     t.integer('address_contactinfo_id').unsigned();
@@ -106,11 +106,11 @@ var functions = {
 
                 )
                 .then(
-                    ()=>{
-                        db.schema.hasTable('patient')
-                        .then((e) => {
+                    async ()=>{
+                        await db.schema.hasTable('patient')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('patient', (t) => {
+                                await db.schema.createTable('patient', (t) => {
                                     t.increments('id').primary();
                                     t.integer('philhealth_no').unsigned();
                                     t.string('firstname');
@@ -123,9 +123,9 @@ var functions = {
                                     t.string('civil_status');
                                     t.string('nationality');
                                     t.integer('permanent_address_id').unsigned();
-                                    t.foreign('permanent_address_id').references('address.id');
+                                    t.foreign('permanent_address_id').references('address_contactinfo.id');
                                     t.integer('current_address_id').unsigned();
-                                    t.foreign('current_address_id').references('address.id');
+                                    t.foreign('current_address_id').references('address_contactinfo.id');
                                     t.integer('workplace_id').unsigned();
                                     t.foreign('workplace_id').references('workplace.id');
                                     t.string('works_in_closed_settings');
@@ -139,11 +139,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('informant')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('informant')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('informant', (t) => {
+                                await db.schema.createTable('informant', (t) => {
                                     t.increments('id').primary();
                                     t.string('name');
                                     t.string('contact_no');
@@ -157,11 +157,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('patient_informant')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('patient_informant')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('patient_informant', (t) => {
+                                await db.schema.createTable('patient_informant', (t) => {
                                     t.integer('patient_id').unsigned();
                                     t.foreign('patient_id').references('patient.id');
                                     t.integer('informant_id').unsigned();
@@ -178,11 +178,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('healthcare_worker')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('healthcare_worker')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('healthcare_worker', (t) => {
+                                await db.schema.createTable('healthcare_worker', (t) => {
                                     t.integer('patient_id').unsigned().primary();
                                     t.foreign('patient_id').references('patient.id');
                                     t.string('health_facility_name');
@@ -197,11 +197,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('lsi_apor_localtraveler')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('lsi_apor_localtraveler')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('lsi_apor_localtraveler', (t) => {
+                                await db.schema.createTable('lsi_apor_localtraveler', (t) => {
                                     t.integer('patient_id').unsigned().primary();
                                     t.foreign('patient_id').references('patient.id');
                                     t.string('city_mun_origin');
@@ -218,11 +218,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('living_in_close_settings')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('living_in_close_settings')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('living_in_close_settings', (t) => {
+                                await db.schema.createTable('living_in_close_settings', (t) => {
                                     t.integer('patient_id').unsigned().primary();
                                     t.foreign('patient_id').references('patient.id');
                                     t.string('institution_name');
@@ -237,17 +237,17 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('returning_overseas_filipino')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('returning_overseas_filipino')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('returning_overseas_filipino', (t) => {
+                                await db.schema.createTable('returning_overseas_filipino', (t) => {
                                     t.integer('patient_id').unsigned().primary();
                                     t.foreign('patient_id').references('patient.id');
                                     t.string('country_origin');
                                     t.string('health_facility_address'); 
                                 })
-                                .then(console.log('table created'))
+                                .then(console.log('table created 11'))
                             }
                             else{
                                 console.log('table already exists')
@@ -256,22 +256,22 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('cif')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('cif')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('cif', (t) => {
+                                await db.schema.createTable('cif', (t) => {
                                     t.increments('id').primary()
                                     t.integer('patient_id').unsigned();
                                     t.foreign('patient_id').references('patient.id');
                                     t.integer('investigator_id').unsigned();
-                                    t.foreign('investigator_id').references('investigator.id');
+                                    t.foreign('investigator_id').references('staff.id');
                                     t.date('date_interview');
                                     t.string('client_classification');
                                     t.string('testing_category');
                                     t.string('validation_status');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 12'))
                             }
                             else{
                                 console.log('table already exists')
@@ -280,18 +280,18 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('cif_type')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('cif_type')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('cif_type', (t) => {
+                                await db.schema.createTable('cif_type', (t) => {
                                     t.integer('cif_id').unsigned().primary();
                                     t.foreign('cif_id').references('cif.id');
                                     t.boolean('is_new_case');
                                     t.boolean('is_unknown');
                                     t.string('other');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 13'))
                             }
                             else{
                                 console.log('table already exists')
@@ -300,11 +300,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('for_update')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('for_update')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('for_update', (t) => {
+                                await db.schema.createTable('for_update', (t) => {
                                     t.integer('cif_id').unsigned().primary();
                                     t.foreign('cif_id').references('cif.id');
                                     t.boolean('symptoms');
@@ -316,25 +316,26 @@ var functions = {
                                     t.boolean('disposition');
                                     t.boolean('exposure');
                                 })
+                                .then(console.log('created table 14'))
                             }
                             else{
-                                console.log('table already exists')
+                                console.log('table already exists 14')
                             }
                         })
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('case_investigation_details')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('case_investigation_details')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('case_investigation_details', (t) => {
+                                await db.schema.createTable('case_investigation_details', (t) => {
                                     t.integer('cif_id').unsigned().primary();
                                     t.foreign('cif_id').references('cif.id');
                                     t.string('health_status_at_consult');
                                     t.string('case_classification_at_consult');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 15'))
                             }
                             else{
                                 console.log('table already exists')
@@ -343,17 +344,17 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('have_prev_consultation')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('have_prev_consultation')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('have_prev_consultation', (t) => {
+                                await db.schema.createTable('have_prev_consultation', (t) => {
                                     t.integer('cid_id').unsigned().primary();
                                     t.foreign('cid_id').references('case_investigation_details.cif_id');
                                     t.date('date_of_consultation');
                                     t.string('consultation_facility_name');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 16'))
                             }
                             else{
                                 console.log('table already exists')
@@ -362,11 +363,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('disposition')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('disposition')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('disposition', (t) => {
+                                await db.schema.createTable('disposition', (t) => {
                                     t.integer('cid_id').unsigned().primary();
                                     t.foreign('cid_id').references('case_investigation_details.cif_id');
                                     t.string('admitted_in');
@@ -374,7 +375,7 @@ var functions = {
                                     t.time('datetime_admission_isolation');
                                     t.string('other');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 17'))
                             }
                             else{
                                 console.log('table already exists')
@@ -383,11 +384,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('vaccination_info')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('vaccination_info')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('vaccination_info', (t) => {
+                                await db.schema.createTable('vaccination_info', (t) => {
                                     t.integer('cid_id').unsigned();
                                     t.foreign('cid_id').references('case_investigation_details.cif_id');
                                     t.string('name_of_vaccine');
@@ -397,7 +398,7 @@ var functions = {
                                     t.string('vaccination_facility_region');
                                     t.string('adverse_effect');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 18'))
                             }
                             else{
                                 console.log('table already exists')
@@ -406,11 +407,11 @@ var functions = {
                     } 
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('clinical_information')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('clinical_information')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('clinical_information', (t) => {
+                                await db.schema.createTable('clinical_information', (t) => {
                                     t.integer('cid_id').unsigned().primary();
                                     t.foreign('cid_id').references('case_investigation_details.cif_id');
                                     t.date('date_of_onset_illness');
@@ -418,7 +419,7 @@ var functions = {
                                     t.date('date_of_last_mensperiod');
                                     t.boolean('is_diagnosed_to_sari');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 19'))
                             }
                             else {
                                 console.log('table already exists')
@@ -427,11 +428,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('symptoms')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('symptoms')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('symptoms', (t) => {
+                                await db.schema.createTable('symptoms', (t) => {
                                     t.integer('cli_info_id').unsigned().primary();
                                     t.foreign('cli_info_id').references('clinical_information.cid_id');
                                     t.boolean('is_asymptomatic');
@@ -451,7 +452,7 @@ var functions = {
                                     t.boolean('exp_ageusia');
                                     t.string('other');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 20'))
                             }
                             else {
                                 console.log('table already exists')
@@ -460,11 +461,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('comorbidities')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('comorbidities')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('comorbidities', (t) => {
+                                await db.schema.createTable('comorbidities', (t) => {
                                     t.integer('cli_info_id').unsigned().primary();
                                     t.foreign('cli_info_id').references('clinical_information.cid_id');
                                     t.boolean('have_gastrointestinal');
@@ -477,7 +478,7 @@ var functions = {
                                     t.boolean('have_lung_disease');
                                     t.string('other');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 21'))
                             }
                             else {
                                 console.log('table already exists')
@@ -486,11 +487,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('chest_imaging')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('chest_imaging')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('chest_imaging', (t) => {
+                                await db.schema.createTable('chest_imaging', (t) => {
                                     t.integer('cli_info_id').unsigned().primary();
                                     t.foreign('cli_info_id').references('clinical_information.cid_id');
                                     t.boolean('done_chest_radiography');
@@ -504,7 +505,7 @@ var functions = {
                                     t.string('result_chest_ultrasound');
                                     t.string('other_findings');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 22'))
                             }
                             else {
                                 console.log('table already exists')
@@ -513,11 +514,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('lab_test')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('lab_test')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('lab_test', (t) => {
+                                await db.schema.createTable('lab_test', (t) => {
                                     t.integer('cli_info_id').unsigned().primary();
                                     t.foreign('cli_info_id').references('clinical_information.cid_id');
                                     t.boolean('test_positive_before');
@@ -525,7 +526,7 @@ var functions = {
                                     t.string('lab_name');
                                     t.integer('test_count').unsigned();
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 23'))
                             }
                             else {
                                 console.log('table already exists')
@@ -534,11 +535,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('tests')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('tests')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('tests', (t) => {
+                                await db.schema.createTable('tests', (t) => {
                                     t.integer('lab_test_info_id').unsigned();
                                     t.foreign('lab_test_info_id').references('lab_test.cli_info_id');
                                     t.date('date_collected');
@@ -552,7 +553,7 @@ var functions = {
                                     t.boolean('done_antibody');
                                     t.string('other_test')
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 24'))
                             }
                             else {
                                 console.log('table already exists')
@@ -561,11 +562,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('outcome')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('outcome')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('outcome', (t) => {
+                                await db.schema.createTable('outcome', (t) => {
                                     t.integer('cli_info_id').unsigned().primary();
                                     t.foreign('cli_info_id').references('clinical_information.cid_id');
                                     t.boolean('is_active');
@@ -578,7 +579,7 @@ var functions = {
                                     t.string('antecedent_cause_death');
                                     t.string('contributory_cause_death');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 25'))
                             }
                             else {
                                 console.log('table already exists')
@@ -587,18 +588,18 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('contact_tracing')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('contact_tracing')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('contact_tracing', (t) => {
+                                await db.schema.createTable('contact_tracing', (t) => {
                                     t.integer('cif_id').unsigned().primary();
                                     t.foreign('cif_id').references('cif.id');
                                     t.boolean('has_exposure_people');
                                     t.date('date_of_contact');
                                     t.boolean('has_exposure_place');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 26'))
                             }
                             else {
                                 console.log('table already exists')
@@ -607,11 +608,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('international_contact')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('international_contact')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('international_contact', (t) => {
+                                await db.schema.createTable('international_contact', (t) => {
                                     t.integer('tracing_id').unsigned();
                                     t.foreign('tracing_id').references('contact_tracing.cif_id');
                                     t.boolean('have_ongoing_transmission');
@@ -623,7 +624,7 @@ var functions = {
                                     t.date('departure_date');
                                     t.date('arrival_date');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 27'))
                             }
                             else {
                                 console.log('table already exists')
@@ -632,17 +633,17 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('close_contact')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('close_contact')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('close_contact', (t) => {
+                                await db.schema.createTable('close_contact', (t) => {
                                     t.integer('tracing_id').unsigned();
                                     t.foreign('tracing_id').references('contact_tracing.cif_id');
                                     t.string('name');
                                     t.string('contact_number');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 28'))
                             }
                             else {
                                 console.log('table already exists')
@@ -651,11 +652,11 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('local_contact')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('local_contact')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('local_contact', (t) => {
+                                await db.schema.createTable('local_contact', (t) => {
                                     t.integer('tracing_id').unsigned();
                                     t.foreign('tracing_id').references('contact_tracing.cif_id');
                                     t.string('place_type');
@@ -665,7 +666,7 @@ var functions = {
                                     t.date('travel_date_to');
                                     t.boolean('have_ongoing_transmission');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 29'))
                             }
                             else {
                                 console.log('table already exists')
@@ -674,13 +675,13 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('local_transport')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('local_transport')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('local_transport', (t) => {
+                                await db.schema.createTable('local_transport', (t) => {
                                     t.integer('local_contact_id').unsigned();
-                                    t.foreign('local_contact_id').references('local_contact.tracing_id');
+                                    t.foreign('local_contact_id').references('contact_tracing.cif_id');
                                     t.string('transport_type');
                                     t.string('transport_number');
                                     t.string('origin');
@@ -688,7 +689,7 @@ var functions = {
                                     t.string('destination');
                                     t.date('arrival_date');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 30'))
                             }
                             else {
                                 console.log('table already exists')
@@ -697,18 +698,18 @@ var functions = {
                     }
                 )
                 .then(
-                    () => {
-                        db.schema.hasTable('dru_queue')
-                        .then((e) => {
+                    async () => {
+                        await db.schema.hasTable('dru_queue')
+                        .then(async (e) => {
                             if(!e){
-                                db.schema.createTable('dru_queue', (t) => {
+                                await db.schema.createTable('dru_queue', (t) => {
                                     t.integer('dru_id').unsigned();
                                     t.foreign('dru_id').references('dru.id');
                                     t.integer('entry_count').unsigned();
                                     t.time('submission_from');
                                     t.time('submission_to');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 31'))
                             }
                             else {
                                 console.log('table already exists')
