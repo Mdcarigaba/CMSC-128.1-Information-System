@@ -14,14 +14,14 @@ const db = knex({
         user: 'postgres',
         port: '5433',
         password: '1234',
-        database: 'testing_ground'
+        database: 'test_in'
     }
     //change connection 
 })
 
-const table = require('./local_modules/table-gen')
+const table = require('./local_modules/migration-test')
 
-table.generatetable(db)
+table.generatetable()
 //insert tables in the database
 //check for presence of table first
 //if not present, create a new table
