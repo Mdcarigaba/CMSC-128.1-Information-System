@@ -9,7 +9,7 @@ var functions = {
                     t.string('region');
                     t.string('province');
                 })
-                    .then(console.log('table created'))
+                    .then(console.log('table created 1'))
                     //then enter initial values
                     .then(() => db('dru').insert([
                         {
@@ -31,7 +31,7 @@ var functions = {
             }
             else {
                 //no code here, just for debugging 
-                console.log('table already exists')
+                console.log('table already exists 1')
             }
         })
             .then(
@@ -52,11 +52,11 @@ var functions = {
                                     t.string('password');
 
                                 })
-                                    .then(console.log('table created'))
+                                    .then(console.log('table created 2'))
                                 //then inset values
                             }
                             else {
-                                console.log('table already exists')
+                                console.log('table already exists 2')
                             }
                         })
                 })
@@ -76,10 +76,10 @@ var functions = {
                                     t.string('cell_no');
                                     t.string('email');
                                 })
-                                .then(console.log('table created'))
+                                .then(console.log('table created 3'))
                             }
                             else {
-                                console.log('table already exists')
+                                console.log('table already exists 3')
                             }
                         })
                     }
@@ -95,7 +95,7 @@ var functions = {
                                     t.integer('address_contactinfo_id').unsigned();
                                     t.foreign('address_contactinfo_id').references('address_contactinfo.id');
                                 })
-                                .then(console.log('table created'))
+                                .then(console.log('table created 4'))
                             }
                             else{
                                 console.log('table already exists')
@@ -130,7 +130,7 @@ var functions = {
                                     t.foreign('workplace_id').references('workplace.id');
                                     t.string('works_in_closed_settings');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 5'))
                             }
                             else{
                                 console.log('table already exists')
@@ -148,7 +148,7 @@ var functions = {
                                     t.string('name');
                                     t.string('contact_no');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 6'))
                             }
                             else{
                                 console.log('table already exists')
@@ -169,7 +169,7 @@ var functions = {
                                     t.string('relation_to_patient');
                                     t.primary(['patient_id', 'informant_id']);
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 7'))
                             }
                             else{
                                 console.log('table already exists')
@@ -188,7 +188,7 @@ var functions = {
                                     t.string('health_facility_name');
                                     t.string('health_facility_address');
                                 })
-                                .then(console.log('created table'))
+                                .then(console.log('created table 8'))
                             }
                             else{
                                 console.log('table already exists')
@@ -209,7 +209,7 @@ var functions = {
                                     t.boolean('is_lsi');
                                     t.boolean('is_apor_localtraveler');
                                 })
-                                .then(console.log('table created'))
+                                .then(console.log('table created 9'))
                             }
                             else{
                                 console.log('table already exists')
@@ -228,7 +228,7 @@ var functions = {
                                     t.string('institution_name');
                                     t.string('institution_type'); 
                                 })
-                                .then(console.log('table created'))
+                                .then(console.log('table created 10'))
                             }
                             else{
                                 console.log('table already exists')
