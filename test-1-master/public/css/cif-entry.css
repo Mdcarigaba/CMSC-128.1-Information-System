@@ -390,7 +390,6 @@ a {
     border-radius: 5px;
     background-color: white;
     margin-top: 30px;
-    box-shadow: 0.5px 0.5px 1px 0px #969696;
 }
 
 .instruction {
@@ -626,7 +625,7 @@ input[type=checkbox] {
     margin-top: 30px;
 }
 
-#date-of-contact, #date-of-onset-of-other-illness, #other-findings, #lmp
+#date-of-contact, #date-of-onset-of-other-illness, #date-xray, #other-findings, #lmp, #date-of-discharge
 {
     width: 100%;
 }
@@ -637,7 +636,7 @@ input[type=checkbox] {
 
 /*Group of 2 each row*/
 #laboratory-number, #dru, #philhealth-number, #testing-category,
- #employer-name, #occupation,
+ #employer-name, #employer-occupation,
  #date-of-departure, #date-of-arrival {
     width: 465px;
 }
@@ -647,7 +646,7 @@ input[type=checkbox] {
 #home-phone-number, #cellphone-number, #email,
 #port-of-exit, #airline-or-seavessel, #flight-or-vessel-no,
 #place-visited, #name-of-place, #date-visited,
-#date-of-onset-of-illness, #date-of-admission, #fever-celcius,
+#date-of-onset-of-illness, #date-of-admission, #fever-celsius,
 #name-of-informant, #relationship, #informant-cellphone-number
 {
     width: 300px;
@@ -679,16 +678,18 @@ input[type=checkbox] {
     width: 100%;
 }
 
-.time, .specimen {
+.specimen {
     width: 50%;
 }
 
 #hour {
+    width: 50%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
 #min {
+    width: 50%;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -709,4 +710,3 @@ input[type=checkbox] {
     height: 30px;
     margin-bottom: 30px;
 }
-
