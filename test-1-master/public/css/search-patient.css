@@ -94,6 +94,7 @@ button:hover {
 
 .page-title {
     font-weight: bold;
+    font-size: 20px;
 }
 
 /* Navbar */
@@ -184,10 +185,6 @@ a {
     width: 80%;
 } */
 
-.page-title {
-    font-size: 20px;
-}
-
 .page-title > p {
     margin: 0 auto;
 }
@@ -195,6 +192,7 @@ a {
 .header {
     margin-top: 10px;
     width: 100%;
+    padding: 10px;
     border-bottom: 5px solid #E9F2FF;
 }
 
@@ -417,11 +415,10 @@ table {
 }
 
 th {
-    min-width: 100px;
+    width: 100px;
 }
 
 tr {
-    min-width: 900px;
     height: 50px;
 }
 

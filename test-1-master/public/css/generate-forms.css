@@ -5,6 +5,11 @@ body {
     background-color: #F8FAFE;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+
 /* Common */
 
 .module-3-body {
@@ -12,7 +17,9 @@ body {
 }
 
 .right-body {
-    margin-left: 10px;
+    width: 1100px;
+    margin: 0 auto;
+    padding: 15px;
 }
 
 .base-bg-color {
@@ -170,6 +177,7 @@ a {
 }
 
 /* Main Content */
+
 .main-content {
     padding: 2% 5%;
     width: 80%;
@@ -182,6 +190,8 @@ a {
 .header {
     margin-top: 10px;
     width: 100%;
+    padding: 10px;
+    border-bottom: 5px solid #E9F2FF;
 }
 
 .page-title-header {
@@ -223,10 +233,15 @@ a {
     font-weight: 900;
 }
 
+.page-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 /* Module 3 */
 .filter {
     margin-top: 20px;
-    width: 900px;
+    min-width: 900px;
     height: 250px;
     border-radius: 5px;
     background-color: white;
@@ -270,22 +285,21 @@ a {
 
 #encoder-name {
     margin-right: 15px;
-    width: 280px;
+    min-width: 420px;
     height: 25px;
     border: 1px solid #A0C4F5;
     border-radius: 4px;
 }
 
 #dru-label {
-    margin-right: 15px;
-    width: 280px;
+    min-width: 420px;
     height: 25px;
     border: 1px solid #A0C4F5;
     border-radius: 4px;
 }
 
 #laboratory-number {
-    width: 280px;
+    min-width: 280px;
     height: 25px;
     border: 1px solid #A0C4F5;
     border-radius: 4px;
@@ -308,7 +322,7 @@ a {
 #from {
     font-size: 12px;
     margin-right: 10px;
-    width: 210px;
+    min-width: 280px;
     height: 25px;
     border: 1px solid #A0C4F5;
     border-radius: 4px;
@@ -318,7 +332,7 @@ a {
 #to {
     font-size: 12px;
     margin-right: 10px;
-    width: 210px;
+    min-width: 280px;
     height: 25px;
     border: 1px solid #A0C4F5;
     border-radius: 4px;
@@ -367,11 +381,25 @@ a {
 
 }
 
+.export-selected-btn:hover,
+.export-to-pdf-btn:hover,
+.export-to-excel-btn:hover {
+    background-color: 3476CE;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border: 0;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #3476CE;
+
+}
+
 .list-desc {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
-    width: 900px;
+    min-width: 900px;
     font-size: 14px;
     color: rgba(51, 117, 206, 1);
 }
@@ -391,7 +419,7 @@ table {
 }
 
 .generate-forms-table {
-    width: 900px;
+    min-width: 900px;
     border-radius: 5px;
     background-color: white;
     margin-top: 10px;
@@ -428,7 +456,13 @@ tbody {
     border-radius: 5px;
     font-size: 11px;
     color: #146F2D;
-    height: 25px;
+    height: 30px;
+}
+
+.new-btn:hover {
+    background-color: #146F2D;
+    border: 1px solid #E2FAE8;
+    color: #E2FAE8;
 }
 
 #first-col {
@@ -476,8 +510,19 @@ tbody {
     transition: all .3s;
 }
 
+.back-next {
+    background-color: #3476CE;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    font-size: 10px;
+    transition: all .3s;
+}
 
-
-/* .back-next-icon {
-    text-decoration: none;
-} */
+.search-btn:hover, .back-next:hover {
+    background-color: rgba(31, 92, 173, 1);
+}
