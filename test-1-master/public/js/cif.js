@@ -100,6 +100,18 @@ const temperature = document.querySelector('.fever-celsius');
 //assessed as high risk pregnancy - radio
 
 //specimen information
+const serum = document.querySelector('.')
+const serum_hr_collected = document.querySelector('.serum-hr-collected')
+const serum_min_collected = document.querySelector('.serum-min-collected')
+const serum_hr_sent = document.querySelector('.serum-hr-sent')
+const serum_min_sent = docuemnt.querySelector('.serum-min-sent')
+const serum_hr_received = document.querySelector('.serum-hr-received')
+const serum_min_received = document.querySelector('.serum-min-received')
+const serum_virus_isolation = document.querySelector('serum-virus-isolation')
+const serum_pcr = document.querySelector('serum-pcr')
+
+//checkbox
+//const 
 
 //const close_contact_number = document.querySelector('.close-contact-no1');
 
@@ -112,9 +124,11 @@ const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const usertype = document.querySelector('.usertype');
 const druselect = document.querySelector('.dru');
-const submitBtn = document.querySelector('.submit-btn');
+const submitBtn = document.querySelector('.save-button');
 
-
+submitBtn.addEventListener('click', () => {
+    console.log(lname.value)
+})
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
     document.getElementById('nav').style.width = '100px';
