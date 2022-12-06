@@ -100,16 +100,53 @@ const temperature = document.querySelector('.fever-celsius');
 //assessed as high risk pregnancy - radio
 
 //specimen information
-const serum = document.querySelector('.')
+//const serum = document.querySelector('.')
 const serum_hr_collected = document.querySelector('.serum-hr-collected')
 const serum_min_collected = document.querySelector('.serum-min-collected')
 const serum_hr_sent = document.querySelector('.serum-hr-sent')
-const serum_min_sent = docuemnt.querySelector('.serum-min-sent')
+const serum_min_sent = document.querySelector('.serum-min-sent')
 const serum_hr_received = document.querySelector('.serum-hr-received')
 const serum_min_received = document.querySelector('.serum-min-received')
 const serum_virus_isolation = document.querySelector('serum-virus-isolation')
 const serum_pcr = document.querySelector('serum-pcr')
 
+const naso_hr_collected = document.querySelector('.naso-hr-collected')
+const naso_min_collected = document.querySelector('.naso-min-collected')
+const naso_hr_sent = document.querySelector('.naso-hr-sent')
+const naso_min_sent = document.querySelector('.naso-min-sent')
+const naso_hr_received = document.querySelector('.naso-hr-received')
+const naso_min_received = document.querySelector('.naso-min-received')
+const naso_virus_isolation = document.querySelector('naso-virus-isolation')
+const naso_pcr = document.querySelector('naso-pcr')
+
+const oro_hr_collected = document.querySelector('.oro-hr-collected')
+const oro_min_collected = document.querySelector('.oro-min-collected')
+const oro_hr_sent = document.querySelector('.oro-sent')
+const oro_min_sent = document.querySelector('.oro-min-sent')
+const oro_hr_received = document.querySelector('.oro-hr-received')
+const oro_min_received = document.querySelector('.oro-min-received')
+const oro_virus_isolation = document.querySelector('oro-virus-isolation')
+const oro_pcr = document.querySelector('oro-pcr')
+
+const other_hr_collected = document.querySelector('.other-hr-collected')
+const other_min_collected = document.querySelector('.other-min-collected')
+const other_hr_sent = document.querySelector('.other-hr-sent')
+const other_min_sent = document.querySelector('.other-min-sent')
+const other_hr_received = document.querySelector('.other-hr-received')
+const other_min_received = document.querySelector('.other-min-received')
+const other_virus_isolation = document.querySelector('other-virus-isolation')
+const other_pcr = document.querySelector('other-pcr')
+
+const final_suspect = document.querySelector('.final-suspect')
+const final_probable = document.querySelector('.final-probable')
+const final_confirmed = document.querySelector('.final-confirmed')
+const final_discharged = document.querySelector('.final-discharged')
+const final_unknown = document.querySelector('.final-unknown')
+
+//Final Classification
+//const serum_min_received = document.querySelector('.serum-min-received')
+//const serum_virus_isolation = document.querySelector('serum-virus-isolation')
+//const serum_pcr = document.querySelector('serum-pcr')
 //checkbox
 //const 
 
@@ -127,8 +164,81 @@ const druselect = document.querySelector('.dru');
 const submitBtn = document.querySelector('.save-button');
 
 submitBtn.addEventListener('click', () => {
-    console.log(lname.value)
+    //console.log(fname.value)
+    fetch('/insert-cif', {
+        method: 'post',
+        headers: new Headers({ 'Content-Type' : 'application/json'}),
+        body: JSON.stringify({
+            psTOD: psTOD.value,
+            psPriority: psPriority.value,
+            labNo: labNo.value,
+            dru: dru.value,
+            investigator: investigator.value,
+            interviewDate: interviewDate.value,
+            philhealthNo: philhealthNo.value,
+            testingCategory: testingCategory.value,
+            lname: lname.value,
+            fname: fname.value,
+            mname: mname.value,
+            birthday: birthday.value,
+            age: age.value,
+            sex: sex.value,
+            occupation: occupation.value,
+            civil_status: civil_status.value,
+            nationality: nationality.value,
+            passport_no: passport_no.value,
+            gross_income: gross_income.value,
+            perm_house: perm_house.value,
+            perm_barangay: perm_barangay.value,
+            perm_municipality: perm_municipality.value,
+            perm_province: perm_province.value,
+            perm_region: perm_region.value,
+            perm_home_phone_number: perm_home_phone_number.value,
+            perm_cellphone_number: perm_cellphone_number.value,
+            perm_email: perm_email.value,
+            curr_house: curr_house.value,
+            curr_barangay: curr_barangay.value,
+            curr_municipality: curr_municipality.value,
+            curr_province: curr_province.value,
+            curr_region: curr_region.value,
+            curr_home_phone_number: curr_home_phone_number.value,
+            curr_email: curr_email.value,
+            employer_name: employer_name.value,
+            employer_occupation: employer_occupation.value,
+            place_of_work: place_of_work.value,
+            building_name: building_name.value,
+            employer_street: employer_street.value,
+            employer_city: employer_city.value,
+            employer_province: employer_province.value,
+            employer_country: employer_country.value,
+            office_phone_number: office_phone_number.value,
+            office_cellphone_number: office_cellphone_number.value,
+            //buttons
+            place_visited: place_visited.value,
+            name_of_place: name_of_place.value,
+            date_visited: date_visited.value,
+            //
+            close_contact_name: close_contact_name.value,
+            close_contact_number: close_contact_number.value,
+            close_contact_name2: close_contact_name2.value,
+            close_contact_number2: close_contact_number2.value,
+            illness_date: illness_date.value,
+            admission_date: admission_date.value,
+            temperature: temperature.value,
+            serum_hr_collected: serum_hr_collected.value,
+            serum_min_collected: serum_min_collected.value,
+            serum_hr_sent: serum_hr_sent.value,
+            serum_min_sent: serum_min_sent.value,
+            serum_hr_received: serum_hr_received.value,
+            serum_min_received: serum_min_received.value,
+            serum_virus_isolation: serum_virus_isolation.value,
+            serum_pcr: serum_pcr.value
+        })
+    })
 })
+
+
+
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
     document.getElementById('nav').style.width = '100px';
