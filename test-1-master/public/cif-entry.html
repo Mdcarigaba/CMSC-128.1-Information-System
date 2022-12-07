@@ -185,14 +185,14 @@
                                         <p class="required-field">*</p>
                                         <p class="input-field-label">Laboratory Number</p>
                                     </div>
-                                    <input type="text" id="laboratory-number" class="lab-no">
+                                    <input type="text" id="laboratory-number" class="lab-no" required>
                                 </div>
                                 <div>
                                     <div class="row">
                                         <p class="required-field">*</p>
                                         <p class="input-field-label">Disease Reporting Unit/Hospital</p>
                                     </div>
-                                    <input type="text" id="dru" class="dru_hospital">
+                                    <input type="text" id="dru" class="dru_hospital" require>
                                 </div>
                         </div>
 
@@ -211,7 +211,7 @@
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Date of Interview</p>
                                 </div>
-                                <input type="text" placeholder="MM/DD/YYYY" id="date-of-interview" class="interview-date">
+                                <input type="text" placeholder="MM/DD/YYYY" id="date-of-interview" class="interview-date"> required
                             </div>
                     </div>
                 </form>
@@ -248,28 +248,28 @@
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Last Name</p>
                                 </div>
-                                <input type="text" id="last-name" class="last-name">
+                                <input type="text" id="last-name" class="last-name"> required
                             </div>
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">First Name</p>
                                 </div>
-                                <input type="text" id="first-name" class="first-name">
+                                <input type="text" id="first-name" class="first-name"> required
                             </div>
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Middle Name</p>
                                 </div>
-                                <input type="text" id="middle-name" class="middle-name">
+                                <input type="text" id="middle-name" class="middle-name"> required
                             </div>
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Birthday</p>
                                 </div>
-                                <input type="text" id="birthday" class="birthday">
+                                <input type="text" id="birthday" class="birthday"> required
                             </div>
                         </div>
 
@@ -279,7 +279,7 @@
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Age</p>
                                 </div>
-                                <input type="text" placeholder="" id="age" clas="age">
+                                <input type="text" placeholder="" id="age" clas="age"> required
                             </div>
                             <div>
                                 <p class="input-field-label">Sex</p>
@@ -344,21 +344,21 @@
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Municipality</p>
                                 </div>
-                                <input type="text" placeholder="" id="municipality" class="perm-municipality">
+                                <input type="text" placeholder="" id="municipality" class="perm-municipality"> required
                             </div>
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Province</p>
                                 </div>
-                                <input type="text" placeholder="" id="province" class="perm-province">
+                                <input type="text" placeholder="" id="province" class="perm-province"> required
                             </div>
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Region</p>
                                 </div>
-                                <input type="text" placeholder="" id="region" class="perm-region">
+                                <input type="text" placeholder="" id="region" class="perm-region"> required
                             </div>
                     </div>
 
@@ -373,7 +373,7 @@
                             </div>
                             <div>
                                 <p class="input-field-label">Email Address</p>
-                                <input type="text" id="email">
+                                <input type="text" id="email" class="email">
                             </div>
                     </div>
                 </form>
@@ -402,21 +402,21 @@
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Municipality</p>
                                 </div>
-                                <input type="text" placeholder="" id="municipality" class="curr-municipality">
+                                <input type="text" placeholder="" id="municipality" class="curr-municipality"> required
                             </div>
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Province</p>
                                 </div>
-                                <input type="text" placeholder="" id="province" class="curr-province">
+                                <input type="text" placeholder="" id="province" class="curr-province"> required
                             </div>
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Region</p>
                                 </div>
-                                <input type="text" placeholder="" id="region" class="curr-region">
+                                <input type="text" placeholder="" id="region" class="curr-region"> required
                             </div>
                     </div>
 
@@ -448,14 +448,14 @@
                     <i class="ri-briefcase-fill"></i>
                     <span class="title">Employer Details</span>
                 </div>
-                <form class="p-body">
+                <div class="p-body">
                     <div class="table-row">
                             <div>
                                 <div class="row">
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Employer's Name</p>
                                 </div>
-                                <input type="text" placeholder="" id="employer-name" class="employer-name">
+                                <input type="text" placeholder="" id="employer-name" class="employer-name"> required
                             </div>
                             <div>
                                 <p class="input-field-label">Occupation</p>
@@ -503,9 +503,9 @@
                     <!--BUTTONS -->
                     <div class = "row center">
                             <button class = "clear-button">CLEAR</button>
-                            <button class = "na-button">FILL ALL FIELDS WITH "N/A"</button>
+                            <button class = "na-button"> onclick="fillwithNA()"FILL ALL FIELDS WITH "N/A"</button>
                     </div>
-                </form>
+                </div>
             </div>
 
             <div class="travel-history">

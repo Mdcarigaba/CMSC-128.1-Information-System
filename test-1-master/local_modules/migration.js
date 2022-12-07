@@ -50,61 +50,29 @@ var functions = {
                                     t.string('contact_number');
                                     t.string('email').unique();
                                     t.string('password');
-
+                                    t.string('role');
                                 })
                                     .then(console.log('table created 2'))
                                 //then inset values
+                                .then(async () => await db('staff').insert([
+                                    {
+                                        username: 'admin_a',
+                                        firstname: 'Admin',
+                                        middlename: 'Ad',
+                                        lastname: 'Min',
+                                        dru_id: 1,
+                                        contact_number: '999999999',
+                                        email: 'admin@a.com',
+                                        password: 'admin',
+                                        role: 'admin'
+                                    }
+                                ]))
                             }
                             else {
                                 console.log('table already exists 2')
                             }
                         })
                 })
-                .then(
-                    async () =>{
-                        await db.schema.hasTable('address_contactinfo')
-                        .then(async (e) =>{
-                            if (!e) {
-                                await db.schema.createTable('address_contactinfo', (t) => {
-                                    t.increments('id').primary();
-                                    t.string('hn_bl_lot_buildno');
-                                    t.string('barangay');
-                                    t.string('muni_city');
-                                    t.string('province');
-                                    t.string('region');
-                                    t.string('home_no');
-                                    t.string('cell_no');
-                                    t.string('email');
-                                })
-                                .then(console.log('table created 3'))
-                            }
-                            else {
-                                console.log('table already exists 3')
-                            }
-                        })
-                    }
-                )
-                .then(
-                    async () => {
-                        await db.schema.hasTable('workplace')
-                        .then(async (e) =>{
-                            if(!e){
-                                await db.schema.createTable('workplace', (t) => {
-                                    t.increments('id').primary();
-                                    t.string('name');
-                                    t.integer('address_contactinfo_id').unsigned();
-                                    t.foreign('address_contactinfo_id').references('address_contactinfo.id');
-                                })
-                                .then(console.log('table created 4'))
-                            }
-                            else{
-                                console.log('table already exists')
-                            }
-                        })
-                        
-                    }
-
-                )
                 .then(
                     async ()=>{
                         await db.schema.hasTable('patient')
@@ -122,12 +90,31 @@ var functions = {
                                     t.string('occupation');
                                     t.string('civil_status');
                                     t.string('nationality');
-                                    t.integer('permanent_address_id').unsigned();
-                                    t.foreign('permanent_address_id').references('address_contactinfo.id');
-                                    t.integer('current_address_id').unsigned();
-                                    t.foreign('current_address_id').references('address_contactinfo.id');
-                                    t.integer('workplace_id').unsigned();
-                                    t.foreign('workplace_id').references('workplace.id');
+                                    t.string('permanent_hn_bl_lot_buildno');
+                                    t.string('permanent_barangay');
+                                    t.string('permanent_muni_city');
+                                    t.string('permanent_province');
+                                    t.string('permanent_region');
+                                    t.string('permanent_home_no');
+                                    t.string('permanent_cell_no');
+                                    t.string('permanent_email');
+                                    t.string('current_hn_bl_lot_buildno');
+                                    t.string('current_barangay');
+                                    t.string('current_muni_city');
+                                    t.string('current_province');
+                                    t.string('current_region');
+                                    t.string('current_home_no');
+                                    t.string('current_cell_no');
+                                    t.string('current_email');
+                                    t.string('workplace_name');
+                                    t.string('workplace_hn_bl_lot_buildno');
+                                    t.string('workplace_barangay');
+                                    t.string('workplace_muni_city');
+                                    t.string('workplace_province');
+                                    t.string('workplace_region');
+                                    t.string('workplace_home_no');
+                                    t.string('workplace_cell_no');
+                                    t.string('workplace_email');
                                     t.string('works_in_closed_settings');
                                 })
                                 .then(console.log('created table 5'))

@@ -3,6 +3,7 @@ const psPriority = document.querySelector('.priority-patient');
 const labNo = document.querySelector('.lab-no');
 const dru = document.querySelector('.dru_hospital');
 const investigator = document.querySelector('.investigator');
+const other_investigator = document.querySelector('.other-investigator'); //added
 const interviewDate = document.querySelector('.interview-date');
 const philhealthNo = document.querySelector('.philhealth-no');
 const testingCategory = document.querySelector('.testing-category');
@@ -53,7 +54,8 @@ const office_cellphone_number = document.querySelector('.office-cellphone-no');
 
 //travel history
 //to add radio buttons
-
+const travel_yes = document.querySelector('.travel-yes');
+const travel_no = document.querySelector('.travel-no');
 const port_of_exit = document.querySelector('.exit-port');
 const airline_or_seavessel = document.querySelector('.airline-seavessel');
 const flight_or_vessel_no = document.querySelector('.flight-vessel-no');
@@ -64,6 +66,14 @@ const doa = document.querySelector('.arrival-date');
 //exposure history
 
 //to add radio buttons
+//to add radio buttons
+const expo_yes = document.querySelector('.expo-yes');
+const expo_no = document.querySelector('.expo-no');
+const expo_unknown = document.querySelector('.expose-unknown');
+const date_of_contact = document.querySelector('.date-of-contact');
+const place_yes = document.querySelector('.place-yes');
+const place_no = document.querySelector('.place-no');
+const place_unknown = document.querySelector('.place-unknown');
 
 const place_visited = document.querySelector('.visited-place');
 const name_of_place = document.querySelector('.place-name');
@@ -81,6 +91,12 @@ const close_contact_number2 = document.querySelector('.close-contact-no2');
 
 //clinical information
 //to add radio buttons
+//added
+const disposition_inpatient = document.querySelector('.disposition-inpatient');
+const disposition_outpatient = document.querySelector('.disposition-outpatient');
+const disposition_died = document.querySelector('.disposition-died');
+const disposition_discharged = document.querySelector('.disposition-discharged');
+const disposition_unknown = document.querySelector('.dispositio-unknown');
 
 const illness_date = document.querySelector('.illness-date');
 const admission_date = document.querySelector('.admission-date');
@@ -88,18 +104,54 @@ const temperature = document.querySelector('.fever-celsius');
 
 //sign symptoms
 //checkbox
+const asymptomatic = document.querySelector('.asymptomatic');
+const fever = document.querySelector('.fever');
+const cough = document.querySelector('.cough');
+const weakness = document.querySelector('.weakness');
+const fatigue = document.querySelector('.fatigue');
+const headache = document.querySelector('.headache');
+const myalgia = document.querySelector('.myalgia');
+const sorethroat = document.querySelector('.sorethroat');
+const coryza = document.querySelector('.coryza')
+//const cough = document.querySelect - DOUBLE CHECK 
+const dyspnea = document.querySelector('.dyspnea');
+const anorexia = document.querySelector('.anorexia');
+const nausea = document.querySelector('.nausea');
+const vomiting = document.querySelector('.vomiting');
+const diarrhea = document.querySelector('.diarrhea');
+const altered = document.querySelector('.altered');
+const anosmia = document.querySelector('.anosmia');
+const ageusia = document.querySelector('.ageusia');
 
 //is there any history of other illness options - radio
+const history_yes = document.querySelector('.history-yes');
+const history_no = document.querySelector('.history-no');
+const other_illness_date = document.querySelector('.other-illness-date');
 
 //chest XRAY - radio 
+const xray_yes = document.querySelector('.xray-yes');
+const xray_no = document.querySelector('.xray-no');
+const xray_date = document.querySelector('.xray-date');
 
 //CXR results - radio
+const pneumonia_yes = document.querySelector('.pneumonia-yes');
+const pneumonia_no = document.querySelector('.pneumonia-no');
+const pneumonia_pending = document.querySelector('.pneumonia-pending');
+const pneumonia_na = document.querySelector('.pneumonia-na');
 
 //Other radiological findings - radio
+const other_findings = document.querySelector('.other_findings');
 
 //assessed as high risk pregnancy - radio
+const pregnant_yes = document.querySelector('.pregnant-yes');
+const pregnant_no = document.querySelector('.pregnant-no');
+const pregnant_na = document.querySelector('.pregnant-na');
+const high_yes = document.querySelector('.high-yes');
+const high_no = document.querySelector('.high-no');
+const high_na = document.querySelector('.high-na');
 
 //specimen information
+
 //const serum = document.querySelector('.')
 const serum_hr_collected = document.querySelector('.serum-hr-collected')
 const serum_min_collected = document.querySelector('.serum-min-collected')
@@ -174,6 +226,7 @@ submitBtn.addEventListener('click', () => {
             labNo: labNo.value,
             dru: dru.value,
             investigator: investigator.value,
+            other_investigator: other_investigator.value,
             interviewDate: interviewDate.value,
             philhealthNo: philhealthNo.value,
             testingCategory: testingCategory.value,
@@ -213,18 +266,71 @@ submitBtn.addEventListener('click', () => {
             employer_country: employer_country.value,
             office_phone_number: office_phone_number.value,
             office_cellphone_number: office_cellphone_number.value,
-            //buttons
-            place_visited: place_visited.value,
-            name_of_place: name_of_place.value,
-            date_visited: date_visited.value,
+             //radio buttons
+            travel_yes: travel_yes.value,
+            travel_no: travel_no.value,
+            port_of_exit: port_of_exit.value,
+            airline_or_seavessel: airline_or_seavessel.value,
+            flight_or_vessel_no: flight_or_vessel_no.value,
+            dop: dop.value,
+            doa: doa.value,
+            expo_yes: expo_yes.value,
+            expo_no: expo_no.value,
+            expo_unknown: expo_unknown.value,
+            date_of_contact: date_of_contact.value,
+            place_yes: place_yes.value,
+            place_no: place_no.value,
+            place_unknown: place_unknown.value,
             //
             close_contact_name: close_contact_name.value,
             close_contact_number: close_contact_number.value,
             close_contact_name2: close_contact_name2.value,
             close_contact_number2: close_contact_number2.value,
+            disposition_inpatient: disposition_inpatient.value,
+            disposition_outpatient: disposition_outpatient.value,
+            disposition_died: disposition_died.value,
+            disposition_discharged: disposition_charged.value,
+            disposition_unknown: disposition_died.value,
             illness_date: illness_date.value,
             admission_date: admission_date.value,
             temperature: temperature.value,
+
+            asymptomatic: asymptomatic.value,
+            fever: fever.value,
+            cough: cough.value,
+            weakness: weakness.value,
+            fatigue: fatigue.value,
+            headache: headache.value,
+            myalgia: myalgia.value,
+            sorethroat: sorethroat.value,
+            coryza: coryza.value,
+            //cough again
+            dyspnea: dyspnea.value,
+            anorexia: anorexia.value,
+            nausea: nausea.value,
+            vomiting: vomiting.value,
+            diarrhea: diarrhea.value,
+            altered: altered.value,
+            anomia: anosmia.value,
+            ageusia: ageusia.value,
+            
+            history_yes: history_yes.value,
+            history_no: history_no.value,
+            other_illness_date: other_illness_date.value,
+            xray_yes: xray_yes.value,
+            xray_no: xray_no.value,
+            xray_date: xray_date.value,
+            pneumonia_yes: pneumonia_yes.value,
+            pneumonia_no: pneumonia_no.value,
+            pneumonia_pending: pneumonia_pending.value,
+            pneumonia_na: pneumonia_na.value,
+            other_findings: other_findings.value,
+            pregnant_yes: pregnant_yes.value,
+            pregnant_na: pregnant_na.value,
+            high_yes: high_yes.value,
+            high_no: high_no.value,
+            high_na: high_na.value,
+
             serum_hr_collected: serum_hr_collected.value,
             serum_min_collected: serum_min_collected.value,
             serum_hr_sent: serum_hr_sent.value,
@@ -232,7 +338,40 @@ submitBtn.addEventListener('click', () => {
             serum_hr_received: serum_hr_received.value,
             serum_min_received: serum_min_received.value,
             serum_virus_isolation: serum_virus_isolation.value,
-            serum_pcr: serum_pcr.value
+            serum_pcr: serum_pcr.value,
+
+            naso_hr_collected: naso_hr_collected.value,
+            naso_min_collected: naso_min_collected.value,
+            naso_hr_sent: naso_hr_sent.value,
+            naso_min_sent: naso_min_sent.value,
+            naso_hr_received: naso_hr_received.value,
+            naso_min_received: naso_min_received.value,
+            naso_virus_isolation: naso_virus_isolation.value,
+            naso_pcr: naso_pcr.value,
+
+            oro_hr_collected: oro_hr_collected.value,
+            oro_hr_received: oro_hr_received.value,
+            oro_hr_sent: oro_hr_sent.value,
+            oro_min_sent: oro_min_sent.value,
+            oro_hr_received: oro_hr_received.value,
+            oro_min_received: oro_min_received.value,
+            oro_virus_isolation: oro_virus_isolation.value,
+            oro_pcr: oro_pcr.value,
+
+            other_hr_collected: other_hr_collected.value,
+            other_min_collected: other_min_collected.value,
+            other_hr_sent: other_hr_sent.value,
+            other_min_sent: other_min_sent.value,
+            other_hr_received: other_hr_received.value,
+            other_min_received: other_min_received.value,
+            other_virus_isolation: other_virus_isolation.value,
+            other_pcr: other_pcr.value,
+
+            final_suspect: final_suspect.value,
+            final_probable: final_probable.value,
+            final_confirmed: final_confirmed.value,
+            final_discharged: final_discharged.value,
+            final_unknown: final_unknown.value
         })
     })
 })
@@ -307,3 +446,20 @@ function toggleDropdown() {
     var element = document.getElementById('dropdown');
     element.classList.toggle("show");
 }
+
+//fill input fields with n/a
+
+const naBtn = document.querySelector('.na-button');
+
+naBtn.addEventListener('click', () => { 
+    employer_name.value = "N/A"
+    employer_occupation.value = "N/A"
+    place_of_work.value = "N/A"
+    building_name.value = "N/A"
+    employer_street.value = "N/A"
+    employer_city.value = "N/A"
+    employer_province.value = "N/A"
+    employer_country.value = "N/A"
+    office_phone_number.value = "N/A"
+    office_cellphone_number.value = "N/A"
+})

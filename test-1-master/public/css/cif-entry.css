@@ -559,6 +559,10 @@ button {
     width: 250px;
 }
 
+.na-button:hover {
+    cursor: pointer;
+}
+
 .add-button1 {
     width: 180px;
     color: #3476CE;
