@@ -121,6 +121,91 @@ app.post('/login-user', (req,res) => {
     })
 })
 
+// search request (not tested yet)
+let joinSearch = ['cif.id as CIF Number', 'tests.lab_name as Lab Number', 'patient.lastname as Last Name', 'patient.firstname as First Name',
+ 'patient.middlename as Middle Name', 'patient.sex as Gender', 'cif.date_interview as Date Encoded', 'tests.date_collected as Date Collected']
+app.get('/search-cif?', (req, res) => {
+    db('cif').leftJoin('tests', 'patient')
+    .where(req.query)
+    .returning()
+    .then((data) => {
+        res.json(data);
+    })
+})
+
+// insert request (not tested yet)
+app.post('/insert-cif', async (req, res) => {
+    // const body
+    const {investigator,
+        
+            philhealth_no, firstname, middlename, lastname,
+            age, birthday, occupation, civil_status, nationality,
+            permanent_hn_bl_lot_buildno, permanent_barangay,
+            permanent_muni_city, permanent_province, permanent_region,
+            permanent_home_no, permanent_cell_no, permanent_email,
+            current_hn_bl_lot_buildno, current_barangay, current_muni_city,
+            current_province, current_region, current_home_no, current_cell_no,
+            current_email, workplace_name, workplace_hn_bl_lot_buildno,
+            workplace_barangay, workplace_muni_city, workplace_province,
+            workplace_region, workplace_home_no, workplace_cell_no,
+            workplace_email, works_in_closed_settings
+            } = req.body;
+    var investigator_id = 0;
+    await db
+    .select('id')
+    .from('staff')
+    .where('lastname', `${investigator}`)
+    .then((data) => {
+        res.json(data);
+        investigator_id = data[0].id;
+    })
+    .then(
+        async () => {
+            await db('patient')
+            .insert({
+                philhealth_no: philhealth_no,
+                firstname: firstname,
+                middlename: middlename,
+                lastname: lastname,
+                age: age,
+                birthday: birthday,
+                occupation: occupation,
+                civil_status: civil_status,
+                nationality: nationality,
+                permanent_hn_bl_lot_buildno: permanent_hn_bl_lot_buildno,
+                permanent_barangay: permanent_barangay,
+                permanent_muni_city: permanent_muni_city,
+                permanent_province: permanent_province,
+                permanent_region: permanent_region,
+                permanent_home_no: permanent_home_no,
+                permanent_cell_no: permanent_cell_no,
+                permanent_email: permanent_email,
+                current_hn_bl_lot_buildno: current_hn_bl_lot_buildno,
+                current_barangay: current_barangay,
+                current_muni_city: current_muni_city,
+                current_province: current_province,
+                current_region: current_region,
+                current_home_no: current_home_no,
+                current_cell_no: current_cell_no,
+                current_email: current_email,
+                workplace_name: workplace_name, 
+                workplace_hn_bl_lot_buildno: workplace_hn_bl_lot_buildno,
+                workplace_barangay: workplace_barangay, 
+                workplace_muni_city: workplace_muni_city, 
+                workplace_province: workplace_province,
+                workplace_region: workplace_region, 
+                workplace_home_no: workplace_home_no, 
+                workplace_cell_no: workplace_cell_no,
+                workplace_email: workplace_email, 
+                works_in_closed_settings: works_in_closed_settings
+            })
+        }
+    )
+    //do this
+
+    
+})
+
 //for testing
 app.get('/fetch-dru', (req, res) => {
     db.select('name')
