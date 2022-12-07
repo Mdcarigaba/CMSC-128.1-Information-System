@@ -66,7 +66,6 @@ const doa = document.querySelector('.arrival-date');
 //exposure history
 
 //to add radio buttons
-//to add radio buttons
 const expo_yes = document.querySelector('.expo-yes');
 const expo_no = document.querySelector('.expo-no');
 const expo_unknown = document.querySelector('.expose-unknown');
@@ -266,7 +265,7 @@ submitBtn.addEventListener('click', () => {
             employer_country: employer_country.value,
             office_phone_number: office_phone_number.value,
             office_cellphone_number: office_cellphone_number.value,
-             //radio buttons
+            //radio buttons
             travel_yes: travel_yes.value,
             travel_no: travel_no.value,
             port_of_exit: port_of_exit.value,
@@ -281,6 +280,10 @@ submitBtn.addEventListener('click', () => {
             place_yes: place_yes.value,
             place_no: place_no.value,
             place_unknown: place_unknown.value,
+            //
+            place_visited: place_visited.value,
+            name_of_place: name_of_place.value,
+            date_visited: date_visited.value,
             //
             close_contact_name: close_contact_name.value,
             close_contact_number: close_contact_number.value,
@@ -372,6 +375,8 @@ submitBtn.addEventListener('click', () => {
             final_confirmed: final_confirmed.value,
             final_discharged: final_discharged.value,
             final_unknown: final_unknown.value
+
+
         })
     })
 })
