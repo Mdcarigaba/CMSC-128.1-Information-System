@@ -53,7 +53,8 @@ const office_cellphone_number = document.querySelector('.office-cellphone-no');
 
 //travel history
 //to add radio buttons
-
+const travel_yes = document.querySelector('.travel-yes');
+const travel_no = document.querySelector('.travel-no');
 const port_of_exit = document.querySelector('.exit-port');
 const airline_or_seavessel = document.querySelector('.airline-seavessel');
 const flight_or_vessel_no = document.querySelector('.flight-vessel-no');
@@ -64,6 +65,13 @@ const doa = document.querySelector('.arrival-date');
 //exposure history
 
 //to add radio buttons
+const expo_yes = document.querySelector('.expo-yes');
+const expo_no = document.querySelector('.expo-no');
+const expo_unknown = document.querySelector('.expose-unknown');
+const date_of_contact = document.querySelector('.date-of-contact');
+const place_yes = document.querySelector('.place-yes');
+const place_no = document.querySelector('.place-no');
+const place_unknown = document.querySelector('.place-unknown');
 
 const place_visited = document.querySelector('.visited-place');
 const name_of_place = document.querySelector('.place-name');
@@ -213,7 +221,22 @@ submitBtn.addEventListener('click', () => {
             employer_country: employer_country.value,
             office_phone_number: office_phone_number.value,
             office_cellphone_number: office_cellphone_number.value,
-            //buttons
+            //radio buttons
+            travel_yes: travel_yes.value,
+            travel_no: travel_no.value,
+            port_of_exit: port_of_exit.value,
+            airline_or_seavessel: airline_or_seavessel.value,
+            flight_or_vessel_no: flight_or_vessel_no.value,
+            dop: dop.value,
+            doa: doa.value,
+            expo_yes: expo_yes.value,
+            expo_no: expo_no.value,
+            expo_unknown: expo_unknown.value,
+            date_of_contact: date_of_contact.value,
+            place_yes: place_yes.value,
+            place_no: place_no.value,
+            place_unknown: place_unknown.value,
+            //
             place_visited: place_visited.value,
             name_of_place: name_of_place.value,
             date_visited: date_visited.value,
@@ -232,7 +255,42 @@ submitBtn.addEventListener('click', () => {
             serum_hr_received: serum_hr_received.value,
             serum_min_received: serum_min_received.value,
             serum_virus_isolation: serum_virus_isolation.value,
-            serum_pcr: serum_pcr.value
+            serum_pcr: serum_pcr.value,
+
+            naso_hr_collected: naso_hr_collected.value,
+            naso_min_collected: naso_min_collected.value,
+            naso_hr_sent: naso_hr_sent.value,
+            naso_min_sent: naso_min_sent.value,
+            naso_hr_received: naso_hr_received.value,
+            naso_min_received: naso_min_received.value,
+            naso_virus_isolation: naso_virus_isolation.value,
+            naso_pcr: naso_pcr.value,
+
+            oro_hr_collected: oro_hr_collected.value,
+            oro_hr_received: oro_hr_received.value,
+            oro_hr_sent: oro_hr_sent.value,
+            oro_min_sent: oro_min_sent.value,
+            oro_hr_received: oro_hr_received.value,
+            oro_min_received: oro_min_received.value,
+            oro_virus_isolation: oro_virus_isolation.value,
+            oro_pcr: oro_pcr.value,
+
+            other_hr_collected: other_hr_collected.value,
+            other_min_collected: other_min_collected.value,
+            other_hr_sent: other_hr_sent.value,
+            other_min_sent: other_min_sent.value,
+            other_hr_received: other_hr_received.value,
+            other_min_received: other_min_received.value,
+            other_virus_isolation: other_virus_isolation.value,
+            other_pcr: other_pcr.value,
+
+            final_suspect: final_suspect.value,
+            final_probable: final_probable.value,
+            final_confirmed: final_confirmed.value,
+            final_discharged: final_discharged.value,
+            final_unknown: final_unknown.value
+
+
         })
     })
 })
