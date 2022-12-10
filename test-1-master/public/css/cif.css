@@ -99,6 +99,7 @@ i {
 
 /* Navbar */
 nav {
+    position: fixed;
     min-height: 100vh;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -183,6 +184,7 @@ a {
 
 /*
 .main-content {
+    margin-left: 60px;
     padding: 2% 5%;
     width: 80%;
 }
