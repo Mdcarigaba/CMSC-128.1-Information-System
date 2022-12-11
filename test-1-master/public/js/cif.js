@@ -1,23 +1,18 @@
-const psTOD = document.querySelector('.tod-patient');
-const psPriority = document.querySelector('.priority-patient');
-const labNo = document.querySelector('.lab-no');
-const dru = document.querySelector('.dru_hospital');
 const investigator = document.querySelector('.investigator');
-const other_investigator = document.querySelector('.other-investigator'); //added
-const interviewDate = document.querySelector('.interview-date');
+
 const philhealthNo = document.querySelector('.philhealth-no');
-const testingCategory = document.querySelector('.testing-category');
-const lname = document.querySelector('.last-name') || null;
+
 const fname = document.querySelector('.first-name');
 const mname = document.querySelector('.middle-name');
-const birthday = document.querySelector('.birthday');
+const lname = document.querySelector('.last-name') || null;
+
 const age = document.querySelector('.age');
 const sex = document.querySelector('.sex');
+const birthday = document.querySelector('.birthday');
 const occupation = document.querySelector('.occupation');
 const civil_status = document.querySelector('.civil-status');
 const nationality = document.querySelector('.nationality');
-const passport_no = document.querySelector('.passport-no');
-const gross_income = document.querySelector('.gross-income');
+
 const perm_house = document.querySelector('.permanent-house');
 const perm_barangay = document.querySelector('.perm-brgy');
 const perm_municipality = document.querySelector('.perm-municipality');
@@ -26,6 +21,7 @@ const perm_region = document.querySelector('.perm-region');
 const perm_home_phone_number = document.querySelector('.perm-phone-no');
 const perm_cellphone_number = document.querySelector('.perm-cellphone-no')
 const perm_email = document.querySelector('.email');
+
 const curr_house = document.querySelector('.curr-house');
 const curr_barangay = document.querySelector('.curr-brgy');
 const curr_municipality = document.querySelector('.curr-municipality');
@@ -35,20 +31,84 @@ const curr_home_phone_number = document.querySelector('.curr-phone-no');
 const curr_cellphone_number = document.querySelector('curr-cellphone-no')
 const curr_email = document.querySelector('.curr-email');
 
-//to add buttons 
-
 //Employer
 
+//added part in server.js
 const employer_name = document.querySelector('.employer-name');
 const employer_occupation = document.querySelector('.employer-occupation');
-const place_of_work = document.querySelector('.place-of-work');
-const building_name = document.querySelector('.employer-house');
-const employer_street = document.querySelector('.employer-street');
-const employer_city = document.querySelector('.employer-city');
-const employer_province = document.querySelector('.employer-province');
-const employer_country = document.querySelector('.employer-country');
-const office_phone_number = document.querySelector('.office-phone-no');
-const office_cellphone_number = document.querySelector('.office-cellphone-no');
+//end added part
+const place_of_work = document.querySelector('.place-of-work'); //workplace_name in server
+const building_name = document.querySelector('.employer-house'); //workplace_hn_bl_lot_buildno in server
+const employer_street = document.querySelector('.employer-street'); //workplace_barangay in server
+const employer_city = document.querySelector('.employer-city'); //workplace_muni_city
+const employer_province = document.querySelector('.employer-province'); //workplace_province
+const employer_country = document.querySelector('.employer-country'); //workplace_region
+const office_phone_number = document.querySelector('.office-phone-no'); //workplace_home_no
+const office_cellphone_number = document.querySelector('.office-cellphone-no'); //workplace_cell_no
+//missing for employer part in server.js
+//workplace_email 
+//works_in_closed_settings
+//end missing
+
+//wala sa cif pero nasa server
+//---------missing----------
+//informant_name, informant_contactno
+//relation_to_patient
+//health_facility_name
+//health_facility_address
+//---------end missing-------
+
+
+//---------missing----------
+// city_mun_origin, 
+//province_origin, 
+//is_lsi, 
+//is_apor_localtraveler,
+// institution_name, 
+// institution_type,
+// country_origin, 
+// returning_overseas_filipino_health_facility_address,
+const interviewDate = document.querySelector('.interview-date'); // date_interview, 
+// client_classification, 
+//testing_category, 
+//validation_status, 
+//cif_patient_id, 
+//cif_investigator_id,
+//is_new_case, 
+//is_unknown, 
+//other,
+//symptoms,
+//health_status, 
+//case_classification, 
+//vaccination, 
+//lab_result, 
+//chest_image_findings, 
+//disposition, 
+//exposure,
+//health_status_at_consult, 
+//case_classification_at_consult,
+//date_of_consultation, 
+//consultation_facility_name,
+//admitted_in, 
+//name_of_facility, 
+//datetime_admission_isolation
+//name_of_vaccine, 
+//vaccination_date, 
+//dose_number, 
+//vaccination_facility_name, 
+//vaccination_facility_region, 
+//adverse_effect,
+
+const psTOD = document.querySelector('.tod-patient');
+const psPriority = document.querySelector('.priority-patient');
+const labNo = document.querySelector('.lab-no');
+const dru = document.querySelector('.dru_hospital');
+const other_investigator = document.querySelector('.other-investigator'); //added
+const testingCategory = document.querySelector('.testing-category');
+const passport_no = document.querySelector('.passport-no');
+const gross_income = document.querySelector('.gross-income');
+
+//to add buttons 
 
 //buttons
 
