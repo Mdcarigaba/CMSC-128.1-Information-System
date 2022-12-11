@@ -1,3 +1,6 @@
+let DRUqueue = [{
+
+}]
 
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
