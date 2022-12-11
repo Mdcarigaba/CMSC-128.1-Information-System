@@ -102,7 +102,7 @@ function loadTableData(recordsData) {
                         <td>${records.age}</td>
                         <td>${records.dateEncoded}</td>
                         <td>${records.dateCollected}</td>
-                        <td><button class="new-btn">+ New</button></td>
+                        <td><a class="new-btn" href="/cif">+ New</a></td>
                     </tr>`;
     }
 
