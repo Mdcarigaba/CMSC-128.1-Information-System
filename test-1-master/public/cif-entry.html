@@ -507,11 +507,11 @@
                             <p>History of travel/visit/work in other countries with a known COVID-19 transmission 14 days before the onset of your signs and symptoms?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="travel-yes">
+                                        <input type="radio" name="travel_history" id="yes" class="travel-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="travel-no">
+                                        <input type="radio" name="travel_history" id="no" class="travel-no">
                                         <label for = "no">No</label>
                                     </div>
                                 </div>
@@ -563,15 +563,15 @@
                             <p>History of exposure to known COVID-19 Case?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="expose-yes">
+                                        <input type="radio" name="exposure" id="yes" class="expose-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="expose-no">
+                                        <input type="radio" name="exposure" id="no" class="expose-no">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-unknown">
-                                        <input type="radio" placeholder="" id="unknown" class="expose-unknown">
+                                        <input type="radio" name="exposure" id="unknown" class="expose-unknown">
                                         <label for = "unknown">Unknown</label>
                                     </div>
                                 </div>
@@ -587,15 +587,15 @@
                             <p>Have you been in a place with a known COVID-19 transmission 14 days before the onset of signs and symptoms:</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="place-yes">
+                                        <input type="radio" name="place_exposed" id="yes" class="place-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="place-no">
+                                        <input type="radio" name="place_exposed" id="no" class="place-no">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-unknown">
-                                        <input type="radio" placeholder="" id="unknown" class="place-unknown">
+                                        <input type="radio" name="place_exposed" id="unknown" class="place-unknown">
                                         <label for = "unknown">Unknown</label>
                                     </div>
                                 </div>
@@ -672,23 +672,23 @@
                             <p>Disposition at Time of Report</p>
                                 <div class="row">
                                     <div class="row" id="radio-inpatient">
-                                        <input type="radio" placeholder="" id="inpatient" class="disposition-inpatient">
+                                        <input type="radio" name="disposition" id="inpatient" class="disposition-inpatient">
                                         <label for = "inpatient">Inpatient</label>
                                     </div>
                                     <div class="row" id="radio-outpatient">
-                                        <input type="radio" placeholder="" id="outpatient" class="disposition-outpatient">
+                                        <input type="radio" name="disposition" id="outpatient" class="disposition-outpatient">
                                         <label for = "outpatient">Outpatient</label>
                                     </div>
                                     <div class="row" id="radio-died">
-                                        <input type="radio" placeholder="" id="died" class="disposition-died">
+                                        <input type="radio" name="disposition" id="died" class="disposition-died">
                                         <label for = "died">Died</label>
                                     </div>
                                     <div class="row" id="radio-discharged">
-                                        <input type="radio" placeholder="" id="discharged" class="disposition-discharged">
+                                        <input type="radio" name="disposition" id="discharged" class="disposition-discharged">
                                         <label for = "discharged">Discharged</label>
                                     </div>
                                     <div class="row" id="radio-unknown">
-                                        <input type="radio" placeholder="" id="unknwon" class="disposition-unknown">
+                                        <input type="radio" name="disposition" id="unknwon" class="disposition-unknown">
                                         <label for = "unknown">Unknown</label>
                                     </div>
                                 </div>
@@ -817,11 +817,11 @@
                             <p>Is there any history of other illness?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="history-yes">
+                                        <input type="radio" name="history_of_illness" id="yes" class="history-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="history-no">
+                                        <input type="radio" name="history_of_illness" id="no" class="history-no">
                                         <label for = "no">No</label>
                                     </div>
                                 </div>
@@ -837,11 +837,11 @@
                             <p>Chest XRAY done?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="xray-yes">
+                                        <input type="radio" name="chest_xray" id="yes" class="xray-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="xray-no">
+                                        <input type="radio" name="chest_xray" id="no" class="xray-no">
                                         <label for = "no">No</label>
                                     </div>
                                 </div>
@@ -857,19 +857,19 @@
                             <p>CXR Results: Pneumonia</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="pneumonia-yes">
+                                        <input type="radio" name="pneumonia" id="yes" class="pneumonia-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="pneumonia-no">
+                                        <input type="radio" name="pneumonia" id="no" class="pneumonia-no">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-pending">
-                                        <input type="radio" placeholder="" id="pending" class="pneumonia-pending">
+                                        <input type="radio" name="pneumonia" id="pending" class="pneumonia-pending">
                                         <label for = "pending">Pending</label>
                                     </div>
                                     <div class="row" id="radio-na">
-                                        <input type="radio" placeholder="" id="na" class="pneumonia-na">
+                                        <input type="radio" name="pneumonia" id="na" class="pneumonia-na">
                                         <label for = "na">N/A</label>
                                     </div>
                                 </div>
@@ -886,15 +886,15 @@
                             <p>Are you pregnant?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="pregnant-yes">
+                                        <input type="radio" name="pregnant" id="yes" class="pregnant-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="pregnant-no">
+                                        <input type="radio" name="pregnant" id="no" class="pregnant-no">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-na">
-                                        <input type="radio" placeholder="" id="na" class="pregnant-na">
+                                        <input type="radio" name="pregnant" id="na" class="pregnant-na">
                                         <label for = "na">N/A</label>
                                     </div>
                                 </div>
@@ -910,15 +910,15 @@
                             <p>Assessed as High Risk Pregnancy?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" placeholder="" id="yes" class="high-yes">
+                                        <input type="radio" name="high_risk_pregnancy" id="yes" class="high-yes">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" placeholder="" id="no" class="high-no">
+                                        <input type="radio" name="high_risk_pregnancy" id="no" class="high-no">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-na">
-                                        <input type="radio" placeholder="" id="na" class="high-na">
+                                        <input type="radio" name="high_risk_pregnancy" id="na" class="high-na">
                                         <label for = "na">N/A</label>
                                     </div>
                                 </div>
@@ -1168,23 +1168,23 @@
                     <div class="table-row">
                         <div class="row v-center">
                             <div class="row" id="radio-suspect">
-                                <input type="radio" placeholder="" id="suspect" class="final-suspect">
+                                <input type="radio" name="final_classification" id="suspect" class="final-suspect">
                                 <label for = "suspect">Suspect Case</label>
                             </div>
                             <div class="row" id="radio-probable">
-                                <input type="radio" placeholder="" id="probable" class="final-probable">
+                                <input type="radio" name="final_classification" id="probable" class="final-probable">
                                 <label for = "probable">Probable Case</label>
                             </div>
                             <div class="row" id="radio-confirmed">
-                                <input type="radio" placeholder="" id="confirmed" class="final-confirmed">
+                                <input type="radio" name="final_classification" id="confirmed" class="final-confirmed">
                                 <label for = "confirmed">Confirmed Case</label>
                             </div>
                             <div class="row" id="radio-discharged">
-                                <input type="radio" placeholder="" id="discharged" class="final-discharged">
+                                <input type="radio" name="final_classification" id="discharged" class="final-discharged">
                                 <label for = "discharged">Discharged</label>
                             </div>
                             <div class="row" id="radio-unknown">
-                                <input type="radio" placeholder="" id="unknown" class="final-unknown">
+                                <input type="radio" name="final_classification" id="unknown" class="final-unknown">
                                 <label for = "unknown">Unknown</label>
                             </div>
                         </div>
@@ -1203,23 +1203,23 @@
                             <p>Condition on Discharge</p>
                                 <div class="row">
                                     <div class="row" id="radio-improved">
-                                        <input type="radio" placeholder="" id="improved">
+                                        <input type="radio" name="condition_on_discharge" id="improved">
                                         <label for = "improved">Improved</label>
                                     </div>
                                     <div class="row" id="radio-recovered">
-                                        <input type="radio" placeholder="" id="recovered">
+                                        <input type="radio" name="condition_on_discharge" id="recovered">
                                         <label for = "recovered">Recovered</label>
                                     </div>
                                     <div class="row" id="radio-transferred">
-                                        <input type="radio" placeholder="" id="transferred">
+                                        <input type="radio" name="condition_on_discharge" id="transferred">
                                         <label for = "transferred">Transferred</label>
                                     </div>
                                     <div class="row" id="radio-absconded">
-                                        <input type="radio" placeholder="" id="absconded">
+                                        <input type="radio" name="condition_on_discharge" id="absconded">
                                         <label for = "absconded">Absconded</label>
                                     </div>
                                     <div class="row" id="radio-died">
-                                        <input type="radio" placeholder="" id="died">
+                                        <input type="radio" name="condition_on_discharge" id="died">
                                         <label for = "died">Died</label>
                                     </div>
                                 </div>

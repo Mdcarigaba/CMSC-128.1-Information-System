@@ -53,7 +53,7 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(initialPath, "register.html"));
 })
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(initialPath, "dashboard.html"));
 })
 
