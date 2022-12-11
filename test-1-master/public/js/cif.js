@@ -536,3 +536,24 @@ function fillNA () {
     dop.value = "N/A"
     doa.value = "N/A"
 }
+
+function clear_employer_details() {
+    employer_name.value = ""
+    employer_occupation.value = ""
+    place_of_work.value = ""
+    building_name.value = ""
+    employer_street.value = ""
+    employer_city.value = ""
+    employer_province.value = ""
+    employer_country.value = ""
+    office_phone_number.value = ""
+    office_cellphone_number.value = ""
+}
+
+function clear_travel_history() {
+    port_of_exit.value = ""
+    airline_or_seavessel.value = ""
+    flight_or_vessel_no.value = ""
+    dop.value = ""
+    doa.value = ""
+}

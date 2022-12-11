@@ -440,6 +440,11 @@ button {
     font-family: Nunito;
     height: 30px;
 }
+
+.clear-button:hover {
+    cursor: pointer;
+}
+
 .clear-button {
     width: 100px;
     color: #8D9198;
