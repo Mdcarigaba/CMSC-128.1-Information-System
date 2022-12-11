@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const knex = require('knex');
-
+//const knex = require('knex');
+const db = require('./local_modules/connection')
+/*
 const db = knex({
     client: 'pg',
     //connection: 'postgres://admin:2O1RLqA7UxAxFkWFnfqIhfxmztXY5JwT@dpg-cdj1c8kgqg433fdfdf20-a/main_qcvq'
@@ -18,7 +19,7 @@ const db = knex({
     }
     //change connection 
 })
-
+*/
 const table = require('./local_modules/migration')
 
 table.generatetable(db)
@@ -158,14 +159,22 @@ app.post('/insert-cif', async (req, res) => {
         
             relation_to_patient,
             
-            health_facility_name, health_facility_address
+            health_facility_name, health_facility_address,
             
+            date_interview, client_classification, testing_category, validation_status
+            ,is_new_case, is_unknown, other,
+            symptoms, health_status, case_classification, vaccination, lab_result, chest_image_findings, disposition, exposure
+            ,date_of_onset_illness, is_pregnant, date_of_last_mensperiod, is_diagnosed_to_sari,
+            have_gastrointestinal, have_hypertension, have_genito_urinary, have_diabetes, have_neuro_disease, have_heart_disease, have_cancer, have_lung_disease, comorbidities_other
+            , is_active, is_recovered, date_recovered, is_dead, date_death, immediate_cause_death, underlying_cause_death, antecedent_cause_death, contributory_cause_death
+            ,place_type, place_name, address, local_contact_travel_date_from, local_contact_travel_date_to, local_contact_have_ongoing_transmission
+            ,transport_type, transport_number, origin, destination, local_transport_departure_date, local_transport_arrival_date
             /*city_mun_origin, province_origin, is_lsi, is_apor_localtraveler,
             institution_name, institution_type,
             country_origin, // oh no d ito unique: health_facility_address
-            date_interview, client_classification, testing_category, validation_status,
-            /**cif_id  is_new_case, is_unknown, other,
-            symptoms, health_status, case_classification, vaccination, lab_result, chest_image_findings, disposition, exposure,
+            ,
+            /**cif_id ,
+           
             health_status_at_consult, case_classification_at_consult,
             date_of_consultation, consultation_facility_name,
             //cid_id sa disposition
@@ -173,11 +182,11 @@ app.post('/insert-cif', async (req, res) => {
             //cid din sa vaccination_info
             name_of_vaccine, vaccination_date, dose_number, vaccination_facility_name, vaccination_facility_region, adverse_effect,
             //cid din sa clinical_information
-            date_of_onset_illness, is_pregnant, date_of_last_mensperiod, is_diagnosed_to_sari,
+           
             //symptoms: cli_info_id
             is_asymptomatic, have_fever, fever_temp, have_cough, have_general_weakness, experiences_fatigue, have_headache, have_myalgia, have_sore_throat, have_coryza, have_dyspnea, experiences_nausea, exp_altered_mental_status, exp_anosmia, exp_ageusia, //other
             //comorbidities: cli_info_id
-            have_gastrointestinal, have_hypertension, have_genito_urinary, have_diabetes, have_neuro_disease, have_heart_disease, have_cancer, have_lung_disease, //other
+            
             //chest_imaging: cli_info_id
             done_chest_radiography, date_chest_radiography, result_chest_radiography, done_chest_ct, date_chest_ct, result_chest_ct, done_chest_ultrasound, date_chest_ultrasound, result_chest_ultrasound, other_findings, // what if other_chest_findings
             //lab_test: cli_info_id
@@ -185,7 +194,7 @@ app.post('/insert-cif', async (req, res) => {
             //test: lab_test_info_id
             date_collected, date_released, /*lab_name is_ops, is_nps, is_antigen, reason_antigen, kit_brand, done_antibody, other_test,
             //outcome: cli_info_id
-            is_active, is_recovered, date_recovered, is_dead, date_death, immediate_cause_death, underlying_cause_death, antecedent_cause_death, contributory_cause_death,
+           
             //contact_tracing: cif_id
             has_exposure_people, date_of_contact, has_exposure_place,
             //international_contact: tracing_id
@@ -193,9 +202,9 @@ app.post('/insert-cif', async (req, res) => {
             //close_contact: tracing_id
             name, contact_number,
             //local_contact: tracing_id
-            place_type, place_name, address, //travel_date_from, travel_date_to, have_ongoing_transmission
+            
             //local_transport: local_contact_id
-            transport_type, transport_number, origin, destination, //departure_date, arrival_date
+            
             //dru_queue: dru_id
             entry_count, submission_from, submission_to
             */
@@ -203,6 +212,12 @@ app.post('/insert-cif', async (req, res) => {
     var investigator_id = 0;
     var patient_id = 0;
     var informant_id = 0;
+    var cif_id = 0;
+    var cid_id = 0;
+    var cli_info_id = 0;
+    var tracing_id = 0;
+
+    var local_contact_id = 0;
     await db
     .select('id')
     .from('staff')
@@ -262,7 +277,7 @@ app.post('/insert-cif', async (req, res) => {
     )
     .then(
         async () => {
-            if(informant_name != 'none'){
+            if(informant_name.length != 0){
                 await db('informant')
             .insert({
                 name: informant_name,
@@ -306,6 +321,153 @@ app.post('/insert-cif', async (req, res) => {
                 res.json(data)
             })
             */
+        }
+    )
+    .then(
+        async () => {
+            await db('cif')
+            .insert({
+                patient_id: patient_id,
+                investigator_id: investigator_id,
+                date_interview: date_interview,
+                client_classification: client_classification,
+                testing_category: testing_category,
+                validation_status: validation_status
+            })
+            .returning('id')
+            .then((data) => {
+                cif_id = data[0].id;
+            })
+        }
+    )
+    .then(
+        async () => {
+            await db('cif_type')
+            .insert({
+                cif_id: cif_id,
+                is_new_case: is_new_case,
+                is_unknown: is_unknown,
+                other: other
+            })
+            /*
+            .returning(['cif_id', 'is_new_case', 'is_unknown','other'])
+            .then((data) => {
+                res.json(data);
+            })
+            */
+        }
+    )
+    .then(
+        async () => {
+            await db('for_update')
+            .insert({
+                cif_id: cif_id,
+                symptoms: symptoms,
+                health_status: health_status,
+                case_classification: case_classification,
+                vaccination: vaccination,
+                lab_result: lab_result,
+                chest_image_findings:chest_image_findings,
+                disposition: disposition,
+                exposure: exposure
+            })
+        }   
+    )
+    .then(
+        async () => {
+            await db('clinical_information')
+            .insert({
+                cid_id: cid_id,
+                date_of_onset_illness: date_of_onset_illness,
+                is_pregnant: is_pregnant,
+                date_of_last_mensperiod: date_of_last_mensperiod,
+                is_diagnosed_to_sari: is_diagnosed_to_sari
+            })
+            .returning('cid_id')
+            .then((data) => {
+                cli_info_id = data[0].cid_id;
+            })
+        }
+    )
+    .then(
+        async () => {
+            await db('comorbidities')
+            .insert({
+                cli_info_id: cli_info_id,
+                have_gastrointestinal: have_gastrointestinal,
+                have_hypertension: have_hypertension,
+                have_genito_urinary: have_genito_urinary,
+                have_diabetes: have_diabetes,
+                have_neuro_disease: have_neuro_disease,
+                have_heart_disease: have_heart_disease,
+                have_cancer: have_cancer,
+                have_lung_disease: have_lung_disease,
+                other: comorbidities_other
+            })
+        }
+    )
+    .then(
+        async () => {
+            await db('outcome')
+            .insert({
+                is_active: is_active,
+                is_recovered: is_recovered,
+                date_recovered: date_recovered,
+                is_dead: is_dead,
+                date_death: date_death,
+                immediate_cause_death: immediate_cause_death,
+                underlying_cause_death: underlying_cause_death,
+                antecedent_cause_death: antecedent_cause_death,
+                contributory_cause_death: contributory_cause_death
+            })
+        }
+    )
+    .then(
+        async () => {
+            await db('local_contact')
+            .insert({
+                tracing_id: tracing_id,
+                place_type: place_type,
+                place_name: place_name,
+                address: address,
+                travel_date_from: local_contact_travel_date_from,
+                travel_date_to: local_contact_travel_date_to,
+                have_ongoing_transmission: local_contact_have_ongoing_transmission
+            })
+            .returning('tracing_id')
+            .then((data) => {
+                local_contact_id = data[0].tracing_id;
+            })
+        }
+    )
+    .then(
+        async () => {
+            await db('local_transport')
+            .insert({
+                local_contact_id: local_contact_id,
+                transport_type: transport_type,
+                transport_number: transport_number,
+                origin: origin,
+                departure_date: departure_date,
+                destination: destination,
+                arrival_date: arrival_date
+            })
+        }
+    )
+    .then(
+        async () => {
+            await db('dru_queue')
+            .insert({
+                dru_id: dru_id,
+                entry_count: entry_count,
+                submission_from: submission_from,
+                submission_to: submission_to
+            })
+        }
+    )
+    .then(
+        () => {
+            res.json([{"dru_id": dru_id}])
         }
     )
     
