@@ -227,6 +227,18 @@ a {
 table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 10px;
+    text-align: center;
+}
+
+tr {
+    height: 50px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(160, 196, 245, 0.2);
 }
 
 .bg-blue {
@@ -267,6 +279,15 @@ table {
     text-align: center;
 }
 
+.tbl-header {
+    background-color: #3476CE;
+    color: #3476CE;
+    height: 50px;
+}
+
+td {
+    font-size: 14px;
+}
 
 .btn-collapse, .btn-expand {
     margin-top: 100px;
