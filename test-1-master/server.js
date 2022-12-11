@@ -12,9 +12,9 @@ const db = knex({
     connection: {
         host: 'localhost',
         user: 'postgres',
-        port: '5433',
+        port: '5432',
         password: '1234',
-        database: 'test_in'
+        database: 'postgres'
     }
     //change connection 
 })
