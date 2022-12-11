@@ -280,26 +280,22 @@ submitBtn.addEventListener('click', () => {
         method: 'post',
         headers: new Headers({ 'Content-Type' : 'application/json'}),
         body: JSON.stringify({
-            psTOD: psTOD.value,
-            psPriority: psPriority.value,
-            labNo: labNo.value,
-            dru: dru.value,
-            investigator: investigator.value,
-            other_investigator: other_investigator.value,
-            interviewDate: interviewDate.value,
+
+            //investigator
+
             philhealthNo: philhealthNo.value,
-            testingCategory: testingCategory.value,
+            
             lname: lname.value,
-            fname: fname.value,
             mname: mname.value,
-            birthday: birthday.value,
+            fname: fname.value,
             age: age.value,
             sex: sex.value,
+            birthday: birthday.value,
+            
             occupation: occupation.value,
             civil_status: civil_status.value,
             nationality: nationality.value,
-            passport_no: passport_no.value,
-            gross_income: gross_income.value,
+
             perm_house: perm_house.value,
             perm_barangay: perm_barangay.value,
             perm_municipality: perm_municipality.value,
@@ -308,13 +304,16 @@ submitBtn.addEventListener('click', () => {
             perm_home_phone_number: perm_home_phone_number.value,
             perm_cellphone_number: perm_cellphone_number.value,
             perm_email: perm_email.value,
+
             curr_house: curr_house.value,
             curr_barangay: curr_barangay.value,
             curr_municipality: curr_municipality.value,
             curr_province: curr_province.value,
             curr_region: curr_region.value,
             curr_home_phone_number: curr_home_phone_number.value,
+            curr_cellphone_number: curr_cellphone_number.value,
             curr_email: curr_email.value,
+
             employer_name: employer_name.value,
             employer_occupation: employer_occupation.value,
             place_of_work: place_of_work.value,
@@ -325,6 +324,21 @@ submitBtn.addEventListener('click', () => {
             employer_country: employer_country.value,
             office_phone_number: office_phone_number.value,
             office_cellphone_number: office_cellphone_number.value,
+
+            
+            psTOD: psTOD.value,
+            psPriority: psPriority.value,
+            labNo: labNo.value,
+            dru: dru.value,
+            investigator: investigator.value,
+            other_investigator: other_investigator.value,
+            interviewDate: interviewDate.value,
+            testingCategory: testingCategory.value,
+
+            passport_no: passport_no.value,
+            gross_income: gross_income.value,
+            
+            
             //radio buttons
             travel_yes: travel_yes.value,
             travel_no: travel_no.value,
