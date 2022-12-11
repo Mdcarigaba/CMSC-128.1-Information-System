@@ -528,3 +528,11 @@ naBtn.addEventListener('click', () => {
     office_phone_number.value = "N/A"
     office_cellphone_number.value = "N/A"
 })
+
+function fillNA () {
+    port_of_exit.value = "N/A"
+    airline_or_seavessel.value = "N/A"
+    flight_or_vessel_no.value = "N/A"
+    dop.value = "N/A"
+    doa.value = "N/A"
+}
