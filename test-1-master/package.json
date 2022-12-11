@@ -2,6 +2,7 @@
   "name": "test-1",
   "packageManager": "yarn@3.2.4",
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "body-parser": "^1.20.1",
     "express.js": "^1.0.0",
     "knex": "^2.3.0",
@@ -15,7 +16,7 @@
   "license": "MIT",
   "description": "",
   "scripts": {
-    "start": "node server.js",
+    "start": "concurrently \"node server.js\" \"node ../test-1-master/public/pdfgenerator/pdfgenerator.js\"",
     "dev": "nodemon server.js"
   }
 }

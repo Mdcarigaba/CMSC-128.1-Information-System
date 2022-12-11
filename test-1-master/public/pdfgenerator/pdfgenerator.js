@@ -275,4 +275,4 @@ async function createPdf(input, output) {
     }
   }
 
-  createPdf('CIF_unlocked.pdf', 'output.pdf');
+  createPdf('../test-1-master/public/pdfgenerator/CIF_unlocked.pdf', 'output.pdf');
