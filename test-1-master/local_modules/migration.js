@@ -80,7 +80,7 @@ var functions = {
                             if(!e){
                                 await db.schema.createTable('patient', (t) => {
                                     t.increments('id').primary();
-                                    t.integer('philhealth_no').unsigned();
+                                    t.string('philhealth_no');
                                     t.string('firstname');
                                     t.string('middlename');
                                     t.string('lastname');
