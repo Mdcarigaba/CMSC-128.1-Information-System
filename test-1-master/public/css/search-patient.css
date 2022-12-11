@@ -445,6 +445,7 @@ tbody {
     font-size: 11px;
     color: #146F2D;
     height: 25px;
+    padding: 5px;
 }
 
 .new-btn:hover {
