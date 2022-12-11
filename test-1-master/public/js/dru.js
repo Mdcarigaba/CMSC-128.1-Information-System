@@ -1,6 +1,63 @@
-let DRUqueue = [{
+let DRUqueue = [
+    {
+        druNum: 1,
+        dru: 'Cavite City CHO',
+        numEntries: 230,
+        submissionTime: '8:00-8:20'
+    },
+    {
+        druNum: 2,
+        dru: 'Dasmarinas City CHO',
+        numEntries: 187,
+        submissionTime: '8:20-8;40'
+    },
+    {
+        druNum: 3,
+        dru: 'Aadeo RHU',
+        numEntries: 65,
+        submissionTime: '8:40-9:00'
+    },
+    {
+        druNum: 4,
+        dru: 'Tagaytay City CHO',
+        numEntries: 39,
+        submissionTime: '9:00-9:20'
+    },
+    {
+        druNum: 5,
+        dru: 'Dasmarinas City CHO',
+        numEntries: 12,
+        submissionTime: '9:20-9:40'
+    },
+    {
+        druNum: 6,
+        dru: 'Trece Martires CHO',
+        numEntries: 8,
+        submissionTime: '9:40-10:0'
+    }
+];
 
-}]
+window.onload = () => {
+    loadTableData(DRUqueue);
+}
+
+loadTableData(DRUqueue);
+
+function loadTableData(DRUqueue) {
+    const tableBody = document.getElementById('tableData');
+    let dataHTML = '';
+
+    for(let records of DRUqueue) {
+        dataHTML += `<tr>
+                        <td>${records.druNum}</td>
+                        <td>${records.dru}</td>
+                        <td>${records.numEntries}</td>
+                        <td>${records.submissionTime}</td>
+                    </tr>`;
+    }
+
+    tableBody.innerHTML = dataHTML;
+}
 
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
