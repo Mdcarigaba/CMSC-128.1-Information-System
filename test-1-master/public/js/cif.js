@@ -114,8 +114,7 @@ const gross_income = document.querySelector('.gross-income');
 
 //travel history
 //to add radio buttons
-const travel_yes = document.querySelector('.travel-yes');
-const travel_no = document.querySelector('.travel-no');
+const travel_rad = document.querySelector('input[]')
 const port_of_exit = document.querySelector('.exit-port');
 const airline_or_seavessel = document.querySelector('.airline-seavessel');
 const flight_or_vessel_no = document.querySelector('.flight-vessel-no');
@@ -288,28 +287,26 @@ submitBtn.addEventListener('click', () => {
         method: 'post',
         headers: new Headers({ 'Content-Type' : 'application/json'}),
         body: JSON.stringify({
-<<<<<<< HEAD
             investigator: inv_surname, //surname for test only, add first name here
-=======
+
 
             //investigator
->>>>>>> 602b4b5260682a9674232d944b9153d087b28a22
 
             philhealthNo: philhealthNo.value,
-            
+            testingCategory: testingCategory.value,
             lname: lname.value,
+            mname: mname.value,
             mname: mname.value,
             fname: fname.value,
             age: age.value,
             sex: sex.value,
             birthday: birthday.value,
-<<<<<<< HEAD
-=======
+            birthday: birthday.value,
             
->>>>>>> 602b4b5260682a9674232d944b9153d087b28a22
             occupation: occupation.value,
             civil_status: civil_status.value,
             nationality: nationality.value,
+
 
             perm_house: perm_house.value,
             perm_barangay: perm_barangay.value,
@@ -319,7 +316,6 @@ submitBtn.addEventListener('click', () => {
             perm_home_phone_number: perm_home_phone_number.value,
             perm_cellphone_number: perm_cellphone_number.value,
             perm_email: perm_email.value,
-
             curr_house: curr_house.value,
             curr_barangay: curr_barangay.value,
             curr_municipality: curr_municipality.value,
@@ -327,7 +323,9 @@ submitBtn.addEventListener('click', () => {
             curr_region: curr_region.value,
             curr_home_phone_number: curr_home_phone_number.value,
             curr_cellphone_number: curr_cellphone_number.value,
+            curr_cellphone_number: curr_cellphone_number.value,
             curr_email: curr_email.value,
+
 
             employer_name: employer_name.value,
             employer_occupation: employer_occupation.value,
