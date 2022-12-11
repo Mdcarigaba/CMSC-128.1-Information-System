@@ -288,16 +288,25 @@ submitBtn.addEventListener('click', () => {
         method: 'post',
         headers: new Headers({ 'Content-Type' : 'application/json'}),
         body: JSON.stringify({
+<<<<<<< HEAD
             investigator: inv_surname, //surname for test only, add first name here
+=======
+
+            //investigator
+>>>>>>> 602b4b5260682a9674232d944b9153d087b28a22
 
             philhealthNo: philhealthNo.value,
-            testingCategory: testingCategory.value,
+            
             lname: lname.value,
             mname: mname.value,
             fname: fname.value,
             age: age.value,
             sex: sex.value,
             birthday: birthday.value,
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 602b4b5260682a9674232d944b9153d087b28a22
             occupation: occupation.value,
             civil_status: civil_status.value,
             nationality: nationality.value,
@@ -310,6 +319,7 @@ submitBtn.addEventListener('click', () => {
             perm_home_phone_number: perm_home_phone_number.value,
             perm_cellphone_number: perm_cellphone_number.value,
             perm_email: perm_email.value,
+
             curr_house: curr_house.value,
             curr_barangay: curr_barangay.value,
             curr_municipality: curr_municipality.value,
@@ -329,6 +339,21 @@ submitBtn.addEventListener('click', () => {
             employer_country: employer_country.value,
             office_phone_number: office_phone_number.value,
             office_cellphone_number: office_cellphone_number.value,
+
+            
+            psTOD: psTOD.value,
+            psPriority: psPriority.value,
+            labNo: labNo.value,
+            dru: dru.value,
+            investigator: investigator.value,
+            other_investigator: other_investigator.value,
+            interviewDate: interviewDate.value,
+            testingCategory: testingCategory.value,
+
+            passport_no: passport_no.value,
+            gross_income: gross_income.value,
+            
+            
             //radio buttons
             //has exposure place element in req.body
             //travel_yes: travel_yes.value,
