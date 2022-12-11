@@ -4,6 +4,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "body-parser": "^1.20.1",
+    "concurrently": "^7.6.0",
     "express.js": "^1.0.0",
     "knex": "^2.3.0",
     "nodemon": "^2.0.20",
