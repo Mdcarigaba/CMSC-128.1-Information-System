@@ -3,6 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 //const knex = require('knex');
 const db = require('./local_modules/connection')
+const json2xls = require('json2xls');
+const fs = require('fs')
 /*
 const db = knex({
     client: 'pg',
@@ -134,6 +136,50 @@ app.get('/search-cif?', (req, res) => {
     .returning()
     .then((data) => {
         res.json(data);
+    })
+})
+
+app.get('/generate-pdf', (req, res) => {
+    db('cif')
+    .leftJoin('patient', 'cif.patient_id', 'patient.id')
+    .leftJoin('patient_informant', 'patient.id', 'patient_informant.patient_id')
+    .leftJoin('informant', 'patient_informant.informant_id', 'informant.id')
+    .leftJoin('healthcare_worker', 'patient.id', 'healthcare_worker.patient_id')
+    .leftJoin('lsi_apor_localtraveler', 'patient.id', 'lsi_apor_localtraveler.patient_id')
+    .leftJoin('living_in_close_settings', 'patient.id', 'living_in_close_settings.patient_id')
+    .leftJoin('returning_overseas_filipino', 'patient.id', 'returning_overseas_filipino.patient_id')
+    .leftJoin('staff', 'cif.investigator_id', 'staff.id')
+    .leftJoin('cif_type', 'cif.id', 'cif_type.cif_id')
+    .leftJoin('for_update', 'cif.id', 'for_update.cif_id')
+    .leftJoin('case_investigation_details', 'cif.id', 'case_investigation_details.cif_id')
+    .leftJoin('have_prev_consultation', 'case_investigation_details.cif_id', 'have_prev_consultation.cid_id')
+    .leftJoin('disposition', 'case_investigation_details.cif_id', 'disposition.cid_id')
+    .leftJoin('vaccination_info', 'case_investigation_details.cif_id', 'vaccination_info.cid_id')
+    .leftJoin('clinical_information', 'case_investigation_details.cif_id', 'clinical_information.cid_id')
+    .leftJoin('symptoms', 'clinical_information.cid_id', 'symptoms.cli_info_id')
+    .leftJoin('comorbidities', 'clinical_information.cid_id', 'comorbidities.cli_info_id')
+    .leftJoin('chest_imaging', 'clinical_information.cid_id', 'chest_imaging.cli_info_id')
+    .leftJoin('lab_test', 'clinical_information.cid_id', 'lab_test.cli_info_id')
+    .leftJoin('tests', 'lab_test.cli_info_id', 'tests.lab_test_info_id')
+    .leftJoin('outcome', 'clinical_information.cid_id', 'outcome.cli_info_id')
+    .leftJoin('contact_tracing', 'cif.id', 'contact_tracing.cif_id')
+    .leftJoin('international_contact', 'contact_tracing.cif_id', 'international_contact.tracing_id')
+    .leftJoin('close_contact', 'contact_tracing.cif_id', 'close_contact.tracing_id')
+    .leftJoin('local_contact', 'contact_tracing.cif_id', 'local_contact.tracing_id')
+    .leftJoin('local_transport', 'contact_tracing.cif_id', 'local_transport.local_contact_id')
+    .select()
+    .returning()
+    .then((data) => {
+        console.log(data[0])
+        const xlsx = json2xls(data[0])
+        fs.writeFileSync('test.xlsx', xlsx,'binary', (err) => {
+            if (err) {
+                  console.log("writeFileSync :", err);
+             }
+           console.log("file is saved!");
+        });
+    }).then(() => {
+        res.json()
     })
 })
 

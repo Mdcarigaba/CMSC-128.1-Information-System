@@ -276,30 +276,32 @@ const submitBtn = document.querySelector('.save-button');
 
 submitBtn.addEventListener('click', () => {
     //console.log(fname.value)
-    fetch('/insert-cif', {
+    var inv_surname = investigator.value.split(",")[0]
+    console.log(inv_surname)
+    var trv_yes = travel_yes
+    var trv_no = travel_no
+    console.log(trv_yes)
+    console.log(trv_no)
+    console.log(trv_yes.value)
+    console.log(trv_no.value)
+    /*fetch('/insert-cif', {
         method: 'post',
         headers: new Headers({ 'Content-Type' : 'application/json'}),
         body: JSON.stringify({
-            psTOD: psTOD.value,
-            psPriority: psPriority.value,
-            labNo: labNo.value,
-            dru: dru.value,
-            investigator: investigator.value,
-            other_investigator: other_investigator.value,
-            interviewDate: interviewDate.value,
+            investigator: inv_surname, //surname for test only, add first name here
+
             philhealthNo: philhealthNo.value,
             testingCategory: testingCategory.value,
             lname: lname.value,
-            fname: fname.value,
             mname: mname.value,
-            birthday: birthday.value,
+            fname: fname.value,
             age: age.value,
             sex: sex.value,
+            birthday: birthday.value,
             occupation: occupation.value,
             civil_status: civil_status.value,
             nationality: nationality.value,
-            passport_no: passport_no.value,
-            gross_income: gross_income.value,
+
             perm_house: perm_house.value,
             perm_barangay: perm_barangay.value,
             perm_municipality: perm_municipality.value,
@@ -314,7 +316,9 @@ submitBtn.addEventListener('click', () => {
             curr_province: curr_province.value,
             curr_region: curr_region.value,
             curr_home_phone_number: curr_home_phone_number.value,
+            curr_cellphone_number: curr_cellphone_number.value,
             curr_email: curr_email.value,
+
             employer_name: employer_name.value,
             employer_occupation: employer_occupation.value,
             place_of_work: place_of_work.value,
@@ -326,8 +330,10 @@ submitBtn.addEventListener('click', () => {
             office_phone_number: office_phone_number.value,
             office_cellphone_number: office_cellphone_number.value,
             //radio buttons
-            travel_yes: travel_yes.value,
-            travel_no: travel_no.value,
+            //has exposure place element in req.body
+            //travel_yes: travel_yes.value,
+            //travel_no: travel_no.value,
+            has_exposure_place: 
             port_of_exit: port_of_exit.value,
             airline_or_seavessel: airline_or_seavessel.value,
             flight_or_vessel_no: flight_or_vessel_no.value,
@@ -434,11 +440,18 @@ submitBtn.addEventListener('click', () => {
             final_probable: final_probable.value,
             final_confirmed: final_confirmed.value,
             final_discharged: final_discharged.value,
-            final_unknown: final_unknown.value
+            final_unknown: final_unknown.value,
 
-
+            psTOD: psTOD.value,
+            psPriority: psPriority.value,
+            labNo: labNo.value,
+            dru: dru.value,
+            other_investigator: other_investigator.value,
+            interviewDate: interviewDate.value,
+            passport_no: passport_no.value,
+            gross_income: gross_income.value,
         })
-    })
+    })*/
 })
 
 
