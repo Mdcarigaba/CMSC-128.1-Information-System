@@ -3,6 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 //const knex = require('knex');
 const db = require('./local_modules/connection')
+const json2xls = require('json2xls');
+const fs = require('fs')
 /*
 const db = knex({
     client: 'pg',
@@ -53,7 +55,7 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(initialPath, "register.html"));
 })
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(initialPath, "dashboard.html"));
 })
 
@@ -138,6 +140,50 @@ app.get('/search-cif?', (req, res) => {
     })
 })
 
+app.get('/generate-pdf', (req, res) => {
+    db('cif')
+    .leftJoin('patient', 'cif.patient_id', 'patient.id')
+    .leftJoin('patient_informant', 'patient.id', 'patient_informant.patient_id')
+    .leftJoin('informant', 'patient_informant.informant_id', 'informant.id')
+    .leftJoin('healthcare_worker', 'patient.id', 'healthcare_worker.patient_id')
+    .leftJoin('lsi_apor_localtraveler', 'patient.id', 'lsi_apor_localtraveler.patient_id')
+    .leftJoin('living_in_close_settings', 'patient.id', 'living_in_close_settings.patient_id')
+    .leftJoin('returning_overseas_filipino', 'patient.id', 'returning_overseas_filipino.patient_id')
+    .leftJoin('staff', 'cif.investigator_id', 'staff.id')
+    .leftJoin('cif_type', 'cif.id', 'cif_type.cif_id')
+    .leftJoin('for_update', 'cif.id', 'for_update.cif_id')
+    .leftJoin('case_investigation_details', 'cif.id', 'case_investigation_details.cif_id')
+    .leftJoin('have_prev_consultation', 'case_investigation_details.cif_id', 'have_prev_consultation.cid_id')
+    .leftJoin('disposition', 'case_investigation_details.cif_id', 'disposition.cid_id')
+    .leftJoin('vaccination_info', 'case_investigation_details.cif_id', 'vaccination_info.cid_id')
+    .leftJoin('clinical_information', 'case_investigation_details.cif_id', 'clinical_information.cid_id')
+    .leftJoin('symptoms', 'clinical_information.cid_id', 'symptoms.cli_info_id')
+    .leftJoin('comorbidities', 'clinical_information.cid_id', 'comorbidities.cli_info_id')
+    .leftJoin('chest_imaging', 'clinical_information.cid_id', 'chest_imaging.cli_info_id')
+    .leftJoin('lab_test', 'clinical_information.cid_id', 'lab_test.cli_info_id')
+    .leftJoin('tests', 'lab_test.cli_info_id', 'tests.lab_test_info_id')
+    .leftJoin('outcome', 'clinical_information.cid_id', 'outcome.cli_info_id')
+    .leftJoin('contact_tracing', 'cif.id', 'contact_tracing.cif_id')
+    .leftJoin('international_contact', 'contact_tracing.cif_id', 'international_contact.tracing_id')
+    .leftJoin('close_contact', 'contact_tracing.cif_id', 'close_contact.tracing_id')
+    .leftJoin('local_contact', 'contact_tracing.cif_id', 'local_contact.tracing_id')
+    .leftJoin('local_transport', 'contact_tracing.cif_id', 'local_transport.local_contact_id')
+    .select()
+    .returning()
+    .then((data) => {
+        console.log(data[0])
+        const xlsx = json2xls(data[0])
+        fs.writeFileSync('test.xlsx', xlsx,'binary', (err) => {
+            if (err) {
+                  console.log("writeFileSync :", err);
+             }
+           console.log("file is saved!");
+        });
+    }).then(() => {
+        res.json()
+    })
+})
+
 // insert request (not tested yet)
 app.post('/insert-cif', async (req, res) => {
     // const body
@@ -157,12 +203,36 @@ app.post('/insert-cif', async (req, res) => {
             //end added
             workplace_name, workplace_hn_bl_lot_buildno,
             workplace_barangay, workplace_muni_city, workplace_province,
-            workplace_region, workplace_home_no, workplace_cell_no,
+            workplace_region, workplace_home_no, workplace_cell_no, //region to country
             workplace_email, works_in_closed_settings,
             
+            //contact_tracing: cif_id
+            have_ongoing_transmission,  
+            
+            //international_contact: tracing_id
+            airline_vessel_name, airline_vessel_number, departure_date, arrival_date,
+            has_exposure_people, date_of_contact, has_exposure_place, travel_date_from, travel_date_to, international_contact_country_origin, 
+
+            //close_contact: tracing_id
+            name, contact_number,
+
+            disposition,
+            //cid_id sa disposition
+            //admitted_in, name_of_facility, datetime_admission_isolation, //other
+
+            //symptoms: cli_info_id
+            fever_temp, is_asymptomatic, have_fever, have_cough, have_general_weakness, experiences_fatigue, have_headache, have_myalgia, have_sore_throat, have_coryza, have_dyspnea, experiences_nausea, exp_altered_mental_status, exp_anosmia, exp_ageusia, //other //no anorexia, diarrhea here
+            
+            //where yung history_of_illness
+
+            //chest_imaging: cli_info_id
+            done_chest_radiography, date_chest_radiography, result_chest_radiography, done_chest_ct, date_chest_ct, result_chest_ct, done_chest_ultrasound, date_chest_ultrasound, result_chest_ultrasound, other_findings, 
+           
+            is_pregnant, date_of_last_mensperiod, //no last mensperiod in cif.js
+
             informant_name, informant_contactno,
-            
-            
+               
+
             //add here lang muna hihu
         
             relation_to_patient,
@@ -171,8 +241,8 @@ app.post('/insert-cif', async (req, res) => {
             
             date_interview, client_classification, testing_category, validation_status
             ,is_new_case, is_unknown, other,
-            symptoms, health_status, case_classification, vaccination, lab_result, chest_image_findings, disposition, exposure
-            ,date_of_onset_illness, is_pregnant, date_of_last_mensperiod, is_diagnosed_to_sari,
+            symptoms, health_status, case_classification, vaccination, lab_result, chest_image_findings, exposure
+            ,date_of_onset_illness, is_diagnosed_to_sari,
             have_gastrointestinal, have_hypertension, have_genito_urinary, have_diabetes, have_neuro_disease, have_heart_disease, have_cancer, have_lung_disease, comorbidities_other
             , is_active, is_recovered, date_recovered, is_dead, date_death, immediate_cause_death, underlying_cause_death, antecedent_cause_death, contributory_cause_death
             ,place_type, place_name, address, local_contact_travel_date_from, local_contact_travel_date_to, local_contact_have_ongoing_transmission
@@ -188,30 +258,19 @@ app.post('/insert-cif', async (req, res) => {
             country_origin, /* oh no d ito unique:*/ returning_overseas_filipino_country_origin, returning_overseas_filipino_health_facility_address,
             health_status_at_consult, case_classification_at_consult,
             date_of_consultation, consultation_facility_name,
-            //cid_id sa disposition
-            admitted_in, name_of_facility, datetime_admission_isolation, //other
+
             //cid din sa vaccination_info
             name_of_vaccine, vaccination_date, dose_number, vaccination_facility_name, vaccination_facility_region, adverse_effect,
             //cid din sa clinical_information
            
-            //symptoms: cli_info_id
-            is_asymptomatic, have_fever, fever_temp, have_cough, have_general_weakness, experiences_fatigue, have_headache, have_myalgia, have_sore_throat, have_coryza, have_dyspnea, experiences_nausea, exp_altered_mental_status, exp_anosmia, exp_ageusia, //other
             //comorbidities: cli_info_id
             
-            //chest_imaging: cli_info_id
-            done_chest_radiography, date_chest_radiography, result_chest_radiography, done_chest_ct, date_chest_ct, result_chest_ct, done_chest_ultrasound, date_chest_ultrasound, result_chest_ultrasound, other_findings, // what if other_chest_findings
             //lab_test: cli_info_id
             test_positive_before, date_specimen_collection, lab_name, test_count,
             //test: lab_test_info_id
             date_collected, date_released, tests_lab_name, is_ops, is_nps, is_antigen, reason_antigen, kit_brand, done_antibody, other_test,
             //outcome: cli_info_id
-           
-            //contact_tracing: cif_id
-            has_exposure_people, date_of_contact, has_exposure_place,
-            //international_contact: tracing_id
-            have_ongoing_transmission, travel_date_from, travel_date_to, international_contact_country_origin, airline_vessel_name, airline_vessel_number, departure_date, arrival_date,
-            //close_contact: tracing_id
-            name, contact_number,
+        
             //local_contact: tracing_id
             
             //local_transport: local_contact_id
