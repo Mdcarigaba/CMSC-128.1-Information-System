@@ -276,6 +276,7 @@ app.post('/insert-cif', async (req, res) => {
             //local_transport: local_contact_id
             
             //dru_queue: 
+            //unrelated to insert cif
             dru_id, entry_count, submission_from, submission_to
             
             } = req.body;
