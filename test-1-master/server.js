@@ -132,6 +132,7 @@ app.get('/search-cif?', (req, res) => {
     .select(joinSearch)
     .where(req.query)
     .returning()
+    
     .then((data) => {
         res.json(data);
     })
