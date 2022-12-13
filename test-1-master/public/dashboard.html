@@ -92,7 +92,7 @@
         <div class="content">
             <div class="row">
                 <h1 class="table-title">Schedule of DRUs to Arrive </h1>
-                <h2 class="table-date" id="to-date">Date</h2>
+                <h2 class="table-date" id="date"></h2>
             </div>
             <div>
                 <table>
@@ -167,6 +167,12 @@
 
     <script src="js/index.js"></script>
     <script src="js/home.js"></script>
+    <script>
+        var today = new Date();
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        var date = today.toLocaleDateString('en-US', options);
+        document.getElementById('date').innerHTML = date;
+    </script>
 
 </body>
 
