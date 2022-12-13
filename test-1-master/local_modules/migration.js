@@ -1,3 +1,8 @@
+const Papa = require('papaparse')
+const fs = require('fs')
+const dru_list = fs.createReadStream('DRU Directory - Sheet1.csv')
+const CryptoJS = require('crypto-js');
+require("dotenv").config();
 
 var functions = {
     generatetable: async (db) => {
@@ -6,28 +11,21 @@ var functions = {
                 await db.schema.createTable('dru', (t) => {
                     t.increments('id').primary();
                     t.string('name');
-                    t.string('region');
-                    t.string('province');
+                    t.string('contact_person');
+                    t.string('contact_details');
+                    t.string('geamh');
+                    t.string('telephone');
                 })
                     .then(console.log('table created 1'))
                     //then enter initial values
-                    .then(async () => await db('dru').insert([
-                        {
-                            name: 'PGH',
-                            region: 'NCR',
-                            province: 'Manila'
-                        },
-                        {
-                            name: 'PPL',
-                            region: '4A',
-                            province: 'Laguna'
-                        },
-                        {
-                            name: 'HealthServe',
-                            region: '4A',
-                            province: 'Laguna'
-                        }
-                    ]))
+                    .then(async () => {
+                        Papa.parse(dru_list, {
+                            header: true,
+                            complete: async function(results, file) {
+                                await db('dru').insert(results.data)
+                            }
+                        })           
+                    })
             }
             else {
                 //no code here, just for debugging 
@@ -56,15 +54,92 @@ var functions = {
                                 //then inset values
                                 .then(async () => await db('staff').insert([
                                     {
-                                        username: 'admin_a',
-                                        firstname: 'Admin',
-                                        middlename: 'Ad',
-                                        lastname: 'Min',
+                                        username: 'jmoraleja',
+                                        firstname: 'Japeth',
+                                        middlename: '',
+                                        lastname: 'Moraleja',
                                         dru_id: 1,
                                         contact_number: '999999999',
-                                        email: 'admin@a.com',
-                                        password: 'admin',
-                                        role: 'admin'
+                                        email: 'jmoraleja@gmail.com',
+                                        password: CryptoJS.AES.encrypt('jmoraleja', process.env.KEY).toString(),
+                                        role: 'system administrator'
+                                    },
+                                    {
+                                        username: 'lmelon',
+                                        firstname: 'Loisse',
+                                        middlename: '',
+                                        lastname: 'Melon',
+                                        dru_id: 2,
+                                        contact_number: '999999999',
+                                        email: 'lcmelon@up.edu.ph',
+                                        password: CryptoJS.AES.encrypt('lmelon', process.env.KEY).toString(),
+                                        role: 'laboratory staff'
+                                    },
+                                    {
+                                        username: 'ldiuco',
+                                        firstname: 'Lindsey',
+                                        middlename: '',
+                                        lastname: 'Diuco',
+                                        dru_id: 3,
+                                        contact_number: '999999999',
+                                        email: 'ldiuco@up.edu.ph',
+                                        password: CryptoJS.AES.encrypt('ldiuco', process.env.KEY).toString(),
+                                        role: 'pathologist'
+                                    },
+                                    {
+                                        username: 'dmagsino',
+                                        firstname: 'Dea',
+                                        middlename: '',
+                                        lastname: 'Magsino',
+                                        dru_id: 4,
+                                        contact_number: '999999999',
+                                        email: 'dmagsino@up.edu.ph',
+                                        password: CryptoJS.AES.encrypt('dmagsino', process.env.KEY).toString(),
+                                        role: 'consultant'
+                                    },
+                                    {
+                                        username: 'acarigaba',
+                                        firstname: 'Anna',
+                                        middlename: '',
+                                        lastname: 'Carigaba',
+                                        dru_id: 1,
+                                        contact_number: '999999999',
+                                        email: 'acarigaba@up.edu.ph',
+                                        password: CryptoJS.AES.encrypt('acarigaba', process.env.KEY).toString(),
+                                        role: 'laboratory manager'
+                                    },
+                                    {
+                                        username: 'esalongsongan',
+                                        firstname: 'Eron',
+                                        middlename: '',
+                                        lastname: 'Salongsongan',
+                                        dru_id: 7,
+                                        contact_number: '999999999',
+                                        email: 'esalongsongan@up.edu.ph',
+                                        password: CryptoJS.AES.encrypt('esalongsongan', process.env.KEY).toString(),
+                                        role: 'quality assurance officer'
+                                    },
+                                    {
+                                        username: 'smagboo',
+                                        firstname: 'Sheila',
+                                        middlename: '',
+                                        lastname: 'Magboo',
+                                        dru_id: 1,
+                                        contact_number: '999999999',
+                                        email: 'smagboo@up.edu.ph',
+                                        password: CryptoJS.AES.encrypt('smagboo', process.env.KEY).toString(),
+                                        role: 'health officer'
+                                    },
+                                    {
+                                        username: 'mmarasigan',
+                                        firstname: 'Marbert',
+                                        middlename: '',
+                                        lastname: 'Marasigan',
+                                        dru_id: 9,
+                                        contact_number: '999999999',
+                                        email: 'mmarasigan@up.edu.ph',
+                                        password: CryptoJS.AES.encrypt('mmarasigan', process.env.KEY).toString(),
+                                        role: 'hospital staff'
                                     }
                                 ]))
                             }

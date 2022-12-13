@@ -74,12 +74,12 @@ let recordsData = [
         dateSubmitted: '07/29/2022',
     }
 ];
-
+/*
 window.onload = () => {
     loadTableData(recordsData);
 };
-
-loadTableData(recordsData);
+*/
+//loadTableData(recordsData);
 
 function loadTableData(recordsData) {
     const tableBody = document.getElementById('tableData');
@@ -188,4 +188,63 @@ xlxs_gen.addEventListener('click', () => {
 function toggleDropdown() {
     var element = document.getElementById('dropdown');
     element.classList.toggle("show");
+}
+
+const fdru = document.querySelector('#dru-label')
+const ffrom = document.querySelector('#from')
+const fto = document.querySelector('#to')
+const flabn = document.querySelector('#laboratory-number')
+const fencode = document.querySelector('#encoder-name')
+const tableBody = document.getElementById('tableData');
+tableBody.innerHTML = '';
+function filterTable(){
+    var query = []
+    if(fdru.value.length) query.push(`dru.name=${fdru.value.toUpperCase()}`)
+    if(ffrom.value.length) {
+        var format_from = ffrom.value.split('/')
+        var temp = format_from.pop()
+        format_from.unshift(temp)
+        var date_from = format_from.join("/")
+        query.push(`from=${date_from}`)
+    }
+    if(fto.value.length)  {
+        var format_to = fto.value.split('/')
+        var temp = format_to.pop()
+        format_to.unshift(temp)
+        var date_to = format_to.join("/")
+        query.push(`to=${date_to}`)
+    }
+    if(flabn.value.length) query.push(`tests.lab_name=${flabn.value}`)
+    if(fencode.value.length) query.push(`staff.lastname=${fencode.value}`)
+    const final_query = query.join("&")
+    fetch(`/filter-cif?${final_query}`, {
+        method: 'get',
+        headers: new Headers({'Content-Type': 'application/json'}),
+    })
+    .then(res => res.json())
+    .then(data => {
+   
+   
+    let dataHTML = '';
+
+    var button = document.createElement(button);
+    button.innerHTML = "+ New"
+
+    for(let indiv of data){
+        dataHTML += `<tr>`+
+                    `<td><input type='checkbox' class='sel' />`+
+                    `<td>CIF-${indiv.id}</td>` +
+                    `<td>LAB-${indiv.lab_name}</td>` +
+                    `<td>${indiv.lastname}</td>` +
+                    `<td>${indiv.firstname}</td>` +
+                    `<td>${indiv.sex}</td>` +
+                    `<td>${indiv.age}</td>` +
+                    `<td>${indiv.date_collected}</td>` +
+                    `<td>${indiv.date_interview}</td>` +
+                    `<td>${indiv.name}</td>` +
+                    `<td><button class="new-btn">Generate Forms</button></td>` +
+                    `</tr>`
+    }
+    tableBody.innerHTML = dataHTML
+    })
 }

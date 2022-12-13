@@ -5,31 +5,14 @@ const bodyParser = require('body-parser');
 const db = require('./local_modules/connection')
 const json2xls = require('json2xls');
 const fs = require('fs')
-/*
-const db = knex({
-    client: 'pg',
-    //connection: 'postgres://admin:2O1RLqA7UxAxFkWFnfqIhfxmztXY5JwT@dpg-cdj1c8kgqg433fdfdf20-a/main_qcvq'
-    //make sure that you have a user 'postgres' with password '1234' and database 'postgres'
-    //with port '5433' for the database to be connected
-    
-    connection: {
-        host: 'localhost',
-        user: 'postgres',
-        port: '5432',
-        password: '1234',
-        //password: '1234',
-        database: 'postgres'
-    }
-    //change connection 
-})
-*/
+const CryptoJS = require('crypto-js');
+require("dotenv").config();
+
+const PORT = process.env.PORT || 3000;
+
 const table = require('./local_modules/migration')
 
 table.generatetable(db)
-//insert tables in the database
-//check for presence of table first
-//if not present, create a new table
-//chain this with other has table check for all 32+ tables
 
 const app = express();
 
@@ -41,10 +24,6 @@ app.use(express.static(initialPath));
 app.get('/', (req, res) => {
     res.sendFile(path.join(initialPath, "dashboard.html"));
 })
-
-/*app.get('/cif', (req, res) => {
-    res.sendFile(path.join(initialPath, "cif.html"));
-})*/
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(initialPath, "loginPage.html"));
@@ -75,34 +54,30 @@ app.get('/DRUqueueing', (req, res) => {
     res.sendFile(path.join(initialPath, "DRUqueueing.html"));
 })
 
-//make some fx within post request of cif entry
-//cut array into multiple entries
-
 app.post('/register-user', (req, res) => {
     const{username, firstname, middlename, lastname, dru, contact, email, password, usertype} = req.body;
     if(!username.length || !firstname.length || !middlename.length || 
         !lastname.length || dru === null || !contact.length ||  !email.length || !password.length || !usertype.length){
         res.json('Fill all fields');
-    } else{
+    } else{       
         db('staff').insert({
             username: username,
             firstname: firstname,
             middlename: middlename,
             lastname: lastname,
             dru_id: dru,
-            contact: contact,
+            contact_number: contact,
             email: email,
-            password: password,
-            usertype: usertype
+            password: CryptoJS.AES.encrypt(password, process.env.KEY).toString(),
+            role: usertype
         })
-        .returning(["username", "email", "usertype"])
+        .returning(["username", "email", "role"])
         .then(data =>{
             res.json(data[0])
         })
         .catch(err => {
-            if(err.detail.includes('already exists')){
-                res.json('Email already exists');
-            }
+            console.log(err)
+            res.json('error')
         })
     }
 })
@@ -110,31 +85,96 @@ app.post('/register-user', (req, res) => {
 app.post('/login-user', (req,res) => {
     const {username, password} = req.body;
     
-    db.select('username', 'email', 'usertype')
+    db.select('username', 'password', 'email', 'role')
     .from('staff')
     .where({
-        username: username,
-        password: password
+        username: username
     })
     .then(data => {
         if(data.length){
-            res.json(data[0]);
+            data[0].password = CryptoJS.AES.decrypt(data[0].password, process.env.KEY).toString(CryptoJS.enc.Utf8)
+            if(data[0].password === password){
+                res.json([{
+                    username: data[0].username,
+                    email: data[0].email,
+                    role: data[0].role
+                }])
+            }
+            else{
+                res.json('Password is incorrect');
+            }
         } else{
-            res.json('Username or password is incorrect');
+            res.json('Username is incorrect');
         }
     })
 })
 
-// search request (not tested yet)
 let joinSearch = ['cif.id', 'tests.lab_name', 'patient.lastname', 'patient.firstname',
- 'patient.middlename', 'patient.sex', 'cif.date_interview', 'tests.date_collected']
+ 'patient.middlename', 'patient.sex', 'patient.age', 'cif.date_interview', 'tests.date_collected']
 app.get('/search-cif?', (req, res) => {
     db('cif').leftJoin('tests', 'cif.id', 'tests.lab_test_info_id')
     .leftJoin('patient', 'cif.patient_id', 'patient.id')
     .select(joinSearch)
-    .where(req.query)
+    .where((builder) => {
+        if(req.query['patient.lastname'])
+        builder.where('patient.lastname', req.query['patient.lastname'])
+
+        if(req.query['tests.lab_name'])
+        builder.where('tests.lab_name', req.query['tests.lab_name'])
+
+        if(req.query['patient.firstname'])
+        builder.where('patient.firstname', req.query['patient.firstname'])
+
+        if(req.query.from && !req.query.to){
+            builder.where('cif.date_interview', '>=', req.query.from)
+        }
+        else if(req.query.to && !req.query.from){
+            builder.where('cif.date_interview', '<', req.query.to)
+        }
+        else if(req.query.to && req.query.from){
+            builder.where('cif.date_interview', '>=', req.query.from)
+            .andWhere('cif.date_interview', '<', req.query.to)
+        }
+    })
+    .orderBy('cif.id', 'asc')
     .returning()
-    
+    .then((data) => {
+        res.json(data);
+    })
+})
+
+let joinGenerate = ['cif.id', 'tests.lab_name', 'patient.lastname', 'patient.firstname',
+ 'patient.sex', 'patient.age', 'tests.date_collected', 'cif.date_interview', 'dru.name']
+app.get('/filter-cif?', (req, res) => {
+    //console.log(req.query)
+    db('cif').leftJoin('tests', 'cif.id', 'tests.lab_test_info_id')
+    .leftJoin('patient', 'cif.patient_id', 'patient.id')
+    .leftJoin('staff', 'cif.investigator_id', 'staff.id')
+    .leftJoin('dru', 'staff.dru_id', 'dru.id')
+    .select(joinGenerate)
+    .where((builder) => {
+        if(req.query['staff.lastname'])
+        builder.where('staff.lastname', req.query['staff.lastname'])
+
+        if(req.query['tests.lab_name'])
+        builder.where('tests.lab_name', req.query['tests.lab_name'])
+
+        if(req.query['dru.name'])
+        builder.where('dru.name', req.query['dru.name'])
+
+        if(req.query.from && !req.query.to){
+            builder.where('cif.date_interview', '>=', req.query.from)
+        }
+        else if(req.query.to && !req.query.from){
+            builder.where('cif.date_interview', '<', req.query.to)
+        }
+        else if(req.query.to && req.query.from){
+            builder.where('cif.date_interview', '>=', req.query.from)
+            .andWhere('cif.date_interview', '<', req.query.to)
+        }
+    })
+    .orderBy('cif.id', 'asc')
+    .returning()
     .then((data) => {
         res.json(data);
     })
@@ -218,7 +258,7 @@ app.post('/insert-cif', async (req, res) => {
 
             disposition,
             //cid_id sa disposition
-            //admitted_in, name_of_facility, datetime_admission_isolation, //other
+            admitted_in, name_of_facility, datetime_admission_isolation, //other
 
             //symptoms: cli_info_id
             fever_temp, is_asymptomatic, have_fever, have_cough, have_general_weakness, experiences_fatigue, have_headache, have_myalgia, have_sore_throat, have_coryza, have_dyspnea, experiences_nausea, exp_altered_mental_status, exp_anosmia, exp_ageusia, //other //no anorexia, diarrhea here
@@ -277,7 +317,7 @@ app.post('/insert-cif', async (req, res) => {
             
             //dru_queue: 
             //unrelated to insert cif
-            dru_id, entry_count, submission_from, submission_to
+            //dru_id, entry_count, submission_from, submission_to
             
             } = req.body;
     var investigator_id = 0;
@@ -725,6 +765,7 @@ app.post('/insert-cif', async (req, res) => {
             })
         }
     )
+    /*
     .then(
         async () => {
             await db('dru_queue')
@@ -736,9 +777,10 @@ app.post('/insert-cif', async (req, res) => {
             })
         }
     )
+    */
     .then(
         () => {
-            res.json([{"dru_id": dru_id}])
+            res.json('insert success')
         }
     )
 })
@@ -753,6 +795,20 @@ app.get('/fetch-dru', (req, res) => {
         })
 })
 
-app.listen(3000, (req, res) => {
-    console.log('Listening on port 3000.')
+app.get('/get-entry-count', (req,res) => {
+    db('cif')
+    .leftJoin('staff', 'cif.investigator_id', 'staff.id')
+    .leftJoin('dru', 'staff.dru_id', 'dru.id')
+    .select('dru.name')
+    .count()
+    .groupBy(['dru.name', 'dru.id'])
+    .orderBy('dru.id', 'asc')
+    .returning()
+    .then(data => {
+        res.json(data)
+    })
+})
+
+app.listen(PORT, (req, res) => {
+    console.log(`Listening on port ${PORT}.`)
 })
