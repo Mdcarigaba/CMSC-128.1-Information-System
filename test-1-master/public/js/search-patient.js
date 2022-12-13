@@ -78,11 +78,11 @@ let recordsData = [
     }
 ];
 
-window.onload = () => {
-    loadTableData(recordsData);
-};
+// window.onload = () => {
+//     loadTableData(recordsData);
+// };
 
-loadTableData(recordsData);
+//loadTableData(recordsData);
 
 function loadTableData(recordsData) {
     const tableBody = document.getElementById('tableData');
@@ -109,4 +109,62 @@ function loadTableData(recordsData) {
     console.log(dataHTML);
 
     tableBody.innerHTML = dataHTML;
+}
+
+const flname = document.querySelector('#last-name')
+const ffrom = document.querySelector('#from')
+const fto = document.querySelector('#to')
+const flabn = document.querySelector('#laboratory-number')
+const ffname = document.querySelector('#first-name')
+const tableBody = document.getElementById('tableData');
+tableBody.innerHTML = '';
+function searchTable(){
+    var query = []
+    if(flname.value.length) query.push(`patient.lastname=${flname.value}`)
+    if(ffrom.value.length) {
+        var format_from = ffrom.value.split('/')
+        var temp = format_from.pop()
+        format_from.unshift(temp)
+        var date_from = format_from.join("/")
+        query.push(`from=${date_from}`)
+    }
+    if(fto.value.length)  {
+        var format_to = fto.value.split('/')
+        var temp = format_to.pop()
+        format_to.unshift(temp)
+        var date_to = format_to.join("/")
+        query.push(`to=${date_to}`)
+    }
+    if(flabn.value.length) query.push(`tests.lab_name=${flabn.value}`)
+    if(ffname.value.length) query.push(`patient.firstname=${ffname.value}`)
+    const final_query = query.join("&")
+    fetch(`/search-cif?${final_query}`, {
+        method: 'get',
+        headers: new Headers({'Content-Type': 'application/json'}),
+    })
+    .then(res => res.json())
+    .then(data => {
+   
+   
+    let dataHTML = '';
+
+    var button = document.createElement(button);
+    button.innerHTML = "+ New"
+
+    for(let indiv of data){
+        dataHTML += `<tr>`+
+                    `<td>CIF-${indiv.id}</td>` +
+                    `<td>LAB-${indiv.lab_name}</td>` +
+                    `<td>${indiv.lastname}</td>` +
+                    `<td>${indiv.firstname}</td>` +
+                    `<td>${indiv.middlename}</td>` +
+                    `<td>${indiv.sex}</td>` +
+                    `<td>${indiv.age}</td>` +
+                    `<td>${indiv.date_interview}</td>` +
+                    `<td>${indiv.date_collected}</td>` +
+                    `<td><button class="new-btn" href='/cif'>New</button></td>` +
+                    `</tr>`
+    }
+    tableBody.innerHTML = dataHTML
+    })
 }

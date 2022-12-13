@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DRU Queueing</title>
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="css/DRUqueueing.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("T5NwtQ6ScmuD3F5zf");
+        })();
+    </script>
 </head>
 
 <body>
@@ -99,11 +105,13 @@
                             <td class="first-header">No.</td>
                             <td>Disease Reporting Unit</td>
                             <td>Number of Entries</td>
-                            <td class="last-header">Submission Time</td>
+                            <td>Submission Time</td>
+                            <td class="last-header">Action</td>
+
                         </tr>
                     </thead>
                     <tbody id="tableData">
-                        
+
                     </tbody>
                     <!-- <tr class="content-data color1">
                         <td>1</td>

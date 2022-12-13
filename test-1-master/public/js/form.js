@@ -1,5 +1,5 @@
-const username = document.querySelector('.username');
-const lname = document.querySelector('.lastname') || null;
+const username = document.querySelector('.username')|| null;
+const lname = document.querySelector('.lastname') ;
 const fname = document.querySelector('.firstname');
 const mname = document.querySelector('.middlename');
 const email = document.querySelector('.email');
@@ -21,7 +21,7 @@ if(lname == null){
         })
         .then(res => res.json())
         .then(data => {
-            validateData(data);
+            validateData(data[0]);
         })
     })
 } else{
@@ -68,7 +68,7 @@ const validateData = (data) => {
     } else{
         sessionStorage.username = data.username;
         sessionStorage.email = data.email;
-        sessionStorage.usertype = data.usertype;
+        sessionStorage.role = data.role;
         location.href = '/'
     }
 }
