@@ -3,7 +3,7 @@ let DRUqueue = [
         druNum: 1,
         dru: 'Cavite City CHO',
         numEntries: 230,
-        submissionTime: '8:00-8:20'
+        submissionTime: '8:00-8:20',
     },
     {
         druNum: 2,
@@ -47,17 +47,36 @@ function loadTableData(DRUqueue) {
     const tableBody = document.getElementById('tableData');
     let dataHTML = '';
 
+    var button = document.createElement(button);
+    button.innerHTML = "Send Email"
+
     for(let records of DRUqueue) {
         dataHTML += `<tr>
                         <td>${records.druNum}</td>
                         <td>${records.dru}</td>
                         <td>${records.numEntries}</td>
                         <td>${records.submissionTime}</td>
+                        <td><button class="email-btn" onclick="SendMail()">Send Email</button></td>
+
                     </tr>`;
     }
 
     tableBody.innerHTML = dataHTML;
 }
+
+//send email
+function SendMail() {
+    var params = {
+      subject : 'DRU Schedule', //fixed?
+      to_email : 'dealouisa1@gmail.com', //email of dru
+      to_name : 'DRU', //dru name
+      from_name : 'Sinag', //lab or sinag?
+      time : '8:00 AM', //time sched
+    }
+    emailjs.send("service_7lws35l", "template_496gmhf", params).then(function(res) {
+      alert("SUCCESS!" + res.status);
+    })
+  }
 
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
