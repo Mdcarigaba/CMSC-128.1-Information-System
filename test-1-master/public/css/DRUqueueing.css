@@ -260,7 +260,7 @@ tr:nth-child(even) {
     width: 15%;
 }
 
-.content-data > td {
+#tableData > tr > td {
     border: 1px;
     padding: 2%;
     text-align: center;
@@ -291,4 +291,21 @@ td {
 
 .btn-collapse, .btn-expand {
     margin-top: 100px;
+}
+
+.email-btn {
+    font-family: 'Nunito';
+    background-color: #E2FAE8;
+    color: #146F2D;
+    border: 1px solid #146F2D;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.email-btn:hover {
+    background-color: #146F2D;
+    border: 1px solid #E2FAE8;
+    color: #E2FAE8;
 }
