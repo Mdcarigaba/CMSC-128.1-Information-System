@@ -4,6 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIF Entry</title>
+    <script src="https://unpkg.com/pdf-lib@1.11.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
     <link rel="stylesheet" type="text/css" href="css/cif-entry.css">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -267,7 +269,7 @@
                                     <p class="required-field">*</p>
                                     <p class="input-field-label">Age</p>
                                 </div>
-                                <input type="text" placeholder="" id="age" clas="age"> required
+                                <input type="text" placeholder="" id="age" class="age"> required
                             </div>
                             <div>
                                 <p class="input-field-label">Sex</p>
@@ -361,7 +363,7 @@
                             </div>
                             <div>
                                 <p class="input-field-label">Email Address</p>
-                                <input type="text" id="email" class="email">
+                                <input type="text" id="email" class="perm-email">
                             </div>
                     </div>
                 </form>
@@ -507,11 +509,11 @@
                             <p>History of travel/visit/work in other countries with a known COVID-19 transmission 14 days before the onset of your signs and symptoms?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="travel_history" id="yes" class="travel-yes">
+                                        <input type="radio" name="travel_history" id="yes" value="yes" class="travel-yes" onclick="select_travel()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="travel_history" id="no" class="travel-no">
+                                        <input type="radio" name="travel_history" id="no" value="no" class="travel-no" onclick="select_travel()">
                                         <label for = "no">No</label>
                                     </div>
                                 </div>
@@ -563,15 +565,15 @@
                             <p>History of exposure to known COVID-19 Case?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="exposure" id="yes" class="expose-yes">
+                                        <input type="radio" name="exposure" id="yes-exposure" value="yes" class="expose-yes" onclick="select_exposure()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="exposure" id="no" class="expose-no">
+                                        <input type="radio" name="exposure" id="no-exposure" value="no" class="expose-no" onclick="select_exposure()">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-unknown">
-                                        <input type="radio" name="exposure" id="unknown" class="expose-unknown">
+                                        <input type="radio" name="exposure" id="unknown-exposure" value="unknown" class="expose-unknown" onclick="select_exposure()">
                                         <label for = "unknown">Unknown</label>
                                     </div>
                                 </div>
@@ -587,15 +589,15 @@
                             <p>Have you been in a place with a known COVID-19 transmission 14 days before the onset of signs and symptoms:</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="place_exposed" id="yes" class="place-yes">
+                                        <input type="radio" name="place_exposed" id="yes" value="yes" class="place-yes" onclick="select_place()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="place_exposed" id="no" class="place-no">
+                                        <input type="radio" name="place_exposed" id="no" value="no" class="place-no" onclick="select_place()">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-unknown">
-                                        <input type="radio" name="place_exposed" id="unknown" class="place-unknown">
+                                        <input type="radio" name="place_exposed" id="unknown" value="unknown" class="place-unknown" onclick="select_place()">
                                         <label for = "unknown">Unknown</label>
                                     </div>
                                 </div>
@@ -608,7 +610,7 @@
                     <div class="table-row">
                             <div>
                                 <p class="input-field-label">Place Visited</p>
-                                <select name="place_visited" id="place-visited" class="visisted-place">
+                                <select name="place_visited" id="place-visited" class="visited-place">
                                     <option class="select-placeholder" value="option1">Select type of Place/Establishment</option>
                                     <option value="option2">Hospital</option>
                                     <option value="option3">Marketplace</option>
@@ -672,23 +674,23 @@
                             <p>Disposition at Time of Report</p>
                                 <div class="row">
                                     <div class="row" id="radio-inpatient">
-                                        <input type="radio" name="disposition" id="inpatient" class="disposition-inpatient">
+                                        <input type="radio" name="disposition" id="inpatient" value="inpatient" class="disposition-inpatient" onclick="select_disposition()">
                                         <label for = "inpatient">Inpatient</label>
                                     </div>
                                     <div class="row" id="radio-outpatient">
-                                        <input type="radio" name="disposition" id="outpatient" class="disposition-outpatient">
+                                        <input type="radio" name="disposition" id="outpatient" value="outpatient" class="disposition-outpatient" onclick="select_disposition()">
                                         <label for = "outpatient">Outpatient</label>
                                     </div>
                                     <div class="row" id="radio-died">
-                                        <input type="radio" name="disposition" id="died" class="disposition-died">
+                                        <input type="radio" name="disposition" id="died" value="died" class="disposition-died" onclick="select_disposition()">
                                         <label for = "died">Died</label>
                                     </div>
                                     <div class="row" id="radio-discharged">
-                                        <input type="radio" name="disposition" id="discharged" class="disposition-discharged">
+                                        <input type="radio" name="disposition" id="discharged" value="discharged" class="disposition-discharged" onclick="select_disposition()">
                                         <label for = "discharged">Discharged</label>
                                     </div>
                                     <div class="row" id="radio-unknown">
-                                        <input type="radio" name="disposition" id="unknwon" class="disposition-unknown">
+                                        <input type="radio" name="disposition" id="unknwon" value="unknown" class="disposition-unknown" onclick="select_disposition()">
                                         <label for = "unknown">Unknown</label>
                                     </div>
                                 </div>
@@ -739,7 +741,7 @@
                                         <label for = "fatigue">Fatigue</label>
                                     </div>
                                     <div class="signs">
-                                        <input type="checkbox" name="headache" id = "headache">
+                                        <input type="checkbox" name="headache" id = "headache" class="headache">
                                         <label for = "headache">Headache</label>
                                     </div>
                                 </div>
@@ -817,11 +819,11 @@
                             <p>Is there any history of other illness?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="history_of_illness" id="yes" class="history-yes">
+                                        <input type="radio" name="history_of_illness" id="yes" value="yes" class="history-yes" onclick="select_history_illness()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="history_of_illness" id="no" class="history-no">
+                                        <input type="radio" name="history_of_illness" id="no" value="no" class="history-no" onclick="select_history_illness()">
                                         <label for = "no">No</label>
                                     </div>
                                 </div>
@@ -837,11 +839,11 @@
                             <p>Chest XRAY done?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="chest_xray" id="yes" class="xray-yes">
+                                        <input type="radio" name="chest_xray" id="yes" value="yes" class="xray-yes" onclick="select_chest_xray()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="chest_xray" id="no" class="xray-no">
+                                        <input type="radio" name="chest_xray" id="no" value="no" class="xray-no" onclick="select_chest_xray()">
                                         <label for = "no">No</label>
                                     </div>
                                 </div>
@@ -857,19 +859,19 @@
                             <p>CXR Results: Pneumonia</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="pneumonia" id="yes" class="pneumonia-yes">
+                                        <input type="radio" name="pneumonia" id="yes" value="yes" class="pneumonia-yes" onclick="select_pneumonia()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="pneumonia" id="no" class="pneumonia-no">
+                                        <input type="radio" name="pneumonia" id="no" value="no" class="pneumonia-no" onclick="select_pneumonia()">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-pending">
-                                        <input type="radio" name="pneumonia" id="pending" class="pneumonia-pending">
+                                        <input type="radio" name="pneumonia" id="pending" value="pending" class="pneumonia-pending" onclick="select_pneumonia()">
                                         <label for = "pending">Pending</label>
                                     </div>
                                     <div class="row" id="radio-na">
-                                        <input type="radio" name="pneumonia" id="na" class="pneumonia-na">
+                                        <input type="radio" name="pneumonia" id="na" value="na" class="pneumonia-na" onclick="select_pneumonia()">
                                         <label for = "na">N/A</label>
                                     </div>
                                 </div>
@@ -886,15 +888,15 @@
                             <p>Are you pregnant?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="pregnant" id="yes" class="pregnant-yes">
+                                        <input type="radio" name="pregnant" id="yes" value="yes" class="pregnant-yes" onclick="select_pregnant()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="pregnant" id="no" class="pregnant-no">
+                                        <input type="radio" name="pregnant" id="no" value="no" class="pregnant-no" onclick="select_pregnant()">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-na">
-                                        <input type="radio" name="pregnant" id="na" class="pregnant-na">
+                                        <input type="radio" name="pregnant" id="na" value="na" class="pregnant-na" onclick="select_pregnant()">
                                         <label for = "na">N/A</label>
                                     </div>
                                 </div>
@@ -910,15 +912,15 @@
                             <p>Assessed as High Risk Pregnancy?</p>
                                 <div class="row">
                                     <div class="row" id="radio-yes">
-                                        <input type="radio" name="high_risk_pregnancy" id="yes" class="high-yes">
+                                        <input type="radio" name="high_risk_pregnancy" id="yes" value="yes" class="high-yes" onclick="select_high()">
                                         <label for = "yes">Yes</label>
                                     </div>
                                     <div class="row" id="radio-no">
-                                        <input type="radio" name="high_risk_pregnancy" id="no" class="high-no">
+                                        <input type="radio" name="high_risk_pregnancy" id="no" value="no" class="high-no" onclick="select_high()">
                                         <label for = "no">No</label>
                                     </div>
                                     <div class="row" id="radio-na">
-                                        <input type="radio" name="high_risk_pregnancy" id="na" class="high-na">
+                                        <input type="radio" name="high_risk_pregnancy" id="na" value="na" class="high-na" onclick="select_high()">
                                         <label for = "na">N/A</label>
                                     </div>
                                 </div>
@@ -1039,8 +1041,8 @@
                         <div class="col">
                             <input type="text" placeholder = "MM/DD/YYYY" id="date-received" class="naso-date-received">
                             <div class="row mt-5">
-                                <input type="text" placeholder = "HH" class="naso-hr-sent" id="hour">
-                                <input type="text" placeholder = "MM" class="naso-min-sent" id="min">
+                                <input type="text" placeholder = "HH" class="naso-hr-received" id="hour">
+                                <input type="text" placeholder = "MM" class="naso-min-received" id="min">
                             </div>
                         </div>
                         <div class="col">
@@ -1078,7 +1080,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <input type="text" placeholder = "MM/DD/YYYY" id="date-sent" class="naso-date-sent">
+                            <input type="text" placeholder = "MM/DD/YYYY" id="date-sent" class="oro-date-sent">
                             <div class="row mt-5">
                                 <input type="text" placeholder = "HH" class="oro-hr-sent" id="hour">
                                 <input type="text" placeholder = "MM" class="oro-min-sent" id="min">
@@ -1087,8 +1089,8 @@
                         <div class="col">
                             <input type="text" placeholder = "MM/DD/YYYY" id="date-received" class="oro-date-received">
                             <div class="row mt-5">
-                                <input type="text" placeholder = "HH" class="oro-hr-sent" id="hour">
-                                <input type="text" placeholder = "MM" class="oro-min-sent" id="min">
+                                <input type="text" placeholder = "HH" class="oro-hr-received" id="hour">
+                                <input type="text" placeholder = "MM" class="oro-min-received" id="min">
                             </div>
                         </div>
                         <div class="col">
@@ -1135,8 +1137,8 @@
                         <div class="col">
                             <input type="text" placeholder = "MM/DD/YYYY" id="date-received" class="other-date-received">
                             <div class="row mt-5">
-                                <input type="text" placeholder = "HH" class="other-hr-sent" id="hour">
-                                <input type="text" placeholder = "MM" class="other-min-sent" id="min">
+                                <input type="text" placeholder = "HH" class="other-hr-received" id="hour">
+                                <input type="text" placeholder = "MM" class="other-min-received" id="min">
                             </div>
                         </div>
                         <div class="col">
@@ -1168,23 +1170,23 @@
                     <div class="table-row">
                         <div class="row v-center">
                             <div class="row" id="radio-suspect">
-                                <input type="radio" name="final_classification" id="suspect" class="final-suspect">
+                                <input type="radio" name="final_classification" id="suspect" value="suspect" class="final-suspect" onclick="select_final_classification()">
                                 <label for = "suspect">Suspect Case</label>
                             </div>
                             <div class="row" id="radio-probable">
-                                <input type="radio" name="final_classification" id="probable" class="final-probable">
+                                <input type="radio" name="final_classification" id="probable" value="probable" class="final-probable" onclick="select_final_classification()">
                                 <label for = "probable">Probable Case</label>
                             </div>
                             <div class="row" id="radio-confirmed">
-                                <input type="radio" name="final_classification" id="confirmed" class="final-confirmed">
+                                <input type="radio" name="final_classification" id="confirmed" value="confirmed" class="final-confirmed" onclick="select_final_classification()">
                                 <label for = "confirmed">Confirmed Case</label>
                             </div>
                             <div class="row" id="radio-discharged">
-                                <input type="radio" name="final_classification" id="discharged" class="final-discharged">
+                                <input type="radio" name="final_classification" id="discharged" value="discharged" class="final-discharged" onclick="select_final_classification()">
                                 <label for = "discharged">Discharged</label>
                             </div>
                             <div class="row" id="radio-unknown">
-                                <input type="radio" name="final_classification" id="unknown" class="final-unknown">
+                                <input type="radio" name="final_classification" id="unknown" value="unknown" class="final-unknown" onclick="select_final_classification()">
                                 <label for = "unknown">Unknown</label>
                             </div>
                         </div>
@@ -1203,23 +1205,23 @@
                             <p>Condition on Discharge</p>
                                 <div class="row">
                                     <div class="row" id="radio-improved">
-                                        <input type="radio" name="condition_on_discharge" id="improved">
+                                        <input type="radio" name="condition_on_discharge" id="improved" value="improved" onclick="select_condition_on_discharge()">
                                         <label for = "improved">Improved</label>
                                     </div>
                                     <div class="row" id="radio-recovered">
-                                        <input type="radio" name="condition_on_discharge" id="recovered">
+                                        <input type="radio" name="condition_on_discharge" id="recovered" value="recovered" onclick="select_condition_on_discharge()">
                                         <label for = "recovered">Recovered</label>
                                     </div>
                                     <div class="row" id="radio-transferred">
-                                        <input type="radio" name="condition_on_discharge" id="transferred">
+                                        <input type="radio" name="condition_on_discharge" id="transferred" value="transferred" onclick="select_condition_on_discharge()">
                                         <label for = "transferred">Transferred</label>
                                     </div>
                                     <div class="row" id="radio-absconded">
-                                        <input type="radio" name="condition_on_discharge" id="absconded">
+                                        <input type="radio" name="condition_on_discharge" id="absconded" value="absconded" onclick="select_condition_on_discharge()">
                                         <label for = "absconded">Absconded</label>
                                     </div>
                                     <div class="row" id="radio-died">
-                                        <input type="radio" name="condition_on_discharge" id="died">
+                                        <input type="radio" name="condition_on_discharge" id="died" value="died" onclick="select_condition_on_discharge()">
                                         <label for = "died">Died</label>
                                     </div>
                                 </div>
@@ -1252,15 +1254,170 @@
             </div>
 
             <div class="row center">
-                <button class = "save-button">SAVE RECORD</button>
+                <button class = "save-button" onclick="saveRec()">SAVE RECORD</button>
             </div>
 
             <!-- END right-body class-->
+            <button onclick="fillForm()">Fill PDF</button>
         </div>
     </div>
+    
     <script src="js/index.js"></script>
     <script type="text/javascript" src="js/cif.js"></script>
+    <!--<script type="text/javascript" src = "js/generate-forms.js"></script>-->
 
 
 </body>
+<!--
+<script>
+    const { PDFDocument } = PDFLib
+
+    async function fillForm() {
+    	// Fetch the PDF with form fields
+      //const formUrl = 'https://pdf-lib.js.org/assets/dod_character.pdf'
+      const formUrl = 'http://dl.dropboxusercontent.com/s/mmufx0ddjqo4iqi/CIF_-_Version_9_fillable-2.pdf'
+      const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
+
+      // Load a PDF with form fields
+      const pdfDoc = await PDFDocument.load(formPdfBytes)
+
+      // Get the form containing all the fields
+      const form = pdfDoc.getForm()
+
+      // Get all fields in the PDF by their names
+        
+        const lastnameField = form.getTextField('Last Name')
+        lastnameField.setText(document.getElementById("last-name").value)
+
+        const firstNameField = form.getTextField('First Name and Suffix')
+        firstNameField.setText(document.getElementById("first-name").value)
+
+        const middleNameField = form.getTextField('Middle Name')
+        middleNameField.setText(document.getElementById("middle-name").value)
+
+        const birthdayField = form.getTextField('Birthday')
+        birthdayField.setText(document.getElementById("birthday").value)
+
+        const ageField = form.getTextField('Age')
+        ageField.setText(document.getElementById("age").value)
+
+        const sexField = form.getRadioGroup('Sex')
+        //sexField.setRadio(document.getElementById("sex").value)
+
+        const civilStatusField = form.getDropdown('Civil Status')
+        //civilStatusField.setText(document.getElementById("civil-status").value)
+
+        const nationalityField = form.getTextField('Nationality')
+        nationalityField.setText(document.getElementById("nationality").value)
+
+        const occupationField = form.getTextField('Occupation')
+        occupationField.setText(document.getElementById("occupation").value)
+
+        //const houseField = form.getTextField('House NoLotBldgRow1')
+      //houseField.setText(document.getElementById("permanent-house").value)
+
+      //current
+      //const streetField = form.getTextField('StreetPurokSitioRow1')
+      //streetField.setText(document.getElementById("").value)
+
+      const philhealthNoField = form.getTextField('PhilHealth No')
+      philhealthNoField.setText(document.getElementById("philhealth-number").value)
+
+      //current
+        const barangayRow1Field = form.getTextField('BarangayRow1')
+        barangayRow1Field.setText(document.querySelector('.curr-brgy').value)
+        
+        const municipalityCityRow1Field = form.getTextField('MunicipalityCityRow1')
+        municipalityCityRow1Field.setText(document.querySelector('.curr-municipality').value)
+
+        const provinceRow1Field = form.getTextField('ProvinceRow1')
+        provinceRow1Field.setText(document.querySelector('.curr-province').value)
+      
+        const homePhoneNoAreaCodeRow1Field = form.getTextField('Home Phone No  Area CodeRow1')
+        homePhoneNoAreaCodeRow1Field.setText(document.querySelector('.curr-phone-no').value)
+
+        const cellphoneNoRow1Field = form.getTextField('Cellphone NoRow1')
+        cellphoneNoRow1Field.setText(document.querySelector('.curr-cellphone-no').value)
+
+        const emailAddressRow1Field = form.getTextField('Email AddressRow1')
+        emailAddressRow1Field.setText(document.querySelector('.curr-email').value)
+
+        const houseNoLotBldgRow1_2Field = form.getTextField('House NoLotBldgRow1_2')
+        houseNoLotBldgRow1_2Field.setText(document.querySelector('.permanent-house').value)
+
+        //const streetPurokSitioRow1_2Field = form.getTextField('StreetPurokSitioRow1_2')
+        //streetPurokSitioRow1_2Field.setText(document.querySelector('.').value)
+
+        const barangayRow1_2Field = form.getTextField('BarangayRow1_2')
+        barangayRow1_2Field.setText(document.querySelector('.perm-brgy').value)
+
+        const municipalityCityRow1_2Field = form.getTextField('MunicipalityCityRow1_2')
+        municipalityCityRow1_2Field.setText(document.querySelector('.perm-municipality').value)
+        
+        const provinceRow1_2Field = form.getTextField('ProvinceRow1_2')
+        provinceRow1_2Field.setText(document.querySelector('.perm-province').value)
+
+        const homePhoneNoAreaCodeRow1_2Field = form.getTextField('Home Phone No  Area CodeRow1_2')
+        homePhoneNoAreaCodeRow1_2Field.setText(document.querySelector('.perm-phone-no').value)
+
+        const cellphoneNoRow1_2Field = form.getTextField('Cellphone NoRow1_2')
+        cellphoneNoRow1_2Field.setText(document.querySelector('.perm-cellphone-no').value)
+
+        const emailAddressRow1_2Field = form.getTextField('Email AddressRow1_2')
+        emailAddressRow1_2Field.setText(document.querySelector('.perm-email').value)
+
+        const barangayRow1_3Field = form.getTextField('BarangayRow1_3')
+        //barangayRow1_3Field = form.setText(querySelector('.'))
+
+        const municipalityCityRow1_3Field = form.getTextField('MunicipalityCityRow1_3')
+        municipalityCityRow1_3Field.setText(document.querySelector('.employer-city').value)
+
+        const provinceRow1_3Field = form.getTextField('ProvinceRow1_3')
+        provinceRow1_3Field.setText(document.querySelector('.employer-province').value)
+
+        const nameofWorkplaceRow1Field = form.getTextField('Name of WorkplaceRow1')
+        //nameofWorkplaceRow1Field.setText(document.querySelector('.').value)
+
+        const phoneNoCellphoneNoRow1 = form.getTextField('Phone NoCellphone NoRow1')
+        phoneNoCellphoneNoRow1.setText(document.querySelector('.office-cellphone-no').value)
+
+        const ifInternationalTravelCountryofOriginField = form.getTextField('If International Travel country of origin')
+        ifInternationalTravelCountryofOriginField.setText(document.querySelector('.exit-port').value)
+
+        //const airlineSeaVesselNumberField = form.getTextField('AirlineSeavessel Row1')
+        //airlineSeaVesselNumberField.setText(document.querySelector('.airline-seavessel').value)
+
+        const flightVesselNumberRow1Field = form.getTextField('FlightVessel NumberRow1')
+        flightVesselNumberRow1Field.setText(document.querySelector('.flight-vessel-no').value)
+
+        const diseaseReportingUnitField = form.getTextField('Disease Reporting Unit')
+        diseaseReportingUnitField.setText(document.getElementById("dru").value)
+
+        const nameOfInterviewerField = form.getTextField('Name of Interviewer')
+        nameOfInterviewerField.setText(document.getElementById("investigator").value)
+
+        const dateOfInterviewField = form.getTextField("Date of Interview")
+        dateOfInterviewField.setText(document.getElementById("date-of-interview").value)
+
+        const nameOfInformantField = form.getTextField('Name of Informant')
+        nameOfInformantField.setText(document.getElementById("name-of-informant").value)
+
+        const relationshipOfInformantField = form.getTextField('Relationship')
+        relationshipOfInformantField.setText(document.getElementById("relationship").value)
+
+        const informantPhoneNoField = form.getTextField('Contact Number of Informant')
+        informantPhoneNoField.setText(document.getElementById("informant-phone-number").value)
+
+        const dateOfOnsetOfIllnessField = form.getTextField('Date of Onset of Illness')
+        dateOfOnsetOfIllnessField.setText(document.getElementById("date-of-onset-of-illness").value)
+        //const emailAddressRow1_3Field = form.getTextField('Email AddressRow1_3')
+        //emailAddressRow1_3Field = form.setText(document.querySelector('.').value)
+
+      // Serialize the PDFDocument to bytes (a Uint8Array)
+      const pdfBytes = await pdfDoc.save()
+
+			// Trigger the browser to download the PDF document
+      download(pdfBytes, "pdf-lib_form_creation_example.pdf", "application/pdf");
+    }
+  </script> -->
 </html>
