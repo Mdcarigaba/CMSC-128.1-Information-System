@@ -51,7 +51,7 @@
         <div class="header row">
             <div class="page-title-header">
                 <div class="row">
-                    
+
                     <div class="page-title">
                         <p>Dashboard</p>
                     </div>
@@ -92,15 +92,22 @@
         <div class="content">
             <div class="row">
                 <h1 class="table-title">Schedule of DRUs to Arrive </h1>
-                <h2 class="table-date">October 21, 2022</h2>
+                <h2 class="table-date" id="to-date">Date</h2>
             </div>
             <div>
                 <table>
-                    <tr class="tbl-header bg-blue">
-                        <td class="first-header">Time</td>
-                        <td>Disease Reporting Unit</td>
-                        <td class="last-header">Submissions</td>
-                    </tr>
+                    <thead>
+                        <tr class="tbl-header bg-blue">
+                            <td class="first-header">Time</td>
+                            <td>Disease Reporting Unit</td>
+                            <td class="last-header">Submissions</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tableData">
+
+                    </tbody>
+
+                    <!--
                     <tr class="content-data">
                         <td></td>
                         <td></td>
@@ -136,6 +143,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    -->
                 </table>
             </div>
             <div class="row">
@@ -159,6 +167,7 @@
 
     <script src="js/index.js"></script>
     <script src="js/home.js"></script>
+
 </body>
 
 </html>

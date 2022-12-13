@@ -1,41 +1,64 @@
+
 let DRUqueue = [
-    {
-        druNum: 1,
-        dru: 'Cavite City CHO',
-        numEntries: 230,
-        submissionTime: '8:00-8:20',
+    {   druNum: 0, dru: 'Cavite City CHO', numEntries: 187, submissionTime: '',
     },
-    {
-        druNum: 2,
-        dru: 'Dasmarinas City CHO',
-        numEntries: 187,
-        submissionTime: '8:20-8;40'
+    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: '',
     },
-    {
-        druNum: 3,
-        dru: 'Aadeo RHU',
-        numEntries: 65,
-        submissionTime: '8:40-9:00'
+    {   druNum: 0, dru: 'Aadeo RHU', numEntries: 65, submissionTime: '',
     },
-    {
-        druNum: 4,
-        dru: 'Tagaytay City CHO',
-        numEntries: 39,
-        submissionTime: '9:00-9:20'
+    {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: '',
     },
-    {
-        druNum: 5,
-        dru: 'Dasmarinas City CHO',
-        numEntries: 12,
-        submissionTime: '9:20-9:40'
+    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 12, submissionTime: ''
     },
-    {
-        druNum: 6,
-        dru: 'Trece Martires CHO',
-        numEntries: 8,
-        submissionTime: '9:40-10:0'
+    {   druNum: 0, dru: 'Trece Martires CHO', numEntries: 0, submissionTime: ''
+    },
+    {   druNum: 0, dru: 'Cavite City CHO', numEntries: 187, submissionTime: ''
+    },
+    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: ''
+    },
+    {   druNum: 0, dru: 'Aadeo RHU', numEntries: 65, submissionTime: ''
+    },
+    {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: ''
+    },
+    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 12, submissionTime: ''
+    },
+    {   druNum: 0, dru: 'Trece Martires CHO', numEntries: 0, submissionTime: ''
     }
 ];
+
+
+// Sort the DRUqueue array in descending order by the numEntries property
+DRUqueue.sort((a, b) => b.numEntries - a.numEntries);
+
+let startHour = 8; // starting time for submission times
+let interval = 20; // interval in minutes between submission times
+
+for (let i = 0; i < DRUqueue.length; i++) {
+    DRUqueue[i].druNum = i + 1; //for druNum
+
+    let minutes = interval * i;
+    let hours = Math.floor(minutes / 60);
+    let lowerHours = hours + startHour;
+    minutes -= hours * 60;
+    lowerMinutes = minutes + interval
+
+    if (lowerMinutes == 60) {
+        lowerMinutes = 0;
+        lowerMinutes = `0${lowerMinutes}`;
+        lowerHours = lowerHours + 1;
+    }
+
+    if (minutes == 0) {
+        minutes = `0${minutes}`;
+    }
+
+    if (lowerHours != 12) {
+        DRUqueue[i].submissionTime = `${startHour + hours}:${minutes} AM - ${lowerHours}:${lowerMinutes} AM`;
+    } else {
+        DRUqueue[i].submissionTime = `${startHour + hours}:${minutes} AM -${lowerHours}:${lowerMinutes} PM`;
+    }
+
+}
 
 window.onload = () => {
     loadTableData(DRUqueue);
@@ -56,11 +79,9 @@ function loadTableData(DRUqueue) {
                         <td>${records.dru}</td>
                         <td>${records.numEntries}</td>
                         <td>${records.submissionTime}</td>
-                        <td><button class="email-btn" onclick="SendMail()">Send Email</button></td>
-
+                        <td><button class="email-btn" onclick="SendMail()S">Send Email</button></td>
                     </tr>`;
     }
-
     tableBody.innerHTML = dataHTML;
 }
 
@@ -76,7 +97,7 @@ function SendMail() {
     emailjs.send("service_7lws35l", "template_496gmhf", params).then(function(res) {
       alert("SUCCESS!" + res.status);
     })
-  }
+}
 
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
