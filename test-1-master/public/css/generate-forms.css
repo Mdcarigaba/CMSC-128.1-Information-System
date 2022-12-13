@@ -513,6 +513,7 @@ tbody {
 }
 
 .back-next {
+    margin-top: 20px;
     background-color: #3476CE;
     width: 30px;
     height: 30px;
