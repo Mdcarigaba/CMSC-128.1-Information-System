@@ -183,13 +183,13 @@ app.get('/filter-cif?', (req, res) => {
 app.get('/generate-pdf', (req, res) => {
     db('cif')
     .leftJoin('patient', 'cif.patient_id', 'patient.id')
+    .leftJoin('staff', 'cif.investigator_id', 'staff.id')
     .leftJoin('patient_informant', 'patient.id', 'patient_informant.patient_id')
     .leftJoin('informant', 'patient_informant.informant_id', 'informant.id')
     .leftJoin('healthcare_worker', 'patient.id', 'healthcare_worker.patient_id')
     .leftJoin('lsi_apor_localtraveler', 'patient.id', 'lsi_apor_localtraveler.patient_id')
     .leftJoin('living_in_close_settings', 'patient.id', 'living_in_close_settings.patient_id')
-    .leftJoin('returning_overseas_filipino', 'patient.id', 'returning_overseas_filipino.patient_id')
-    .leftJoin('staff', 'cif.investigator_id', 'staff.id')
+    .leftJoin('returning_overseas_filipino', 'patient.id', 'returning_overseas_filipino.patient_id')  
     .leftJoin('cif_type', 'cif.id', 'cif_type.cif_id')
     .leftJoin('for_update', 'cif.id', 'for_update.cif_id')
     .leftJoin('case_investigation_details', 'cif.id', 'case_investigation_details.cif_id')
@@ -210,17 +210,19 @@ app.get('/generate-pdf', (req, res) => {
     .leftJoin('local_transport', 'contact_tracing.cif_id', 'local_transport.local_contact_id')
     .select()
     .returning()
+
+    // .then((data) => {
+    //     console.log(data[0])
+    //     const xlsx = json2xls(data[0])
+    //     fs.writeFileSync('test.xlsx', xlsx,'binary', (err) => {
+    //         if (err) {
+    //               console.log("writeFileSync :", err);
+    //          }
+    //        console.log("file is saved!");
+    //     });
+    // })
     .then((data) => {
-        console.log(data[0])
-        const xlsx = json2xls(data[0])
-        fs.writeFileSync('test.xlsx', xlsx,'binary', (err) => {
-            if (err) {
-                  console.log("writeFileSync :", err);
-             }
-           console.log("file is saved!");
-        });
-    }).then(() => {
-        res.json()
+        res.json(data)
     })
 })
 
