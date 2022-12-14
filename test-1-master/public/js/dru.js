@@ -4,7 +4,7 @@ let DRUqueue = [
     },
     {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: '',
     },
-    {   druNum: 0, dru: 'Aadeo RHU', numEntries: 65, submissionTime: '',
+    {   druNum: 0, dru: 'Amadeo RHU', numEntries: 65, submissionTime: '',
     },
     {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: '',
     },
