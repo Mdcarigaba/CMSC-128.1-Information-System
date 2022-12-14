@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -51,7 +51,7 @@
         <div class="header row">
             <div class="page-title-header">
                 <div class="row">
-                    
+
                     <div class="page-title">
                         <p>Dashboard</p>
                     </div>
@@ -92,15 +92,22 @@
         <div class="content">
             <div class="row">
                 <h1 class="table-title">Schedule of DRUs to Arrive </h1>
-                <h2 class="table-date">October 21, 2022</h2>
+                <h2 class="table-date" id="date"></h2>
             </div>
             <div>
                 <table>
-                    <tr class="tbl-header bg-blue">
-                        <td class="first-header">Time</td>
-                        <td>Disease Reporting Unit</td>
-                        <td class="last-header">Submissions</td>
-                    </tr>
+                    <thead>
+                        <tr class="tbl-header bg-blue">
+                            <td class="first-header">Time</td>
+                            <td>Disease Reporting Unit</td>
+                            <td class="last-header">Submissions</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tableData">
+
+                    </tbody>
+
+                    <!--
                     <tr class="content-data">
                         <td></td>
                         <td></td>
@@ -136,6 +143,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    -->
                 </table>
             </div>
             <div class="row">
@@ -146,7 +154,7 @@
                     <div class="banner">
                         <p>Total Expected Number of Samples to be Received</p>
                         <div>
-                            <p>0000</p>
+                            <p id="totalSamples">0000</p>
                         </div>
                     </div>
                 </div>
@@ -160,6 +168,12 @@
     <script src="js/index.js"></script>
     <script src="js/home.js"></script>
     <script type="text/javascript" src="js/logout.js"></script>
+    <script>
+        var today = new Date();
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        var date = today.toLocaleDateString('en-US', options);
+        document.getElementById('date').innerHTML = date;
+    </script>
 </body>
 
 </html>

@@ -251,9 +251,11 @@ table {
     border-top-left-radius: 25px;
 }
 
-.content-data > td {
+#tableData > tr > td {
     border: 1px solid #E9F2FF;
     padding: 2%;
+    text-align: center;
+
 }
 
 .tbl-header > td {
