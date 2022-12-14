@@ -1,29 +1,17 @@
 
 let DRUqueue = [
-    {   druNum: 0, dru: 'Cavite City CHO', numEntries: 187, submissionTime: '',
-    },
-    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: '',
-    },
-    {   druNum: 0, dru: 'Aadeo RHU', numEntries: 65, submissionTime: '',
-    },
-    {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: '',
-    },
-    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 12, submissionTime: ''
-    },
-    {   druNum: 0, dru: 'Trece Martires CHO', numEntries: 0, submissionTime: ''
-    },
-    {   druNum: 0, dru: 'Cavite City CHO', numEntries: 187, submissionTime: ''
-    },
-    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: ''
-    },
-    {   druNum: 0, dru: 'Aadeo RHU', numEntries: 65, submissionTime: ''
-    },
-    {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: ''
-    },
-    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 12, submissionTime: ''
-    },
-    {   druNum: 0, dru: 'Trece Martires CHO', numEntries: 0, submissionTime: ''
-    }
+    {   druNum: 0, dru: 'Cavite City CHO', numEntries: 97, submissionTime: '',},
+    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: '',},
+    {   druNum: 0, dru: 'Amadeo RHU', numEntries: 65, submissionTime: '',},
+    {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: '',},
+    {   druNum: 0, dru: 'Alfonso RHU', numEntries: 12, submissionTime: ''},
+    {   druNum: 0, dru: 'Trece Martires CHO', numEntries: 90, submissionTime: ''},
+    {   druNum: 0, dru: 'General Trias CHO', numEntries: 187, submissionTime: ''},
+    {   druNum: 0, dru: 'Indang RHU', numEntries: 212, submissionTime: ''},
+    {   druNum: 0, dru: 'Naic RHU', numEntries: 135, submissionTime: ''},
+    {   druNum: 0, dru: 'Noveleta RHU', numEntries: 70, submissionTime: ''},
+    {   druNum: 0, dru: 'Aguinaldo RHU', numEntries: 15, submissionTime: ''},
+    {   druNum: 0, dru: 'Rosario Health Center', numEntries: 156, submissionTime: ''}
 ];
 
 
@@ -79,25 +67,34 @@ function loadTableData(DRUqueue) {
                         <td>${records.dru}</td>
                         <td>${records.numEntries}</td>
                         <td>${records.submissionTime}</td>
-                        <td><button class="email-btn" onclick="SendMail()S">Send Email</button></td>
+                        <td><button class="email-btn" onclick="SendMail()">Send Email</button></td>
                     </tr>`;
     }
     tableBody.innerHTML = dataHTML;
 }
 
-//send email
-function SendMail() {
-    var params = {
-      subject : 'DRU Schedule', //fixed?
-      to_email : 'dealouisa1@gmail.com', //email of dru
-      to_name : 'DRU', //dru name
-      from_name : 'Sinag', //lab or sinag?
-      time : '8:00 AM', //time sched
-    }
-    emailjs.send("service_7lws35l", "template_496gmhf", params).then(function(res) {
-      alert("SUCCESS!" + res.status);
-    })
+// Define the SendMail() function outside the for loop
+for (let i = 0; i < DRUqueue.length; i++) {
+    var name = DRUqueue[i].dru;
+    var time = DRUqueue[i].submissionTime;
+    var entries = DRUqueue[i].numEntries;
+
+
+    function SendMail() {
+    emailjs.send("service_7lws35l", "template_496gmhf", {
+      subject : 'DRU Schedule',
+      dru_email : 'sinag.testdru1@gmail.com', //email of dru
+      from_name : 'Sinag Laboratories',
+      dru_name : name,
+      time_range : time,
+      numEntries : entries
+    }).then(function(res) {
+      alert("SUCCESS!" + name + time + entries+ res.status);
+    });
+  }
 }
+
+
 
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
