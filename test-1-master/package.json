@@ -18,6 +18,6 @@
   "description": "",
   "scripts": {
     "start": "concurrently \"node server.js\" \"node ../test-1-master/public/pdfgenerator/pdfgenerator.js\"",
-    "dev": "nodemon server.js"
+    "dev": "node server.js"
   }
 }

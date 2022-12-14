@@ -104,6 +104,7 @@ nav {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     width: 325px;
+    z-index: 1;
 }
 
 nav > hr {
@@ -486,6 +487,7 @@ tbody {
 }
 
 .back-next {
+    margin-top: 20px;
     background-color: #3476CE;
     width: 30px;
     height: 30px;
