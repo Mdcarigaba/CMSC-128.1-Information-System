@@ -1,12 +1,12 @@
 const investigator = document.querySelector('.investigator');
-
+const lab_name = document.querySelector('.lab-no');
 const philhealthNo = document.querySelector('.philhealth-no');
-const testingCategory = document.querySelector('.testing-category');
+const testing_category = document.querySelector('.testing-category');
 
-const fname = document.querySelector('.first-name');
-const mname = document.querySelector('.middle-name');
-const lname = document.querySelector('.last-name') || null;
-
+const firstname = document.querySelector('.first-name');
+const middlename = document.querySelector('.middle-name');
+const lastname = document.querySelector('.last-name') || null;
+const date_interview = document.querySelector('.interview-date');
 const age = document.querySelector('.age');
 const sex = document.querySelector('.sex');
 const birthday = document.querySelector('.birthday');
@@ -14,23 +14,23 @@ const occupation = document.querySelector('.occupation');
 const civil_status = document.querySelector('.civil-status');
 const nationality = document.querySelector('.nationality');
 
-const perm_house = document.querySelector('.permanent-house');
-const perm_barangay = document.querySelector('.perm-brgy');
-const perm_municipality = document.querySelector('.perm-municipality');
-const perm_province = document.querySelector('.perm-province');
-const perm_region = document.querySelector('.perm-region');
-const perm_home_phone_number = document.querySelector('.perm-phone-no');
-const perm_cellphone_number = document.querySelector('.perm-cellphone-no')
-const perm_email = document.querySelector('.perm-email');
+const permanent_hn_bl_lot_buildno = document.querySelector('.permanent-house');
+const permanent_barangay = document.querySelector('.perm-brgy');
+const permanent_municipality = document.querySelector('.perm-municipality');
+const permanent_province = document.querySelector('.perm-province');
+const permanent_region = document.querySelector('.perm-region');
+const permanent_home_no = document.querySelector('.perm-phone-no');
+const perm_cellphone_no = document.querySelector('.perm-cellphone-no')
+const permanent_email = document.querySelector('.perm-email');
 
-const curr_house = document.querySelector('.curr-house');
-const curr_barangay = document.querySelector('.curr-brgy');
-const curr_municipality = document.querySelector('.curr-municipality');
-const curr_province = document.querySelector('.curr-province');
-const curr_region = document.querySelector('.curr-region');
-const curr_home_phone_number = document.querySelector('.curr-phone-no');
-const curr_cellphone_number = document.querySelector('.curr-cellphone-no')
-const curr_email = document.querySelector('.curr-email');
+const current_hn_bl_lot_buildno = document.querySelector('.curr-house');
+const current_barangay = document.querySelector('.curr-brgy');
+const current_municipality = document.querySelector('.curr-municipality');
+const current_province = document.querySelector('.curr-province');
+const current_region = document.querySelector('.curr-region');
+const current_home_no = document.querySelector('.curr-phone-no');
+const current_cell_no = document.querySelector('.curr-cellphone-no')
+const current_email = document.querySelector('.curr-email');
 
 //Employer
 
@@ -38,14 +38,14 @@ const curr_email = document.querySelector('.curr-email');
 const employer_name = document.querySelector('.employer-name');
 const employer_occupation = document.querySelector('.employer-occupation');
 //end added part
-const place_of_work = document.querySelector('.place-of-work'); //workplace_name in server
-const building_name = document.querySelector('.employer-house'); //workplace_hn_bl_lot_buildno in server
+const workplace_name = document.querySelector('.place-of-work'); //workplace_name in server
+const workplace_hn_bl_lot_buildno = document.querySelector('.employer-house'); //workplace_hn_bl_lot_buildno in server
 const employer_street = document.querySelector('.employer-street'); //workplace_barangay in server
-const employer_city = document.querySelector('.employer-city'); //workplace_muni_city
-const employer_province = document.querySelector('.employer-province'); //workplace_province
+const workplace_muni_city = document.querySelector('.employer-city'); //workplace_muni_city
+const workplace_province = document.querySelector('.employer-province'); //workplace_province
 const employer_country = document.querySelector('.employer-country'); //workplace_region
-const office_phone_number = document.querySelector('.office-phone-no'); //workplace_home_no
-const office_cellphone_number = document.querySelector('.office-cellphone-no'); //workplace_cell_no
+const workplace_home_no = document.querySelector('.office-phone-no'); //workplace_home_no
+const workplace_cell_no = document.querySelector('.office-cellphone-no'); //workplace_cell_no
 //missing for employer part in server.js
 //workplace_email 
 //works_in_closed_settings
@@ -131,10 +131,10 @@ function select_travel(){
 
 
 const port_of_exit = document.querySelector('.exit-port');
-const airline_or_seavessel = document.querySelector('.airline-seavessel');
-const flight_or_vessel_no = document.querySelector('.flight-vessel-no');
-const dop = document.querySelector('.departure-date');
-const doa = document.querySelector('.arrival-date');
+const airline_vessel_name = document.querySelector('.airline-seavessel');
+const airline_vessel_number = document.querySelector('.flight-vessel-no');
+const departure_date = document.querySelector('.departure-date');
+const arrival_date = document.querySelector('.arrival-date');
 
 //buttons
 //exposure history
@@ -191,8 +191,8 @@ const date_visited = document.querySelector('.date-visited'); //iisang value lan
 
 //add more rows
 //close contact details
-const close_contact_name = document.querySelector('.close-contact-name1');
-const close_contact_number = document.querySelector('.close-contact-no1');
+const name = document.querySelector('.close-contact-name1');
+const contact_number = document.querySelector('.close-contact-no1');
 const close_contact_name2 = document.querySelector('.close-contact-name2');
 const close_contact_number2 = document.querySelector('.close-contact-no2');
 
@@ -223,30 +223,30 @@ const disposition_died = document.querySelector('.disposition-died');
 const disposition_discharged = document.querySelector('.disposition-discharged');
 const disposition_unknown = document.querySelector('.disposition-unknown');*/
 
-const illness_date = document.querySelector('.illness-date');
-const admission_date = document.querySelector('.admission-date');
+const date_of_onset_illness = document.querySelector('.illness-date');
+const datetime_admission_isolation = document.querySelector('.admission-date');
 const temperature = document.querySelector('.fever-celsius');
 
 //sign symptoms
 //checkbox
-const asymptomatic = document.querySelector('.asymptomatic');
-const fever = document.querySelector('.fever');
-const cough = document.querySelector('.cough');
-const weakness = document.querySelector('.weakness');
-const fatigue = document.querySelector('.fatigue');
-const headache = document.querySelector('.headache');
-const myalgia = document.querySelector('.myalgia');
-const sorethroat = document.querySelector('.sorethroat');
-const coryza = document.querySelector('.coryza')
+const is_asymptomatic = document.querySelector('.asymptomatic');
+const have_fever = document.querySelector('.fever');
+const have_cough = document.querySelector('.cough');
+const have_general_weakness = document.querySelector('.weakness');
+const experiences_fatigue = document.querySelector('.fatigue');
+const have_headache = document.querySelector('.headache');
+const have_myalgia = document.querySelector('.myalgia');
+const have_sore_throat = document.querySelector('.sorethroat');
+const have_coryza = document.querySelector('.coryza')
 //const cough = document.querySelect - DOUBLE CHECK 
-const dyspnea = document.querySelector('.dyspnea');
+const have_dyspnea = document.querySelector('.dyspnea');
 const anorexia = document.querySelector('.anorexia');
-const nausea = document.querySelector('.nausea');
+const experiences_nausea = document.querySelector('.nausea');
 const vomiting = document.querySelector('.vomiting');
 const diarrhea = document.querySelector('.diarrhea');
-const altered = document.querySelector('.altered');
-const anosmia = document.querySelector('.anosmia');
-const ageusia = document.querySelector('.ageusia');
+const exp_altered_mental_status = document.querySelector('.altered');
+const exp_anosmia = document.querySelector('.anosmia');
+const exp_ageusia = document.querySelector('.ageusia');
 
 //is there any history of other illness options - radio
 
@@ -274,7 +274,7 @@ const other_illness_date = document.querySelector('.other-illness-date');
 // const chest_xray_selected = document.querySelector('input[name = "chest_xray"]:checked').id 
 
 const chest_xray_radio_btns = document.getElementsByName('chest_xray');
-var chest_xray_selected = null
+var done_chest_radiography = null
 function select_chest_xray(){
     for (var i = 0, iLen=chest_xray_radio_btns.length; i < iLen; i++) {
         if (chest_xray_radio_btns[i].checked) {
@@ -284,7 +284,7 @@ function select_chest_xray(){
     }
     console.log(chest_xray_radio_btns[i].value)
     // return travel_radio_btns[i].id;
-    chest_xray_selected = chest_xray_radio_btns[i].value
+    done_chest_radiography = chest_xray_radio_btns[i].value
 }
 
 //const xray_yes = document.querySelector('.xray-yes');
@@ -295,7 +295,7 @@ const xray_date = document.querySelector('.xray-date');
 // const pneumonia_selected = document.querySelector('input[name = "travel-history"]:checked').id
 
 const pneumonia_radio_btns = document.getElementsByName('pneumonia');
-var pneumonia_selected = null
+var result_chest_radiography = null
 function select_pneumonia(){
     for (var i = 0, iLen=pneumonia_radio_btns.length; i < iLen; i++) {
         if (pneumonia_radio_btns[i].checked) {
@@ -305,7 +305,7 @@ function select_pneumonia(){
     }
     console.log(pneumonia_radio_btns[i].value)
     // return travel_radio_btns[i].id;
-    pneumonia_selected = pneumonia_radio_btns[i].value
+    result_chest_radiography = pneumonia_radio_btns[i].value
 }
 
 /*const pneumonia_yes = document.querySelector('.pneumonia-yes');
@@ -366,7 +366,7 @@ const serum_min_sent = document.querySelector('.serum-min-sent')
 const serum_hr_received = document.querySelector('.serum-hr-received')
 const serum_min_received = document.querySelector('.serum-min-received')
 const serum_virus_isolation = document.querySelector('.serum-virus-isolation')
-const serum_pcr = document.querySelector('.serum-pcr')
+const serum_pcr = document.querySelector('.serum_pcr')
 
 const naso_hr_collected = document.querySelector('.naso-hr-collected')
 const naso_min_collected = document.querySelector('.naso-min-collected')
@@ -375,7 +375,7 @@ const naso_min_sent = document.querySelector('.naso-min-sent')
 const naso_hr_received = document.querySelector('.naso-hr-received')
 const naso_min_received = document.querySelector('.naso-min-received')
 const naso_virus_isolation = document.querySelector('.naso-virus-isolation')
-const naso_pcr = document.querySelector('.naso-pcr')
+const result = document.querySelector('.naso_pcr')
 
 const oro_hr_collected = document.querySelector('.oro-hr-collected')
 const oro_min_collected = document.querySelector('.oro-min-collected')
@@ -384,7 +384,7 @@ const oro_min_sent = document.querySelector('.oro-min-sent')
 const oro_hr_received = document.querySelector('.oro-hr-received')
 const oro_min_received = document.querySelector('.oro-min-received')
 const oro_virus_isolation = document.querySelector('.oro-virus-isolation')
-const oro_pcr = document.querySelector('.oro-pcr')
+const oro_pcr = document.querySelector('.oro_pcr')
 
 const other_hr_collected = document.querySelector('.other-hr-collected')
 const other_min_collected = document.querySelector('.other-min-collected')
@@ -393,7 +393,7 @@ const other_min_sent = document.querySelector('.other-min-sent')
 const other_hr_received = document.querySelector('.other-hr-received')
 const other_min_received = document.querySelector('.other-min-received')
 const other_virus_isolation = document.querySelector('.other-virus-isolation')
-const other_pcr = document.querySelector('.other-pcr')
+const other_pcr = document.querySelector('.other_pcr')
 
 // const final_classification_selected = document.querySelector('input[name = "final_classification"]:checked').id
 
@@ -433,9 +433,10 @@ function select_condition_on_discharge(){
     condition_on_discharge_selected = condition_on_discharge_radio_btns[i].value
 }
 
+const date_of_last_mensperiod = document.querySelector('.lmp')
 const informant_name = document.querySelector('.informant-name');
-const relationship = document.querySelector('.relationship');
-const informant_phone_number = document.querySelector('.informant-phone-number')
+const relation_to_patient = document.querySelector('.relationship');
+const informant_contactno = document.querySelector('.informant-phone-no')
 
 //Final Classification
 
@@ -450,149 +451,119 @@ const saveBtn = document.querySelector('.save-button');
 
 function saveRec() {
     var inv_surname = investigator.value.split(",")[0]
-    // console.log(inv_surname)
+    console.log(age.value)
     // console.log(travel_selected);
 
     fetch('/insert-cif', {
-        mode: 'no-cors',
+       // mode: 'no-cors',
         method: 'post',
         headers: new Headers({ 'Content-Type' : 'application/json'}),
         body: JSON.stringify({
-            investigator: inv_surname, //surname for test only, add first name here
-            philhealthNo: philhealthNo.value,
-            testingCategory: testingCategory.value, //ilalim pa 
-            fname: fname.value,
-            mname: mname.value,
-            lname: lname.value,
+            investigator: inv_surname, 
+            lab_name: lab_name.value,
+            philhealth_no: philhealthNo.value,
+            testing_category: testing_category.value,
+            date_interview: (date_interview.value == '')?null:date_interview.value,
+            validation_status: 'Not Validated',
+            firstname: firstname.value,
+            middlename: middlename.value,
+            lastname: lastname.value,
             age: age.value,
             sex: sex.value,
-            birthday: birthday.value,            
+            birthday: (birthday.value == '')?null: birthday.value,            
             occupation: occupation.value,
             civil_status: civil_status.value,
             nationality: nationality.value,
 
-            perm_house: perm_house.value,
-            perm_barangay: perm_barangay.value,
-            perm_municipality: perm_municipality.value,
-            perm_province: perm_province.value,
-            perm_region: perm_region.value,
-            perm_home_phone_number: perm_home_phone_number.value,
-            perm_cellphone_number: perm_cellphone_number.value,
-            perm_email: perm_email.value,
-            curr_house: curr_house.value,
-            curr_barangay: curr_barangay.value,
-            curr_municipality: curr_municipality.value,
-            curr_province: curr_province.value,
-            curr_region: curr_region.value,
-            curr_home_phone_number: curr_home_phone_number.value,
-            curr_cellphone_number: curr_cellphone_number.value,
-            curr_email: curr_email.value,
+            permanent_hn_bl_lot_buildno: permanent_hn_bl_lot_buildno.value,
+            permanent_barangay: permanent_barangay.value,
+            permanent_muni_city: permanent_municipality.value,
+            permanent_province: permanent_province.value,
+            permanent_region: permanent_region.value,
+            permanent_home_no: permanent_home_no.value,
+            permanent_cell_no: perm_cellphone_no.value,
+            permanent_email: permanent_email.value,
+            current_hn_bl_lot_buildno: current_hn_bl_lot_buildno.value,
+            current_barangay: current_barangay.value,
+            current_muni_city: current_municipality.value,
+            current_province: current_province.value,
+            current_region: current_region.value,
+            current_home_no: current_home_no.value,
+            current_cell_no: current_cell_no.value,
+            current_email: current_email.value,
 
 
             employer_name: employer_name.value,
             employer_occupation: employer_occupation.value,
-            place_of_work: place_of_work.value,
-            building_name: building_name.value,
+            workplace_name: workplace_name.value,
+            workplace_hn_bl_lot_buildno: workplace_name.value,
             employer_street: employer_street.value,
-            employer_city: employer_city.value,
-            employer_province: employer_province.value,
+            workplace_muni_city: workplace_muni_city.value,
+            workplace_province: workplace_province.value,
             employer_country: employer_country.value,
-            office_phone_number: office_phone_number.value,
-            office_cellphone_number: office_cellphone_number.value,
+            workplace_home_no: workplace_home_no.value,
+            workplace_cell_no: workplace_cell_no.value,
 
-            //not in server
-            //psTOD: psTOD.value,
-            //psPriority: psPriority.value,
-            //labNo: labNo.value,
-            //dru: dru.value,
-            //investigator: investigator.value,
-            //other_investigator: other_investigator.value,
-            //interviewDate: interviewDate.value,
-            //testingCategory: testingCategory.value,
-
-            //passport_no: passport_no.value,
-            //gross_income: gross_income.value,
-            //end not in server
+            date_of_last_mensperiod: (date_of_last_mensperiod.value == '')? null:date_of_last_mensperiod.value,
             
-            //radio buttons
-            //has exposure place element in req.body
-            //travel_yes: travel_yes.value,
-            //travel_no: travel_no.value,
             have_ongoing_transmission: (travel_selected == 'yes')? true: false,
             port_of_exit: port_of_exit.value,
-            airline_or_seavessel: airline_or_seavessel.value,
-            flight_or_vessel_no: flight_or_vessel_no.value,
-            dop: dop.value,
-            doa: doa.value,
-            has_exposure_people: (exposure_selected == 'yes')? 'yes' : ((exposure_selected == 'no')? 'no' : 'unknown' ),
-            //expo_yes: expo_yes.value,
-            //expo_no: expo_no.value,
-            //expo_unknown: expo_unknown.value,
-            date_of_contact: date_of_contact.value,
-            has_exposure_place: (place_selected == 'yes')? 'yes' : ((place_selected == 'no')? 'no': 'unknown'),
-            //place_yes: place_yes.value,
-            //place_no: place_no.value,
-            //place_unknown: place_unknown.value,
-            //
+            airline_vessel_name: airline_vessel_name.value,
+            airline_vessel_number: airline_vessel_number.value,
+            departure_date: (departure_date.value === 'N/A' || '') ? null: departure_date.value,
+            arrival_date: (arrival_date.value === 'N/A' || '') ? null: departure_date.value,
+            has_exposure_people: (exposure_selected == 'yes')? true : ((exposure_selected == 'no')? false : null ),
+            
+            date_of_contact: (!date_of_contact.value.length)? null : date_of_contact.value,
+            has_exposure_place: (place_selected == 'yes')? true : ((place_selected == 'no')? false: null),
+            
             place_visited: place_visited.value,
             name_of_place: name_of_place.value, 
             date_visited: date_visited.value, 
-            //
-            close_contact_name: close_contact_name.value,
-            close_contact_number: close_contact_number.value,
+            
+            name: name.value,
+            contact_number: contact_number.value,
             close_contact_name2: close_contact_name2.value,
             close_contact_number2: close_contact_number2.value,
 
-            is_disposition_selected: (disposition_selected == 'yes')? 'inpatient' : ((disposition_selected == 'outpatient')? 'outpatient': ((disposition_selected == 'died')? 'died': ((disposition_selected == 'discharged')? 'discharged' : 'unknown')) ),
-            //disposition_inpatient: disposition_inpatient.value,
-            //disposition_outpatient: disposition_outpatient.value,
-            //disposition_died: disposition_died.value,
-            //disposition_discharged: disposition_charged.value,
-            //disposition_unknown: disposition_died.value,
-            illness_date: illness_date.value,
-            admission_date: admission_date.value,
+            disposition: (disposition_selected == 'yes')? 'inpatient' : ((disposition_selected == 'outpatient')? 'outpatient': ((disposition_selected == 'died')? 'died': ((disposition_selected == 'discharged')? 'discharged' : 'unknown')) ),
+            
+            date_of_onset_illness: ( date_of_onset_illness.value == '') ? null: date_of_onset_illness.value,
+            datetime_admission_isolation: (datetime_admission_isolation.value == '') ? null:datetime_admission_isolation.value,
             temperature: temperature.value,
 
-            asymptomatic: asymptomatic.value,
-            fever: fever.value,
-            cough: cough.value,
-            weakness: weakness.value,
-            fatigue: fatigue.value,
-            headache: headache.value,
-            myalgia: myalgia.value,
-            sorethroat: sorethroat.value,
-            coryza: coryza.value,
-            //cough again
-            dyspnea: dyspnea.value,
-            anorexia: anorexia.value,
-            nausea: nausea.value,
-            vomiting: vomiting.value,
-            diarrhea: diarrhea.value,
-            altered: altered.value,
-            anomia: anosmia.value,
-            ageusia: ageusia.value,
+            is_asymptomatic: is_asymptomatic.checked,
+            have_fever: have_fever.checked,
+            have_cough: have_cough.checked,
+            have_general_weakness: have_general_weakness.checked,
+            experiences_fatigue: experiences_fatigue.checked,
+            have_headache: have_headache.checked,
+            have_myalgia: have_myalgia.checked,
+            have_sore_throat: have_sore_throat.checked,
+            have_coryza: have_coryza.checked,
+        
+            have_dyspnea: have_dyspnea.checked,
+            anorexia: anorexia.checked,
+            experiences_nausea: experiences_nausea.checked,
+            vomiting: vomiting.checked,
+            diarrhea: diarrhea.checked,
+            exp_altered_mental_status: exp_altered_mental_status.checked,
+            exp_anosmia: exp_anosmia.checked,
+            exp_ageusia: exp_ageusia.checked,
             
             is_history_of_illness_selected: (history_illness_selected == 'yes')? true: false,
-            //history_yes: history_yes.value,
-            //history_no: history_no.value,
+            
             other_illness_date: other_illness_date.value,
-            is_xray_selected: (chest_xray_selected == 'yes')? true: false,
-            //xray_yes: xray_yes.value,
-            //xray_no: xray_no.value,
+            done_chest_radiography: (done_chest_radiography == 'yes')? true: false,
+            
             xray_date: xray_date.value,
-            is_pneumonia_selected: (pneumonia_selected == 'yes')? 'pneumonia': ((pneumonia_selected == 'no')? 'normal': ((pneumonia_selected == 'pending')? 'pending':'n/a')),
-            //pneumonia_yes: pneumonia_yes.value,
-            //pneumonia_no: pneumonia_no.value,
-            //pneumonia_pending: pneumonia_pending.value,
-            //pneumonia_na: pneumonia_na.value,
+            result_chest_radiography: (result_chest_radiography == 'yes')? 'pneumonia': ((result_chest_radiography == 'no')? 'normal': ((result_chest_radiography == 'pending')? 'pending':'n/a')),
+           
             other_findings: other_findings.value,
             is_pregnant_selected: (pregnant_selected == 'yes')? true: false,
-            //pregnant_yes: pregnant_yes.value,
-            //pregnant_na: pregnant_na.value,
-            is_high_yes_selected: (high_selected == 'yes')? 'yes': ((high_selected == 'no')? 'no': 'n/a'),
-            //high_yes: high_yes.value,
-            //high_no: high_no.value,
-            //high_na: high_na.value,
+            
+            is_high_risk_pregnant: (high_selected == 'yes')? true: ((high_selected == 'no')? false: null),
+            
 
             serum_hr_collected: serum_hr_collected.value,
             serum_min_collected: serum_min_collected.value,
@@ -610,7 +581,7 @@ function saveRec() {
             naso_hr_received: naso_hr_received.value,
             naso_min_received: naso_min_received.value,
             naso_virus_isolation: naso_virus_isolation.value,
-            naso_pcr: naso_pcr.value,
+            result: result.value,
 
             oro_hr_collected: oro_hr_collected.value,
             oro_hr_received: oro_hr_received.value,
@@ -630,17 +601,19 @@ function saveRec() {
             other_virus_isolation: other_virus_isolation.value,
             other_pcr: other_pcr.value,
 
-            is_final_selected: (final_classification_selected == 'suspect')? 'suspect': ((final_classification_selected == 'probable')? 'probable': ((final_classification_selected == 'confirmed')? 'confirmed': ((final_classification_selected == 'discharged')? 'discharged' : 'unknown'))),
-            //final_suspect: final_suspect.value,
-            //final_probable: final_probable.value,
-            //final_confirmed: final_confirmed.value,
-            //final_discharged: final_discharged.value,
-            //final_unknown: final_unknown.value,
-
-            is_outcome_selected: (condition_on_discharge_selected == 'improved')? 'improved': ((condition_on_discharge_selected == 'recovered')? 'recovered': ((condition_on_discharge_selected == 'transferred')? 'transferred': ((condition_on_discharge_selected == 'absconded')? 'absconded': 'died'))),
-        
+            client_classification: (final_classification_selected == 'suspect')? 'suspect': ((final_classification_selected == 'probable')? 'probable': ((final_classification_selected == 'confirmed')? 'confirmed': ((final_classification_selected == 'discharged')? 'discharged' : 'unknown'))),
+            
+            is_active: (condition_on_discharge_selected == 'improved' || 'transferred' || 'absconded')? true:false,
+            is_recovered: (condition_on_discharge_selected == 'recovered')? true:false,
+            is_dead: (condition_on_discharge_selected == 'died')? true:false,
+            // is_outcome_selected: (condition_on_discharge_selected == 'improved')? 'improved': ((condition_on_discharge_selected == 'recovered')? 'recovered': ((condition_on_discharge_selected == 'transferred')? 'transferred': ((condition_on_discharge_selected == 'absconded')? 'absconded': 'died'))),
+            informant_name: informant_name.value,
+            informant_contactno: informant_contactno.value,
+            relation_to_patient: relation_to_patient.value
         })
     })
+
+    location.href = '/'
 }
 
 // saveBtn.addEventListener('click', () => {
@@ -916,43 +889,65 @@ const naBtn = document.querySelector('.na-button');
 naBtn.addEventListener('click', () => { 
     employer_name.value = "N/A"
     employer_occupation.value = "N/A"
-    place_of_work.value = "N/A"
-    building_name.value = "N/A"
+    workplace_name.value = "N/A"
+    workplace_name.value = "N/A"
     employer_street.value = "N/A"
-    employer_city.value = "N/A"
-    employer_province.value = "N/A"
+    workplace_muni_city.value = "N/A"
+    workplace_province.value = "N/A"
     employer_country.value = "N/A"
-    office_phone_number.value = "N/A"
-    office_cellphone_number.value = "N/A"
+    workplace_home_no.value = "N/A"
+    workplace_cell_no.value = "N/A"
 })
 
 function fillNA () {
     port_of_exit.value = "N/A"
-    airline_or_seavessel.value = "N/A"
-    flight_or_vessel_no.value = "N/A"
-    dop.value = "N/A"
-    doa.value = "N/A"
+    airline_vessel_name.value = "N/A"
+    airline_vessel_number.value = "N/A"
+    departure_date.value = "N/A"
+    arrival_date.value = "N/A"
 }
 
 function clear_employer_details() {
     employer_name.value = ""
     employer_occupation.value = ""
-    place_of_work.value = ""
-    building_name.value = ""
+    workplace_name.value = ""
+    workplace_name.value = ""
     employer_street.value = ""
-    employer_city.value = ""
-    employer_province.value = ""
+    workplace_muni_city.value = ""
+    workplace_province.value = ""
     employer_country.value = ""
-    office_phone_number.value = ""
-    office_cellphone_number.value = ""
+    workplace_home_no.value = ""
+    workplace_cell_no.value = ""
 }
 
 function clear_travel_history() {
     port_of_exit.value = ""
-    airline_or_seavessel.value = ""
-    flight_or_vessel_no.value = ""
-    dop.value = ""
-    doa.value = ""
+    airline_vessel_name.value = ""
+    airline_vessel_number.value = ""
+    departure_date.value = ""
+    arrival_date.value = ""
+}
+
+function same_as_perm_add() {
+    current_hn_bl_lot_buildno.value = permanent_hn_bl_lot_buildno.value
+    current_barangay.value = permanent_barangay.value
+    current_municipality.value = permanent_municipality.value
+    current_province.value = permanent_province.value
+    current_region.value = permanent_region.value
+    current_home_no.value = permanent_home_no.value
+    current_cell_no.value = perm_cellphone_no.value
+    current_email.value = permanent_email.value
+}
+
+function clear_curr_add() {
+    current_hn_bl_lot_buildno.value = ""
+    current_barangay.value = ""
+    current_municipality.value = ""
+    current_province.value = ""
+    current_region.value = ""
+    current_home_no.value = ""
+    current_cell_no.value = ""
+    current_email.value = ""
 }
 
 // const investigator = document.querySelector('.investigator');

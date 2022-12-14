@@ -75,10 +75,10 @@
                                 <p class="user-email"></p>
                             </div>
                             <div class="user-actions">
-                                <div class="edit-profile-btn">
+                                <!-- <div class="edit-profile-btn">
                                     <img src="img/user-profile.png" alt="user-profile">
                                     <p>Edit Profile</p>
-                                </div>
+                                </div> -->
                                 <div class="logout-btn">
                                     <img src="img/logout.png" alt="logout-icon">
                                     <p>Logout</p>
@@ -167,14 +167,13 @@
 
     <script src="js/index.js"></script>
     <script src="js/home.js"></script>
+    <script type="text/javascript" src="js/logout.js"></script>
     <script>
         var today = new Date();
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         var date = today.toLocaleDateString('en-US', options);
         document.getElementById('date').innerHTML = date;
-
     </script>
-
 </body>
 
 </html>

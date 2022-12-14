@@ -180,10 +180,30 @@ app.get('/filter-cif?', (req, res) => {
     })
 })
 
-app.get('/generate-pdf', (req, res) => {
+const sel = ['dru.name as dru', 'patient.philhealth_no as philhealth', 'staff.lastname as interviewer_last', 'staff.firstname as interviewer_first', 'staff.contact_number as interviewer_number', 'cif.date_interview as interview_date'
+            , 'informant.name as informant', 'patient_informant.relation_to_patient as relation', 'informant.contact_no as informant_contact', 'cif.testing_category as testing_category',
+            'patient.lastname as patient_lastname', 'patient.firstname as patient_firstname', 'patient.middlename as patient_middlename', 
+            'patient.birthday as patient_birthday', 'patient.age as patient_age', 'patient.sex as patient_sex', 'patient.civil_status as patient_civil_status',
+            'patient.nationality as patient_nationality', 'patient.works_in_closed_settings as patient_works_in_closed_settings',
+            'patient.permanent_hn_bl_lot_buildno as permanent_hn_bl_lot_buildno', 'patient.permanent_barangay as patient_permanent_barangay',
+            'patient.permanent_muni_city as permanent_muni_city', 'patient.permanent_province as permanent_province', 'patient.permanent_home_no as permanent_home_no', 'patient.permanent_cell_no as permanent_cell_no', 'patient.permanent_email as permanent_email',
+            'patient.current_hn_bl_lot_buildno as current_hn_bl_lot_buildno', 'patient.current_barangay as current_barangay',
+            'patient.current_muni_city as current_muni_city', 'patient.current_province as current_province', 'patient.current_home_no as current_home_no', 'patient.current_cell_no as current_cell_no', 'patient.current_email as current_email',
+            'patient.workplace_hn_bl_lot_buildno as workplace_hn_bl_lot_buildno', 'patient.workplace_barangay as workplace_barangay',
+            'patient.workplace_muni_city as workplace_muni_city', 'patient.workplace_province as workplace_province', 'patient.workplace_name as workplace_name', 'patient.workplace_cell_no as workplace_cell_no', 'patient.workplace_email as workplace_email',
+            'disposition.other as other_disposition', 'disposition.datetime_admission_isolation as date_of_admission', 'case_investigation_details.case_classification_at_consult as case_classification_at_consult',
+            'clinical_information.date_of_onset_illness as date_of_onset_illness', 'clinical_information.is_pregnant as is_pregnant', 'clinical_information.is_high_risk_pregnant as is_high_risk_pregnant',
+            'clinical_information.date_of_last_mensperiod as date_of_last_mens_period', 'symptoms.is_asymptomatic', 'symptoms.have_fever', 'symptoms.fever_temp', 'symptoms.have_fever', 'symptoms.have_cough', 'symptoms.have_general_weakness',
+            'symptoms.experiences_fatigue', 'symptoms.have_headache', 'symptoms.have_myalgia', 'symptoms.have_sore_throat', 'symptoms.have_coryza', 'symptoms.have_dyspnea', 'symptoms.experiences_nausea', 'symptoms.exp_altered_mental_status', 'symptoms.exp_anosmia',
+            'symptoms.exp_ageusia', 'clinical_information.is_pregnant', 'clinical_information.is_high_risk_pregnant', 'clinical_information.date_of_last_mensperiod', 'chest_imaging.done_chest_radiography as done_xray', 'chest_imaging.date_chest_radiography as date_xray',
+            'chest_imaging.result_chest_radiography as result_xray', 'tests.date_collected', 'tests.date_released', 'tests.is_ops', 'tests.is_nps', 'tests.result',
+            'outcome.is_active', 'outcome.is_recovered','outcome.is_dead', 'contact_tracing.has_exposure_people', 'contact_tracing.date_of_contact', 'contact_tracing.has_exposure_place', 'local_contact.place_type', 'local_contact.place_name', 'local_contact.travel_date_to'
+            , 'close_contact.name as close_contact_name', 'close_contact.contact_number as close_contact_contact_number']
+    app.get('/generate-pdf?', (req, res) => {
     db('cif')
     .leftJoin('patient', 'cif.patient_id', 'patient.id')
     .leftJoin('staff', 'cif.investigator_id', 'staff.id')
+    .leftJoin('dru', 'staff.dru_id', 'dru.id')
     .leftJoin('patient_informant', 'patient.id', 'patient_informant.patient_id')
     .leftJoin('informant', 'patient_informant.informant_id', 'informant.id')
     .leftJoin('healthcare_worker', 'patient.id', 'healthcare_worker.patient_id')
@@ -208,7 +228,9 @@ app.get('/generate-pdf', (req, res) => {
     .leftJoin('close_contact', 'contact_tracing.cif_id', 'close_contact.tracing_id')
     .leftJoin('local_contact', 'contact_tracing.cif_id', 'local_contact.tracing_id')
     .leftJoin('local_transport', 'contact_tracing.cif_id', 'local_transport.local_contact_id')
-    .select()
+    .select(sel)
+    //put aliases to select array
+    .where(req.query)
     .returning()
 
     // .then((data) => {
@@ -240,42 +262,36 @@ app.post('/insert-cif', async (req, res) => {
             current_hn_bl_lot_buildno, current_barangay, current_muni_city,
             current_province, current_region, current_home_no, current_cell_no,
             current_email, 
-            //added 
+            
             employer_name, employer_occupation,
-            //end added
+         
             workplace_name, workplace_hn_bl_lot_buildno,
             workplace_barangay, workplace_muni_city, workplace_province,
             workplace_region, workplace_home_no, workplace_cell_no, //region to country
             workplace_email, works_in_closed_settings,
             
-            //contact_tracing: cif_id
+           
             have_ongoing_transmission,  
             
-            //international_contact: tracing_id
+           
             airline_vessel_name, airline_vessel_number, departure_date, arrival_date,
             has_exposure_people, date_of_contact, has_exposure_place, travel_date_from, travel_date_to, international_contact_country_origin, 
 
-            //close_contact: tracing_id
+          
             name, contact_number,
 
-            disposition,
-            //cid_id sa disposition
-            admitted_in, name_of_facility, datetime_admission_isolation, //other
+            u_disposition, disposition,
+            
+            admitted_in, name_of_facility, datetime_admission_isolation, 
 
-            //symptoms: cli_info_id
             fever_temp, is_asymptomatic, have_fever, have_cough, have_general_weakness, experiences_fatigue, have_headache, have_myalgia, have_sore_throat, have_coryza, have_dyspnea, experiences_nausea, exp_altered_mental_status, exp_anosmia, exp_ageusia, //other //no anorexia, diarrhea here
             
-            //where yung history_of_illness
-
-            //chest_imaging: cli_info_id
+            
             done_chest_radiography, date_chest_radiography, result_chest_radiography, done_chest_ct, date_chest_ct, result_chest_ct, done_chest_ultrasound, date_chest_ultrasound, result_chest_ultrasound, other_findings, 
            
-            is_pregnant, date_of_last_mensperiod, //no last mensperiod in cif.js
+            is_pregnant, date_of_last_mensperiod, 
 
-            informant_name, informant_contactno,
-               
-
-            //add here lang muna hihu
+            informant_name, informant_contactno, 
         
             relation_to_patient,
             
@@ -291,37 +307,24 @@ app.post('/insert-cif', async (req, res) => {
             ,transport_type, transport_number, origin, destination, local_transport_departure_date, local_transport_arrival_date,
             city_mun_origin, province_origin, is_lsi, is_apor_localtraveler,
             institution_name, institution_type,
-            country_origin, // oh no d ito unique: health_facility_address
+            country_origin, 
             
-            /**cif_id ,
-           
-            city_mun_origin, province_origin, is_lsi, is_apor_localtraveler,
-            institution_name, institution_type,
-            country_origin, /* oh no d ito unique:*/ returning_overseas_filipino_country_origin, returning_overseas_filipino_health_facility_address,
+           returning_overseas_filipino_country_origin, returning_overseas_filipino_health_facility_address,
             health_status_at_consult, case_classification_at_consult,
-            date_of_consultation, consultation_facility_name,
+            date_of_consultation, consultation_facility_name, is_high_risk_pregnant,
 
-            //cid din sa vaccination_info
+            
             name_of_vaccine, vaccination_date, dose_number, vaccination_facility_name, vaccination_facility_region, adverse_effect,
-            //cid din sa clinical_information
+            
            
-            //comorbidities: cli_info_id
             
-            //lab_test: cli_info_id
+           
             test_positive_before, date_specimen_collection, lab_name, test_count,
-            //test: lab_test_info_id
-            date_collected, date_released, tests_lab_name, is_ops, is_nps, is_antigen, reason_antigen, kit_brand, done_antibody, other_test,
-            //outcome: cli_info_id
-        
-            //local_contact: tracing_id
-            
-            //local_transport: local_contact_id
-            
-            //dru_queue: 
-            //unrelated to insert cif
-            //dru_id, entry_count, submission_from, submission_to
+          
+            date_collected, date_released, tests_lab_name, is_ops, is_nps, is_antigen, reason_antigen, kit_brand, done_antibody, other_test, result
             
             } = req.body;
+            console.log(req.body)
     var investigator_id = 0;
     var patient_id = 0;
     var informant_id = 0;
@@ -391,7 +394,7 @@ app.post('/insert-cif', async (req, res) => {
     )
     .then(
         async () => {
-            if(informant_name.length != 0){
+            if(informant_name != undefined){
                 await db('informant')
             .insert({
                 name: informant_name,
@@ -407,12 +410,14 @@ app.post('/insert-cif', async (req, res) => {
     )
     .then(
         async () => {
+            if(informant_name != undefined){
             await db('patient_informant')
             .insert({
                 patient_id: patient_id,
                 informant_id: informant_id,
                 relation_to_patient: relation_to_patient
             })
+        }
             //.returning(['patient_id', 'informant_id', 'relation_to_patient'])
             /*.then((data) => {
                 //res.json(data);
@@ -514,7 +519,7 @@ app.post('/insert-cif', async (req, res) => {
                 vaccination: vaccination,
                 lab_result: lab_result,
                 chest_image_findings:chest_image_findings,
-                disposition: disposition,
+                disposition: u_disposition,
                 exposure: exposure
             })
         }   
@@ -525,7 +530,7 @@ app.post('/insert-cif', async (req, res) => {
             .insert({
                 cif_id: cif_id,
                 health_status_at_consult: health_status_at_consult,
-                case_classification_at_consult: case_classification_at_consult,
+                case_classification_at_consult: client_classification,
             })
             .returning('cif_id')
             .then((data)=> {
@@ -551,6 +556,7 @@ app.post('/insert-cif', async (req, res) => {
                 admitted_in: admitted_in,
                 name_of_facility: name_of_facility,
                 datetime_admission_isolation: datetime_admission_isolation,
+                other: disposition
             })
         }
     )
@@ -576,6 +582,7 @@ app.post('/insert-cif', async (req, res) => {
                 cid_id: cid_id,
                 date_of_onset_illness: date_of_onset_illness,
                 is_pregnant: is_pregnant,
+                is_high_risk_pregnant: is_high_risk_pregnant,
                 date_of_last_mensperiod: date_of_last_mensperiod,
                 is_diagnosed_to_sari: is_diagnosed_to_sari
             })
@@ -655,7 +662,7 @@ app.post('/insert-cif', async (req, res) => {
                 test_count: test_count,
             }).returning('cli_info_id')
             .then((data) => {
-                lab_test_info_id = data[0].id
+                lab_test_info_id = data[0].cli_info_id
             })
         }
     )
@@ -666,7 +673,7 @@ app.post('/insert-cif', async (req, res) => {
                 lab_test_info_id: lab_test_info_id,
                 date_collected: date_collected, 
                 date_released: date_released, 
-                lab_name: tests_lab_name, 
+                lab_name: lab_name, 
                 is_ops: is_ops, 
                 is_nps: is_nps, 
                 is_antigen: is_antigen,
@@ -674,6 +681,7 @@ app.post('/insert-cif', async (req, res) => {
                 kit_brand: kit_brand, 
                 done_antibody: done_antibody, 
                 other_test: other_test,
+                result: result,
             })
         }
     )
@@ -705,7 +713,7 @@ app.post('/insert-cif', async (req, res) => {
             })
             .returning('cif_id')
             .then((data)=> {
-                tracing_id = data[0].tracing_id;
+                tracing_id = data[0].cif_id;
             })
         }
     )
@@ -719,9 +727,7 @@ app.post('/insert-cif', async (req, res) => {
                 travel_date_to: travel_date_to, 
                 country_origin: international_contact_country_origin,
                 airline_vessel_name: airline_vessel_name, 
-                airline_vessel_number: airline_vessel_number, 
-                departure_date: departure_date, 
-                arrival_date: arrival_date
+                airline_vessel_number: airline_vessel_number
             })
         }
     )

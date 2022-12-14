@@ -140,6 +140,17 @@ var functions = {
                                         email: 'mmarasigan@up.edu.ph',
                                         password: CryptoJS.AES.encrypt('mmarasigan', process.env.KEY).toString(),
                                         role: 'hospital staff'
+                                    },
+                                    {
+                                        username: 'amilano',
+                                        firstname: 'Alia',
+                                        middlename: '',
+                                        lastname: 'Milano',
+                                        dru_id: 15,
+                                        contact_number: '999999999',
+                                        email: 'amilano@hotmail.com',
+                                        password: CryptoJS.AES.encrypt('amilano', process.env.KEY).toString(),
+                                        role: 'researcher'
                                     }
                                 ]))
                             }
@@ -434,7 +445,7 @@ var functions = {
                                     t.foreign('cid_id').references('case_investigation_details.cif_id');
                                     t.string('admitted_in');
                                     t.string('name_of_facility');
-                                    t.time('datetime_admission_isolation');
+                                    t.date('datetime_admission_isolation');
                                     t.string('other');
                                 })
                                 .then(console.log('created table 17'))
@@ -478,6 +489,7 @@ var functions = {
                                     t.foreign('cid_id').references('case_investigation_details.cif_id');
                                     t.date('date_of_onset_illness');
                                     t.boolean('is_pregnant');
+                                    t.boolean('is_high_risk_pregnant');
                                     t.date('date_of_last_mensperiod');
                                     t.boolean('is_diagnosed_to_sari');
                                 })
@@ -613,7 +625,8 @@ var functions = {
                                     t.string('reason_antigen');
                                     t.string('kit_brand');
                                     t.boolean('done_antibody');
-                                    t.string('other_test')
+                                    t.string('other_test');
+                                    t.string('result');
                                 })
                                 .then(console.log('created table 24'))
                             }
