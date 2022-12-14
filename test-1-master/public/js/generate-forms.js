@@ -174,16 +174,16 @@ document.getElementById('open-nav').addEventListener('click', () => {
     document.getElementById('main-content').style.width = '80%';
 });
 
-const xlxs_gen = document.querySelector('.export-to-excel-btn')
+// const xlxs_gen = document.querySelector('.export-to-excel-btn')
 
-xlxs_gen.addEventListener('click', () => {
-    console.log('lol')
-    fetch('/generate-pdf', {
-        method: 'get',
-        headers: new Headers({'Content-Type': 'application/json'})
-    })
+// xlxs_gen.addEventListener('click', () => {
+//     fetch('/generate-pdf', {
+//         method: 'get',
+//         headers: new Headers({'Content-Type': 'application/json'})
+//     })
     
-})
+// })
+
 // Toggle Dropdown
 function toggleDropdown() {
     var element = document.getElementById('dropdown');
@@ -229,7 +229,7 @@ function filterTable(){
 
     var button = document.createElement(button);
     button.innerHTML = "+ New"
-
+        let i = 0;
     for(let indiv of data){
         dataHTML += `<tr>`+
                     `<td><input type='checkbox' class='sel' />`+
@@ -242,8 +242,9 @@ function filterTable(){
                     `<td>${indiv.date_collected}</td>` +
                     `<td>${indiv.date_interview}</td>` +
                     `<td>${indiv.name}</td>` +
-                    `<td><button class="new-btn">Generate Forms</button></td>` +
+                    `<td><button class="new-btn" onclick="generateSpecPDF(${i})">Generate Forms</button></td>` +
                     `</tr>`
+        i++
     }
     tableBody.innerHTML = dataHTML
     })

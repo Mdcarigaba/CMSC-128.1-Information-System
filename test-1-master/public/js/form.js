@@ -9,7 +9,7 @@ const usertype = document.querySelector('.usertype');
 const druselect = document.querySelector('.dru');
 const submitBtn = document.querySelector('.submit-btn');
 
-if(lname == null){
+if(username != null){
     submitBtn.addEventListener('click', () => {
         fetch('/login-user', {
             method: 'post',
@@ -25,29 +25,15 @@ if(lname == null){
         })
     })
 } else{
-    fetch('/fetch-dru', {
-        method: 'get',
-        headers: new Headers({ 'Content-Type': 'application/json' }),
-    })
-    .then(res => res.json())
-    .then(data => {
-        for(let i = 0; i < data.length; i++){
-            var option = document.createElement('option')
-            option.value = i + 1
-            option.innerHTML = data[i].name
-            druselect.appendChild(option)
-        }
-    })
-
     submitBtn.addEventListener('click', () => {
         fetch('/register-user', {
             method: 'post',
             headers: new Headers({'Content-Type': 'application/json'}),
             body: JSON.stringify({
-                username: ((lname.value + fname.value.charAt(0)).split(" ").join("")).toLowerCase(),
-                firstname: fname.value,
-                middlename: mname.value,
-                lastname: lname.value,
+                username: ((lastname.value + firstname.value.charAt(0)).split(" ").join("")).toLowerCase(),
+                firstname: firstname.value,
+                middlename: middlename.value,
+                lastname: lastname.value,
                 dru: druselect.value,
                 contact: contact.value,
                 email: email.value,

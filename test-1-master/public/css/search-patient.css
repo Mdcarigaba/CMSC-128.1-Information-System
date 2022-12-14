@@ -498,4 +498,5 @@ tbody {
     font-weight: bolder;
     font-size: 10px;
     transition: all .3s;
+    margin-top: 20px;
 }
