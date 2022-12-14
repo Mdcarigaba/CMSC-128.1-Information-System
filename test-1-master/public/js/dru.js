@@ -1,41 +1,52 @@
+
 let DRUqueue = [
-    {
-        druNum: 1,
-        dru: 'Cavite City CHO',
-        numEntries: 230,
-        submissionTime: '8:00-8:20',
-    },
-    {
-        druNum: 2,
-        dru: 'Dasmarinas City CHO',
-        numEntries: 187,
-        submissionTime: '8:20-8;40'
-    },
-    {
-        druNum: 3,
-        dru: 'Aadeo RHU',
-        numEntries: 65,
-        submissionTime: '8:40-9:00'
-    },
-    {
-        druNum: 4,
-        dru: 'Tagaytay City CHO',
-        numEntries: 39,
-        submissionTime: '9:00-9:20'
-    },
-    {
-        druNum: 5,
-        dru: 'Dasmarinas City CHO',
-        numEntries: 12,
-        submissionTime: '9:20-9:40'
-    },
-    {
-        druNum: 6,
-        dru: 'Trece Martires CHO',
-        numEntries: 8,
-        submissionTime: '9:40-10:0'
-    }
+    {   druNum: 0, dru: 'Cavite City CHO', numEntries: 97, submissionTime: '',},
+    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: '',},
+    {   druNum: 0, dru: 'Amadeo RHU', numEntries: 65, submissionTime: '',},
+    {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: '',},
+    {   druNum: 0, dru: 'Alfonso RHU', numEntries: 12, submissionTime: ''},
+    {   druNum: 0, dru: 'Trece Martires CHO', numEntries: 90, submissionTime: ''},
+    {   druNum: 0, dru: 'General Trias CHO', numEntries: 187, submissionTime: ''},
+    {   druNum: 0, dru: 'Indang RHU', numEntries: 212, submissionTime: ''},
+    {   druNum: 0, dru: 'Naic RHU', numEntries: 135, submissionTime: ''},
+    {   druNum: 0, dru: 'Noveleta RHU', numEntries: 70, submissionTime: ''},
+    {   druNum: 0, dru: 'Aguinaldo RHU', numEntries: 15, submissionTime: ''},
+    {   druNum: 0, dru: 'Rosario Health Center', numEntries: 156, submissionTime: ''}
 ];
+
+
+// Sort the DRUqueue array in descending order by the numEntries property
+DRUqueue.sort((a, b) => b.numEntries - a.numEntries);
+
+let startHour = 8; // starting time for submission times
+let interval = 20; // interval in minutes between submission times
+
+for (let i = 0; i < DRUqueue.length; i++) {
+    DRUqueue[i].druNum = i + 1; //for druNum
+
+    let minutes = interval * i;
+    let hours = Math.floor(minutes / 60);
+    let lowerHours = hours + startHour;
+    minutes -= hours * 60;
+    lowerMinutes = minutes + interval
+
+    if (lowerMinutes == 60) {
+        lowerMinutes = 0;
+        lowerMinutes = `0${lowerMinutes}`;
+        lowerHours = lowerHours + 1;
+    }
+
+    if (minutes == 0) {
+        minutes = `0${minutes}`;
+    }
+
+    if (lowerHours != 12) {
+        DRUqueue[i].submissionTime = `${startHour + hours}:${minutes} AM - ${lowerHours}:${lowerMinutes} AM`;
+    } else {
+        DRUqueue[i].submissionTime = `${startHour + hours}:${minutes} AM -${lowerHours}:${lowerMinutes} PM`;
+    }
+
+}
 
 window.onload = () => {
     loadTableData(DRUqueue);
@@ -57,26 +68,33 @@ function loadTableData(DRUqueue) {
                         <td>${records.numEntries}</td>
                         <td>${records.submissionTime}</td>
                         <td><button class="email-btn" onclick="SendMail()">Send Email</button></td>
-
                     </tr>`;
     }
-
     tableBody.innerHTML = dataHTML;
 }
 
-//send email
-function SendMail() {
-    var params = {
-      subject : 'DRU Schedule', //fixed?
-      to_email : 'dealouisa1@gmail.com', //email of dru
-      to_name : 'DRU', //dru name
-      from_name : 'Sinag', //lab or sinag?
-      time : '8:00 AM', //time sched
-    }
-    emailjs.send("service_7lws35l", "template_496gmhf", params).then(function(res) {
-      alert("SUCCESS!" + res.status);
-    })
+// Define the SendMail() function outside the for loop
+for (let i = 0; i < DRUqueue.length; i++) {
+    var name = DRUqueue[i].dru;
+    var time = DRUqueue[i].submissionTime;
+    var entries = DRUqueue[i].numEntries;
+
+
+    function SendMail() {
+    emailjs.send("service_7lws35l", "template_496gmhf", {
+      subject : 'DRU Schedule',
+      dru_email : 'sinag.testdru1@gmail.com', //email of dru
+      from_name : 'Sinag Laboratories',
+      dru_name : name,
+      time_range : time,
+      numEntries : entries
+    }).then(function(res) {
+      alert("SUCCESS!" + name + time + entries+ res.status);
+    });
   }
+}
+
+
 
 // Minimize sidebar
 document.getElementById('close-nav').addEventListener('click', () => {
@@ -146,4 +164,3 @@ function toggleDropdown() {
     var element = document.getElementById('dropdown');
     element.classList.toggle("show");
 }
-
