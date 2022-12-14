@@ -841,7 +841,13 @@ document.getElementById('close-nav').addEventListener('click', () => {
         el.style.paddingLeft = '0px';
     });
 
+    try{
+    
     document.getElementById('main-content').style.width = '100%';
+    }
+    catch(err){
+        
+    }
 });
 
 // Maximize sidebar

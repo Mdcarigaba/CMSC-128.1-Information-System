@@ -1,8 +1,6 @@
-const username = document.querySelector('.username');
-const usertype = document.querySelector('.user-type');
+const user_name = document.querySelector('.username');
+const user_type = document.querySelector('.user-type');
 const nav_menu = document.querySelector('#nav');
-
-
 
 let DRUqueue = [
     {   druNum: 0, dru: 'Cavite City CHO', numEntries: 97, submissionTime: '',},
@@ -18,6 +16,30 @@ let DRUqueue = [
     {   druNum: 0, dru: 'Aguinaldo RHU', numEntries: 15, submissionTime: ''},
     {   druNum: 0, dru: 'Rosario Health Center', numEntries: 156, submissionTime: ''}
 ];
+
+window.onload = () => {
+    if(!sessionStorage.username){
+        location.href = '/login';
+    } else{
+        user_name.innerHTML = sessionStorage.username;
+        user_type.innerHTML = sessionStorage.role;
+
+        if(sessionStorage.role == 'researcher'){
+            nav_menu.style.visibility = 'hidden';
+        }
+        else{
+            nav_menu.style.visibility = 'visible';
+        }
+        try{
+        loadTableQData(DRUqueue);
+        } catch(err){
+
+        }
+
+    }
+}
+
+
 
 
 // Sort the DRUqueue array in descending order by the numEntries property
@@ -55,17 +77,23 @@ for (let i = 0; i < DRUqueue.length; i++) {
 const sum = DRUqueue.reduce((accumulator, object) => {
     return accumulator + object.numEntries;
 }, 0)
+try{
 document.getElementById('totalSamples').innerHTML = sum;
+}
+catch(err){
 
-
-window.onload = () => {
-    loadTableData(DRUqueue);
 }
 
-loadTableData(DRUqueue);
+try{
+loadTableQData(DRUqueue);
+}
+catch(err){
 
-function loadTableData(DRUqueue) {
-    const tableBody = document.getElementById('tableData');
+}
+
+function loadTableQData(DRUqueue) {
+    const tableBody = document.getElementById('tableQData');
+    
     let dataHTML = '';
 
     for(let records of DRUqueue) {
@@ -78,19 +106,3 @@ function loadTableData(DRUqueue) {
     tableBody.innerHTML = dataHTML;
 }
 
-window.onload = () => {
-    if(!sessionStorage.username){
-        location.href = '/login';
-    } else{
-        username.innerHTML = sessionStorage.username;
-        usertype.innerHTML = sessionStorage.role;
-
-        if(sessionStorage.role == 'researcher'){
-            nav_menu.style.visibility = 'hidden';
-        }
-        else{
-            nav_menu.style.visibility = 'visible';
-        }
-
-    }
-}

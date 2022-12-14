@@ -258,6 +258,13 @@ table {
 
 }
 
+#tableQData > tr > td {
+    border: 1px solid #E9F2FF;
+    padding: 2%;
+    text-align: center;
+
+}
+
 .tbl-header > td {
     color: #1F5CAD;
 }

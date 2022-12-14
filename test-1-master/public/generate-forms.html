@@ -230,13 +230,13 @@
             diseaseReportingUnitField.setText(data[0].dru)
   
             const nameOfInterviewerField = form.getTextField('Name of Interviewer')
-            nameOfInterviewerField.setText(data[0])
+            nameOfInterviewerField.setText(`${data[0].interviewer_last}, ${data[0].interviewer_first}`)
   
             const dateOfInterviewField = form.getTextField("Date of Interview")
             dateOfInterviewField.setText(data[0].interview_date)
   
             const relationshipOfInformantField = form.getTextField('Relationship')
-            relationshipOfInformantField.setText(data[0].relation)
+            relationshipOfInformantField.setText((data[0].relation == null) ? "": data[0].relation )
   
             const informantPhoneNoField = form.getTextField('Contact Number of Informant')
             informantPhoneNoField.setText(data[0].informant_contact)
@@ -245,7 +245,7 @@
             philhealthNoField.setText(data[0].philhealth)
             
             const lastnameField = form.getTextField('Last Name')
-            lastnameField.setText(data[0].lastname)
+            lastnameField.setText(data[0].patient_lastname)
     
             const nameOfInformantField = form.getTextField('Name of Informant')
             nameOfInformantField.setText(data[0].informant)
@@ -260,7 +260,7 @@
             birthdayField.setText(data[0].patient_birthday)
     
             const ageField = form.getTextField('Age')
-            ageField.setText(data[0].patient_age)
+            ageField.setText(data[0].patient_age.toString())
     
             const sexField = form.getRadioGroup('Sex')
             //sexField.setRadio(document.getElementById("sex").value)
@@ -275,6 +275,9 @@
             occupationField.setText(data[0].patient_occupation)
 
             //current
+            const houseNoLotBldgRow1Field = form.getTextField('House NoLotBldgRow1')
+            houseNoLotBldgRow1Field.setText(data[0].current_hn_bl_lot_buildno)
+
             const barangayRow1Field = form.getTextField('BarangayRow1')
             barangayRow1Field.setText(data[0].current_barangay)
             
@@ -341,75 +344,68 @@
             const dateOfOnsetOfIllnessField = form.getTextField('Date of Onset of Illness')
             dateOfOnsetOfIllnessField.setText(data[0].date_of_onset_illness)
 
-            const isPregnant = form.getRadioGroup('')
+            //const isPregnant = form.getRadioGroup('')
 
             const testingCategoryAField = form.getCheckBox('Testing Category: A')
             testingCategoryAField.check();
     
             const isAsymptomaticField = form.getCheckBox('SS1');
-            //if ( $('#asymptomatic').is(':checked')) {isAsymptomaticField.check();}
-            const cb = document.querySelector(data[0].is_asymptomatic);
-            if (cb.checked){
+            //if ( $('#asymptomatic').is(':checked')) {isAsymptomaticField.check();}  
+            if (data[0].is_asymptomatic){
                 isAsymptomaticField.check();
             }  
 
             const isFeverField = form.getCheckBox('SS2');
-            const cb2 = document.querySelector(data[0].have_fever);
-            if(cb2.checked){
+            if(data[0].have_fever){
                 isFeverField.check();
             }
     
             const isCoughField = form.getCheckBox('SS3');
-            const cb3 = document.querySelector(data[0].have_cough);
-            if(cb3.checked){
+            //const cb3 = document.querySelector();
+            if(data[0].have_cough){
                 isCoughField.check();
             }
     
             const isWeaknessField = form.getCheckBox('SS4');
-            const cb4 = document.querySelector(data[0].have_general_weakness);
-            if(cb4.checked){
+            if(data[0].have_general_weakness){
                 isWeaknessField.check();
             }
     
             const isFatigueField = form.getCheckBox('SS5');
-            const cb5 = document.querySelector(data[0].experiences_fatigue);
-            if(cb5.checked){
+            if(data[0].experiences_fatigue){
                 isFatigueField.check();
             }
     
             const isHeadacheField = form.getCheckBox('SS6');
-            const cb6 = document.querySelector(data[0].have_headache);
-            if(cb6.checked){
+            if(data[0].have_headache){
                 isHeadacheField.check();
             }
     
             const isMyalgiaField = form.getCheckBox('SS7');
-            const cb7 = document.querySelector(data[0].have_myalgia);
-            if(cb7.checked){
+            if(data[0].have_myalgia){
                 isFeverField.check();
             }
     
             const isSoreThroatField = form.getCheckBox('SS8');
-            const cb8 = document.querySelector(data[0].have_sor_throat);
-            if(cb8.checked){
+            if(data[0].have_sore_throat){
                 isSoreThroatField.check();
             }
     
             const isCoryzaField = form.getCheckBox('SS9');
-            const cb9 = document.querySelector(data[0].have_coryza);
-            if(cb9.checked){
+            //const cb9 = document.querySelector(data[0].have_coryza);
+            if(data[0].have_coryza){
                 isCoryzaField.check();
             }
     
             const isAlteredMentalStatusField = form.getCheckBox('SS10');
-            const cb10 = document.querySelector('#altered_mental_status');
-            if(cb10.checked){
+            //const cb10 = document.querySelector('#altered_mental_status');
+            if(data[0].exp_altered_mental_status){
                 isAlteredMentalStatusField.check();
             }
     
             const isDyspneaField = form.getCheckBox('SS11');
-            const cb11 = document.querySelector(data[0].have_dyspnea);
-            if(cb11.checked){
+            //const cb11 = document.querySelector(data[0].have_dyspnea);
+            if(data[0].have_dyspnea){
                 isDyspneaField.check();
             }
     
@@ -421,33 +417,31 @@
             }*/
     
             const isNauseaField = form.getCheckBox('SS13');
-            const cb13 = document.querySelector(data[0].experiences_nausea);
-            if(cb13.checked){
+            //const cb13 = document.querySelector(data[0].experiences_nausea);
+            if(data[0].experiences_nausea){
                 isFatigueField.check();
             }
     
-            /*
-            const isVomitingField = form.getCheckBox('SS14');
-            const cb14 = document.querySelector('#vomiting');
-            if(cb14.checked){
-                isVomitingField.check();
-            }
+            // /*
+            // const isVomitingField = form.getCheckBox('SS14');
+            // const cb14 = document.querySelector('#vomiting');
+            // if(cb14.checked){
+            //     isVomitingField.check();
+            // }
     
-            const isDiarrheaField = form.getCheckBox('SS15');
-            const cb15 = document.querySelector('#diarrhea');
-            if(cb15.checked){
-                isDiarrheaField.check();
-            }*/
+            // const isDiarrheaField = form.getCheckBox('SS15');
+            // const cb15 = document.querySelector('#diarrhea');
+            // if(cb15.checked){
+            //     isDiarrheaField.check();
+            // }*/
     
             const isAnosmiaField = form.getCheckBox('SS16');
-            const cb16 = document.querySelector(data[0].exp_anosmia);
-            if(cb16.checked){
+            if(data[0].exp_anosmia){
                 isAnosmiaField.check();
             }
     
             const isAgeusiaField = form.getCheckBox('SS17');
-            const cb17 = document.querySelector(data[0].exp_ageusia);
-            if(cb17.checked){
+            if(data[0].exp_ageusia){
                 isAgeusiaField.check();
             }
 

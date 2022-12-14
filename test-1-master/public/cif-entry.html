@@ -428,7 +428,7 @@
                     <!-- BUTTONS -->
                     <div class = "row center">
                         <button class="clear-button" onclick="clear_curr_add()">Clear</button>
-                        <button class="same-button" onclick="same_as_perm_add()">Same as Permanent Address</button>
+                        <button class="same-button" onclick='same_as_perm_add()'>Same as Permanent Address</button>
                     </div>
                 </div>
             </div>
@@ -1272,17 +1272,17 @@
             </div>
 
             <!-- END right-body class-->
-            <button onclick="fillForm()">Fill PDF</button>
+            <!-- <button onclick="fillForm()">Fill PDF</button> -->
         </div>
     </div>
     <script src="js/home.js"></script>
     <script src="js/index.js"></script>
-    <script type="text/javascript" src="js/cif.js"></script>
+    <script src="js/cif.js"></script>
     <!--<script type="text/javascript" src = "js/generate-forms.js"></script>-->
     
     <script type="text/javascript" src="js/logout.js"></script>
 </body>
-<script>
+<!-- <script>
     const { PDFDocument } = PDFLib
 
     async function fillForm() {
@@ -1432,6 +1432,6 @@
 			// Trigger the browser to download the PDF document
       download(pdfBytes, "pdf-lib_form_creation_example.pdf", "application/pdf");
     }
-  </script> 
+  </script>  -->
   
 </html>

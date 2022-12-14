@@ -1,4 +1,6 @@
-
+const username = document.querySelector('.username');
+const usertype = document.querySelector('.user-type');
+const nav_menu = document.querySelector('#nav');
 let DRUqueue = [
     {   druNum: 0, dru: 'Cavite City CHO', numEntries: 97, submissionTime: '',},
     {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: '',},
@@ -49,13 +51,28 @@ for (let i = 0; i < DRUqueue.length; i++) {
 }
 
 window.onload = () => {
-    loadTableData(DRUqueue);
+    if(!sessionStorage.username){
+        location.href = '/login';
+    } else{
+        username.innerHTML = sessionStorage.username;
+        usertype.innerHTML = sessionStorage.role;
+
+        if(sessionStorage.role == 'researcher'){
+            nav_menu.style.visibility = 'hidden';
+        }
+        else{
+            nav_menu.style.visibility = 'visible';
+        }
+
+        loadTableQData(DRUqueue);
+
+    }
 }
 
-loadTableData(DRUqueue);
+loadTableQData(DRUqueue);
 
-function loadTableData(DRUqueue) {
-    const tableBody = document.getElementById('tableData');
+function loadTableQData(DRUqueue) {
+    const tableBody = document.getElementById('tableQData');
     let dataHTML = '';
 
     var button = document.createElement(button);
@@ -74,24 +91,18 @@ function loadTableData(DRUqueue) {
 }
 
 // Define the SendMail() function outside the for loop
-for (let i = 0; i < DRUqueue.length; i++) {
-    var name = DRUqueue[i].dru;
-    var time = DRUqueue[i].submissionTime;
-    var entries = DRUqueue[i].numEntries;
-
-
-    function SendMail() {
-    emailjs.send("service_7lws35l", "template_496gmhf", {
-      subject : 'DRU Schedule',
+function SendMail() {
+    var params = {
+        subject : 'DRU Schedule',
       dru_email : 'sinag.testdru1@gmail.com', //email of dru
       from_name : 'Sinag Laboratories',
-      dru_name : name,
-      time_range : time,
-      numEntries : entries
-    }).then(function(res) {
-      alert("SUCCESS!" + name + time + entries+ res.status);
+      dru_name : 'Dasmarinas City CHO',
+      time_range : '8:00 AM - 8:20 AM',
+      numEntries : 230
+    }
+    emailjs.send("service_7lws35l", "template_496gmhf", params).then(function(res) {
+      alert("SUCCESS!" + res.status);
     });
-  }
 }
 
 
