@@ -2,31 +2,20 @@ const username = document.querySelector('.username');
 const usertype = document.querySelector('.user-type');
 const email = document.querySelector('.user-email');
 
+
 let DRUqueue = [
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
-    {   submissionTime: '', dru: 'Cavite City CHO', numEntries: 187,
-    },
+    {   druNum: 0, dru: 'Cavite City CHO', numEntries: 97, submissionTime: '',},
+    {   druNum: 0, dru: 'Dasmarinas City CHO', numEntries: 230, submissionTime: '',},
+    {   druNum: 0, dru: 'Amadeo RHU', numEntries: 65, submissionTime: '',},
+    {   druNum: 0, dru: 'Tagaytay City CHO', numEntries: 39, submissionTime: '',},
+    {   druNum: 0, dru: 'Alfonso RHU', numEntries: 12, submissionTime: ''},
+    {   druNum: 0, dru: 'Trece Martires CHO', numEntries: 90, submissionTime: ''},
+    {   druNum: 0, dru: 'General Trias CHO', numEntries: 187, submissionTime: ''},
+    {   druNum: 0, dru: 'Indang RHU', numEntries: 212, submissionTime: ''},
+    {   druNum: 0, dru: 'Naic RHU', numEntries: 135, submissionTime: ''},
+    {   druNum: 0, dru: 'Noveleta RHU', numEntries: 70, submissionTime: ''},
+    {   druNum: 0, dru: 'Aguinaldo RHU', numEntries: 15, submissionTime: ''},
+    {   druNum: 0, dru: 'Rosario Health Center', numEntries: 156, submissionTime: ''}
 ];
 
 
@@ -60,6 +49,13 @@ for (let i = 0; i < DRUqueue.length; i++) {
     }
 
 }
+
+//total number of entries
+const sum = DRUqueue.reduce((accumulator, object) => {
+    return accumulator + object.numEntries;
+}, 0)
+document.getElementById('totalSamples').innerHTML = sum;
+
 
 window.onload = () => {
     loadTableData(DRUqueue);
@@ -97,3 +93,4 @@ logOut.onclick = () => {
     sessionStorage.clear();
     location.reload();
 }
+
