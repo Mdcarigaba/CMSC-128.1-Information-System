@@ -1,21 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-<<<<<<< Updated upstream
-const knex = require('knex');
-
-const db = knex({
-    client: 'pg',
-    //connection: 'postgres://admin:2O1RLqA7UxAxFkWFnfqIhfxmztXY5JwT@dpg-cdj1c8kgqg433fdfdf20-a/main_qcvq'
-    connection: {
-        host: 'localhost',
-        user: 'postgres',
-        port: '5433',
-        password: '1234',
-        database: 'postgres'
-    }
-})
-=======
+<<<<<<< HEAD
 //const knex = require('knex');
 const db = require('./local_modules/connection')
 const json2xls = require('json2xls');
@@ -29,7 +15,21 @@ const PORT = process.env.PORT || 3000;
 const table = require('./local_modules/migration')
 
 table.generatetable(db)
->>>>>>> Stashed changes
+=======
+const knex = require('knex');
+
+const db = knex({
+    client: 'pg',
+    //connection: 'postgres://admin:2O1RLqA7UxAxFkWFnfqIhfxmztXY5JwT@dpg-cdj1c8kgqg433fdfdf20-a/main_qcvq'
+    connection: {
+        host: 'localhost',
+        user: 'postgres',
+        port: '5433',
+        password: '1234',
+        database: 'postgres'
+    }
+})
+>>>>>>> parent of b6f490d (fixed date format display)
 
 const app = express();
 
@@ -99,8 +99,7 @@ app.post('/login-user', (req,res) => {
         } else{
             res.json('Username or password is incorrect');
         }
-<<<<<<< Updated upstream
-=======
+<<<<<<< HEAD
         else if(req.query.to && req.query.from){
             builder.where('cif.date_interview', '>=', req.query.from)
             .andWhere('cif.date_interview', '<', req.query.to)
@@ -320,7 +319,8 @@ app.post('/insert-cif', async (req, res) => {
     .then((data) => {
         //res.json(data);
         investigator_id = data[0].id;
->>>>>>> Stashed changes
+=======
+>>>>>>> parent of b6f490d (fixed date format display)
     })
 })
 
