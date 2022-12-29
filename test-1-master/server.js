@@ -139,6 +139,10 @@ app.get('/search-cif?', (req, res) => {
     .orderBy('cif.id', 'asc')
     .returning()
     .then((data) => {
+        for (let key of data) {
+            key.date_interview = (key.date_interview != null)? moment(key.date_interview).format('MM/DD/YYYY') : 'N/A'
+            key.date_collected = (key.date_collected != null)? moment(key.date_collected).format('MM/DD/YYYY') : 'N/A'
+        }
         res.json(data);
     })
 })
@@ -176,6 +180,10 @@ app.get('/filter-cif?', (req, res) => {
     .orderBy('cif.id', 'asc')
     .returning()
     .then((data) => {
+        for (let key of data) {
+            key.date_interview = (key.date_interview != null)? moment(key.date_interview).format('MM/DD/YYYY') : 'N/A'
+            key.date_collected = (key.date_collected != null)? moment(key.date_collected).format('MM/DD/YYYY') : 'N/A'
+        }
         res.json(data);
     })
 })

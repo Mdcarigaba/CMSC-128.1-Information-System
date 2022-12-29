@@ -233,7 +233,7 @@
             nameOfInterviewerField.setText(data[0])
   
             const dateOfInterviewField = form.getTextField("Date of Interview")
-            dateOfInterviewField.setText(data[0].interview_date)
+            dateOfInterviewField.setText(moment(data[0].interview_date).format('MM/DD/YYYY'))
   
             const relationshipOfInformantField = form.getTextField('Relationship')
             relationshipOfInformantField.setText(data[0].relation)
@@ -339,7 +339,7 @@
             //flightVesselNumberRow1Field.setText(document.querySelector('.flight-vessel-no').value)
 
             const dateOfOnsetOfIllnessField = form.getTextField('Date of Onset of Illness')
-            dateOfOnsetOfIllnessField.setText(data[0].date_of_onset_illness)
+            dateOfOnsetOfIllnessField.setText(moment(data[0].date_of_onset_illness).format('MM/DD/YYYY'))
 
             const isPregnant = form.getRadioGroup('')
 
