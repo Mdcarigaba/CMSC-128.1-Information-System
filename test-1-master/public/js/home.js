@@ -83,7 +83,13 @@ window.onload = () => {
         location.href = '/login';
     } else{
         username.innerHTML = sessionStorage.username;
+<<<<<<< Updated upstream
         usertype.innerHTML = sessionStorage.role;
+=======
+        usertype.innerHTML = (sessionStorage.usertype).toUpperCase();
+    }
+}
+>>>>>>> Stashed changes
 
         if(sessionStorage.role == 'researcher'){
             nav_menu.style.visibility = 'hidden';
