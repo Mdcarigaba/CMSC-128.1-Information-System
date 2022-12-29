@@ -9,6 +9,7 @@
     "express.js": "^1.0.0",
     "json2xls": "^0.1.2",
     "knex": "^2.3.0",
+    "moment": "^2.29.4",
     "nodemon": "^2.0.20",
     "papaparse": "^5.3.2",
     "pdf-lib": "^1.17.1",
@@ -20,7 +21,6 @@
   "license": "MIT",
   "description": "",
   "scripts": {
-    "start": "concurrently \"node server.js\" \"node ../test-1-master/public/pdfgenerator/pdfgenerator.js\"",
     "dev": "nodemon server.js"
   }
 }
