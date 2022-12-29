@@ -230,19 +230,19 @@
             diseaseReportingUnitField.setText(data[0].dru)
   
             const nameOfInterviewerField = form.getTextField('Name of Interviewer')
-            nameOfInterviewerField.setText(data[0])
+            nameOfInterviewerField.setText(data[0].interviewer_last + ', ' + data[0].interviewer_first)
   
             const dateOfInterviewField = form.getTextField("Date of Interview")
             dateOfInterviewField.setText(moment(data[0].interview_date).format('MM/DD/YYYY'))
   
             const relationshipOfInformantField = form.getTextField('Relationship')
-            relationshipOfInformantField.setText(data[0].relation)
+            relationshipOfInformantField.setText((data[0].relation != null)? data[0].relation : 'Unspecified')
   
             const informantPhoneNoField = form.getTextField('Contact Number of Informant')
-            informantPhoneNoField.setText(data[0].informant_contact)
+            informantPhoneNoField.setText((data[0].informant_contact != null)? data[0].informant_contact : 'Unspecified')
 
             const philhealthNoField = form.getTextField('PhilHealth No')
-            philhealthNoField.setText(data[0].philhealth)
+            philhealthNoField.setText((data[0].philhealth != null)? data[0].philhealth : 'Unspecified')
             
             const lastnameField = form.getTextField('Last Name')
             lastnameField.setText(data[0].lastname)
@@ -257,10 +257,10 @@
             middleNameField.setText(data[0].patient_middlename)
     
             const birthdayField = form.getTextField('Birthday')
-            birthdayField.setText(data[0].patient_birthday)
+            birthdayField.setText(moment(data[0].patient_birthday).format('MM/DD/YYYY'))
     
             const ageField = form.getTextField('Age')
-            ageField.setText(data[0].patient_age)
+            ageField.setText(data[0].patient_age.toString())
     
             const sexField = form.getRadioGroup('Sex')
             //sexField.setRadio(document.getElementById("sex").value)
@@ -341,75 +341,75 @@
             const dateOfOnsetOfIllnessField = form.getTextField('Date of Onset of Illness')
             dateOfOnsetOfIllnessField.setText(moment(data[0].date_of_onset_illness).format('MM/DD/YYYY'))
 
-            const isPregnant = form.getRadioGroup('')
+            //const isPregnant = form.getRadioGroup('')
 
             const testingCategoryAField = form.getCheckBox('Testing Category: A')
             testingCategoryAField.check();
     
             const isAsymptomaticField = form.getCheckBox('SS1');
             //if ( $('#asymptomatic').is(':checked')) {isAsymptomaticField.check();}
-            const cb = document.querySelector(data[0].is_asymptomatic);
-            if (cb.checked){
+            const cb = data[0].is_asymptomatic;
+            if (cb){
                 isAsymptomaticField.check();
             }  
 
             const isFeverField = form.getCheckBox('SS2');
-            const cb2 = document.querySelector(data[0].have_fever);
-            if(cb2.checked){
+            const cb2 = data[0].have_fever;
+            if(cb2){
                 isFeverField.check();
             }
     
             const isCoughField = form.getCheckBox('SS3');
-            const cb3 = document.querySelector(data[0].have_cough);
-            if(cb3.checked){
+            const cb3 = data[0].have_cough;
+            if(cb3){
                 isCoughField.check();
             }
     
             const isWeaknessField = form.getCheckBox('SS4');
-            const cb4 = document.querySelector(data[0].have_general_weakness);
-            if(cb4.checked){
+            const cb4 = data[0].have_general_weakness;
+            if(cb4){
                 isWeaknessField.check();
             }
     
             const isFatigueField = form.getCheckBox('SS5');
-            const cb5 = document.querySelector(data[0].experiences_fatigue);
-            if(cb5.checked){
+            const cb5 = data[0].experiences_fatigue;
+            if(cb5){
                 isFatigueField.check();
             }
     
             const isHeadacheField = form.getCheckBox('SS6');
-            const cb6 = document.querySelector(data[0].have_headache);
-            if(cb6.checked){
+            const cb6 = data[0].have_headache;
+            if(cb6){
                 isHeadacheField.check();
             }
     
             const isMyalgiaField = form.getCheckBox('SS7');
-            const cb7 = document.querySelector(data[0].have_myalgia);
-            if(cb7.checked){
+            const cb7 = data[0].have_myalgia;
+            if(cb7){
                 isFeverField.check();
             }
     
             const isSoreThroatField = form.getCheckBox('SS8');
-            const cb8 = document.querySelector(data[0].have_sor_throat);
-            if(cb8.checked){
+            const cb8 = data[0].have_sore_throat;
+            if(cb8){
                 isSoreThroatField.check();
             }
     
             const isCoryzaField = form.getCheckBox('SS9');
-            const cb9 = document.querySelector(data[0].have_coryza);
-            if(cb9.checked){
+            const cb9 = data[0].have_coryza;
+            if(cb9){
                 isCoryzaField.check();
             }
     
             const isAlteredMentalStatusField = form.getCheckBox('SS10');
-            const cb10 = document.querySelector('#altered_mental_status');
-            if(cb10.checked){
+            const cb10 = data[0].exp_altered_mental_status;
+            if(cb10){
                 isAlteredMentalStatusField.check();
             }
     
             const isDyspneaField = form.getCheckBox('SS11');
-            const cb11 = document.querySelector(data[0].have_dyspnea);
-            if(cb11.checked){
+            const cb11 = data[0].have_dyspnea;
+            if(cb11){
                 isDyspneaField.check();
             }
     
@@ -421,8 +421,8 @@
             }*/
     
             const isNauseaField = form.getCheckBox('SS13');
-            const cb13 = document.querySelector(data[0].experiences_nausea);
-            if(cb13.checked){
+            const cb13 = data[0].exp_nausea;
+            if(cb13){
                 isFatigueField.check();
             }
     
@@ -440,14 +440,14 @@
             }*/
     
             const isAnosmiaField = form.getCheckBox('SS16');
-            const cb16 = document.querySelector(data[0].exp_anosmia);
-            if(cb16.checked){
+            const cb16 = data[0].exp_anosmia;
+            if(cb16){
                 isAnosmiaField.check();
             }
     
             const isAgeusiaField = form.getCheckBox('SS17');
-            const cb17 = document.querySelector(data[0].exp_ageusia);
-            if(cb17.checked){
+            const cb17 = data[0].exp_ageusia;
+            if(cb17){
                 isAgeusiaField.check();
             }
 
