@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 //const knex = require('knex');
 const db = require('./local_modules/connection')
-const json2xls = require('json2xls');
+
 const fs = require('fs')
 const CryptoJS = require('crypto-js');
 require("dotenv").config();
