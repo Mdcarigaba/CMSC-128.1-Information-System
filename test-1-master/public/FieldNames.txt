@@ -1,0 +1,254 @@
+Field name: House NoLotBldgRow1
+Field name: StreetPurokSitioRow1
+Field name: BarangayRow1
+Field name: MunicipalityCityRow1
+Field name: ProvinceRow1
+Field name: Home Phone No  Area CodeRow1
+Field name: Cellphone NoRow1
+Field name: Email AddressRow1
+Field name: House NoLotBldgRow1_2
+Field name: StreetPurokSitioRow1_2
+Field name: BarangayRow1_2
+Field name: MunicipalityCityRow1_2
+Field name: ProvinceRow1_2
+Field name: Home Phone No  Area CodeRow1_2
+Field name: Cellphone NoRow1_2
+Field name: Email AddressRow1_2
+Field name: LotBldgRow1
+Field name: StreetRow1
+Field name: BarangayRow1_3
+Field name: MunicipalityCityRow1_3
+Field name: ProvinceRow1_3
+Field name: Name of WorkplaceRow1
+Field name: Phone NoCellphone NoRow1
+Field name: Email AddressRow1_3
+Field name: Name of VaccineRow1
+Field name: Dose number eg 1st  2ndRow1
+Field name: Vaccination centerfacilityRow1
+Field name: Region of health facilityRow1
+Field name: Name of VaccineRow2
+Field name: Dose number eg 1st  2ndRow2
+Field name: Vaccination centerfacilityRow2
+Field name: Region of health facilityRow2
+Field name: If International Travel country of origin
+Field name: FlightVessel NumberRow1
+Field name: Name of PlaceHealth Facility
+Field name: Address Region Province MunicipalityCityHealth Facility
+Field name: Address Region Province MunicipalityCityClosed Settings
+Field name: Name of PlaceSchool
+Field name: Address Region Province MunicipalityCitySchool
+Field name: Name of PlaceWorkplace
+Field name: Address Region Province MunicipalityCityWorkplace
+Field name: Name of PlaceMarket
+Field name: Address Region Province MunicipalityCityMarket
+Field name: Name of PlaceSocial Gathering
+Field name: Address Region Province MunicipalityCitySocial Gathering
+Field name: Name of PlaceOthers
+Field name: Address Region Province MunicipalityCityOthers
+Field name: Airline  Sea vessel  Bus line  TrainRow1
+Field name: Flight  Vessel  Bus NoRow1
+Field name: Place of OriginRow1
+Field name: DestinationRow1
+Field name: Airline  Sea vessel  Bus line  TrainRow2
+Field name: Flight  Vessel  Bus NoRow2
+Field name: Place of OriginRow2
+Field name: DestinationRow2
+Field name: Disease Reporting Unit
+Field name: Existing: Not applicable (New case).0.0
+Field name: Existing: Not applicable (Unknown)
+Field name: Existing: Update symptoms
+Field name: Existing: Update health status / outcome
+Field name: Existing: Update case classification
+Field name: Existing: Update lab result
+Field name: Existing: Update chest imaging findings
+Field name: Existing: Update vaccination
+Field name: Existing: Update disposition
+Field name: Existing: Update exposure / travel history
+Field name: Clear All Fields
+Field name: DRU Region and Province
+Field name: PhilHealth No
+Field name: Name of Interviewer
+Field name: Contact Number of Interviewer
+Field name: Name of Informant
+Field name: Relationship
+Field name: Contact Number of Informant
+Field name: Existing: Others
+Field name: Existing: Others field
+Field name: Type of Client
+Field name: Testing Category: A
+Field name: Testing Category: C
+Field name: Testing Category: D
+Field name: Testing Category: E
+Field name: Testing Category: F
+Field name: Testing Category: G
+Field name: Testing Category: H
+Field name: Testing Category: I
+Field name: Testing Category: J
+Field name: Testing Category: B
+Field name: Last Name
+Field name: First Name and Suffix
+Field name: Middle Name
+Field name: Birthday
+Field name: Age
+Field name: Sex
+Field name: Civil Status
+Field name: Nationality
+Field name: Occupation
+Field name: Works in Closed Setting
+Field name: Health Care Worker
+Field name: Returning Overseas Filipino
+Field name: OFW
+Field name: Foreign National
+Field name: Country of Origin FN
+Field name: LSI-APOR-LocalTraveler
+Field name: City, Municipality, and Province of origin
+Field name: LSI-APOR-LocalTraveler Specific
+Field name: Lives in Closed Settings
+Field name: Institution Type
+Field name: Institution Name
+Field name: Health Facility Name
+Field name: Health Facility Location
+Field name: Country of Origin ROF
+Field name: Passport Number ROF
+Field name: Passport Number FN
+Field name: Previous Consultation
+Field name: Admitted in hospital
+Field name: Others
+Field name: Date isolated/quarantined at home
+Field name: Date isolated/quarantined in facility
+Field name: Date admitted in hospital
+Field name: Time admitted in hospital
+Field name: Time isolated/quarantined in facility
+Field name: Time isolated/quarantined at home
+Field name: Disposition
+Field name: Name of facility where first consult was done
+Field name: Health Status
+Field name: Case Classification
+Field name: Admitted in isolation / quarantine facility
+Field name: Adverse Event/s 1
+Field name: Adverse Event/s 2
+Field name: Date of First Consult
+Field name: If discharged Date of Discharge MMDDYYYY
+Field name: Date of vaccinationRow1
+Field name: Date of vaccinationRow2
+Field name: Date of Onset of Illness
+Field name: SS1
+Field name: SS2
+Field name: Fever
+Field name: SS3
+Field name: SS4
+Field name: SS5
+Field name: SS6
+Field name: SS7
+Field name: SS8
+Field name: SS9
+Field name: SS10
+Field name: SS11
+Field name: SS12
+Field name: SS13
+Field name: SS14
+Field name: SS15
+Field name: SS16
+Field name: SS17
+Field name: SS18
+Field name: Other Signs and Symptoms
+Field name: C1
+Field name: C2
+Field name: C3
+Field name: C4
+Field name: C5
+Field name: C6
+Field name: C7
+Field name: C8
+Field name: Other comorbidities
+Field name: Pregnant
+Field name: LMP
+Field name: High-risk pregnancy
+Field name: Severe Acute Respiratory Illness
+Field name: C10
+Field name: C9
+Field name: Date of Chest Imaging
+Field name: Imaging Done
+Field name: Chest imaging results
+Field name: Other chest imaging results
+Field name: Tested positive before
+Field name: Date of specimen collection
+Field name: Laboratory
+Field name: RT-PCR Count
+Field name: Date collected 1
+Field name: Date result released 1
+Field name: Laboratory 1
+Field name: Date collected 2
+Field name: Date result released 2
+Field name: Laboratory 2
+Field name: Test Type 1
+Field name: Results1
+Field name: Other lab result 1
+Field name: Antigen brand of kit 1
+Field name: Antigen reason 1
+Field name: Antigen reason 2
+Field name: Antigen brand of kit 2
+Field name: Other lab test type 1
+Field name: Other lab test type 2
+Field name: Other lab result 2
+Field name: Results2
+Field name: Test Type 2
+Field name: Date of Recovery
+Field name: Date of Death
+Field name: Immediate Cause
+Field name: Underlying Cause
+Field name: Antecedent Cause
+Field name: Contributory Conditions
+Field name: Outcome
+Field name: ExposureHistory
+Field name: Date of last contact
+Field name: TravelHistory
+Field name: From
+Field name: To
+Field name: CommunityTransmission-Int
+Field name: AirlineSea vessel
+Field name: Date of arrival in PH
+Field name: Date of departure
+Field name: FromHealth Facility
+Field name: FromOthers
+Field name: FromClosed Settings
+Field name: FromSchool
+Field name: FromWorkplace
+Field name: FromMarket
+Field name: FromSocial Gathering
+Field name: ToHealth Facility
+Field name: ToOthers
+Field name: ToClosed Settings
+Field name: ToSchool
+Field name: ToWorkplace
+Field name: ToMarket
+Field name: ToSocial Gathering
+Field name: Departure Date Row1
+Field name: Departure Date Row2
+Field name: Date of Arrival Row1
+Field name: Date of Arrival Row2
+Field name: L1
+Field name: CommunityTransmission-Local1
+Field name: L8
+Field name: L7
+Field name: L6
+Field name: L5
+Field name: L4
+Field name: L3
+Field name: L2
+Field name: Name of PlaceClosed Settings
+Field name: CommunityTransmission-Local2
+Field name: CommunityTransmission-Local3
+Field name: CommunityTransmission-Local4
+Field name: CommunityTransmission-Local6
+Field name: CommunityTransmission-Local5
+Field name: CommunityTransmission-Local7
+Field name: Close contact name 1
+Field name: Close contact name 2
+Field name: Close contact name 3
+Field name: Close contact name 4
+Field name: Close contact number 2
+Field name: Close contact number 3
+Field name: Close contact number 4
+Field name: Date of Interview
+Field name: Close contact number 1
