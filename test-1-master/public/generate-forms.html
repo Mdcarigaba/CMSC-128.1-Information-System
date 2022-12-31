@@ -451,6 +451,127 @@
                 isAgeusiaField.check();
             }
 
+            //added lines of code for fields
+            //field names can be found at FieldNames.txt under public folder
+
+            //radio group
+            const worksInClosedSettingField = form.getRadioGroup('Works in Closed Setting')
+
+            const healthCareWorkerField = form.getRadioGroup('Health Care Worker')
+
+            const healthFacilityNameField = form.getTextField('Health Facility Name')
+
+            const healthFacilityLocationField = form.getTextField('Health Facility Location')
+
+            const returningOverseasFilipino = form.getRadioGroup('Returning Overseas Filipino')
+
+            const countryOfOriginROFField = form.getTextField('Country of Origin ROF')
+
+            const passportNumberROFField = form.getTextField('Passport Number ROF')
+
+            const OFWField = form.getRadioGroup('OFW')
+
+            const foreignNationalField = form.getRadioGroup('Foreign National')
+
+            const countryofOriginFNField = form.getTextField('Country of Origin FN')
+
+            const passportNumberFNField = form.getTextField('Passport Number RN')
+
+            const LSIAPORLocalTravelerField = form.getRadioGroup('LSI-APOR-LocalTraveler')
+
+            const cityMunicipalityandProvinceofOriginField = form.getTextField('City, Municipality, and Province of origin')
+
+            const LSIAPORLocalTravelerSpecificField = form.getRadioGroup('LSI-APOR-LocalTraveler Specific')
+
+            const livesInClosedSettingsField = form.getRadioGroup('Lives in Closed Settings')
+
+            const institutionTypeField = form.getTextField('Institution Type')
+
+            const institutionNameField = form.getTextField('Institution Name')
+
+            //Previous Consultation
+
+            const admittedInHospitalField = form.getTextField('Admitted in hospital')
+
+            const dateAdmittedInHospitalField = form.getTextField('Date admitted in hospital')
+
+            const timeAdmittedInHospitalField = form.getTextField('Time admitted in hospital')
+
+            const othersField = form.getRadioGroup('Others')
+
+            const dateIsolatedQuarantinedAtHomeField = form.getTextField('Date isolated/quarantined at home')
+
+            const admittedInIsolationQuarantineFacilityField = form.getTextField('Admitted in isolation / quarantine facility')
+
+            const dateIsolatedQuarantinedInFacilityField = form.getTextField('Date isolated/quarantined in facility')
+
+            const timeIsolatedQuarantinedInFacilityField = form.getTextField('Time isolated/quarantined in facility')
+
+            const timeIsolatedQuarantinedAtHomeField = form.getTextField('Time isolated/quarantined at home')
+
+            const dispositionField = form.getRadioGroup('Disposition')
+
+            const nameOfFacilityWhereFirstConsultWasDoneField = form.getTextField('Name of facility where first consult was done')
+
+            const healthStatusField = form.getRadioGroup('Health Status')
+
+            const caseClassificationField = form.getRadioGroup('Case Classification')
+
+            const adverseEvents1Field = form.getRadioGroup('Adverse Event/s 1')
+
+            const adverseEvents2Field = form.getRadioGroup('Adverse Event/s 2')
+
+            const dateOfFirstConsultField = form.getTextField('Date of First Consult')
+
+            const ifDischargedDateOfDischargeMMDDYYYYField = form.getTextField('If discharged Date of Discharge MMDDYYYY')
+
+            /* not found in cif entry
+            Date of vaccinationRow1
+
+            Date of vaccinationRow2
+            */
+
+            //No comorbidities in cif entry
+
+            const dateOfChestImagingField = form.getTextField('Date of Chest Imaging')
+
+            const imagingDoneField = form.getRadioGroup('Imaging Done')
+
+            const chestImagingResultsField = form.getRadioGroup('Chest imaging results')
+
+            const otherChestImagingResultsField = forn.getTextField('Other chest imaging results')
+
+            const testedPositiveBeforeField = form.getRadioGroup('Tested positive before')
+
+            const dateOfSpecimenCollectionField = form.getTextField('Date of specimen collection')
+
+            const laboratoryField = form.getTextField('Laboratory')
+
+            const RTPCRCountField = form.getTextField('RT-PCR Count')
+
+            /* NOT SURE WHICH PART OF THE cif-entry.html VER THIS IS -- from LABORATORY INFORMATION OF CIF PDF FORM
+
+            Field name: Date collected 1
+            Field name: Date result released 1
+            Field name: Laboratory 1
+            Field name: Date collected 2
+            Field name: Date result released 2
+            Field name: Laboratory 2
+            Field name: Test Type 1
+            Field name: Results1
+            Field name: Other lab result 1
+            Field name: Antigen brand of kit 1
+            Field name: Antigen reason 1
+            Field name: Antigen reason 2
+            Field name: Antigen brand of kit 2
+            Field name: Other lab test type 1
+            Field name: Other lab test type 2
+            Field name: Other lab result 2
+            Field name: Results2
+            Field name: Test Type 2
+
+            */
+
           // Serialize the PDFDocument to bytes (a Uint8Array)
           const pdfBytes = await pdfDoc.save()
     
