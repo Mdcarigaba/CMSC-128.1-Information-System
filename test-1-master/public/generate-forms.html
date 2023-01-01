@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
 </head>
+
 <body>
     <div class="module-3-body">
         <!-- NAV BAR -->
@@ -49,13 +51,13 @@
                 </div>
             </div>
         </nav>
-    
+
         <div class="right-body">
             <!-- HEADER -->
             <div class="header row">
                 <div class="page-title-header">
                     <div class="row">
-                        
+
                         <div class="page-title">
                             <p>Module 3: Generate Forms</p>
                         </div>
@@ -100,7 +102,7 @@
                     <span class="filter-title">Filter</span>
                 </div>
                 <div class="filter-body">
-                    <div class="input-fields-labels1"> 
+                    <div class="input-fields-labels1">
                         <span class="labels1-div">
                             <div>
                                 <div class="from_label">From</div>
@@ -112,7 +114,8 @@
                             </div>
                             <div>
                                 <div>
-                                    <div class="lab_number_label">Laboratory Number</div> <!-- VERIFY IF LABORATORY ID NUMBER OR LAB NUMBER ONLY -->
+                                    <div class="lab_number_label">Laboratory Number</div>
+                                    <!-- VERIFY IF LABORATORY ID NUMBER OR LAB NUMBER ONLY -->
                                     <input type="text" id="laboratory-number">
                                 </div>
                             </div>
@@ -131,7 +134,8 @@
                         </span>
                     </div>
                     <div class="search-btn-div"> <!-- to be renamed to filter -->
-                        <button type="submit" class="search-btn" onclick="filterTable()"><img class="search-icon" src="img/search-icon.png" alt="">Filter</button>
+                        <button type="submit" class="search-btn" onclick="filterTable()"><img class="search-icon"
+                                src="img/search-icon.png" alt="">Filter</button>
                     </div>
                 </div>
             </div>
@@ -147,18 +151,18 @@
             -->
             <div class="list-desc">
                 <!-- <span> -->
-                    <div class="l1">List of Records</div>
-                    <div class="l2">
-                        No. of Entries Shown
-                        <input type="text" name="" id="num-entries">
-                    </div>
+                <div class="l1">List of Records</div>
+                <div class="l2">
+                    No. of Entries Shown
+                    <input type="text" name="" id="num-entries">
+                </div>
                 <!-- </span> -->
             </div>
             <div class="generate-forms-table">
                 <table class="recordsTable" cellspacing="0">
                     <thead>
                         <tr class="records-table-header">
-                            <th id="first-col"><input type ="checkbox"></th>
+                            <th id="first-col"><input type="checkbox"></th>
                             <th>CIF No.</th>
                             <th>Lab No.</th>
                             <th>Last Name</th>
@@ -173,23 +177,23 @@
                             <th id="last-col">Action</th>
                         </tr>
                     </thead>
-    
+
                     <tbody id="tableData">
-    
+
                     </tbody>
                 </table>
             </div>
             <div class="pagination_section" style="display: flex; min-width: 900px;">
-                <div id="counterDiv"> 
+                <div id="counterDiv">
                     <!-- n is number of "entries shown" -->
                     Showing 1-n of *total* entries
-                <!-- <input id="counter" type="number" value="0" readonly> -->
+                    <!-- <input id="counter" type="number" value="0" readonly> -->
                 </div>
                 <div class="btns">
                     <button class="back-next">&lt;</button>
                     <button class="back-next">></button>
                 </div>
-                <div id="pageCounterDiv"> 
+                <div id="pageCounterDiv">
                     <!-- n is number of "entries shown" -->
                     Page <span id="pagination-page"></span> of <span>*total*</span> pages
                 </div>
@@ -199,91 +203,91 @@
     <script>
         const { PDFDocument } = PDFLib
 
-        function generateSpecPDF (index) {
+        function generateSpecPDF(index) {
             const body = this.document.querySelector("#tableData")
-            const  id = parseInt(body.childNodes[index].childNodes[1].innerHTML.split('-')[1])
+            const id = parseInt(body.childNodes[index].childNodes[1].innerHTML.split('-')[1])
             console.log(id)
-            fetch(`/generate-pdf?cif.id=${id}`,{
+            fetch(`/generate-pdf?cif.id=${id}`, {
                 method: 'get',
-                headers: new Headers({'Content-Type': 'application/json'})
+                headers: new Headers({ 'Content-Type': 'application/json' })
             })
-            .then(res => res.json())
-            .then(data => fillForm(data))
+                .then(res => res.json())
+                .then(data => fillForm(data))
         }
-    
+
         async function fillForm(data) {
             console.log(data)
             // Fetch the PDF with form fields
-          //const formUrl = 'https://pdf-lib.js.org/assets/dod_character.pdf'
-          const formUrl = 'http://dl.dropboxusercontent.com/s/mmufx0ddjqo4iqi/CIF_-_Version_9_fillable-2.pdf'
-          const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
-    
-          // Load a PDF with form fields
-          const pdfDoc = await PDFDocument.load(formPdfBytes)
-    
-          // Get the form containing all the fields
-          const form = pdfDoc.getForm()
-    
-          // Get all fields in the PDF by their names
+            //const formUrl = 'https://pdf-lib.js.org/assets/dod_character.pdf'
+            const formUrl = 'http://dl.dropboxusercontent.com/s/mmufx0ddjqo4iqi/CIF_-_Version_9_fillable-2.pdf'
+            const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
+
+            // Load a PDF with form fields
+            const pdfDoc = await PDFDocument.load(formPdfBytes)
+
+            // Get the form containing all the fields
+            const form = pdfDoc.getForm()
+
+            // Get all fields in the PDF by their names
 
             const diseaseReportingUnitField = form.getTextField('Disease Reporting Unit')
             diseaseReportingUnitField.setText(data[0].dru)
-  
+
             const nameOfInterviewerField = form.getTextField('Name of Interviewer')
             nameOfInterviewerField.setText(data[0].interviewer_last + ', ' + data[0].interviewer_first)
-  
+
             const dateOfInterviewField = form.getTextField("Date of Interview")
             dateOfInterviewField.setText(moment(data[0].interview_date).format('MM/DD/YYYY'))
-  
+
             const relationshipOfInformantField = form.getTextField('Relationship')
-            relationshipOfInformantField.setText((data[0].relation != null)? data[0].relation : 'Unspecified')
-  
+            relationshipOfInformantField.setText((data[0].relation != null) ? data[0].relation : 'Unspecified')
+
             const informantPhoneNoField = form.getTextField('Contact Number of Informant')
-            informantPhoneNoField.setText((data[0].informant_contact != null)? data[0].informant_contact : 'Unspecified')
+            informantPhoneNoField.setText((data[0].informant_contact != null) ? data[0].informant_contact : 'Unspecified')
 
             const philhealthNoField = form.getTextField('PhilHealth No')
-            philhealthNoField.setText((data[0].philhealth != null)? data[0].philhealth : 'Unspecified')
-            
+            philhealthNoField.setText((data[0].philhealth != null) ? data[0].philhealth : 'Unspecified')
+
             const lastnameField = form.getTextField('Last Name')
             lastnameField.setText(data[0].lastname)
-    
+
             const nameOfInformantField = form.getTextField('Name of Informant')
             nameOfInformantField.setText(data[0].informant)
 
             const firstNameField = form.getTextField('First Name and Suffix')
             firstNameField.setText(data[0].patient_firstname)
-    
+
             const middleNameField = form.getTextField('Middle Name')
             middleNameField.setText(data[0].patient_middlename)
-    
+
             const birthdayField = form.getTextField('Birthday')
             birthdayField.setText(moment(data[0].patient_birthday).format('MM/DD/YYYY'))
-    
+
             const ageField = form.getTextField('Age')
             ageField.setText(data[0].patient_age.toString())
-    
+
             const sexField = form.getRadioGroup('Sex')
             //sexField.setRadio(document.getElementById("sex").value)
 
             const civilStatusField = form.getDropdown('Civil Status')
             //civilStatusField.setText(document.getElementById("civil-status").value)
-    
+
             const nationalityField = form.getTextField('Nationality')
             nationalityField.setText(data[0].patient_nationality)
-    
+
             const occupationField = form.getTextField('Occupation')
             occupationField.setText(data[0].patient_occupation)
 
             //current
             const barangayRow1Field = form.getTextField('BarangayRow1')
             barangayRow1Field.setText(data[0].current_barangay)
-            
+
             const municipalityCityRow1Field = form.getTextField('MunicipalityCityRow1')
             municipalityCityRow1Field.setText(data[0].current_muni_city)
 
             const provinceRow1Field = form.getTextField('ProvinceRow1')
             provinceRow1Field.setText(data[0].current_province)
-            
+
             const homePhoneNoAreaCodeRow1Field = form.getTextField('Home Phone No  Area CodeRow1')
             homePhoneNoAreaCodeRow1Field.setText(data[0].current_home_no)
 
@@ -298,43 +302,43 @@
 
             const barangayRow1_2Field = form.getTextField('BarangayRow1_2')
             barangayRow1_2Field.setText(data[0].patient_permanent_barangay)
-    
+
             const municipalityCityRow1_2Field = form.getTextField('MunicipalityCityRow1_2')
             municipalityCityRow1_2Field.setText(data[0].permanent_muni_city)
-            
+
             const provinceRow1_2Field = form.getTextField('ProvinceRow1_2')
             provinceRow1_2Field.setText(data[0].permanent_province)
-    
+
             const homePhoneNoAreaCodeRow1_2Field = form.getTextField('Home Phone No  Area CodeRow1_2')
             homePhoneNoAreaCodeRow1_2Field.setText(data[0].permanent_home_no)
-    
+
             const cellphoneNoRow1_2Field = form.getTextField('Cellphone NoRow1_2')
             cellphoneNoRow1_2Field.setText(data[0].permanent_cell_no)
-    
+
             const emailAddressRow1_2Field = form.getTextField('Email AddressRow1_2')
             emailAddressRow1_2Field.setText(data[0].permanent_email)
 
             const barangayRow1_3Field = form.getTextField('BarangayRow1_3')
             //barangayRow1_3Field = form.setText(querySelector('.'))
-    
+
             const municipalityCityRow1_3Field = form.getTextField('MunicipalityCityRow1_3')
             municipalityCityRow1_3Field.setText(data[0].workplace_muni_city)
-    
+
             const provinceRow1_3Field = form.getTextField('ProvinceRow1_3')
             provinceRow1_3Field.setText(data[0].workplace_province)
-    
+
             const nameofWorkplaceRow1Field = form.getTextField('Name of WorkplaceRow1')
             nameofWorkplaceRow1Field.setText(data[0].workplace_name)
-            
+
             const phoneNoCellphoneNoRow1 = form.getTextField('Phone NoCellphone NoRow1')
             phoneNoCellphoneNoRow1.setText(data[0].workplace_cell_no)
 
             const ifInternationalTravelCountryofOriginField = form.getTextField('If International Travel country of origin')
             //ifInternationalTravelCountryofOriginField.setText(document.querySelector('.exit-port').value)
-    
+
             //const airlineSeaVesselNumberField = form.getTextField('AirlineSeavessel Row1')
             //airlineSeaVesselNumberField.setText(document.querySelector('.airline-seavessel').value)
-    
+
             const flightVesselNumberRow1Field = form.getTextField('FlightVessel NumberRow1')
             //flightVesselNumberRow1Field.setText(document.querySelector('.flight-vessel-no').value)
 
@@ -342,96 +346,98 @@
             dateOfOnsetOfIllnessField.setText(moment(data[0].date_of_onset_illness).format('MM/DD/YYYY'))
 
             const isPregnant = form.getRadioGroup('Pregnant')
-            if(data[0].isPregnant){
-                isPregnant.selected('Yes')
-            }
-            else if(!data[0].isPregnant){
-                isPregnant.selected('No')
+            if (data[0].is_pregnant != null) {
+                if (data[0].isPregnant) {
+                    isPregnant.selected('Yes')
+                }
+                else if (!data[0].isPregnant) {
+                    isPregnant.selected('No')
+                }
             }
 
             const testingCategoryAField = form.getCheckBox('Testing Category: A')
             testingCategoryAField.check();
-    
+
             const isAsymptomaticField = form.getCheckBox('SS1');
             //if ( $('#asymptomatic').is(':checked')) {isAsymptomaticField.check();}
             const cb = data[0].is_asymptomatic;
-            if (cb){
+            if (cb) {
                 isAsymptomaticField.check();
-            }  
+            }
 
             const isFeverField = form.getCheckBox('SS2');
             const cb2 = data[0].have_fever;
-            if(cb2){
+            if (cb2) {
                 isFeverField.check();
             }
-    
+
             const isCoughField = form.getCheckBox('SS3');
             const cb3 = data[0].have_cough;
-            if(cb3){
+            if (cb3) {
                 isCoughField.check();
             }
-    
+
             const isWeaknessField = form.getCheckBox('SS4');
             const cb4 = data[0].have_general_weakness;
-            if(cb4){
+            if (cb4) {
                 isWeaknessField.check();
             }
-    
+
             const isFatigueField = form.getCheckBox('SS5');
             const cb5 = data[0].experiences_fatigue;
-            if(cb5){
+            if (cb5) {
                 isFatigueField.check();
             }
-    
+
             const isHeadacheField = form.getCheckBox('SS6');
             const cb6 = data[0].have_headache;
-            if(cb6){
+            if (cb6) {
                 isHeadacheField.check();
             }
-    
+
             const isMyalgiaField = form.getCheckBox('SS7');
             const cb7 = data[0].have_myalgia;
-            if(cb7){
+            if (cb7) {
                 isFeverField.check();
             }
-    
+
             const isSoreThroatField = form.getCheckBox('SS8');
             const cb8 = data[0].have_sore_throat;
-            if(cb8){
+            if (cb8) {
                 isSoreThroatField.check();
             }
-    
+
             const isCoryzaField = form.getCheckBox('SS9');
             const cb9 = data[0].have_coryza;
-            if(cb9){
+            if (cb9) {
                 isCoryzaField.check();
             }
-    
+
             const isAlteredMentalStatusField = form.getCheckBox('SS10');
             const cb10 = data[0].exp_altered_mental_status;
-            if(cb10){
+            if (cb10) {
                 isAlteredMentalStatusField.check();
             }
-    
+
             const isDyspneaField = form.getCheckBox('SS11');
             const cb11 = data[0].have_dyspnea;
-            if(cb11){
+            if (cb11) {
                 isDyspneaField.check();
             }
-    
+
             /*
             const isAnorexiaField = form.getCheckBox('SS12');
             const cb12 = document.querySelector(data[0].have_anorexia);
             if(cb12.checked){
                 isAnorexiaField.check();
             }*/
-    
+
             const isNauseaField = form.getCheckBox('SS13');
             const cb13 = data[0].exp_nausea;
-            if(cb13){
+            if (cb13) {
                 isFatigueField.check();
             }
-    
+
             /*
             const isVomitingField = form.getCheckBox('SS14');
             const cb14 = document.querySelector('#vomiting');
@@ -444,17 +450,17 @@
             if(cb15.checked){
                 isDiarrheaField.check();
             }*/
-    
+
             const isAnosmiaField = form.getCheckBox('SS16');
-            
+
             const cb16 = data[0].exp_anosmia;
-            if(cb16){
+            if (cb16) {
                 isAnosmiaField.check();
             }
-            
+
             const isAgeusiaField = form.getCheckBox('SS17');
             const cb17 = data[0].exp_ageusia;
-            if(cb17){
+            if (cb17) {
                 isAgeusiaField.check();
             }
 
@@ -463,7 +469,7 @@
 
             //radio group
             const worksInClosedSettingField = form.getRadioGroup('Works in Closed Setting')
-            
+
 
             const healthCareWorkerField = form.getRadioGroup('Health Care Worker')
 
@@ -580,16 +586,17 @@
 
             */
 
-          // Serialize the PDFDocument to bytes (a Uint8Array)
-          const pdfBytes = await pdfDoc.save()
-    
-                // Trigger the browser to download the PDF document
-          download(pdfBytes, "CIF.pdf", "application/pdf");
+            // Serialize the PDFDocument to bytes (a Uint8Array)
+            const pdfBytes = await pdfDoc.save()
+
+            // Trigger the browser to download the PDF document
+            download(pdfBytes, "CIF.pdf", "application/pdf");
         }
-      </script> 
+    </script>
     <script src="js/index.js"></script>
     <script src="js/home.js"></script>
     <script type="text/javascript" src="js/generate-forms.js"></script>
     <script type="text/javascript" src="js/logout.js"></script>
 </body>
+
 </html>
