@@ -1,8 +1,31 @@
+var a, b;
+try{
 const username = document.querySelector('.username');
 const usertype = document.querySelector('.user-type');
+a = username
+b = usertype
+}
+catch(e){
+console.log(e)
+}
 const nav_menu = document.querySelector('#nav');
 
+window.onload = () => {
+    if(!sessionStorage.username){
+        location.href = '/login';
+    } else{
+        a.innerHTML = sessionStorage.username;
+        b.innerHTML = sessionStorage.role;
 
+        if(sessionStorage.role == 'researcher'){
+            nav_menu.style.visibility = 'hidden';
+        }
+        else{
+            nav_menu.style.visibility = 'visible';
+        }
+
+    }
+}
 
 let DRUqueue = [
     {   druNum: 0, dru: 'Cavite City CHO', numEntries: 97, submissionTime: '',},
@@ -55,14 +78,14 @@ for (let i = 0; i < DRUqueue.length; i++) {
 const sum = DRUqueue.reduce((accumulator, object) => {
     return accumulator + object.numEntries;
 }, 0)
+try{
 document.getElementById('totalSamples').innerHTML = sum;
-
-
-window.onload = () => {
-    loadTableData(DRUqueue);
+}
+catch(e) {
 }
 
-loadTableData(DRUqueue);
+
+
 
 function loadTableData(DRUqueue) {
     const tableBody = document.getElementById('tableData');
@@ -78,19 +101,4 @@ function loadTableData(DRUqueue) {
     tableBody.innerHTML = dataHTML;
 }
 
-window.onload = () => {
-    if(!sessionStorage.username){
-        location.href = '/login';
-    } else{
-        username.innerHTML = sessionStorage.username;
-        usertype.innerHTML = sessionStorage.role;
 
-        if(sessionStorage.role == 'researcher'){
-            nav_menu.style.visibility = 'hidden';
-        }
-        else{
-            nav_menu.style.visibility = 'visible';
-        }
-
-    }
-}
