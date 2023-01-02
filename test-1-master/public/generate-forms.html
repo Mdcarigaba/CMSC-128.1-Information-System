@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Forms</title>
-    <script src="https://unpkg.com/pdf-lib@1.11.0"></script>
+    <!--<script src="https://unpkg.com/pdf-lib@1.11.0"></script>-->
+    <script src="https://unpkg.com/pdf-lib"></script>
     <script src="https://unpkg.com/downloadjs@1.4.7"></script>
     <link rel="stylesheet" type="text/css" href="css/generate-forms.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
@@ -217,6 +218,7 @@
 
         async function fillForm(data) {
             console.log(data)
+            
             // Fetch the PDF with form fields
             //const formUrl = 'https://pdf-lib.js.org/assets/dod_character.pdf'
             const formUrl = 'http://dl.dropboxusercontent.com/s/mmufx0ddjqo4iqi/CIF_-_Version_9_fillable-2.pdf'
@@ -227,14 +229,25 @@
 
             // Get the form containing all the fields
             const form = pdfDoc.getForm()
-
+            const clb = form.getFields().find(x => x.getName() === 'Clear All Fields');
+            form.removeField(clb)
             // Get all fields in the PDF by their names
+
+            //get names of all fields
+            const fields = form.getFields()
+            fields.forEach(field => {
+                const name = field.getName()
+                console.log('Field name:', name)
+            })
 
             const diseaseReportingUnitField = form.getTextField('Disease Reporting Unit')
             diseaseReportingUnitField.setText(data[0].dru)
 
             const nameOfInterviewerField = form.getTextField('Name of Interviewer')
             nameOfInterviewerField.setText(data[0].interviewer_last + ', ' + data[0].interviewer_first)
+
+            const interviewerPhoneNoField = form.getTextField('Contact Number of Interviewer')
+            interviewerPhoneNoField.setText((data[0].interviewer_number != null) ? data[0].interviewer_number : 'Unspecified')
 
             const dateOfInterviewField = form.getTextField("Date of Interview")
             dateOfInterviewField.setText(moment(data[0].interview_date).format('MM/DD/YYYY'))
@@ -249,7 +262,7 @@
             philhealthNoField.setText((data[0].philhealth != null) ? data[0].philhealth : 'Unspecified')
 
             const lastnameField = form.getTextField('Last Name')
-            lastnameField.setText(data[0].lastname)
+            lastnameField.setText(data[0].patient_lastname)
 
             const nameOfInformantField = form.getTextField('Name of Informant')
             nameOfInformantField.setText(data[0].informant)
@@ -267,6 +280,14 @@
             ageField.setText(data[0].patient_age.toString())
 
             const sexField = form.getRadioGroup('Sex')
+            if (data[0].patient_sex != null) {
+                if (data[0].patient_sex === 'male') {
+                    sexField.select('Male')
+                }
+                else if (data[0].patient_sex === 'female') {
+                    sexField.select('Female')
+                }
+            }
             //sexField.setRadio(document.getElementById("sex").value)
 
             const civilStatusField = form.getDropdown('Civil Status')
@@ -348,18 +369,27 @@
             const isPregnant = form.getRadioGroup('Pregnant')
             if (data[0].is_pregnant != null) {
                 if (data[0].isPregnant) {
-                    isPregnant.selected('Yes')
+                    isPregnant.select('Yes')
                 }
                 else if (!data[0].isPregnant) {
-                    isPregnant.selected('No')
+                    isPregnant.select('No')
+                }
+            }
+    
+            var testingCategories = (data[0].testing_category).replace(/\s+/g, '')
+            
+            var arrTestingCategories = testingCategories.split(',')
+            
+            for(var testCat of arrTestingCategories){
+                try{
+                    form.getCheckBox(`Testing Category: ${testCat.replace(/[^a-zA-Z]/g,"")}`).check()
+                }
+                catch(error){
+
                 }
             }
 
-            const testingCategoryAField = form.getCheckBox('Testing Category: A')
-            testingCategoryAField.check();
-
             const isAsymptomaticField = form.getCheckBox('SS1');
-            //if ( $('#asymptomatic').is(':checked')) {isAsymptomaticField.check();}
             const cb = data[0].is_asymptomatic;
             if (cb) {
                 isAsymptomaticField.check();
@@ -425,12 +455,12 @@
                 isDyspneaField.check();
             }
 
-            /*
+            
             const isAnorexiaField = form.getCheckBox('SS12');
-            const cb12 = document.querySelector(data[0].have_anorexia);
-            if(cb12.checked){
+            const cb12 = data[0].have_anorexia;
+            if(cb12){
                 isAnorexiaField.check();
-            }*/
+            }
 
             const isNauseaField = form.getCheckBox('SS13');
             const cb13 = data[0].exp_nausea;
@@ -511,7 +541,7 @@
 
             const timeAdmittedInHospitalField = form.getTextField('Time admitted in hospital')
 
-            const othersField = form.getRadioGroup('Others')
+            const othersField = form.getTextField('Others')
 
             const dateIsolatedQuarantinedAtHomeField = form.getTextField('Date isolated/quarantined at home')
 
@@ -553,7 +583,7 @@
 
             const chestImagingResultsField = form.getRadioGroup('Chest imaging results')
 
-            const otherChestImagingResultsField = forn.getTextField('Other chest imaging results')
+            const otherChestImagingResultsField = form.getTextField('Other chest imaging results')
 
             const testedPositiveBeforeField = form.getRadioGroup('Tested positive before')
 
@@ -587,6 +617,12 @@
             */
 
             // Serialize the PDFDocument to bytes (a Uint8Array)
+            
+            const fields1 = form.getFields()
+            fields1.forEach(field => {
+                field.enableReadOnly();
+            })
+
             const pdfBytes = await pdfDoc.save()
 
             // Trigger the browser to download the PDF document
