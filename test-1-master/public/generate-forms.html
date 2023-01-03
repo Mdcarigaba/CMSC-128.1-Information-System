@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Generate Forms</title>
     <!--<script src="https://unpkg.com/pdf-lib@1.11.0"></script>-->
     <script src="https://unpkg.com/pdf-lib"></script>
@@ -221,7 +222,7 @@
             
             // Fetch the PDF with form fields
             //const formUrl = 'https://pdf-lib.js.org/assets/dod_character.pdf'
-            const formUrl = 'http://dl.dropboxusercontent.com/s/mmufx0ddjqo4iqi/CIF_-_Version_9_fillable-2.pdf'
+            const formUrl = 'https://dl.dropboxusercontent.com/s/mmufx0ddjqo4iqi/CIF_-_Version_9_fillable-2.pdf'
             const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
 
             // Load a PDF with form fields
@@ -229,9 +230,11 @@
 
             // Get the form containing all the fields
             const form = pdfDoc.getForm()
+
+            //remove clear all fields button
             const clb = form.getFields().find(x => x.getName() === 'Clear All Fields');
             form.removeField(clb)
-            // Get all fields in the PDF by their names
+            
 
             //get names of all fields
             const fields = form.getFields()
@@ -291,6 +294,13 @@
             //sexField.setRadio(document.getElementById("sex").value)
 
             const civilStatusField = form.getDropdown('Civil Status')
+            if(data[0].patient_civil_status === 'single') {
+                civilStatusField.select('Single')
+            }
+            else if(data[0].patient_civil_status === 'married') {
+                civilStatusField.select('Married')
+            }
+            
             //civilStatusField.setText(document.getElementById("civil-status").value)
 
             const nationalityField = form.getTextField('Nationality')
@@ -368,10 +378,10 @@
 
             const isPregnant = form.getRadioGroup('Pregnant')
             if (data[0].is_pregnant != null) {
-                if (data[0].isPregnant) {
+                if (data[0].is_pregnant) {
                     isPregnant.select('Yes')
                 }
-                else if (!data[0].isPregnant) {
+                else if (!data[0].is_pregnant) {
                     isPregnant.select('No')
                 }
             }

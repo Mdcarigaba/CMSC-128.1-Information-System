@@ -297,7 +297,7 @@ app.post('/insert-cif', async (req, res) => {
             
             done_chest_radiography, date_chest_radiography, result_chest_radiography, done_chest_ct, date_chest_ct, result_chest_ct, done_chest_ultrasound, date_chest_ultrasound, result_chest_ultrasound, other_findings, 
            
-            is_pregnant, date_of_last_mensperiod, 
+            is_pregnant_selected, date_of_last_mensperiod, 
 
             informant_name, informant_contactno, 
         
@@ -589,7 +589,7 @@ app.post('/insert-cif', async (req, res) => {
             .insert({
                 cid_id: cid_id,
                 date_of_onset_illness: date_of_onset_illness,
-                is_pregnant: is_pregnant,
+                is_pregnant: is_pregnant_selected,
                 is_high_risk_pregnant: is_high_risk_pregnant,
                 date_of_last_mensperiod: date_of_last_mensperiod,
                 is_diagnosed_to_sari: is_diagnosed_to_sari
